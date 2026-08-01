@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>공통 준비 — Windows 실습 환경 만들기 — 변호사 AX 나노디그리</title>
+<meta name="description" content="교육에서 쓰는 AI 도구(파이, 안티그래비티, Codex CLI, korean-law-mcp)를 설치하기 전에 한 번만 해 두는 공통 준비입니다.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect x=%228%22 y=%228%22 width=%2284%22 height=%2284%22 rx=%2220%22 fill=%22%23ffe455%22/%3E%3Ctext x=%2250%22 y=%2270%22 font-size=%2256%22 text-anchor=%22middle%22 font-family=%22monospace%22 fill=%22%2322242a%22%3E%C2%A7%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="install-setup-windows" data-tasks="0">
+<a class="skip-link" href="#main">본문으로 건너뛰기</a>
+<header class="topnav"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="dot"></span><span class="brand-full">변호사 AX 나노디그리</span><span class="brand-short">AX 나노디그리</span></a>
+  <nav aria-label="주요 메뉴">
+    <a href="../index.html">홈</a>
+    <a href="../index.html#chapters">교육과정</a>
+    <a href="../index.html#install" aria-current="page">설치가이드</a>
+  </nav>
+</div></header>
+
+<div class="wrap page-head">
+  <div class="eyebrow">설치가이드 · 공통 준비 · 제일 먼저</div>
+  <h1>공통 준비 — Windows 실습 환경 만들기</h1>
+  <div class="meta"><span class="badge">설치 1 / 6</span><span>⏱ 30~40분</span><span>💻 Windows 10 / 11</span></div>
+</div>
+
+<div class="wrap layout">
+  <main id="main" class="main-col">
+
+    <article class="prose">
+
+<blockquote><p>작성일: 2026-08-01 (버전·다운로드 주소는 이 날짜 기준 공식 사이트 확인)<br>대상: Windows 10 / Windows 11 노트북, 터미널을 처음 열어 보는 분<br>소요 시간: 30~40분 (다운로드 속도에 따라 다름)</p></blockquote>
+<hr>
+<h2 id="빠른-설치-아는-사람용--10분">빠른 설치 (아는 사람용 — 10분)</h2>
+<p><strong>1. Node.js LTS 설치</strong> — 아래 주소를 브라우저에 붙여넣고 <strong>LTS</strong> 버튼 → <code>.msi</code> 실행 → 기본값 Next (단, <code>Tools for Native Modules</code>는 체크 해제)</p>
+<div class="code-card is-lite"><div class="code-bar"><span class="code-label">주소창에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><pre>https://nodejs.org</pre></div>
+<p><strong>2. Git for Windows 설치</strong> — 아래 주소 → 다운로드 → 기본값 Next 연타</p>
+<div class="code-card is-lite"><div class="code-bar"><span class="code-label">주소창에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><pre>https://git-scm.com/download/win</pre></div>
+<p><strong>3. PowerShell을 새로 열고</strong> (설치 후 새 창 필수) 실습 폴더 만들기</p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>mkdir &quot;$env:USERPROFILE\Desktop\AX실습&quot;</pre></div></div></div>
+<p><strong>4. 실습 폴더로 이동</strong></p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>cd &quot;$env:USERPROFILE\Desktop\AX실습&quot;</pre></div></div></div>
+<p><strong>5. 세 가지 한 번에 확인</strong></p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>node -v; npm -v; git --version</pre></div></div></div>
+<p>버전 번호 3줄(<code>v24.18.1</code> / <code>11.16.0</code> / <code>git version 2.55.0.windows.3</code> 형태)이 나오면 준비 완료입니다.</p>
+<p><strong>막히면</strong>: <code>'node' 용어가 ... 인식되지 않습니다</code> → <a href="#a-node-용어가--인식되지-않습니다">문제 해결 A</a> / <code>npm.ps1을 로드할 수 없습니다</code> → <a href="#b-npmps1을-로드할-수-없습니다">문제 해결 B</a></p>
+<p>터미널이 처음이면 아래 상세 절차로 내려가세요.</p>
+<hr>
+<h2 id="1-이-문서는-무엇인가">1. 이 문서는 무엇인가</h2>
+<p>교육에서 쓰는 AI 도구(파이, 안티그래비티, Codex CLI, korean-law-mcp)를 설치하기 <strong>전에 한 번만</strong> 해 두는 공통 준비입니다. PowerShell 여는 법, Node.js 설치, 실습 전용 폴더·계정 분리까지 다룹니다.</p>
+<p>법률 업무 예시: 파이(Pi)에게 &quot;이 폴더의 계약서 초안 3건에서 손해배상 조항만 뽑아 표로 정리해 줘&quot;라고 시키려면, 파이를 실행할 토대(Node.js)와 자료를 둘 안전한 폴더가 먼저 있어야 합니다. 그 토대를 만드는 문서입니다.</p>
+<p><strong>이 문서를 끝내면 다른 설치가이드의 &quot;설치 전 확인&quot;은 모두 통과한 상태가 됩니다.</strong></p>
+<hr>
+<h2 id="2-설치-전-확인">2. 설치 전 확인</h2>
+<div class="table-wrap"><table><thead><tr><th>항목</th><th>필요한 것</th><th>확인·대처</th></tr></thead><tbody><tr><td>운영체제</td><td>Windows 10(64비트) 또는 11</td><td>3절 ②에서 확인</td></tr><tr><td>저장 공간</td><td>3GB 이상 여유</td><td>Node.js 약 100MB + Git 약 400MB + 캐시 여유분</td></tr><tr><td>관리자 권한</td><td>설치 프로그램 실행 권한</td><td>회사 노트북에서 막히면 <strong>우회하지 말고</strong> IT에 &quot;Node.js·Git 설치 권한&quot; 요청</td></tr><tr><td>인터넷</td><td>npm 저장소 접속 가능</td><td>막히면 <a href="#c-npm-err-code-etimedout--network-request--failed">문제 해결 C</a></td></tr><tr><td>실습 구글 계정</td><td>업무·개인 계정과 <strong>분리된</strong> 계정 1개</td><td>3절 ⑥에서 만듭니다</td></tr><tr><td>선행 설치</td><td>없음</td><td>이 문서가 모든 가이드의 출발점</td></tr></tbody></table></div>
+<blockquote class="human-check"><p><strong>보안 원칙 (이 문서 전체에 적용)</strong></p>
+<ol>
+<li>실제 사건 자료를 실습 폴더에 넣지 않습니다. 실습은 가상 정보로만 합니다.</li>
+<li>API 키는 받은 화면에서 바로 입력하고, 문서·메신저·메일에 붙여넣지 않습니다. 보관 위치(예: &quot;회사 비밀번호 관리자&quot;)만 기록합니다.</li>
+<li>회사 보안 프로그램(백신·DLP·EDR)이 설치를 막으면 <strong>끄지 말고</strong> 담당자에게 문의합니다.</li>
+</ol></blockquote>
+<hr>
+<h2 id="3-설치-절차">3. 설치 절차</h2>
+<h3 id="①-powershell-여는-법-모든-가이드의-출발점">① PowerShell 여는 법 (모든 가이드의 출발점)</h3>
+<p><strong>[시작]</strong> 버튼(창문 모양) → 검색창에 아래를 입력 → <strong>Enter</strong></p>
+<div class="code-card is-lite"><div class="code-bar"><span class="code-label">검색창에 입력</span><button type="button" class="copy-btn" data-copy>복사</button></div><pre>PowerShell</pre></div>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: 파란색 또는 검은색 배경의 창이 열리고, 맨 아랫줄이 <code>PS C:\Users\본인이름&gt;</code> 으로 끝납니다.</p></section>
+<p>이 <code>PS C:\Users\본인이름&gt;</code> 을 <strong>프롬프트</strong>라고 부릅니다. 뒤에 명령을 붙여넣고 Enter를 누르는 것이 전부입니다.</p>
+<blockquote><p><strong>복사·붙여넣기 하는 법</strong> (앞으로 계속 씁니다)<br>회색 블록의 명령을 마우스로 긁어 <strong>Ctrl+C</strong> → PowerShell 창을 클릭 → <strong>Ctrl+V</strong> → <strong>Enter</strong>.<br>붙지 않으면 <strong>마우스 오른쪽 버튼 한 번</strong>을 누르세요(옛 방식 창에서는 우클릭이 붙여넣기). 블록 안에 <code>PS C:\...&gt;</code> 표시가 보이면 그 부분은 복사하지 않습니다.</p></blockquote>
+<hr>
+<h3 id="②-windows-버전-확인">② Windows 버전 확인</h3>
+<p>아래를 붙여넣고 Enter.</p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>winver</pre></div></div></div>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: &quot;Windows 정보&quot; 작은 창에 <code>버전 22H2</code>/<code>23H2</code>/<code>24H2</code> 등이 보입니다. Windows 10 또는 11이면 진행 가능합니다. <strong>[확인]</strong> 으로 닫습니다.</p></section>
+<section class="callout callout-warn"><span class="callout-icon" aria-hidden="true">⚠️</span><p><strong>이렇게 나오면 오류</strong>: Windows 8.1 이하가 표시되면 이 교육의 도구가 동작하지 않습니다 — 교육 담당자에게 문의하세요.</p></section>
+<hr>
+<h3 id="③-nodejs-lts-설치">③ Node.js LTS 설치</h3>
+<p>Node.js는 파이·Codex CLI 같은 터미널 AI 도구가 돌아가는 엔진입니다. 반드시 <strong>LTS(장기 지원)</strong> 를 설치합니다.</p>
+<p><strong>1)</strong> 브라우저 주소창에 아래를 붙여넣고 Enter.</p>
+<div class="code-card is-lite"><div class="code-bar"><span class="code-label">주소창에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><pre>https://nodejs.org</pre></div>
+<p><strong>2)</strong> 큰 다운로드 버튼 중 <strong>LTS</strong> 라고 적힌 쪽을 누릅니다.</p>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: <code>node-v24.18.1-x64.msi</code> 형태의 파일이 내려옵니다. (2026-08-01 기준 최신 LTS는 <strong>v24.18.1 (Krypton)</strong>, npm 11.16.0 동반. LTS 번호가 더 높아도 괜찮습니다.)</p></section>
+<section class="callout callout-warn"><span class="callout-icon" aria-hidden="true">⚠️</span><p><strong>이렇게 나오면 오류</strong>: 파일명에 <code>current</code>가 있거나 <code>.zip</code>이면 잘못 받은 것입니다. <strong>&quot;Current&quot; 버튼은 누르지 마세요.</strong> ARM 노트북(Surface 등)은 <a href="#다른-설치-방법">다른 설치 방법</a> 참고.</p></section>
+<p><strong>3)</strong> 받은 <code>.msi</code> 파일을 <strong>더블클릭</strong>하고, 설치 마법사를 아래 표대로 넘깁니다.</p>
+<div class="table-wrap"><table><thead><tr><th>화면</th><th>할 일</th></tr></thead><tbody><tr><td>Welcome</td><td><strong>Next</strong></td></tr><tr><td>End-User License Agreement</td><td><code>I accept the terms...</code> 체크 → <strong>Next</strong></td></tr><tr><td>Destination Folder</td><td>그대로 <strong>Next</strong></td></tr><tr><td>Custom Setup</td><td><strong>아무것도 바꾸지 말고 Next</strong> (<code>Add to PATH</code>가 켜져 있어야 <code>node</code>가 인식됩니다)</td></tr><tr><td>Tools for Native Modules</td><td><strong>체크하지 마세요</strong> → <strong>Next</strong> (체크하면 수 GB 개발 도구를 추가로 받습니다)</td></tr><tr><td>Install</td><td>&quot;디바이스 변경 허용?&quot; → <strong>[예]</strong></td></tr><tr><td>Finish</td><td><strong>Finish</strong></td></tr></tbody></table></div>
+<p><strong>4) 가장 중요한 단계 — PowerShell 창을 완전히 닫고(오른쪽 위 X) ①번 방법으로 새로 엽니다.</strong></p>
+<blockquote><p><strong>왜 새 창이 필요한가</strong>: 설치 프로그램이 <code>node</code> 명령의 위치를 시스템에 등록했지만, <strong>이미 열려 있던 창은 그 변경을 모릅니다.</strong> 이 단계를 건너뛰어 생기는 오류가 초보자 오류 1위입니다.</p></blockquote>
+<hr>
+<h3 id="④-git-for-windows-설치">④ Git for Windows 설치</h3>
+<p><strong>1)</strong> 브라우저 주소창에 아래를 붙여넣고 Enter.</p>
+<div class="code-card is-lite"><div class="code-bar"><span class="code-label">주소창에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><pre>https://git-scm.com/download/win</pre></div>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: 다운로드가 자동 시작됩니다. (안 되면 <strong>64-bit Git for Windows Setup</strong> 링크를 누릅니다. 2026-07-14 기준 최신은 2.55.0(3) x64.)</p></section>
+<p><strong>2)</strong> 받은 <code>.exe</code> 를 더블클릭 → &quot;허용하시겠어요?&quot; <strong>[예]</strong> → <strong>모든 화면에서 기본값 그대로 [Next]</strong> → <strong>[Install]</strong> → <strong>[Finish]</strong>.</p>
+<p>마지막 화면의 <code>View Release Notes</code> / <code>Launch Git Bash</code> 체크는 해제해도 됩니다.</p>
+<p><strong>3)</strong> 여기서도 <strong>PowerShell 창을 닫고 새로 엽니다.</strong></p>
+<blockquote><p><strong>Git이 왜 필요한가</strong>: 버전 관리 도구이지만, 이 교육에서 필요한 진짜 이유는 함께 설치되는 <strong>Git Bash(bash 셸)</strong> 입니다. <strong>파이(Pi)는 Windows에서 명령을 실행할 때 bash 셸을 필요로 하며, 공식 문서가 &quot;대부분의 사용자에게는 Git for Windows로 충분하다&quot;고 안내합니다.</strong> 파이를 쓸 계획이면 필수입니다.</p></blockquote>
+<hr>
+<h3 id="⑤-실습-폴더-만들기">⑤ 실습 폴더 만들기</h3>
+<p>실제 사건 폴더와 <strong>물리적으로 분리된</strong> 실습 전용 폴더를 만듭니다.</p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>mkdir &quot;$env:USERPROFILE\Desktop\AX실습&quot;</pre></div></div></div>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: 폴더 정보가 표로 출력되고, 바탕 화면에 <strong>AX실습</strong> 폴더가 생깁니다.</p>
+<div class="code-card is-out"><div class="code-bar"><span class="code-label">예상 화면</span></div><pre>    디렉터리: C:\Users\본인이름\Desktop
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----      2026-08-01   오후 2:10                AX실습</pre></div></section>
+<section class="callout callout-warn"><span class="callout-icon" aria-hidden="true">⚠️</span><p><strong>이렇게 나오면 오류</strong>: <code>이미 있습니다</code> 라는 빨간 글씨 → 폴더가 이미 있다는 뜻이므로 <strong>그대로 넘어갑니다.</strong></p></section>
+<p>이제 그 폴더로 이동합니다. (실습은 항상 이 폴더 안에서 합니다)</p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>cd &quot;$env:USERPROFILE\Desktop\AX실습&quot;</pre></div></div></div>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: 프롬프트가 <code>PS C:\Users\본인이름\Desktop\AX실습&gt;</code> 으로 바뀝니다. 끝이 <code>AX실습&gt;</code> 이면 그 폴더 안에 서 있다는 뜻입니다.</p></section>
+<section class="callout callout-warn"><span class="callout-icon" aria-hidden="true">⚠️</span><p><strong>이렇게 나오면 오류</strong>: <code>경로를 찾을 수 없습니다</code> → OneDrive 백업 때문일 수 있습니다. <a href="#e-ax실습-폴더를-찾지-못한다--한글-경로가-깨진다">문제 해결 E</a>.</p></section>
+<blockquote><p><strong>실습 자료 규칙</strong>: 이 폴더에는 <strong>가상 사건 자료만</strong> 넣습니다. 실제 의뢰인 이름·주민등록번호·사건번호가 담긴 파일은 절대 복사해 오지 않습니다. AI 도구는 이 폴더의 파일을 읽을 수 있습니다.</p></blockquote>
+<hr>
+<h3 id="⑥-실습-계정-분리">⑥ 실습 계정 분리</h3>
+<p><strong>1)</strong> 브라우저 <strong>시크릿 창</strong>(Ctrl+Shift+N)을 열고 주소창에 아래를 붙여넣습니다.</p>
+<div class="code-card is-lite"><div class="code-bar"><span class="code-label">주소창에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><pre>https://accounts.google.com/signup</pre></div>
+<p><strong>2)</strong> 실습 전용 구글 계정을 하나 만듭니다. 예시 형태:</p>
+<div class="code-card is-lite"><div class="code-bar"><span class="code-label">복사해서 쓰기</span><button type="button" class="copy-btn" data-copy>복사</button></div><pre>본인이니셜.ax.edu@gmail.com</pre></div>
+<p><strong>3)</strong> 비밀번호는 회사 비밀번호 관리자에 저장합니다.</p>
+<blockquote><p><strong>왜 분리하나</strong>: AI 도구 로그인 시 그 계정의 파일·메일 접근 권한을 요구하는 경우가 있습니다. 업무 계정으로 로그인하면 <strong>의뢰인 자료가 담긴 드라이브·메일함이 권한 범위에 들어갈 수 있습니다.</strong> 실습 계정에는 아무것도 없으므로 사고가 나도 피해가 없습니다.</p></blockquote>
+<hr>
+<h2 id="4-설치-확인-30초">4. 설치 확인 (30초)</h2>
+<p>한 줄씩 실행합니다.</p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>node -v</pre></div></div></div>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: <code>v24.18.1</code> (또는 v22.19 이상의 다른 번호)</p></section>
+<section class="callout callout-warn"><span class="callout-icon" aria-hidden="true">⚠️</span><p><strong>이렇게 나오면 오류</strong>: <code>'node' 용어가 ... 인식되지 않습니다</code> → <a href="#a-node-용어가--인식되지-않습니다">문제 해결 A</a></p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>npm -v</pre></div></div></div></section>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: <code>11.16.0</code> 처럼 숫자 세 자리.</p></section>
+<section class="callout callout-warn"><span class="callout-icon" aria-hidden="true">⚠️</span><p><strong>이렇게 나오면 오류</strong>: <code>npm.ps1을 로드할 수 없습니다</code> → <a href="#b-npmps1을-로드할-수-없습니다">문제 해결 B</a></p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>git --version</pre></div></div></div></section>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: <code>git version 2.55.0.windows.3</code> 형태.</p></section>
+<section class="callout callout-warn"><span class="callout-icon" aria-hidden="true">⚠️</span><p><strong>이렇게 나오면 오류</strong>: <code>'git' 용어가 ... 인식되지 않습니다</code> → Git 설치 후 창을 새로 열지 않았거나 ④단계가 빠졌습니다.</p></section>
+<p><strong>세 명령이 모두 버전 번호를 출력하면 공통 준비 완료입니다.</strong></p>
+<hr>
+<h2 id="5-초기-설정연동">5. 초기 설정·연동</h2>
+<h3 id="powershell-최소-조작-5가지">PowerShell 최소 조작 5가지</h3>
+<div class="table-wrap"><table><thead><tr><th>하고 싶은 것</th><th>입력</th></tr></thead><tbody><tr><td>지금 어느 폴더에 있나</td><td><code>pwd</code></td></tr><tr><td>이 폴더에 뭐가 있나</td><td><code>ls</code></td></tr><tr><td>실습 폴더로 이동</td><td><code>cd &quot;$env:USERPROFILE\Desktop\AX실습&quot;</code></td></tr><tr><td>화면 지우기</td><td><code>cls</code></td></tr><tr><td>실행 중인 것 중단</td><td><strong>Ctrl+C</strong></td></tr></tbody></table></div>
+<p>실습 폴더 이동 명령은 앞으로 계속 씁니다. 이 블록을 즐겨찾기해 두세요.</p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>cd &quot;$env:USERPROFILE\Desktop\AX실습&quot;</pre></div></div></div>
+<p><strong>방금 친 명령 다시 쓰기</strong>: 키보드 <strong>↑(위 화살표)</strong> → 직전 명령이 그대로 나옵니다. 오타를 고쳐 Enter.</p>
+<h3 id="api-키-보관-원칙-다음-가이드부터-계속-적용">API 키 보관 원칙 (다음 가이드부터 계속 적용)</h3>
+<ul>
+<li>키는 <strong>받은 화면에서 곧바로 터미널에 붙여넣고</strong>, 그 창을 닫습니다.</li>
+<li>키를 <strong>메신저·메일·워드 문서·교육 자료 여백에 적지 않습니다.</strong> 유출 시 과금과 데이터 접근이 그대로 따라갑니다.</li>
+<li>보관 위치(예: &quot;1Password &gt; AX교육 항목&quot;)만 메모합니다.</li>
+<li><strong>화면 공유·녹화 중에는 입력하지 않습니다.</strong> 입력해야 하면 공유를 잠시 멈춥니다.</li>
+<li>실습이 끝나면 발급처에서 키를 폐기(revoke)합니다.</li>
+</ul>
+<hr>
+<h2 id="6-첫-동작-테스트-1분">6. 첫 동작 테스트 (1분)</h2>
+<p>Node.js가 실제로 동작하는지 확인합니다.</p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>node -e &quot;console.log('준비 완료:', 2026, '년', 8, '월')&quot;</pre></div></div></div>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: <code>준비 완료: 2026 년 8 월</code></p></section>
+<p>이어서 실습 폴더에 가상 파일을 하나 만듭니다.</p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>&quot;가상 사건: 홍길동 vs 김철수 물품대금 청구&quot; | Out-File -Encoding utf8 &quot;$env:USERPROFILE\Desktop\AX실습\연습메모.txt&quot;</pre></div></div></div>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: 아무 메시지 없이 프롬프트가 새 줄로 넘어갑니다. <strong>터미널에서는 &quot;조용한 성공&quot;이 정상입니다.</strong> 바탕 화면 <code>AX실습</code> 폴더에 <code>연습메모.txt</code> 가 있습니다.</p></section>
+<section class="callout callout-warn"><span class="callout-icon" aria-hidden="true">⚠️</span><p><strong>이렇게 나오면 오류</strong>: <code>경로의 일부를 찾을 수 없습니다</code> → ⑤단계에서 폴더를 만들지 않았습니다.</p></section>
+<hr>
+<h2 id="7-문제-해결">7. 문제 해결</h2>
+<h3 id="a-node-용어가--인식되지-않습니다">A. <code>'node' 용어가 ... 인식되지 않습니다</code></h3>
+<p>전체 문구: <code>node : 'node' 용어가 cmdlet, 함수, 스크립트 파일 또는 실행할 수 있는 프로그램 이름으로 인식되지 않습니다.</code></p>
+<ul>
+<li><strong>원인</strong>: 설치 프로그램이 명령 위치(PATH)를 등록했지만, <strong>설치 전부터 열려 있던 창은 옛 정보를 들고 있습니다.</strong></li>
+<li><p><strong>해결</strong>:</p>
+<ol>
+<li>PowerShell 창을 <strong>모두</strong> 닫고 새로 엽니다 → <code>node -v</code> 재확인.</li>
+<li>안 되면 <strong>PC 재부팅</strong> 후 재확인.</li>
+<li>그래도 같으면 설치 여부 확인: <code>설정 → 앱 → 설치된 앱</code> 에서 <code>Node.js</code> 검색. 없으면 ③단계를 다시 합니다.</li>
+</ol></li>
+</ul>
+<h3 id="b-npmps1을-로드할-수-없습니다">B. <code>npm.ps1을 로드할 수 없습니다</code></h3>
+<p>전체 문구: <code>npm : 이 시스템에서 스크립트를 실행할 수 없으므로 C:\Program Files\nodejs\npm.ps1 파일을 로드할 수 없습니다.</code></p>
+<ul>
+<li><strong>원인</strong>: PowerShell 스크립트 실행 정책이 <code>Restricted</code>로 잠겨 있습니다. Windows 기본 설정에서 종종 발생합니다.</li>
+<li><strong>해결</strong>: 아래로 <strong>본인 계정 범위만</strong> 완화합니다 (시스템 전체를 바꾸지 않는 안전한 범위).</li>
+</ul>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned</pre></div></div></div>
+<p>확인 질문에 <code>Y</code> → Enter. <strong>예상 결과</strong>: 메시지 없이 프롬프트 복귀, 이후 <code>npm -v</code> 동작.</p>
+<ul>
+<li><strong>회사 노트북 주의</strong>: <code>이 정책은 그룹 정책에 의해 재정의됩니다</code> 또는 <code>액세스가 거부되었습니다</code> 로 실패하면 <strong>회사 보안 정책이 막는 것입니다. 우회하지 말고</strong> IT 담당자에게 &quot;PowerShell CurrentUser 실행 정책 RemoteSigned 허용&quot;을 요청하세요.</li>
+</ul>
+<h3 id="c-npm-err-code-etimedout--network-request--failed">C. <code>npm ERR! code ETIMEDOUT</code> / <code>network request ... failed</code></h3>
+<ul>
+<li><strong>원인</strong>: 사내 프록시·방화벽·백신이 npm 저장소를 막았거나 회선이 일시적으로 끊겼습니다.</li>
+<li><p><strong>해결</strong>:</p>
+<ol>
+<li>브라우저에서 아래가 열리는지 확인합니다. 안 열리면 네트워크 차단입니다.</li>
+</ol></li>
+</ul>
+<div class="code-card is-lite"><div class="code-bar"><span class="code-label">주소창에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><pre>https://registry.npmjs.org</pre></div>
+<ol>
+<li><strong>사내 Wi-Fi 대신 휴대폰 테더링</strong>으로 바꿔 재시도합니다 (교육장에서 가장 빠른 방법).</li>
+<li>npm 설치 명령은 <strong>여러 번 재실행해도 안전합니다.</strong> ↑ → Enter 로 재시도하세요.</li>
+<li>계속 막히면 프록시 설정이 필요합니다. <strong>IT 담당자에게 문의하고, 백신을 임의로 끄지 마세요.</strong></li>
+</ol>
+<h3 id="d-smartscreen-windows의-pc-보호--인식할-수-없는-앱의-시작을-차단했습니다">D. SmartScreen: <code>Windows의 PC 보호 — 인식할 수 없는 앱의 시작을 차단했습니다</code></h3>
+<ul>
+<li><strong>원인</strong>: 내려받은 설치 파일의 평판 정보가 부족할 때 뜨는 경고입니다. 파일 손상이 아닙니다.</li>
+<li><strong>해결</strong>: <strong>다운로드 주소가 <code>nodejs.org</code> 또는 <code>git-scm.com</code> 인지 먼저 확인</strong>하고, 맞다면 <code>추가 정보</code> → <code>실행</code>.</li>
+<li><strong>주소가 위 두 곳이 아니면 실행하지 마세요.</strong> 검색 결과 상단 광고 링크에서 가짜 설치 파일을 받는 사고가 실제로 발생합니다. 이 문서의 주소를 직접 붙여넣어 들어가세요.</li>
+</ul>
+<h3 id="e-ax실습-폴더를-찾지-못한다--한글-경로가-깨진다">E. <code>AX실습</code> 폴더를 찾지 못한다 / 한글 경로가 깨진다</h3>
+<ul>
+<li><strong>증상</strong>: <code>cd ...\Desktop\AX실습</code> 이 <code>경로를 찾을 수 없습니다</code> 로 실패.</li>
+<li><strong>원인</strong>: 따옴표를 빼먹었거나, OneDrive 백업이 켜져 있어 바탕 화면 실제 위치가 <code>C:\Users\이름\OneDrive\바탕 화면</code> 으로 옮겨져 있습니다.</li>
+<li><p><strong>해결</strong>:</p>
+<ol>
+<li>경로는 <strong>항상 큰따옴표로 감쌉니다.</strong></li>
+<li>진짜 바탕 화면 위치를 확인합니다.</li>
+</ol></li>
+</ul>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>[Environment]::GetFolderPath(&quot;Desktop&quot;)</pre></div></div></div>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: <code>C:\Users\본인이름\OneDrive\바탕 화면</code> 같은 실제 경로. 그 뒤에 <code>\AX실습</code> 을 붙여 <code>cd</code> 하세요.</p>
+<ol>
+<li>가장 쉬운 방법: 파일 탐색기로 <code>AX실습</code> 을 열고 주소 표시줄 경로를 복사(Ctrl+C) → PowerShell에 <code>cd &quot;</code> 를 치고 붙여넣은 뒤 <code>&quot;</code> 로 닫습니다.</li>
+</ol></section>
+<hr>
+<h2 id="8-제거되돌리기">8. 제거·되돌리기</h2>
+<p><strong>1) 전역 설치한 AI 도구 먼저 제거</strong> — 각 도구 가이드의 제거 절차를 먼저 수행합니다. 예: 파이</p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>npm uninstall -g @earendil-works/pi-coding-agent</pre></div></div></div>
+<p><strong>2) Node.js 제거</strong> — <code>설정</code> → <code>앱</code> → <code>설치된 앱</code> → <code>Node.js</code> 검색 → <code>⋯</code> → <code>제거</code>. 남은 캐시까지 지우려면:</p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>Remove-Item -Recurse -Force &quot;$env:APPDATA\npm&quot;, &quot;$env:APPDATA\npm-cache&quot; -ErrorAction SilentlyContinue</pre></div></div></div>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: 메시지 없이 완료 (폴더가 없어도 오류가 나지 않습니다).</p></section>
+<p><strong>3) Git 제거</strong> — <code>설정</code> → <code>앱</code> → <code>설치된 앱</code> → <code>Git</code> → <code>제거</code></p>
+<p><strong>4) 실습 폴더 삭제</strong> — 바탕 화면 <code>AX실습</code> 을 휴지통으로 옮기고 <strong>휴지통도 비웁니다.</strong></p>
+<p><strong>5) 실행 정책 되돌리기</strong> (문제 해결 B를 실행했던 경우에만)</p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Restricted</pre></div></div></div>
+<p><strong>6) 권한 회수</strong> — 실습 계정으로 로그인해 둔 서비스가 있으면 아래에서 액세스 권한을 삭제합니다.</p>
+<div class="code-card is-lite"><div class="code-bar"><span class="code-label">주소창에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><pre>https://myaccount.google.com/permissions</pre></div>
+<p>발급받은 <strong>API 키는 발급처에서 반드시 폐기(revoke)</strong> 합니다. <strong>키는 지우기 전까지 계속 유효합니다.</strong></p>
+<hr>
+<h2 id="다른-설치-방법">다른 설치 방법</h2>
+<p>본문의 표준 경로(공식 <code>.msi</code> 설치)로 진행하는 것을 권장합니다. 아래는 해당되는 경우에만 보세요.</p>
+<ul>
+<li><strong>ARM 노트북 (Surface Pro X 등)</strong>: nodejs.org에서 자동 인식이 안 되면 운영체제 <strong>Windows</strong>, 형식 <strong>Installer (.msi)</strong>, 아키텍처 <strong>arm64</strong> 를 직접 고릅니다. 파일명이 <code>node-v24.18.1-arm64.msi</code> 형태면 맞습니다.</li>
+<li><strong>이미 Node.js가 깔려 있는 경우</strong>: <code>node -v</code> 가 <strong>v22.19.0 이상</strong>이면 ③단계를 건너뛰어도 됩니다. 그보다 낮으면 nodejs.org에서 최신 LTS <code>.msi</code> 를 그대로 덮어 설치하면 갱신됩니다.</li>
+<li><strong>패키지 관리자(winget, Chocolatey)</strong>: 이 교육에서는 회사 노트북 권한 문제가 잦아 검증·지원하지 않습니다. 사내 표준 배포 절차가 따로 있다면 <strong>IT 담당자의 안내를 따르세요.</strong></li>
+<li><strong>압축본(.zip) 설치</strong>: PATH를 손으로 등록해야 해서 초보자에게 권하지 않습니다.</li>
+</ul>
+<hr>
+<h2 id="다음-단계">다음 단계</h2>
+<ul>
+<li>터미널 AI 에이전트 설치 → <a href="pi.html">파이(Pi) 설치가이드</a></li>
+</ul>
+    </article>
+<nav class="pager" aria-label="페이지 이동"><a class="pager-prev" href="../index.html"><span class="dir">← 이전</span><strong>과정 홈</strong></a><a class="pager-next" href="antigravity.html"><span class="dir">다음 →</span><strong>안티그래비티</strong></a></nav>
+  </main>
+  <aside class="side" aria-label="과정 내비게이션">
+  <details class="side-box" open>
+    <summary>📍 과정 지도 — 다른 차시로 이동</summary>
+    <h4>과정 지도</h4>
+    <div class="map-group">
+      <a class="map-link" href="../chapters/ch1.html"><b>1</b>나의 AX 업무 지도</a>
+      <a class="map-link" href="../chapters/ch2.html"><b>2</b>에이전트 도구 설치와 연동</a>
+      <a class="map-link" href="../chapters/ch3.html"><b>3</b>법률업무 지시서 만들기</a>
+      <a class="map-link" href="../chapters/ch4.html"><b>4</b>근거를 찾고 확인하기: 리서치 자동화</a>
+      <a class="map-link" href="../chapters/ch5.html"><b>5</b>초안에서 검토까지: 판례·계약서 병렬 분석</a>
+      <a class="map-link" href="../chapters/ch6.html"><b>6</b>의뢰인과 안전하게 소통하기</a>
+      <a class="map-link" href="../chapters/ch7.html"><b>7</b>반복 업무를 연결해 실제 업무로</a>
+    </div>
+    <h4 class="mt">설치가이드</h4>
+    <div class="map-group">
+      <a class="map-link on" href="../install/setup-windows.html">공통 준비 (Windows)</a>
+      <a class="map-link" href="../install/antigravity.html">안티그래비티</a>
+      <a class="map-link" href="../install/hermes.html">헤르메스</a>
+      <a class="map-link" href="../install/pi.html">파이 (Pi)</a>
+      <a class="map-link" href="../install/codex.html">Codex CLI</a>
+      <a class="map-link" href="../install/korean-law-mcp.html">korean-law-mcp</a>
+    </div>
+    <a class="map-home" href="../index.html">↩ 과정 홈 · 진행 상황</a>
+  </details>
+  <details class="side-box side-toc" open>
+    <summary>🔖 이 페이지 목차</summary>
+    <h4>이 페이지 목차</h4>
+    <ul class="toc-list">
+<li class="toc-l2"><a href="#빠른-설치-아는-사람용--10분">빠른 설치 (아는 사람용 — 10분)</a></li>
+<li class="toc-l2"><a href="#1-이-문서는-무엇인가">1. 이 문서는 무엇인가</a></li>
+<li class="toc-l2"><a href="#2-설치-전-확인">2. 설치 전 확인</a></li>
+<li class="toc-l2"><a href="#3-설치-절차">3. 설치 절차</a></li>
+<li class="toc-l2"><a href="#4-설치-확인-30초">4. 설치 확인 (30초)</a></li>
+<li class="toc-l2"><a href="#5-초기-설정연동">5. 초기 설정·연동</a></li>
+<li class="toc-l2"><a href="#6-첫-동작-테스트-1분">6. 첫 동작 테스트 (1분)</a></li>
+<li class="toc-l2"><a href="#7-문제-해결">7. 문제 해결</a></li>
+<li class="toc-l2"><a href="#8-제거되돌리기">8. 제거·되돌리기</a></li>
+<li class="toc-l2"><a href="#다른-설치-방법">다른 설치 방법</a></li>
+<li class="toc-l2"><a href="#다음-단계">다음 단계</a></li>
+</ul>
+  </details>
+  </aside>
+</div>
+
+<footer><div class="wrap">
+  <div>변호사 AX 나노디그리 · <span class="hand-note-inline">인터넷이 끊겨도 열립니다. 인쇄해서 쓰셔도 됩니다.</span></div>
+  <div><a href="../index.html">과정 홈</a> · 진행 상황은 이 브라우저에만 저장됩니다</div>
+</div></footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

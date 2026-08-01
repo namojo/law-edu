@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4차시. 근거를 찾고 확인하기: 리서치 자동화 — 변호사 AX 나노디그리</title>
+<meta name="description" content="파이(Pi)의 자율형 법률 리서치 스킬과 korean-law-mcp로 공개 법령·판례 자료를 자동 수집·요약하고, 그 결과의 주장 하나하나를 원문과 대조해 리서치 검증표 1부를 완성합니다.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect x=%228%22 y=%228%22 width=%2284%22 height=%2284%22 rx=%2220%22 fill=%22%23ffe455%22/%3E%3Ctext x=%2250%22 y=%2270%22 font-size=%2256%22 text-anchor=%22middle%22 font-family=%22monospace%22 fill=%22%2322242a%22%3E%C2%A7%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="ch4" data-tasks="26">
+<a class="skip-link" href="#main">본문으로 건너뛰기</a>
+<header class="topnav"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="dot"></span><span class="brand-full">변호사 AX 나노디그리</span><span class="brand-short">AX 나노디그리</span></a>
+  <nav aria-label="주요 메뉴">
+    <a href="../index.html">홈</a>
+    <a href="../index.html#chapters" aria-current="page">교육과정</a>
+    <a href="../index.html#install">설치가이드</a>
+  </nav>
+</div></header>
+
+<div class="wrap page-head">
+  <div class="eyebrow">4차시 · 실습지 + 실전 랩</div>
+  <h1>4차시. 근거를 찾고 확인하기: 리서치 자동화</h1>
+  <div class="meta"><span class="badge">4 / 7</span><span>⏱ 총 70~90분</span><span>📄 리서치 검증표 1부</span></div>
+</div>
+
+<div class="wrap layout">
+  <main id="main" class="main-col">
+<div class="progress-panel" data-progress-bar hidden>
+  <div class="progress-head"><span class="progress-label">진행 체크리스트</span>
+  <span data-progress-text>0 / 26</span></div>
+  <div class="progress-track"><div class="progress-fill" data-progress-fill></div></div>
+  <button type="button" class="reset-btn" data-reset>이 페이지 체크 초기화</button>
+</div>
+    <article class="prose">
+
+<h2 id="이-차시에서-준비할-것">이 차시에서 준비할 것</h2>
+<p>시작 전에 아래 네 가지를 갖추면 이 차시를 혼자 끝까지 진행할 수 있습니다. 하나라도 없으면 옆의 설치가이드를 먼저 보고 오세요.</p>
+<div class="table-wrap"><table><thead><tr><th>준비물</th><th>확인 방법 (30초)</th><th>없다면</th></tr></thead><tbody><tr><td>Windows 노트북 기본 설정</td><td>시작 버튼 옆 검색창에 <code>PowerShell</code>을 치면 <strong>Windows PowerShell</strong>이 나온다</td><td><a href="../install/setup-windows.html">공통 준비 설치가이드</a></td></tr><tr><td>AI 대화 도구 (로그인 상태)</td><td>도구를 열었을 때 새 대화 입력창이 보인다</td><td><a href="../install/setup-windows.html">공통 준비 설치가이드</a></td></tr><tr><td><strong>korean-law-mcp</strong> (법제처 공식 데이터 연결)</td><td>AI에게 <code>korean-law 도구가 연결되어 있나요?</code>라고 물었을 때 도구 목록을 답한다</td><td><a href="../install/korean-law-mcp.html">korean-law-mcp 설치가이드</a></td></tr><tr><td>파이(Pi) — 실습지 2단계용</td><td>파이 실행 화면이 뜬다</td><td><a href="../install/pi.html">파이(Pi) 설치가이드</a></td></tr></tbody></table></div>
+<p>추가로 웹 브라우저(엣지 또는 크롬) 하나와, 검증표를 적을 문서 파일 하나가 필요합니다. 문서는 메모장·워드·한글 무엇이든 좋습니다. 저장 위치는 <code>C:\Users\이름\바탕 화면\AX실습</code> 처럼 찾기 쉬운 폴더로 정해 두세요.</p>
+<h3 id="이-차시에-처음-나오는-말">이 차시에 처음 나오는 말</h3>
+<div class="table-wrap"><table><thead><tr><th>용어</th><th>한 줄 설명</th></tr></thead><tbody><tr><td><strong>프롬프트</strong></td><td>AI에게 보내는 지시문. 우리가 입력창에 적어 넣는 글 전체를 말합니다.</td></tr><tr><td><strong>스킬</strong></td><td>에이전트가 일할 때 펼쳐 보는 지시 문서. 사람으로 치면 업무 매뉴얼입니다. 3차시에서 만든 법률업무 지시서를 그대로 스킬로 씁니다.</td></tr><tr><td><strong>새 대화</strong></td><td>앞의 대화 내용을 전혀 기억하지 못하는 빈 대화창. 교차 검증에 꼭 필요합니다.</td></tr><tr><td><strong>환각(할루시네이션)</strong></td><td>AI가 존재하지 않는 조문·판례를 진짜처럼 지어내는 현상.</td></tr><tr><td><strong>MCP</strong></td><td>AI가 외부 데이터나 프로그램을 직접 쓰게 해 주는 연결 규격. AI에 끼우는 어댑터라고 생각하면 됩니다.</td></tr><tr><td><strong>korean-law-mcp</strong></td><td>법제처 국가법령정보센터의 공식 데이터를 AI가 직접 조회하게 해 주는 MCP 서버.</td></tr><tr><td><strong>도구 호출</strong></td><td>AI가 답을 쓰기 전에 외부 도구를 실제로 실행하는 것. 화면에 접힌 줄로 표시됩니다.</td></tr><tr><td><strong>인증키(OC 키)</strong></td><td>법제처 Open API를 쓰기 위해 발급받는 개인 열쇠 문자열. 문서에 적지 않고 설치가이드에서 정한 자리에만 보관합니다.</td></tr></tbody></table></div>
+<hr>
+<div class="sec-banner" id="4차시-실습지-리서치-검증표-만들기"><span class="banner-kicker">WORKBOOK — 손으로 채우는 실습지</span><h2 class="banner-title">4차시 실습지: 리서치 검증표 만들기</h2></div>
+<h2 id="실습-목표">실습 목표</h2>
+<p>파이(Pi)의 자율형 법률 리서치 스킬과 korean-law-mcp로 공개 법령·판례 자료를 자동 수집·요약하고, 그 결과의 주장 하나하나를 원문과 대조해 리서치 검증표 1부를 완성합니다.</p>
+<section class="human-check"><span class="callout-icon" aria-hidden="true">✋</span><h2 id="실습-규칙" class="callout-title">실습 규칙</h2><ul>
+<li>공개된 법령·판례 자료만 수집합니다.</li>
+<li>로그인이 필요한 서비스나 유료 데이터베이스는 무단으로 수집하지 않습니다.</li>
+<li>대상 사이트의 이용약관과 로봇 배제 정책을 준수합니다.</li>
+<li>실제 사건의 쟁점 대신 <code>계약 해석의 일반 기준</code>처럼 일반화된 연구 질문을 사용합니다.</li>
+<li>판례번호는 <code>0000다00000</code> 형식 표기만 사용하고, 실제 사건번호를 적지 않습니다.</li>
+<li>의뢰인 이름 자리에는 <code>김가상</code>, <code>의뢰인 A</code> 같은 가상 이름만 씁니다.</li>
+<li>인증키는 이 실습지에 적지 않습니다. 보관 위치만 기록합니다.</li>
+</ul></section>
+<h2 id="1단계-리서치-질문-정하기">1단계. 리서치 질문 정하기</h2>
+<p>오늘 자동화로 근거를 찾을 일반화된 연구 질문 하나를 정합니다.</p>
+<ul>
+<li>연구 질문(일반화한 문장 1개):</li>
+<li>이 질문을 고른 이유:</li>
+</ul>
+<p>검색에 사용할 키워드를 적어보세요.</p>
+<div class="table-wrap"><table><thead><tr><th>번호</th><th>검색 키워드</th><th>기대하는 자료 유형 (법령 / 판례 / 해설)</th></tr></thead><tbody><tr><td>1</td><td></td><td></td></tr><tr><td>2</td><td></td><td></td></tr><tr><td>3</td><td></td><td></td></tr></tbody></table></div>
+<p>예: <code>임대차 계약 갱신 요건</code> → <code>관련 법령 원문과 대법원 판례</code></p>
+<h2 id="2단계-파이pi로-리서치-스킬-실행하기">2단계. 파이(Pi)로 리서치 스킬 실행하기</h2>
+<p>여기서 <strong>스킬</strong>은 에이전트가 일할 때 펼쳐 보는 지시 문서를 말합니다. 새로 만들 필요 없이 <strong>3차시에서 만든 법률업무 지시서를 그대로 쓰면 됩니다.</strong> 파이(Pi)는 그 지시서를 받아 스스로 자료를 찾아오는 터미널 AI 에이전트입니다.</p>
+<p>아래 네 단계만 하면 됩니다. 화면에 안내된 명령과 이 실습지의 명령 외에는 실행하지 않습니다.</p>
+<p><strong>1) PowerShell을 엽니다.</strong> [시작] 버튼 옆 검색창에 <code>PowerShell</code>을 입력하고 Enter를 누릅니다.</p>
+<ul>
+<li><strong>화면 상태</strong>: 어두운 창이 열리고 <code>PS C:\Users\본인이름&gt;</code> 같은 줄이 보입니다. (<strong>PowerShell</strong>: 글자로 컴퓨터에 명령을 내리는 창)</li>
+</ul>
+<p><strong>2) 실습 폴더로 이동합니다.</strong> 아래 한 줄을 붙여넣고 Enter를 누릅니다. 붙여넣기는 마우스 오른쪽 클릭 또는 <code>Ctrl+V</code>입니다.</p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>cd &quot;$env:USERPROFILE\Desktop\AX실습&quot;</pre></div></div></div>
+<ul>
+<li><strong>화면 상태</strong>: 줄 끝이 <code>AX실습&gt;</code>으로 바뀝니다.</li>
+<li><code>경로를 찾을 수 없습니다</code>가 나오면 실습 폴더가 아직 없는 것입니다. <a href="../install/setup-windows.html">공통 준비 설치가이드</a>의 실습 폴더 만들기 단계를 먼저 하세요.</li>
+</ul>
+<p><strong>3) 파이를 실행합니다.</strong></p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>pi</pre></div></div></div>
+<ul>
+<li><strong>화면 상태</strong>: 화면이 파이 화면으로 바뀌고 아래쪽에 입력창(대개 <code>&gt;</code> 표시)이 나타납니다. 여기서부터는 PowerShell 명령이 아니라 <strong>파이에게 하는 말</strong>을 입력합니다.</li>
+<li><code>'pi' 용어가 ... 인식되지 않습니다</code>가 나오면 아직 설치가 끝나지 않은 것입니다. <a href="../install/pi.html">파이(Pi) 설치가이드</a>를 먼저 마치세요. (파이를 나올 때는 <code>/quit</code>)</li>
+</ul>
+<p><strong>4) 파이 입력창에 아래 프롬프트를 붙여 넣고 Enter를 누릅니다.</strong> 대괄호 <code>[ ]</code> 부분만 1단계에서 정한 내용으로 바꿉니다.</p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>AI에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>당신은 법률 리서치 보조자입니다. 아래 지시에 따라 공개 자료만으로 리서치해 주세요.
+
+연구 질문: [1단계에서 정한 일반화된 연구 질문을 적습니다]
+검색 키워드: [1단계 표의 키워드 세 개를 적습니다]
+
+허용 출처 (이 밖의 사이트는 사용하지 마세요)
+- 국가법령정보센터 (law.go.kr)
+- 대법원 종합법률정보 (glaw.scourt.go.kr)
+
+금지사항
+- 로그인이 필요한 서비스와 유료 데이터베이스는 수집하지 않습니다.
+- 이용약관과 로봇 배제 정책에 어긋나는 수집을 하지 않습니다.
+- 실제 의뢰인 정보와 실제 사건번호는 다루지 않습니다.
+- 확인되지 않은 조문·판례를 지어내지 않습니다. 모르면 &quot;확인 불가&quot;라고 적습니다.
+
+결과 형식
+1. 관련 법령: 법령명, 조문 번호, 조문의 핵심 내용
+2. 관련 판례: 사건번호, 선고일, 판시 요지 (3건 이내)
+3. 각 항목마다 어느 출처에서 가져왔는지 표시
+
+작업이 끝나면 요약을 `리서치요약.md` 파일로 저장해 주세요.</pre></div></div></div>
+<p>3차시에서 만든 법률업무 지시서가 손에 있다면, 위 프롬프트 <strong>앞에 지시서를 그대로 붙여 넣고</strong> 이어서 실행하세요. 그것이 오늘의 리서치 스킬입니다.</p>
+<ul>
+<li><strong>화면 상태</strong>: 파이가 무엇을 하려는지 한 줄씩 보여 주고, 파일을 만들 때는 승인을 묻습니다. 무엇을 하는지 <strong>읽고 승인</strong>합니다. Enter를 습관적으로 연타하지 않습니다.</li>
+</ul>
+<blockquote><p>파이를 아직 설치하지 못했다면 이 단계를 건너뛰지 말고, 이 차시 실전 랩 <strong>LAB 1의 프롬프트</strong>를 평소 쓰는 AI 대화 도구에 붙여 넣어 대신 진행해도 됩니다. 3단계부터는 그 결과를 재료로 쓰면 됩니다.</p></blockquote>
+<p>실행이 끝나면 아래를 기록합니다.</p>
+<ul>
+<li>수집 대상으로 허용한 공개 출처:</li>
+<li>스킬에 적어 넣은 금지사항:</li>
+<li>실행한 지시 요약(한두 문장):</li>
+<li>결과가 나오기까지 걸린 과정 요약:</li>
+</ul>
+<p>실행 중 오류가 났다면 실행 오류 자가 수정 프롬프트가 어떻게 작동했는지 적습니다. 오류가 없었다면 <code>오류 없음</code>이라고 적습니다.</p>
+<div class="table-wrap"><table><thead><tr><th>오류 메시지 요약</th><th>스킬이 추정한 원인</th><th>수정 시도 내용</th><th>결과 (성공 / 재시도 / 중단 후 보고)</th></tr></thead><tbody><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr></tbody></table></div>
+<h3 id="2-1-korean-law-mcp로-같은-질문-다시-조회하기">2-1. korean-law-mcp로 같은 질문 다시 조회하기</h3>
+<p>같은 질문을 <strong>법제처 공식 데이터</strong>에도 물어 두 결과를 나중에 비교합니다. 평소 쓰는 AI 대화 도구에서 <strong>새 대화</strong>를 열고 아래를 붙여 넣으세요. 대괄호 부분만 1단계의 연구 질문으로 바꿉니다.</p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>AI에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>korean-law 도구를 사용해서 아래 쟁점을 리서치해 주세요.
+도구를 쓰지 않고 기억으로 답하지 마세요.
+
+쟁점: [1단계에서 정한 연구 질문을 그대로 적습니다]
+
+결과를 다음 표로 정리해 주세요.
+| 근거 유형(법령/판례) | 법령명·조문 또는 사건번호 | 시행일·선고일 | 핵심 내용 |
+
+각 행 옆에 어느 도구로 확인한 것인지 함께 적어 주세요.</pre></div></div></div>
+<ul>
+<li><strong>화면 상태</strong>: 답이 바로 나오지 않고, 답변 위쪽에 회색 접힌 줄(<code>korean-law 사용</code> 또는 도구 이름이 적힌 줄)이 잠깐 표시됩니다. 그 줄을 클릭하면 실제로 주고받은 내용이 펼쳐집니다. <strong>이 회색 줄이 없으면 도구를 쓰지 않은 답</strong>이므로, <code>방금 답변은 korean-law 도구를 실제로 호출한 결과인가요? 호출하지 않았다면 지금 호출해서 다시 답해 주세요.</code>라고 이어서 요청합니다.</li>
+<li>연결이 아직 안 되어 있다면 <a href="../install/korean-law-mcp.html">korean-law-mcp 설치가이드</a>를 따르고, 오늘은 이 소단계를 건너뛴 뒤 실전 랩 LAB 3에서 다시 시도합니다.</li>
+<li>공식 데이터에서만 나온 근거(파이 결과에는 없던 것):</li>
+<li>파이 결과에만 있고 공식 데이터에서는 확인되지 않은 근거:</li>
+</ul>
+<h3 id="2-2-어떤-경로로-자료를-모았는가">2-2. 어떤 경로로 자료를 모았는가</h3>
+<p>같은 질문이라도 <strong>웹을 훑어 모은 자료</strong>와 <strong>법제처 공식 데이터에서 바로 가져온 자료</strong>는 신뢰도가 다릅니다. 오늘 사용한 경로를 표시해 두면, 나중에 어느 주장을 더 의심해야 할지 판단할 수 있습니다.</p>
+<blockquote><p>세 경로를 모두 쓸 필요는 없습니다. 오늘 실제로 사용한 경로에만 <code>O</code>를 적고, 쓰지 않은 경로는 <code>X</code>로 둡니다. <code>legal_research</code> 행은 2-1을 했거나 실전 랩 LAB 3을 마친 뒤에 채웁니다.</p></blockquote>
+<div class="table-wrap"><table><thead><tr><th>사용한 경로</th><th>사용함 (O/X)</th><th>이 경로로 얻은 자료 유형</th></tr></thead><tbody><tr><td>AI의 일반 응답 (도구 호출 없음)</td><td></td><td></td></tr><tr><td>파이 리서치 스킬 (웹 수집)</td><td></td><td></td></tr><tr><td>korean-law-mcp <code>legal_research</code> (법제처 공식)</td><td></td><td></td></tr></tbody></table></div>
+<ul>
+<li>내 인증키 보관 위치(키 값이 아니라 위치만 적습니다):</li>
+</ul>
+<h2 id="3단계-결과-분해하기">3단계. 결과 분해하기</h2>
+<p>스킬이 만든 요약에서 근거로 쓰인 주장 다섯 개를 골라 한 줄씩 적습니다. 아직 판단하지 말고, 결과에 적힌 그대로 옮깁니다.</p>
+<div class="table-wrap"><table><thead><tr><th>번호</th><th>주장 요지</th><th>제시된 출처</th><th>출처 존재 여부 (검색됨 / 검색 안 됨 / 미확인)</th></tr></thead><tbody><tr><td>1</td><td></td><td></td><td></td></tr><tr><td>2</td><td></td><td></td><td></td></tr><tr><td>3</td><td></td><td></td><td></td></tr><tr><td>4</td><td></td><td></td><td></td></tr><tr><td>5</td><td></td><td></td><td></td></tr></tbody></table></div>
+<h3 id="해석-방법">해석 방법</h3>
+<ul>
+<li>출처가 검색되지 않는 주장은 환각을 의심하고, 같은 결과물의 다른 주장도 다시 봅니다.</li>
+<li>출처 링크가 있다는 것은 인용 추적의 시작일 뿐, 원문 대조를 마쳐야 근거가 됩니다.</li>
+<li>자신감 있는 문체와 그럴듯한 형식은 정확성의 증거가 아닙니다.</li>
+</ul>
+<h2 id="4단계-리서치-검증표-완성하기">4단계. 리서치 검증표 완성하기</h2>
+<p>3단계의 주장 중 확인할 수 있는 것부터 원문을 열어 직접 대조합니다. 요약을 다시 읽는 것은 대조가 아닙니다.</p>
+<div class="table-wrap"><table><thead><tr><th>주장 번호</th><th>출처 문서명</th><th>사건번호 형식 확인 (형식 일치 / 불일치 / 해당 없음)</th><th>선고일 (원문에서 확인)</th><th>원문 대조 여부 (확인 / 불일치 / 불가)</th><th>후속 판례 확인 여부</th><th>최신성 판단 (사용 가능 / 보류 / 폐기)</th></tr></thead><tbody><tr><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>2</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>3</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>4</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>5</td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div>
+<blockquote><p>표가 화면에 다 안 보이면: 좌우로 밀어서 보거나, 노트에 옮길 때 <code>번호·출처·사건번호·선고일</code> 표와 <code>번호·원문 대조·후속 판례·최신성</code> 표 두 개로 나누어 적어도 됩니다. 열 개수만 그대로 일곱 개면 됩니다.</p></blockquote>
+<p>한 열이라도 비어 있는 주장은 아직 사용할 수 없는 근거입니다. <code>보류</code>나 <code>폐기</code>가 나와도 실패가 아니라 검증이 작동한 기록입니다.</p>
+<p><strong>어느 도구가 어느 열을 채워 주는지</strong> 알아두면 시간이 크게 줄어듭니다.</p>
+<div class="table-wrap"><table><thead><tr><th>검증표의 열</th><th>도움이 되는 도구</th></tr></thead><tbody><tr><td>출처 문서명 · 사건번호 형식 · 선고일</td><td>국가법령정보센터·대법원 종합법률정보 검색, korean-law-mcp <code>legal_research</code></td></tr><tr><td>원문 대조 여부</td><td>korean-law-mcp <code>verify_citations</code> (인용 실존·내용 검증)</td></tr><tr><td>후속 판례 확인 여부 · 최신성 판단</td><td>korean-law-mcp <code>cite_check</code> (판례 생사 확인)</td></tr></tbody></table></div>
+<h2 id="5단계-환각-사례-기록하기">5단계. 환각 사례 기록하기</h2>
+<p>원문과 다르거나 존재하지 않는 인용을 발견했다면 기록합니다.</p>
+<ul>
+<li>발견한 환각 또는 불일치:</li>
+<li>어떻게 알아차렸는가:</li>
+<li>그 주장을 어떻게 처리했는가 (폐기 / 반려 후 원문 교체 / 보류):</li>
+</ul>
+<p>발견하지 못했다면 <code>발견 없음</code>이라고 적고, 없다고 판단한 확인 방법을 적습니다.</p>
+<ul>
+<li>확인 방법:</li>
+</ul>
+<p>아래 문장을 완성하세요.</p>
+<blockquote><p>나는 자동화 결과를 문서에 쓰기 전에 반드시 ________를 확인하겠습니다.<br><br>내 리서치 스킬이 넘지 않도록 정한 수집 금지선은 ________입니다.<br><br>검증에 실패한 주장은 ________로 처리하겠습니다.</p></blockquote>
+<h2 id="동료-검토">동료 검토</h2>
+<p>짝과 검증표를 바꾸어 아래 세 가지만 확인합니다.</p>
+<ul class="task-list">
+<li class="task-item"><input type="checkbox" id="chk-11kcbky" data-task="11kcbky"><label for="chk-11kcbky">주장마다 1차 자료 원문과 대조한 기록이 있다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-1vuoizp" data-task="1vuoizp"><label for="chk-1vuoizp">출처가 검색되지 않은 주장이 폐기 또는 보류로 처리되었다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-1abgd4f" data-task="1abgd4f"><label for="chk-1abgd4f">수집 범위가 공개 자료와 허용된 범위를 벗어나지 않았다.</label></li>
+</ul>
+<h3 id="동료의-한-문장-제안">동료의 한 문장 제안</h3>
+<p><code>이 검증표에서 ________ 항목을 한 번 더 확인하면 더 안전하겠습니다.</code></p>
+<h2 id="수업-종료-전-제출">수업 종료 전 제출</h2>
+<ul>
+<li>완성한 리서치 검증표 1부</li>
+<li>검증에서 걸러낸 오류 또는 <code>발견 없음</code>과 그 확인 방법 1가지</li>
+<li>내 리서치 스킬의 수집 금지선 1개</li>
+<li>5차시 병렬 분석에 사용할 비식별 문서 묶음 준비 계획 1개</li>
+</ul>
+<hr>
+<div class="sec-banner" id="4차시-실전-실습-랩-ai-리서치-결과-원문으로-검증하기"><span class="banner-kicker">HANDS-ON — AI를 켜고 함께하는 실전 랩</span><h2 class="banner-title">4차시 실전 실습 랩: AI 리서치 결과, 원문으로 검증하기</h2></div>
+<ul>
+<li>과정: 변호사 AX 나노디그리</li>
+<li>차시: 4차시 / 총 7차시</li>
+<li>이 랩의 한 문장: 리서치 자동화의 목표는 답을 빨리 받는 것이 아니라, 확인된 근거에 빨리 도달하는 것입니다.</li>
+</ul>
+<h2 id="실습-개요">실습 개요</h2>
+<p>이 랩은 수업 진도와 무관하게 혼자서 처음부터 끝까지 진행할 수 있는 복습·자율 실습 자료입니다. 기본 랩(LAB 1~4)을 마치고 시간 여유가 있다면, 아래의 &quot;더 해보기&quot; 심화 미션에 도전해 보세요.</p>
+<p>이 랩은 교재 4차시의 핵심 질문 — 그럴듯한 답과 확인된 근거를 어떻게 구분하는가 — 를 실전으로 되짚는 시간입니다. 자신감 있는 문체와 완벽한 형식이 정확성의 증거가 아님을, 환각을 직접 걸러내며 확인합니다.</p>
+<p>오늘은 같은 검증을 <strong>두 가지 방법</strong>으로 해 봅니다. LAB 2에서 브라우저로 손수 대조하고, LAB 3에서 korean-law-mcp로 같은 일을 몇 초 만에 처리합니다. 손으로 먼저 해 보는 이유는, 도구가 대신 해 주는 일이 정확히 무엇인지 알아야 도구의 답도 의심할 수 있기 때문입니다.</p>
+<ul>
+<li>목표: AI에게 가상 쟁점의 법률 리서치를 시키고, 응답에 인용된 법령·판례를 공식 원문과 직접 대조하여 환각과 불일치를 걸러낸 뒤, 교차 검증까지 반영한 <strong>리서치 검증표 1부</strong>를 완성합니다.</li>
+<li>소요 시간: 총 70~90분 (LAB 1 약 15분, LAB 2 약 20분, LAB 3 약 20분, LAB 4 약 15분, 마무리 5~10분)</li>
+<li><p>준비물:</p>
+<ul>
+<li>사용 중인 AI 대화 도구 (새 대화를 두 번 열 수 있으면 충분합니다)</li>
+<li><strong>korean-law-mcp 연결</strong> — <a href="../install/korean-law-mcp.html">korean-law-mcp 설치가이드</a></li>
+<li>웹 브라우저 (원문 확인 사이트 접속용)</li>
+<li>이 파일 또는 4차시 실습지의 표를 옮겨 적을 문서 1개</li>
+</ul></li>
+<li>완성 결과물: 리서치 검증표 1부 (주장 5개 이상, 모든 열이 채워진 상태)</li>
+</ul>
+<section class="human-check"><span class="callout-icon" aria-hidden="true">✋</span><h2 id="실습-규칙-1" class="callout-title">실습 규칙</h2><ol>
+<li><strong>실제 사건 정보를 입력하지 않습니다.</strong> 의뢰인 이름, 실제 사건번호, 진행 중인 사건의 사실관계는 프롬프트에 넣지 않습니다. 오늘은 아래에 제공되는 가상의 의뢰 상황만 사용합니다.</li>
+<li><strong>AI가 제시한 판례·법령은 원문 확인 전까지 전부 &quot;미확인&quot;으로 취급합니다.</strong> 사건번호 형식이 완벽해도, 문체가 자신감 있어도, 같은 답이 반복되어도 그것은 정확성의 증거가 아닙니다. 원문을 열어 직접 대조하기 전까지는 근거가 아니라 확인 대상입니다.</li>
+<li>공개된 법령·판례 자료만 확인합니다. 로그인이 필요한 서비스나 유료 데이터베이스는 무단으로 수집하지 않습니다.</li>
+<li>검증표에 옮겨 적을 때 판례번호는 <code>0000다00000</code> 형식 표기만 사용하고, 실제 사건번호를 이 문서에 적지 않습니다. (원문 확인 자체는 실제 번호로 검색하되, 기록은 형식 표기로 남깁니다.)</li>
+<li><strong>korean-law-mcp의 답도 검증 대상입니다.</strong> 공식 데이터를 조회하므로 훨씬 믿을 만하지만, 도구가 실행되지 않은 채 AI가 혼자 지어낸 답일 수도 있습니다. LAB 3에서 도구가 실제로 호출됐는지 확인하는 법을 배웁니다.</li>
+<li>인증키(OC 키)를 채팅창·검증표·메모에 붙여넣지 않습니다. 설치가이드에서 정한 보관 위치에만 둡니다.</li>
+</ol></section>
+<h2 id="시작-전-점검">시작 전 점검</h2>
+<p>시작하기 전에 아래 항목을 확인해 주세요. 하나라도 체크가 안 되면 그 줄의 안내를 먼저 처리합니다.</p>
+<ul class="task-list">
+<li class="task-item"><input type="checkbox" id="chk-1gyfzkb" data-task="1gyfzkb"><label for="chk-1gyfzkb">AI 대화 도구에 로그인되어 있고, 새 대화를 열 수 있다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-1q269r1" data-task="1q269r1"><label for="chk-1q269r1"><strong>korean-law-mcp가 연결되어 있다.</strong> 확인법은 바로 아래 &quot;준비 상태 확인&quot;을 참고하세요. — <a href="../install/korean-law-mcp.html">korean-law-mcp 설치가이드</a></label></li>
+<li class="task-item"><input type="checkbox" id="chk-bhww4o" data-task="bhww4o"><label for="chk-bhww4o">브라우저에 <strong>국가법령정보센터</strong>(law.go.kr) 탭을 열어 두었다. — 법령 원문 확인용</label></li>
+<li class="task-item"><input type="checkbox" id="chk-spm9fq" data-task="spm9fq"><label for="chk-spm9fq">브라우저에 <strong>대법원 종합법률정보</strong>(glaw.scourt.go.kr) 탭을 열어 두었다. — 판례 원문 확인용</label></li>
+<li class="task-item"><input type="checkbox" id="chk-inooep" data-task="inooep"><label for="chk-inooep">검증표를 적을 문서(또는 4차시 실습지)를 열어 두었다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-4rau21" data-task="4rau21"><label for="chk-4rau21">오늘 사용할 쟁점이 실제 사건이 아닌 가상 상황임을 확인했다.</label></li>
+</ul>
+<h3 id="준비-상태-확인--korean-law-mcp가-살아-있는지-30초-확인">준비 상태 확인 — korean-law-mcp가 살아 있는지 30초 확인</h3>
+<ol>
+<li>AI 대화 도구에서 새 대화를 열고 아래를 그대로 붙여 넣습니다.</li>
+</ol>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>AI에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>korean-law 도구가 지금 연결되어 있나요?
+사용할 수 있는 도구 이름을 그대로 나열해 주세요.</pre></div></div></div>
+<ol>
+<li><p>화면에 이런 모습이 보이면 정상입니다.</p>
+<ul>
+<li>답변 안에 <code>legal_research</code>, <code>legal_analysis</code>, <code>search_law</code> 같은 <strong>도구 이름</strong>이 나열됩니다.</li>
+<li>도구를 실제로 확인했다면 답변 위쪽에 회색 접힌 줄(예: <code>korean-law 사용</code> 또는 도구 이름이 적힌 줄)이 함께 표시됩니다.</li>
+</ul></li>
+<li><code>연결된 도구가 없습니다</code> 또는 <code>그런 도구를 찾을 수 없습니다</code>라고 나오면 아직 설치·연결이 끝나지 않은 것입니다. <a href="../install/korean-law-mcp.html">korean-law-mcp 설치가이드</a>로 이동해 설치를 마친 뒤 AI 도구를 <strong>완전히 종료했다가 다시 실행</strong>하세요. 재실행 없이는 새로 연결한 도구가 인식되지 않습니다.</li>
+</ol>
+<blockquote><p>korean-law-mcp를 오늘 안에 준비하지 못했다면, LAB 3의 &quot;설치 전이라면&quot; 대체 경로로 진행할 수 있습니다. 다만 다음 차시 전까지는 반드시 설치해 두세요. 5차시 이후에도 계속 씁니다.</p></blockquote>
+<h2 id="lab-1-ai-리서치-시키고-인용-목록-만들기">LAB 1. AI 리서치 시키고 인용 목록 만들기</h2>
+<ul>
+<li>소요 시간: 약 15분 / 난이도: 쉬움</li>
+<li>왜 하는가: 검증할 대상을 먼저 눈앞에 만들어 놓아야, 무엇을 확인해야 하는지가 목록으로 보입니다.</li>
+</ul>
+<h3 id="배경">배경</h3>
+<p>가상의 의뢰 상황을 하나 정합니다. 예를 들어 이렇게 설정합니다.</p>
+<blockquote><p>가상의 의뢰인 A는 상가 건물에서 5년째 음식점을 운영하고 있습니다. 임대차 기간 만료를 앞두고 새 임차인을 구해 권리금을 회수하려 했으나, 임대인이 새 임차인과의 계약을 거절했습니다. A는 임대인에게 손해배상을 청구할 수 있는지 궁금해합니다.</p></blockquote>
+<p>이 상황을 그대로 쓰셔도 되고, 통상임금·부당해고·전세보증금 반환처럼 다른 일반적 주제로 가상의 의뢰 상황을 직접 만드셔도 됩니다. 핵심은 실제 사건이 아니라는 점입니다.</p>
+<h3 id="따라-하기">따라 하기</h3>
+<ol>
+<li>AI 도구에서 <strong>새 대화</strong>를 엽니다. 화면에 이전 대화 내용이 하나도 남아 있지 않고 빈 입력창만 보이는 상태여야 합니다.</li>
+<li><p>아래 프롬프트를 붙여 넣고 실행합니다. 다른 쟁점을 골랐다면 상황 부분만 바꿉니다.</p>
+<ul>
+<li>붙여넣기: 프롬프트 위에 마우스를 올려 복사 버튼을 누르거나, 블록으로 드래그해 <code>Ctrl+C</code> → 입력창에서 <code>Ctrl+V</code> (macOS: <code>Cmd+C</code> / <code>Cmd+V</code>).</li>
+<li>줄바꿈이 있어도 그대로 붙여 넣으면 됩니다. 실행은 <code>Enter</code>, 도구에 따라 전송 버튼(종이비행기 모양)을 누릅니다.</li>
+</ul></li>
+</ol>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>AI에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>당신은 법률 리서치 보조자입니다. 아래 가상의 상황에 대해 리서치해 주세요.
+
+상황: 상가 임차인이 임대차 기간 만료를 앞두고 신규 임차인을 주선해
+권리금을 회수하려 했으나, 임대인이 신규 임차인과의 계약 체결을
+거절했습니다. 임차인이 임대인에게 손해배상을 청구할 수 있는지가
+쟁점입니다.
+
+다음 형식으로 답해 주세요.
+1. 관련 법령: 법령명과 조문 번호, 그 조문의 핵심 내용
+2. 관련 판례: 사건번호, 선고일, 판시 요지 (3건 이내)
+3. 쟁점 정리: 위 근거에 기반한 쟁점 요약
+
+각 주장마다 근거가 된 법령 조문 또는 판례를 반드시 표시해 주세요.
+확실하지 않은 것은 확실하지 않다고 적어 주세요.</pre></div></div></div>
+<ol>
+<li>이 LAB에서는 <strong>일부러 korean-law-mcp를 쓰지 않습니다.</strong> AI가 아무 도구 없이 기억만으로 답할 때 무엇이 나오는지 보는 것이 목적입니다. 만약 도구를 자동으로 호출하려 한다면 <code>이번에는 도구를 쓰지 말고 답해 주세요.</code>라고 덧붙입니다.</li>
+<li>응답을 받으면 <strong>판단하지 말고</strong> 그대로 읽으면서, 근거로 쓰인 주장을 5개 이상 골라냅니다.</li>
+<li>아래 인용 목록 표를 문서에 옮겨 적고, 응답에 적힌 그대로 채웁니다. 이 단계에서는 맞는지 틀리는지 확인하지 않습니다. 어색해 보이는 조문 번호가 있어도 고치지 말고 그대로 옮깁니다 — 그것이 LAB 2·3의 재료입니다.</li>
+</ol>
+<div class="table-wrap"><table><thead><tr><th>번호</th><th>주장 요지</th><th>제시된 출처 (법령 조문 / 사건번호)</th><th>선고일·시행일 (응답 기준)</th><th>확인 상태</th></tr></thead><tbody><tr><td>1</td><td></td><td></td><td></td><td>미확인</td></tr><tr><td>2</td><td></td><td></td><td></td><td>미확인</td></tr><tr><td>3</td><td></td><td></td><td></td><td>미확인</td></tr><tr><td>4</td><td></td><td></td><td></td><td>미확인</td></tr><tr><td>5</td><td></td><td></td><td></td><td>미확인</td></tr></tbody></table></div>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><h3 id="예상-결과" class="callout-title">예상 결과</h3><ul>
+<li>법령 1~2건(예: 상가건물 임대차보호법의 권리금 관련 조문)과 판례 2~3건이 인용된 응답을 받습니다.</li>
+<li>응답은 대체로 문단 3~5개 분량이고, 번호 매긴 목록 형태로 정리되어 나옵니다.</li>
+<li>인용 목록 표에 주장 5개 이상이 채워지고, 확인 상태는 전부 <code>미확인</code>입니다.</li>
+</ul></section>
+<section class="callout callout-check"><span class="callout-icon" aria-hidden="true">✅</span><h3 id="-체크포인트" class="callout-title">체크포인트</h3><ul class="task-list">
+<li class="task-item"><input type="checkbox" id="chk-1sz7bc5" data-task="1sz7bc5"><label for="chk-1sz7bc5">주장 5개 이상을 응답에 적힌 그대로(고치지 않고) 옮겨 적었다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-p0s329" data-task="p0s329"><label for="chk-p0s329">모든 행의 확인 상태가 <code>미확인</code>이다. 하나라도 이 단계에서 <code>확인</code>으로 표시했다면 되돌립니다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-5azgz7" data-task="5azgz7"><label for="chk-5azgz7">출처가 아예 표시되지 않은 주장이 있다면, 출처 열에 <code>출처 없음</code>이라고 적었다.</label></li>
+</ul></section>
+<section class="callout callout-trouble"><span class="callout-icon" aria-hidden="true">🔧</span><h3 id="잘-안-될-때" class="callout-title">잘 안 될 때</h3><ul>
+<li>응답이 출처 없이 서술만 길게 나온다면: <code>각 문장마다 근거가 된 법령 조문 또는 판례 사건번호를 괄호로 표시해 다시 정리해 주세요.</code>라고 이어서 요청합니다.</li>
+<li>판례가 하나도 나오지 않는다면: <code>이 쟁점에 관한 대법원 판례가 있다면 사건번호와 선고일을 포함해 알려 주세요.</code>라고 요청합니다. 그래도 없다면 <code>판례 인용 없음</code>이라고 기록하고 법령 중심으로 진행합니다.</li>
+<li>주장이 5개가 안 된다면: 법령 조문의 요건 설명 하나하나를 별도 주장으로 나누어 세면 됩니다.</li>
+<li>응답이 중간에 끊겼다면: <code>이어서 계속해 주세요.</code>라고 입력합니다. 처음부터 다시 물으면 내용이 달라져 표를 채우기 어려워집니다.</li>
+</ul></section>
+<h2 id="lab-2-공식-원문과-대조하기--손으로-환각-찾아내기">LAB 2. 공식 원문과 대조하기 — 손으로 환각 찾아내기</h2>
+<ul>
+<li>소요 시간: 약 20분 / 난이도: 보통</li>
+<li>왜 하는가: 도구가 대신 해 줄 일을 한 번은 손으로 해 봐야, 도구가 내놓은 결과가 이상할 때 알아챌 수 있습니다.</li>
+</ul>
+<h3 id="배경-1">배경</h3>
+<p>LAB 1의 인용 목록은 아직 전부 미확인입니다. 이제 한 건씩 공식 원문을 열어 대조합니다. 형식이 완벽한 사건번호가 실제로는 존재하지 않을 수 있고, 실존하는 판례라도 따옴표 안 인용 문장이 원문과 다를 수 있습니다. 요약을 다시 읽는 것은 대조가 아닙니다. 원문을 직접 보는 것만 대조입니다.</p>
+<h3 id="따라-하기-1">따라 하기</h3>
+<ol>
+<li><p>인용 목록의 <strong>법령</strong>부터 확인합니다. 브라우저에서 국가법령정보센터(law.go.kr)를 엽니다.</p>
+<ul>
+<li>화면 가운데 큰 검색창이 보입니다. 법령명(예: <code>상가건물 임대차보호법</code>)을 입력하고 <code>Enter</code>를 누릅니다.</li>
+<li>검색 결과 목록에서 법령명을 클릭하면 조문이 쭉 나열된 본문 화면으로 넘어갑니다.</li>
+<li>응답이 말한 조문 번호에 실제로 그 내용이 있는지 확인합니다. 조문이 많으면 <code>Ctrl+F</code>(macOS: <code>Cmd+F</code>)로 <code>제10조의4</code>처럼 조문 번호를 찾습니다.</li>
+<li>화면 위쪽에 표시된 <strong>시행일</strong>을 확인합니다. 개정으로 내용이 달라졌을 수 있습니다.</li>
+</ul></li>
+<li><p>다음으로 <strong>판례</strong>를 확인합니다. 대법원 종합법률정보(glaw.scourt.go.kr)를 엽니다.</p>
+<ul>
+<li>상단에서 <code>판례</code> 탭이 선택되어 있는지 먼저 확인합니다. 법령 탭에서 사건번호를 검색하면 아무것도 나오지 않습니다.</li>
+<li>검색창에 응답에 나온 사건번호를 띄어쓰기 없이 입력합니다.</li>
+<li>검색이 되면: 선고일이 응답과 일치하는지, 판시 요지가 응답의 요약과 같은 취지인지 원문에서 확인합니다. 응답에 따옴표 인용이 있었다면 그 문장이 원문에 실제로 있는지 <code>Ctrl+F</code>로 찾습니다.</li>
+<li>검색이 안 되면: 오타 가능성을 감안해 한 번 더 정확히 입력해 봅니다. 그래도 없으면 존재하지 않는 인용, 즉 환각으로 판정합니다.</li>
+</ul></li>
+<li>확인이 끝난 행마다 인용 목록의 확인 상태를 갱신합니다: <code>원문 일치</code> / <code>원문과 다름</code> / <code>검색 안 됨</code> / <code>확인 불가</code>.</li>
+<li>AI에게 사실 여부를 되묻고 싶다면 아래 프롬프트를 사용할 수 있습니다. 단, 이 답변 역시 미확인 취급이며 원문 확인을 대체하지 못합니다.</li>
+</ol>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>AI에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>방금 인용한 판례 중 [사건번호]에 대해, 그 사건번호와 선고일을
+어디에서 가져왔는지 설명해 주세요. 확실하지 않다면
+&quot;확실하지 않음&quot;이라고 답해 주세요.</pre></div></div></div>
+<ol>
+<li>여기까지 걸린 시간을 문서 한쪽에 적어 둡니다. LAB 3에서 같은 일을 도구로 했을 때와 비교합니다.</li>
+</ol>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><h3 id="예상-결과-1" class="callout-title">예상 결과</h3><ul>
+<li>법령 조문은 대체로 실제로 존재하지만, 조문 번호가 어긋나거나 개정 전 내용을 말하는 경우가 발견될 수 있습니다.</li>
+<li>판례는 실존하는 것과, 검색되지 않거나 선고일·요지가 다른 것이 섞여 나올 수 있습니다. 아무 문제가 발견되지 않을 수도 있습니다. 둘 다 정상적인 결과입니다.</li>
+<li>인용 목록의 모든 행에서 <code>미확인</code>이 사라지고, 네 가지 상태 중 하나로 바뀝니다.</li>
+<li>인용 5건을 손으로 확인하는 데 보통 15~20분이 걸립니다. 오래 걸리는 것이 정상입니다.</li>
+</ul></section>
+<section class="callout callout-check"><span class="callout-icon" aria-hidden="true">✅</span><h3 id="-체크포인트-1" class="callout-title">체크포인트</h3><ul class="task-list">
+<li class="task-item"><input type="checkbox" id="chk-uv21uz" data-task="uv21uz"><label for="chk-uv21uz">법령은 국가법령정보센터에서, 판례는 대법원 종합법률정보에서 직접 검색해 확인했다. (AI 응답을 다시 읽은 것은 확인으로 치지 않습니다.)</label></li>
+<li class="task-item"><input type="checkbox" id="chk-1e2ld1p" data-task="1e2ld1p"><label for="chk-1e2ld1p"><code>검색 안 됨</code> 또는 <code>원문과 다름</code>이 하나라도 나왔다면, 같은 응답의 다른 주장도 다시 의심하며 재확인했다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-1wt8vo" data-task="1wt8vo"><label for="chk-1wt8vo">확인 과정에서 이 문서에는 실제 사건번호 대신 <code>0000다00000</code> 형식으로만 기록했다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-oggl4r" data-task="oggl4r"><label for="chk-oggl4r">손으로 검증하는 데 걸린 시간을 적어 두었다.</label></li>
+</ul></section>
+<section class="callout callout-trouble"><span class="callout-icon" aria-hidden="true">🔧</span><h3 id="잘-안-될-때-1" class="callout-title">잘 안 될 때</h3><ul>
+<li>사건번호 검색 결과가 너무 많거나 화면 사용법이 낯설다면: 검색창에 사건번호를 붙여넣기 전에 띄어쓰기를 제거하고, 판례 검색 탭이 선택되어 있는지 확인합니다.</li>
+<li>법령 조문 번호가 응답과 다르다면: 법령이 개정되며 조문이 이동했을 수 있습니다. 국가법령정보센터의 연혁 기능으로 개정 이력을 확인하고, 검증표에는 현재 시행 중인 조문 기준으로 적습니다.</li>
+<li>판례 원문이 너무 길어 인용 문장을 찾기 어렵다면: 브라우저의 페이지 내 찾기(<code>Ctrl+F</code>, macOS <code>Cmd+F</code>)로 인용 문장의 핵심 단어를 검색합니다. 문장 전체를 넣으면 조사 하나만 달라도 안 찾아지니, 특징적인 단어 두세 개만 넣습니다.</li>
+<li>사이트가 느리거나 열리지 않는다면: 잠시 뒤 새로고침(<code>F5</code>)합니다. 계속 안 되면 그 행은 <code>확인 불가</code>로 적고 LAB 3에서 korean-law-mcp로 다시 시도합니다.</li>
+<li>모든 인용이 다 정확해서 걸러낼 것이 없다면: 실패가 아닙니다. <code>발견 없음</code>과 함께 어떻게 확인했는지를 기록하는 것이 이 랩의 결과물입니다.</li>
+</ul></section>
+<h2 id="lab-3-korean-law-mcp로-공식-데이터에서-검증하기">LAB 3. korean-law-mcp로 공식 데이터에서 검증하기</h2>
+<ul>
+<li>소요 시간: 약 20분 / 난이도: 보통</li>
+<li>왜 하는가: LAB 2에서 20분 걸린 대조를 몇 초로 줄이면서, 법제처 공식 데이터라는 더 단단한 근거 위에서 판단할 수 있습니다.</li>
+</ul>
+<h3 id="배경-2">배경</h3>
+<p><strong>korean-law-mcp</strong>는 법제처 국가법령정보센터의 공식 데이터를 AI가 직접 조회하게 해 주는 연결입니다. AI가 기억으로 답하는 대신, 실제 조문과 판례 데이터를 그 자리에서 꺼내 옵니다. 오늘 쓸 세 가지는 이렇습니다.</p>
+<div class="table-wrap"><table><thead><tr><th>기능</th><th>하는 일</th><th>검증표에서 채우는 열</th></tr></thead><tbody><tr><td><code>legal_research</code></td><td>쟁점을 주면 관련 법령·판례를 공식 데이터에서 찾아 정리</td><td>출처 문서명, 사건번호, 선고일</td></tr><tr><td><code>verify_citations</code></td><td>인용한 조문·판례가 <strong>실제로 있는지, 내용이 맞는지</strong> 검증</td><td>원문 대조 여부</td></tr><tr><td><code>cite_check</code></td><td>그 판례가 <strong>아직 살아 있는지</strong>(변경·폐기 여부) 확인</td><td>후속 판례 확인 여부, 최신성 판단</td></tr></tbody></table></div>
+<p><code>verify_citations</code>와 <code>cite_check</code>는 <code>legal_analysis</code>라는 도구의 두 가지 모드입니다. 이름을 외울 필요는 없고, 아래 프롬프트처럼 한국어로 요청하면 AI가 알아서 해당 기능을 호출합니다. 설치·인증키 설정은 <a href="../install/korean-law-mcp.html">korean-law-mcp 설치가이드</a>를 따르세요.</p>
+<h3 id="따라-하기-2">따라 하기</h3>
+<p><strong>1) legal_research로 같은 쟁점을 공식 데이터에서 다시 조사합니다.</strong></p>
+<p>새 대화를 열고 아래를 붙여 넣습니다.</p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>AI에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>korean-law 도구를 사용해서 아래 쟁점을 리서치해 주세요.
+도구를 쓰지 않고 기억으로 답하지 마세요.
+
+쟁점: 상가 임차인이 신규 임차인을 주선해 권리금을 회수하려 했으나
+임대인이 계약 체결을 거절한 경우, 임차인의 손해배상 청구 가능 여부
+
+결과를 다음 표로 정리해 주세요.
+| 근거 유형(법령/판례) | 법령명·조문 또는 사건번호 | 시행일·선고일 | 핵심 내용 |
+
+각 행 옆에 어느 도구로 확인한 것인지 함께 적어 주세요.</pre></div></div></div>
+<p>화면에서 이런 변화가 보입니다.</p>
+<ul>
+<li>답이 바로 나오지 않고 몇 초에서 십여 초 동안 <code>도구 사용 중</code> 또는 도구 이름이 적힌 회색 줄이 표시됩니다.</li>
+<li>그 줄을 클릭하면 실제로 주고받은 내용이 펼쳐집니다. 여기에 조문 번호와 판례 번호가 보이면 데이터를 진짜로 가져온 것입니다.</li>
+<li>이 회색 줄이 <strong>전혀 없이</strong> 답만 나왔다면 도구가 실행되지 않은 것입니다. <code>방금 답변은 korean-law 도구를 실제로 호출한 결과인가요? 호출하지 않았다면 지금 호출해서 다시 답해 주세요.</code>라고 이어서 요청합니다.</li>
+</ul>
+<p><strong>2) verify_citations로 LAB 1의 인용을 한꺼번에 검증합니다.</strong></p>
+<p>같은 대화에서 아래를 붙여 넣되, 목록 부분을 LAB 1의 인용 목록으로 바꿉니다. 마지막 두 줄은 일부러 넣은 <strong>가짜 인용</strong>입니다. 도구가 이것을 잡아내는지 보는 것이 목적이니 지우지 마세요.</p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>AI에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>korean-law 도구의 인용 검증 기능으로 아래 인용이 실제로 존재하는지,
+내용이 맞는지 확인해 주세요.
+
+1. (LAB 1에서 AI가 인용한 법령 조문을 여기에 적습니다)
+2. (LAB 1에서 AI가 인용한 판례 사건번호를 여기에 적습니다)
+3. (LAB 1의 나머지 인용을 이어서 적습니다)
+4. 민법 제9999조
+5. 대법원 2019다9999999 판결
+
+각 항목마다 다음을 표로 정리해 주세요.
+| 인용 | 실존 여부 | 실제 조문·판시 내용 요약 | 내가 적은 설명과 일치 여부 |
+
+확인되지 않는 항목은 &quot;존재하지 않음&quot;이라고 분명히 적어 주세요.</pre></div></div></div>
+<p><strong>3) cite_check로 살아 있는 판례인지 확인합니다.</strong></p>
+<p>2번에서 실존이 확인된 판례만 대상으로 합니다.</p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>AI에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>korean-law 도구로 아래 판례들이 지금도 유효한지 확인해 주세요.
+
+- (실존이 확인된 사건번호를 적습니다)
+
+각 판례에 대해 다음을 알려 주세요.
+1. 이후 변경·폐기된 판례인지
+2. 이 판례를 인용하거나 변경한 후속 판례가 있는지
+3. 오늘 기준으로 근거로 써도 되는지 (사용 가능 / 보류 / 폐기)
+
+판단 근거가 된 자료를 함께 적어 주세요.</pre></div></div></div>
+<p><strong>4) LAB 2의 손 검증 결과와 비교합니다.</strong> 인용 목록 표 옆에 <code>도구 검증 결과</code> 열을 하나 더 만들고, 두 결과가 같은지 다른지 적습니다. 다르다면 어느 쪽이 맞는지 브라우저에서 한 번 더 확인합니다.</p>
+<div class="table-wrap"><table><thead><tr><th>번호</th><th>LAB 2 결과 (손 검증)</th><th>LAB 3 결과 (도구 검증)</th><th>일치 여부</th><th>최종 판정</th></tr></thead><tbody><tr><td>1</td><td></td><td></td><td></td><td></td></tr><tr><td>2</td><td></td><td></td><td></td><td></td></tr><tr><td>3</td><td></td><td></td><td></td><td></td></tr><tr><td>4</td><td></td><td></td><td></td><td></td></tr><tr><td>5</td><td></td><td></td><td></td><td></td></tr></tbody></table></div>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><h3 id="예상-결과-2" class="callout-title">예상 결과</h3><ul>
+<li><code>legal_research</code> 결과에는 LAB 1의 일반 응답보다 조문 번호와 시행일이 구체적으로 나옵니다. LAB 1에 없던 법령이 새로 등장하기도 합니다.</li>
+<li><code>verify_citations</code> 결과에서 <strong>민법 제9999조와 대법원 2019다9999999는 <code>존재하지 않음</code>으로 판정</strong>됩니다. 이것이 이 LAB의 핵심 장면입니다 — AI가 형식만 그럴듯하게 지어낸 인용이 공식 데이터 앞에서 즉시 무너집니다.</li>
+<li>LAB 1의 인용 중에도 <code>존재하지 않음</code>이나 <code>내용 불일치</code>가 한두 건 나올 수 있습니다. 전부 실존으로 나올 수도 있고, 둘 다 정상입니다.</li>
+<li>5건 검증에 LAB 2에서 15~20분 걸린 일이 여기서는 1~2분 안에 끝납니다.</li>
+</ul></section>
+<section class="callout callout-check"><span class="callout-icon" aria-hidden="true">✅</span><h3 id="-체크포인트-2" class="callout-title">체크포인트</h3><ul class="task-list">
+<li class="task-item"><input type="checkbox" id="chk-3i74wt" data-task="3i74wt"><label for="chk-3i74wt">세 번의 요청 모두에서 <strong>도구 호출 표시(회색 접힌 줄)를 눈으로 확인</strong>했다. 표시가 없는 답은 도구를 쓰지 않은 답이므로 다시 요청했다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-1v9wim" data-task="1v9wim"><label for="chk-1v9wim">일부러 넣은 <code>민법 제9999조</code>와 <code>대법원 2019다9999999</code>가 <code>존재하지 않음</code>으로 판정됐다. 만약 도구가 이 둘을 실존한다고 답했다면, 도구가 실제로 호출되지 않았다는 강력한 신호이므로 연결 상태를 다시 확인했다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-1ks4u60" data-task="1ks4u60"><label for="chk-1ks4u60">LAB 2의 손 검증 결과와 LAB 3의 도구 결과를 비교하고, 다른 지점은 브라우저 원문으로 한 번 더 확인했다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-e5woza" data-task="e5woza"><label for="chk-e5woza"><code>cite_check</code> 결과를 검증표의 <code>후속 판례 확인 여부</code>와 <code>최신성 판단</code> 열에 옮겨 적었다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-1gk897y" data-task="1gk897y"><label for="chk-1gk897y">인증키를 채팅창에 붙여넣지 않았다.</label></li>
+</ul></section>
+<section class="callout callout-trouble"><span class="callout-icon" aria-hidden="true">🔧</span><h3 id="잘-안-될-때-2" class="callout-title">잘 안 될 때</h3><ul>
+<li><strong>도구 목록이 안 보이거나 <code>연결된 도구 없음</code>이 나올 때</strong>: AI 도구를 완전히 종료했다가 다시 실행합니다. 그래도 안 되면 <a href="../install/korean-law-mcp.html">korean-law-mcp 설치가이드</a>의 연결 확인 절차를 처음부터 다시 밟습니다.</li>
+<li><strong>인증 관련 오류(권한 없음, 키 오류)가 뜰 때</strong>: 인증키가 잘못 등록된 경우입니다. 설치가이드의 인증키 설정 항목을 다시 확인합니다. 오류 메시지 전문을 채팅창에 붙여넣어도 되지만, <strong>키 값 자체는 절대 붙여넣지 않습니다.</strong></li>
+<li><strong>응답이 오래 걸리거나 중간에 멈출 때</strong>: 조회 범위가 넓어서입니다. <code>검색 범위를 최근 10년 대법원 판례로 좁혀 다시 조회해 주세요.</code>처럼 범위를 줄여 다시 요청합니다.</li>
+<li><strong>도구는 호출됐는데 결과가 비어 있을 때</strong>: 검색어가 너무 구체적일 수 있습니다. <code>권리금 회수 방해 손해배상</code>처럼 핵심 단어 두세 개로 줄여 다시 요청합니다. 그래도 비면 <code>검색 결과 없음</code>도 하나의 결과이므로, 해당 주장은 <code>확인 불가</code>로 기록합니다.</li>
+<li><strong>설치 전이라면 (대체 경로)</strong>: LAB 3를 건너뛰지 말고, LAB 2와 같은 방식으로 <code>민법 제9999조</code>와 <code>대법원 2019다9999999</code>를 국가법령정보센터·대법원 종합법률정보에서 직접 검색해 보세요. 검색이 안 되는 화면을 눈으로 확인하는 것까지가 이 LAB의 최소 목표입니다. 그리고 이번 주 안에 설치를 마치세요.</li>
+</ul></section>
+<h2 id="lab-4-교차-검증하고-리서치-검증표-완성하기">LAB 4. 교차 검증하고 리서치 검증표 완성하기</h2>
+<ul>
+<li>소요 시간: 약 15분 / 난이도: 보통</li>
+<li>왜 하는가: 서로 다른 두 답을 겹쳐 보면, 어느 근거가 흔들리는지 표시 없이도 드러납니다.</li>
+</ul>
+<h3 id="배경-3">배경</h3>
+<p>한 번의 응답만 보면 무엇이 흔들리는 근거인지 알기 어렵습니다. 같은 질문을 <strong>완전히 새로운 대화</strong>(또는 두 번째 AI 도구)에 다시 물어 두 응답을 비교하면, 두 응답이 서로 다르게 말하는 지점이 드러납니다. 불일치는 그 자체로 오답 판정이 아니라, 원문 확인이 더 필요하다는 신호입니다. 교차 검증까지 반영해 교재의 리서치 검증표를 완성합니다.</p>
+<h3 id="따라-하기-3">따라 하기</h3>
+<ol>
+<li>AI 도구에서 <strong>새 대화</strong>를 엽니다. 이전 대화의 내용이 이어지지 않는 상태여야 합니다 — 화면에 앞선 대화 기록이 하나도 보이지 않아야 합니다. 다른 AI 도구가 있다면 그것을 사용해도 됩니다.</li>
+<li>LAB 1과 <strong>동일한 프롬프트</strong>를 그대로 붙여 넣고 실행합니다.</li>
+<li><p>두 응답을 나란히 놓고 비교하며, 아래 세 가지 불일치를 찾습니다.</p>
+<ul>
+<li>한쪽에만 인용된 판례</li>
+<li>같은 판례인데 선고일이나 판시 요지가 다르게 적힌 경우</li>
+<li>같은 법령인데 조문 번호나 요건 설명이 다른 경우</li>
+</ul></li>
+<li>불일치가 발견된 항목은 LAB 3의 <code>verify_citations</code> 프롬프트로 어느 쪽이 맞는지(혹은 둘 다 틀렸는지) 확인합니다. 도구를 쓸 수 없다면 LAB 2의 브라우저 방법으로 확인합니다.</li>
+<li>지금까지의 확인 결과를 모아 리서치 검증표를 완성합니다. 열 구성은 교재의 양식을 그대로 사용합니다.</li>
+</ol>
+<div class="table-wrap"><table><thead><tr><th>주장 요지</th><th>출처 문서명</th><th>사건번호</th><th>선고일</th><th>원문 대조 여부</th><th>후속 판례 확인 여부</th><th>최신성 판단</th></tr></thead><tbody><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div>
+<ol>
+<li><p>검증에 실패한 주장은 교재의 원칙대로 처리합니다.</p>
+<ul>
+<li>사건번호가 검색되지 않는다 → 즉시 <code>폐기</code>하고, 같은 응답의 다른 결과도 다시 봅니다.</li>
+<li>인용이 원문과 다르다 → 해당 주장을 반려하고 원문 문장으로 교체합니다.</li>
+<li>후속 판례를 확인하지 못했다 → <code>보류</code>로 표시하고, 확인 전에는 문서에 쓰지 않습니다.</li>
+</ul></li>
+</ol>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><h3 id="예상-결과-3" class="callout-title">예상 결과</h3><ul>
+<li>두 응답은 완전히 같지 않습니다. 인용된 판례의 구성이 다르거나, 같은 판례의 요지가 다르게 요약되는 지점이 한두 곳은 발견되는 것이 보통입니다.</li>
+<li>검증표의 모든 행에서 일곱 개 열이 전부 채워지고, 최신성 판단이 <code>사용 가능</code> / <code>보류</code> / <code>폐기</code> 중 하나로 적힙니다.</li>
+</ul></section>
+<section class="callout callout-check"><span class="callout-icon" aria-hidden="true">✅</span><h3 id="-체크포인트-3" class="callout-title">체크포인트</h3><ul class="task-list">
+<li class="task-item"><input type="checkbox" id="chk-143g9ro" data-task="143g9ro"><label for="chk-143g9ro">두 번째 질문은 이전 대화와 이어지지 않는 새 대화에서 실행했다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-zbf5ts" data-task="zbf5ts"><label for="chk-zbf5ts">두 응답의 불일치 지점을 1개 이상 찾아 원문 또는 korean-law-mcp로 확인했다. (불일치가 전혀 없다면 <code>불일치 없음</code>과 비교 방법을 기록했다.)</label></li>
+<li class="task-item"><input type="checkbox" id="chk-ovblcy" data-task="ovblcy"><label for="chk-ovblcy">검증표에 비어 있는 열이 없다. 한 열이라도 비어 있는 주장은 아직 사용할 수 없는 근거입니다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-1f5p3vb" data-task="1f5p3vb"><label for="chk-1f5p3vb"><code>보류</code>나 <code>폐기</code>를 실패로 지우지 않고 그대로 남겼다. 그것이 검증이 작동했다는 증거입니다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-9qq3m4" data-task="9qq3m4"><label for="chk-9qq3m4">문서에 실제 사건번호와 실제 의뢰인 정보가 들어가지 않았다.</label></li>
+</ul></section>
+<section class="callout callout-trouble"><span class="callout-icon" aria-hidden="true">🔧</span><h3 id="잘-안-될-때-3" class="callout-title">잘 안 될 때</h3><ul>
+<li>두 응답이 거의 똑같다면: 반복된 답변은 정확성의 증거가 아닙니다. 그중 원문 대조가 끝나지 않은 항목을 골라 LAB 2·3의 절차로 확인을 이어갑니다.</li>
+<li>후속 판례를 어떻게 확인해야 할지 막막하다면: LAB 3의 <code>cite_check</code> 프롬프트를 그대로 씁니다. 도구가 없다면 대법원 종합법률정보에서 해당 판례를 연 뒤 관련 판례 정보를 확인합니다. 시간 안에 확인이 어렵다면 <code>보류</code>로 적는 것이 정답입니다.</li>
+<li>시간이 부족하다면: 5개 주장 전부 대신 3개까지만 검증표를 완성하고, 나머지 행에는 <code>보류</code>와 그 이유를 적습니다. 빈칸으로 두지만 않으면 됩니다.</li>
+</ul></section>
+<h2 id="더-해보기--빠르게-끝낸-분을-위한-심화-미션">더 해보기 — 빠르게 끝낸 분을 위한 심화 미션</h2>
+<p>기본 랩을 끝내고도 시간이 남는다면, 아래 미션 중 하나를 골라 도전해 보세요. 순서는 상관없고, 하나만 해도 충분합니다.</p>
+<h3 id="미션-1-일부러-함정-질문-만들기--환각을-유도해-보기">미션 1. 일부러 함정 질문 만들기 — 환각을 유도해 보기</h3>
+<p>이번에는 반대로, AI가 존재하지 않는 판례를 만들어내도록 유도하는 질문을 직접 설계해 봅니다. 예를 들어 매우 좁고 특수한 가상 쟁점을 제시하며 <code>이 쟁점에 관한 대법원 판례를 사건번호와 함께 3건 알려 주세요.</code>처럼 판례가 반드시 있다는 전제를 깔고 요구해 보세요. 응답에 나온 사건번호를 LAB 3의 <code>verify_citations</code>로 한 번에 대조하여 환각인지 확인합니다. 그리고 왜 그 질문이 환각을 부르는지 스스로 분석해 적어 봅니다 — 존재를 전제한 요구, 지나치게 좁은 쟁점, 개수 지정 같은 요소가 어떻게 작용했는지 살펴보세요. 이 미션은 환각이 드문 고장이 아니라 질문 설계에 따라 언제든 나타날 수 있는 상시 위험임을 몸으로 확인하는 훈련입니다.</p>
+<ul>
+<li>스스로 점검: 내가 설계한 질문이 환각을 부른 이유를 한 문장으로 설명할 수 있다.</li>
+</ul>
+<h3 id="미션-2-다른-법-분야에서-검증표-전-과정-반복하기--시간-기록">미션 2. 다른 법 분야에서 검증표 전 과정 반복하기 — 시간 기록</h3>
+<p>LAB 1~4에서 다룬 쟁점과 다른 법 분야로 가상의 의뢰 상황을 새로 만들어, 검증표 전 과정을 이 문서를 보지 않고 반복해 봅니다. 통상임금, 부당해고, 전세보증금 반환처럼 일반적인 주제면 충분하며, 이번에도 실제 사건 정보는 넣지 않습니다. 시작 전에 시각을 적어 두고, 검증표의 일곱 개 열을 모두 채운 뒤 소요 시간을 기록합니다. 첫 번째 시도보다 얼마나 빨라졌는지, 어느 단계에서 가장 시간이 걸렸는지 비교해 보세요. 검증이 손에 익을수록 빨라진다는 것을 스스로 확인하는 것이 이 미션의 목표입니다.</p>
+<ul>
+<li>스스로 점검: 도움 없이 완성한 검증표에 비어 있는 열이 없고, 소요 시간을 기록했다.</li>
+</ul>
+<h3 id="미션-3-시점-민감성-실험--시점-확인-질문-목록-만들기">미션 3. 시점 민감성 실험 — &quot;시점 확인 질문&quot; 목록 만들기</h3>
+<p>최근 개정된 법령과 관련된 가상 쟁점으로 질문을 만들어, AI 응답이 어느 시점의 법령 상태를 말하는지 실험해 봅니다. 국가법령정보센터에서 최근 개정·시행된 조문을 하나 찾아 두고, AI에게 그 조문의 내용을 물어본 뒤 응답이 현재 시행 중인 내용인지 개정 전 내용인지 원문과 대조합니다. korean-law-mcp가 있다면 <code>이 조문의 현재 시행 중인 내용을 도구로 조회해 주세요.</code>로 공식 원문을 바로 불러와 비교하면 훨씬 빠릅니다. 교재에서 배운 대로 최신성은 수집한 시점이 아니라 사용하는 시점 기준이며, 모델의 학습 시점과 서비스의 검색 시점은 다를 수 있습니다. 실험 결과를 바탕으로, 앞으로 리서치 때마다 AI에게 던질 &quot;시점 확인 질문&quot; 목록을 3개 이상 만들어 보세요. 예를 들어 <code>이 답변은 언제 시점의 법령을 기준으로 하나요?</code>, <code>이 조문의 최근 개정·시행일을 알고 있나요?</code> 같은 질문입니다.</p>
+<ul>
+<li>스스로 점검: 내 시점 확인 질문 목록만으로, 다음 리서치에서 최신성 판단(<code>사용 가능</code>/<code>보류</code>/<code>폐기</code>)의 근거를 만들 수 있다.</li>
+</ul>
+<h3 id="미션-4-나만의-인용-검증-프롬프트-저장하기">미션 4. 나만의 인용 검증 프롬프트 저장하기</h3>
+<p>LAB 3에서 쓴 세 개의 프롬프트를 다듬어, 앞으로 매번 복사해 쓸 수 있는 나만의 검증 프롬프트로 만들어 둡니다. <code>C:\Users\이름\바탕 화면\AX실습\검증프롬프트.txt</code> 처럼 찾기 쉬운 곳에 저장하세요. 자주 다루는 법 분야의 용어를 넣고, 결과 표의 열 이름을 본인 검증표와 똑같이 맞춰 두면 옮겨 적는 시간이 사라집니다. 저장한 프롬프트로 새 쟁점 하나를 처음부터 끝까지 검증해 보고, 손볼 곳을 한 번 더 고칩니다.</p>
+<ul>
+<li>스스로 점검: 저장한 프롬프트를 복사·붙여넣기만 해서, 검증표의 세 개 열(<code>원문 대조</code>·<code>후속 판례</code>·<code>최신성</code>)을 채울 수 있다.</li>
+</ul>
+<h2 id="마무리">마무리</h2>
+<h3 id="결과물-점검표">결과물 점검표</h3>
+<div class="table-wrap"><table><thead><tr><th>점검 항목</th><th>완료 여부</th></tr></thead><tbody><tr><td>리서치 검증표 1부 (주장 5개, 일곱 개 열 모두 기재)</td><td></td></tr><tr><td>원문 대조를 국가법령정보센터·대법원 종합법률정보에서 직접 수행한 기록</td><td></td></tr><tr><td>korean-law-mcp <code>verify_citations</code>로 가짜 인용을 걸러낸 기록</td><td></td></tr><tr><td><code>cite_check</code>로 확인한 판례 유효성과 최신성 판단</td><td></td></tr><tr><td>환각·불일치 발견 내역 또는 <code>발견 없음</code>과 확인 방법</td><td></td></tr><tr><td>교차 검증에서 찾은 불일치 지점과 처리 결과</td><td></td></tr><tr><td><code>폐기</code>·<code>보류</code> 판정이 지워지지 않고 남아 있음</td><td></td></tr><tr><td>실제 사건 정보와 실제 사건번호가 문서에 없음</td><td></td></tr><tr><td>인증키가 문서·채팅 기록에 남아 있지 않음</td><td></td></tr></tbody></table></div>
+<p>오늘 성과의 기준은 AI가 얼마나 많이 찾았는지가 아니라, 여러분이 무엇을 걸러냈는지입니다. 그리고 도구는 검증을 빠르게 해 줄 뿐, 검증할지 말지를 정하는 것은 끝까지 사람입니다.</p>
+<h3 id="다음-차시-연결">다음 차시 연결</h3>
+<p>5차시에서는 오늘 만든 검증 습관을 문서 작업으로 확장합니다. 판례·계약서를 대량 병렬 분석하고, 템플릿·레드라인·승인 관문을 연결한 문서 작성 워크플로를 만듭니다. 오늘 검증표에서 <code>사용 가능</code> 판정을 받은 근거만이 5차시 초안의 재료가 됩니다. 계약서 검토 중 인용된 법령을 확인해야 할 때도 오늘 쓴 korean-law-mcp를 그대로 사용합니다. 5차시 병렬 분석에 사용할 비식별 문서 묶음을 미리 준비해 와 주세요.</p>
+<hr>
+    </article>
+<nav class="pager" aria-label="페이지 이동"><a class="pager-prev" href="ch3.html"><span class="dir">← 이전</span><strong>3차시 · 법률업무 지시서 만들기</strong></a><a class="pager-next" href="ch5.html"><span class="dir">다음 →</span><strong>5차시 · 초안에서 검토까지: 판례·계약서 병렬 분석</strong></a></nav>
+  </main>
+  <aside class="side" aria-label="과정 내비게이션">
+  <details class="side-box" open>
+    <summary>📍 과정 지도 — 다른 차시로 이동</summary>
+    <h4>과정 지도</h4>
+    <div class="map-group">
+      <a class="map-link" href="../chapters/ch1.html"><b>1</b>나의 AX 업무 지도</a>
+      <a class="map-link" href="../chapters/ch2.html"><b>2</b>에이전트 도구 설치와 연동</a>
+      <a class="map-link" href="../chapters/ch3.html"><b>3</b>법률업무 지시서 만들기</a>
+      <a class="map-link on" href="../chapters/ch4.html"><b>4</b>근거를 찾고 확인하기: 리서치 자동화</a>
+      <a class="map-link" href="../chapters/ch5.html"><b>5</b>초안에서 검토까지: 판례·계약서 병렬 분석</a>
+      <a class="map-link" href="../chapters/ch6.html"><b>6</b>의뢰인과 안전하게 소통하기</a>
+      <a class="map-link" href="../chapters/ch7.html"><b>7</b>반복 업무를 연결해 실제 업무로</a>
+    </div>
+    <h4 class="mt">설치가이드</h4>
+    <div class="map-group">
+      <a class="map-link" href="../install/setup-windows.html">공통 준비 (Windows)</a>
+      <a class="map-link" href="../install/antigravity.html">안티그래비티</a>
+      <a class="map-link" href="../install/hermes.html">헤르메스</a>
+      <a class="map-link" href="../install/pi.html">파이 (Pi)</a>
+      <a class="map-link" href="../install/codex.html">Codex CLI</a>
+      <a class="map-link" href="../install/korean-law-mcp.html">korean-law-mcp</a>
+    </div>
+    <a class="map-home" href="../index.html">↩ 과정 홈 · 진행 상황</a>
+  </details>
+  <details class="side-box side-toc" open>
+    <summary>🔖 이 페이지 목차</summary>
+    <h4>이 페이지 목차</h4>
+    <ul class="toc-list">
+<li class="toc-l2"><a href="#이-차시에서-준비할-것">이 차시에서 준비할 것</a></li>
+<li class="toc-l1"><a href="#4차시-실습지-리서치-검증표-만들기">4차시 실습지: 리서치 검증표 만들기</a></li>
+<li class="toc-l2"><a href="#실습-목표">실습 목표</a></li>
+<li class="toc-l2"><a href="#실습-규칙">실습 규칙</a></li>
+<li class="toc-l2"><a href="#1단계-리서치-질문-정하기">1단계. 리서치 질문 정하기</a></li>
+<li class="toc-l2"><a href="#2단계-파이pi로-리서치-스킬-실행하기">2단계. 파이(Pi)로 리서치 스킬 실행하기</a></li>
+<li class="toc-l2"><a href="#3단계-결과-분해하기">3단계. 결과 분해하기</a></li>
+<li class="toc-l2"><a href="#4단계-리서치-검증표-완성하기">4단계. 리서치 검증표 완성하기</a></li>
+<li class="toc-l2"><a href="#5단계-환각-사례-기록하기">5단계. 환각 사례 기록하기</a></li>
+<li class="toc-l2"><a href="#동료-검토">동료 검토</a></li>
+<li class="toc-l2"><a href="#수업-종료-전-제출">수업 종료 전 제출</a></li>
+<li class="toc-l1"><a href="#4차시-실전-실습-랩-ai-리서치-결과-원문으로-검증하기">4차시 실전 실습 랩: AI 리서치 결과, 원문으로 검증하기</a></li>
+<li class="toc-l2"><a href="#실습-개요">실습 개요</a></li>
+<li class="toc-l2"><a href="#실습-규칙-1">실습 규칙</a></li>
+<li class="toc-l2"><a href="#시작-전-점검">시작 전 점검</a></li>
+<li class="toc-l2"><a href="#lab-1-ai-리서치-시키고-인용-목록-만들기">LAB 1. AI 리서치 시키고 인용 목록 만들기</a></li>
+<li class="toc-l2"><a href="#lab-2-공식-원문과-대조하기--손으로-환각-찾아내기">LAB 2. 공식 원문과 대조하기 — 손으로 환각 찾아내기</a></li>
+<li class="toc-l2"><a href="#lab-3-korean-law-mcp로-공식-데이터에서-검증하기">LAB 3. korean-law-mcp로 공식 데이터에서 검증하기</a></li>
+<li class="toc-l2"><a href="#lab-4-교차-검증하고-리서치-검증표-완성하기">LAB 4. 교차 검증하고 리서치 검증표 완성하기</a></li>
+<li class="toc-l2"><a href="#더-해보기--빠르게-끝낸-분을-위한-심화-미션">더 해보기 — 빠르게 끝낸 분을 위한 심화 미션</a></li>
+<li class="toc-l2"><a href="#마무리">마무리</a></li>
+</ul>
+  </details>
+  </aside>
+</div>
+
+<footer><div class="wrap">
+  <div>변호사 AX 나노디그리 · <span class="hand-note-inline">인터넷이 끊겨도 열립니다. 인쇄해서 쓰셔도 됩니다.</span></div>
+  <div><a href="../index.html">과정 홈</a> · 진행 상황은 이 브라우저에만 저장됩니다</div>
+</div></footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

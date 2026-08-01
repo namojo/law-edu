@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>6차시. 의뢰인과 안전하게 소통하기 — 변호사 AX 나노디그리</title>
+<meta name="description" content="의뢰인 접점 업무 하나를 골라, 자동 초안의 범위와 입력 전 마스킹 규칙, 발송 전 승인 절차를 갖춘 안전한 소통 시나리오 1건을 완성합니다.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect x=%228%22 y=%228%22 width=%2284%22 height=%2284%22 rx=%2220%22 fill=%22%23ffe455%22/%3E%3Ctext x=%2250%22 y=%2270%22 font-size=%2256%22 text-anchor=%22middle%22 font-family=%22monospace%22 fill=%22%2322242a%22%3E%C2%A7%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="ch6" data-tasks="19">
+<a class="skip-link" href="#main">본문으로 건너뛰기</a>
+<header class="topnav"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="dot"></span><span class="brand-full">변호사 AX 나노디그리</span><span class="brand-short">AX 나노디그리</span></a>
+  <nav aria-label="주요 메뉴">
+    <a href="../index.html">홈</a>
+    <a href="../index.html#chapters" aria-current="page">교육과정</a>
+    <a href="../index.html#install">설치가이드</a>
+  </nav>
+</div></header>
+
+<div class="wrap page-head">
+  <div class="eyebrow">6차시 · 실습지 + 실전 랩</div>
+  <h1>6차시. 의뢰인과 안전하게 소통하기</h1>
+  <div class="meta"><span class="badge">6 / 7</span><span>⏱ 총 45~60분</span><span>📄 여섯 항목을 갖춘 &quot;안전한 소통 시나리오&quot; 1부</span></div>
+</div>
+
+<div class="wrap layout">
+  <main id="main" class="main-col">
+<div class="progress-panel" data-progress-bar hidden>
+  <div class="progress-head"><span class="progress-label">진행 체크리스트</span>
+  <span data-progress-text>0 / 19</span></div>
+  <div class="progress-track"><div class="progress-fill" data-progress-fill></div></div>
+  <button type="button" class="reset-btn" data-reset>이 페이지 체크 초기화</button>
+</div>
+    <article class="prose">
+
+<h2 id="이-차시에서-준비할-것">이 차시에서 준비할 것</h2>
+<p>시작 전에 아래 네 가지를 확인하시기 바랍니다. 설치가 필요한 항목은 링크의 설치가이드를 먼저 보고 오시면 됩니다. <strong>설치가 안 되어 있어도 실습지(앞부분)는 종이와 펜만으로 진행할 수 있습니다.</strong></p>
+<div class="table-wrap"><table><thead><tr><th>준비물</th><th>30초 확인법</th><th>없거나 안 되면</th></tr></thead><tbody><tr><td>실습 폴더와 글 쓰는 프로그램</td><td>바탕 화면에 <code>AX실습</code> 폴더가 보이고, 그 안에 새 문서를 만들 수 있다</td><td><a href="../install/setup-windows.html">공통 준비 설치가이드</a></td></tr><tr><td>AI 채팅 도구 1개</td><td>도구를 열었을 때 글을 입력하는 칸이 화면 아래에 보인다</td><td><a href="../install/antigravity.html">안티그래비티 설치가이드</a> 또는 <a href="../install/pi.html">파이(Pi) 설치가이드</a></td></tr><tr><td>헤르메스(Hermes) — 4단계 알림 설계에만 사용</td><td>2차시에 연동해 둔 상태. 미설치여도 이번 차시는 &quot;설계&quot;만 하므로 진행 가능</td><td><a href="../install/hermes.html">헤르메스 설치가이드</a></td></tr><tr><td>(선택) korean-law-mcp</td><td>회신 초안에 법령 조문이 등장할 때 원문 확인용</td><td><a href="../chapters/ch4.html">4차시 「LAB 3. korean-law-mcp로 공식 데이터에서 검증하기」</a></td></tr></tbody></table></div>
+<p><strong>용어 먼저 정리합니다.</strong></p>
+<ul>
+<li><strong>AI 채팅 도구</strong>: 사람이 글로 질문하면 AI가 글로 답하는 프로그램입니다. 이 차시에서는 안티그래비티, 파이 중 편한 것 하나를 쓰면 됩니다.</li>
+<li><strong>프롬프트</strong>(prompt): AI에게 주는 지시문입니다. 이 문서의 회색 코드 블록에 들어 있는 글이 프롬프트이며, 그대로 복사해서 붙여 넣으면 됩니다.</li>
+<li><strong>마스킹</strong>(masking) 또는 <strong>비식별화</strong>: 문서에서 누구인지 알아볼 수 있는 정보를 지우거나 역할명으로 바꾸는 작업입니다. 예: <code>김○○</code> → <code>의뢰인(임차인)</code>.</li>
+<li><strong>재식별</strong>: 이름을 지웠는데도 남은 정보의 조합(지역 + 직업 + 사건 유형 등)만으로 누구인지 다시 알아맞힐 수 있게 되는 것을 말합니다.</li>
+</ul>
+<p><strong>안전한 소통의 5원칙</strong> (이 차시 내내 기준이 됩니다)</p>
+<ol>
+<li><strong>입력 전 마스킹</strong> — AI에 넣기 전에 사람이 먼저 지웁니다.</li>
+<li><strong>처리 목적 분리</strong> — 초안 작성에 필요한 정보만 넣습니다.</li>
+<li><strong>최소 수집</strong> — 빼도 초안을 만들 수 있으면 넣지 않습니다.</li>
+<li><strong>자동 발송 금지</strong> — AI는 초안 생성까지만 합니다.</li>
+<li><strong>발송 전 사람 승인</strong> — 내용이 사실인가, 수신자가 맞는가, 정보가 필요한 범위를 넘지 않는가를 사람이 확인합니다.</li>
+</ol>
+<p><strong>이전 차시에서 가져올 것</strong></p>
+<ul>
+<li>5차시에서 정한 승인 관문 원칙 — &quot;밖으로 나가는 것은 반드시 사람이 승인한다&quot;.</li>
+<li>미리 생각해 오기로 한 &quot;내 업무에서 의뢰인과 닿는 소통 장면 하나&quot;.</li>
+</ul>
+<p><strong>복사·붙여넣기 방법</strong> (이 차시 내내 씁니다)</p>
+<ul>
+<li>코드 블록의 글을 마우스로 끌어 선택 → <code>Ctrl+C</code>(복사) → AI 입력창에서 <code>Ctrl+V</code>(붙여넣기).</li>
+<li>(macOS: <code>Cmd+C</code> / <code>Cmd+V</code>)</li>
+</ul>
+<hr>
+<div class="sec-banner" id="6차시-실습지-의뢰인과-안전하게-소통하기"><span class="banner-kicker">WORKBOOK — 손으로 채우는 실습지</span><h2 class="banner-title">6차시 실습지: 의뢰인과 안전하게 소통하기</h2></div>
+<p>이 실습지는 손으로 생각을 정리하는 작성지입니다. 인쇄해서 펜으로 채우거나, 이 파일을 복사해 컴퓨터에서 채워도 됩니다. 도구는 필요하지 않습니다.</p>
+<h2 id="실습-목표">실습 목표</h2>
+<p>의뢰인 접점 업무 하나를 골라, 자동 초안의 범위와 입력 전 마스킹 규칙, 발송 전 승인 절차를 갖춘 안전한 소통 시나리오 1건을 완성합니다.</p>
+<section class="human-check"><span class="callout-icon" aria-hidden="true">✋</span><h2 id="실습-규칙" class="callout-title">실습 규칙</h2><ul>
+<li>실제 의뢰인의 이름과 연락처를 적지 않습니다. <code>의뢰인 A</code>, <code>상대방 B</code> 같은 역할명을 사용합니다.</li>
+<li>실제 사건이 아닌 합성 시나리오로만 실습합니다. <strong>합성 시나리오</strong>란 실제 사건을 본뜨되 이름·금액·날짜를 전부 바꾼 가상의 사례를 말합니다.</li>
+<li>자동 발송은 실습하지 않습니다. 오늘 만드는 것은 초안과 설계까지입니다.</li>
+<li>애매한 정보는 더 안전한 쪽으로 분류합니다. 빼도 초안을 만들 수 있는 정보는 입력하지 않습니다.</li>
+</ul></section>
+<h2 id="1단계-의뢰인-접점-고르기">1단계. 의뢰인 접점 고르기</h2>
+<p>네 가지 접점 중 자동 초안을 먼저 시험할 접점 하나를 고르세요. <strong>접점</strong>이란 의뢰인과 말이나 글이 오가는 장면을 뜻합니다.</p>
+<p><code>상담 접수 안내 / 진행 상황 안내 / 자료 요청 / 후속 연락</code></p>
+<ul>
+<li>선택한 접점:</li>
+<li>지금은 어떻게 처리하고 있나요?</li>
+<li>현재 방식에서 가장 불편한 점:</li>
+<li>이 연락은 얼마나 자주 반복되나요?</li>
+</ul>
+<p>예: <code>진행 상황 안내</code> → <code>단계가 바뀔 때마다 직접 문자를 작성한다</code> → <code>매번 같은 설명을 새로 쓰는 것이 불편하다</code></p>
+<blockquote><p><strong>고르는 요령</strong>: 자주 반복되고, 내용이 정형화되어 있고, 실수해도 되돌리기 쉬운 접점부터 고릅니다. 수임료 협의처럼 오해가 곧 분쟁이 되는 접점은 나중에 다룹니다.</p></blockquote>
+<h2 id="2단계-정보-분류하기">2단계. 정보 분류하기</h2>
+<p>선택한 접점에서 오가는 정보를 나열하고, 각 정보를 분류하세요. 판단이 애매하면 <code>AI 입력 가능 여부</code>는 <code>아니오</code>로 적습니다.</p>
+<div class="table-wrap"><table><thead><tr><th>정보 항목</th><th>개인정보 여부</th><th>비밀유지 대상 여부</th><th>AI 입력 가능 여부</th></tr></thead><tbody><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr></tbody></table></div>
+<p>예: <code>의뢰인 이름</code> → <code>예</code> → <code>예</code> → <code>아니오(역할명으로 대체)</code></p>
+<blockquote><p><strong>채우기 어려우면</strong>: 그 접점에서 주고받는 문자·이메일을 머릿속으로 한 통 떠올리고, 거기 등장하는 명사를 순서대로 적으면 됩니다. 이름, 연락처, 사건번호, 금액, 기일, 상대방, 서류명 정도가 보통 5~7개 나옵니다.</p></blockquote>
+<h3 id="확인-질문">확인 질문</h3>
+<ul>
+<li>이름을 지워도 남은 정보의 조합만으로 누구인지 드러나지 않나요?</li>
+<li><code>아니오</code>로 분류한 항목을 빼도 초안을 만들 수 있나요? 만들 수 있다면 그대로 뺍니다.</li>
+</ul>
+<h2 id="3단계-마스킹-규칙-만들기">3단계. 마스킹 규칙 만들기</h2>
+<p>합성 예시 문장을 만들어, AI에 입력하기 전의 원문을 역할명과 일반화된 표현으로 바꿔 보세요.</p>
+<div class="table-wrap"><table><thead><tr><th>원문 문장(합성 예시)</th><th>마스킹 후 문장</th></tr></thead><tbody><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr></tbody></table></div>
+<p>예: <code>김○○ 님의 보증금 3,000만 원 반환 사건, 다음 주 조정기일 안내</code> → <code>의뢰인 A(임차인)의 임대차 사건, 다음 절차 기일 안내</code></p>
+<ul>
+<li>마스킹 후에도 재식별될 수 있는 정보가 남아 있나요? <code>있다 / 없다</code></li>
+<li>실제 이름과 연락처는 누가, 어느 단계에서 채워 넣나요?</li>
+</ul>
+<h2 id="4단계-메신저-알림-범위-정하기">4단계. 메신저 알림 범위 정하기</h2>
+<p>2차시에 연동한 헤르메스(Hermes) 에이전트가 초안 완성을 알릴 때 메신저로 보낼 문구를 떠오르는 대로 먼저 쓰고, 새면 안 되는 정보를 지운 문구로 고쳐 두 문구를 비교하세요.</p>
+<blockquote><p><strong>왜 알림 문구까지 신경 쓰나요</strong>: 메신저 알림은 잠금 화면에도 뜨고, 회의 중 화면 공유에도 뜹니다. 문서는 잘 지켜도 알림 한 줄로 사건이 새는 일이 실제로 일어납니다.</p></blockquote>
+<ul>
+<li>고치기 전 알림 문구(떠오르는 대로):</li>
+</ul>
+<blockquote><hr></blockquote>
+<ul>
+<li>고친 후 알림 문구(작업 종류, 내부 관리 코드, 승인 요청 사실만):</li>
+</ul>
+<blockquote><hr></blockquote>
+<p>예: <code>김가상 님 보증금 3,000만 원 사건 안내문 초안 완료</code> → <code>[A-3] 안내문 초안 1건 완료, 승인 요청</code></p>
+<ul>
+<li>지운 정보와 지운 이유:</li>
+</ul>
+<h3 id="확인-질문-1">확인 질문</h3>
+<ul class="task-list">
+<li class="task-item"><input type="checkbox" id="chk-uokw32" data-task="uokw32"><label for="chk-uokw32">알림에 의뢰인 이름, 금액, 구체적 사건 내용이 없다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-vwmi0k" data-task="vwmi0k"><label for="chk-vwmi0k">상세 내용은 접근이 통제된 업무 시스템에서만 확인하도록 되어 있다.</label></li>
+</ul>
+<h2 id="5단계-안전한-소통-시나리오-완성하기">5단계. 안전한 소통 시나리오 완성하기</h2>
+<p>선택한 접점에 대해 여섯 항목을 채우세요. 각 항목의 뜻은 아래와 같습니다.</p>
+<ul>
+<li><strong>트리거</strong>: 이 흐름이 시작되는 신호 (예: 의뢰인 문의 접수, 사건 단계 변경).</li>
+<li><strong>자동 초안 범위</strong>: AI가 어디까지 만들어도 되는지의 경계 (초안 생성까지).</li>
+<li><strong>마스킹 규칙</strong>: AI에 넣기 전에 무엇을 무엇으로 바꿀지.</li>
+<li><strong>승인자</strong>: 발송 버튼을 누를 권한이 있는 사람.</li>
+<li><strong>발송 채널</strong>: 문자, 이메일, 업무 시스템 중 어디로 보내는지.</li>
+<li><strong>기록 방법</strong>: 승인과 발송 사실을 어디에 남기는지.</li>
+</ul>
+<div class="table-wrap"><table><thead><tr><th>항목</th><th>설계 내용</th></tr></thead><tbody><tr><td>트리거</td><td></td></tr><tr><td>자동 초안 범위</td><td></td></tr><tr><td>마스킹 규칙</td><td></td></tr><tr><td>승인자</td><td></td></tr><tr><td>발송 채널</td><td></td></tr><tr><td>기록 방법</td><td></td></tr></tbody></table></div>
+<p>아래 문장을 완성하세요.</p>
+<blockquote><p>________가 발생하면 AI가 ________까지만 초안을 만들고,<br><br>나는 발송 전에 내용이 사실인지, 수신자가 맞는지, 정보가 필요한 범위를 넘지 않는지 확인하겠습니다.<br><br>발송은 ________의 승인 후에만 하고, 승인과 발송 내역은 ________에 기록하겠습니다.</p></blockquote>
+<h2 id="동료-검토">동료 검토</h2>
+<p>짝과 실습지를 바꾸어 아래 세 가지만 확인합니다.</p>
+<ul class="task-list">
+<li class="task-item"><input type="checkbox" id="chk-fju7kc" data-task="fju7kc"><label for="chk-fju7kc">자동 초안 범위와 사람이 채우는 부분이 구분되어 있다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-42hnkz" data-task="42hnkz"><label for="chk-42hnkz">마스킹 규칙을 적용해도 재식별될 수 있는 정보가 남지 않는다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-pdvd5a" data-task="pdvd5a"><label for="chk-pdvd5a">자동 발송 없이 승인자가 발송 전에 확인하는 단계가 있다.</label></li>
+</ul>
+<h3 id="동료의-한-문장-제안">동료의 한 문장 제안</h3>
+<p><code>이 시나리오에서는 ________ 정보가 새어 나갈 수 있으니 ________로 바꾸면 안전하겠습니다.</code></p>
+<h2 id="수업-종료-전-제출">수업 종료 전 제출</h2>
+<ul>
+<li>안전한 소통 시나리오 1건(5단계 표 완성본)</li>
+<li>AI에 입력하기 전 반드시 마스킹하거나 뺄 정보 1개</li>
+<li>메신저 알림 문구에서 앞으로 제외하기로 한 것 1개</li>
+<li>다음 차시에서 계획할 30일 파일럿의 후보 업무 1개</li>
+</ul>
+<hr>
+<div class="sec-banner" id="6차시-실전-실습-랩-의뢰인과-안전하게-소통하기"><span class="banner-kicker">HANDS-ON — AI를 켜고 함께하는 실전 랩</span><h2 class="banner-title">6차시 실전 실습 랩: 의뢰인과 안전하게 소통하기</h2></div>
+<ul>
+<li>과정: 변호사 AX 나노디그리 (6차시 / 총 7차시)</li>
+<li>형태: AI 도구를 직접 조작하는 핸즈온 실습</li>
+</ul>
+<h2 id="실습-개요">실습 개요</h2>
+<ul>
+<li><strong>목표</strong>: AI로 의뢰인 회신 초안을 만들고, 입력 전 마스킹을 직접 실행하고, 자주 오는 문의 하나에 대한 표준 응대 시나리오를 완성합니다. 이 차시의 5원칙(입력 전 마스킹, 처리 목적 분리, 최소 수집, 자동 발송 금지, 발송 전 사람 승인)을 손으로 확인하는 시간입니다.</li>
+<li><strong>소요 시간</strong>: 총 45~60분 (LAB 1: 15분, LAB 2: 15분, LAB 3: 15분, 마무리 점검: 5~15분)</li>
+<li><strong>준비물</strong>: 이 차시 맨 앞의 &quot;이 차시에서 준비할 것&quot; 표를 참고하시기 바랍니다. 핵심은 AI 채팅 도구 1개, 결과를 적을 문서 1개입니다.</li>
+<li><strong>완성 결과물</strong>: 여섯 항목(트리거, 자동 초안 범위, 마스킹 규칙, 승인자, 발송 채널, 기록 방법)을 갖춘 &quot;안전한 소통 시나리오&quot; 1부</li>
+</ul>
+<p>이 랩은 수업 진도와 무관하게 혼자서도 진행할 수 있는 복습·자율 실습 자료입니다. 기본 랩 세 개를 마치고 여유가 있으면, 마무리 전의 &quot;더 해보기&quot; 섹션에서 심화 미션에 도전해 보시기 바랍니다.</p>
+<p>세 랩은 모두 이 차시에서 정리한 안전한 소통의 5원칙과 비밀유지의무 기준을 실전 상황에서 되짚는 훈련입니다. 원칙을 외우는 데 그치지 않고, 실제 손으로 조작하는 순간에도 그 기준이 지켜지는지 스스로 확인하는 것이 목적입니다.</p>
+<section class="human-check"><span class="callout-icon" aria-hidden="true">✋</span><h2 id="실습-규칙-1" class="callout-title">실습 규칙</h2><ul>
+<li><strong>실제 의뢰인 정보를 절대 입력하지 않습니다.</strong> 이 랩에서 다루는 이름, 연락처, 사건 내용은 모두 랩이 제공하는 가상 정보입니다.</li>
+<li>가상 의뢰인·가상 사건으로만 실습합니다. 실제 사건이 떠오르더라도, 그 내용을 AI 입력창에 옮기지 않습니다.</li>
+<li>자동 발송은 실습하지 않습니다. 오늘 만드는 것은 초안과 설계까지입니다.</li>
+<li>판단이 애매한 정보는 더 안전한 쪽으로 분류합니다. 빼도 초안을 만들 수 있는 정보는 입력하지 않습니다.</li>
+</ul></section>
+<h2 id="시작-전-점검">시작 전 점검</h2>
+<p>아래 네 가지를 순서대로 확인하고 네모 칸을 채우시기 바랍니다.</p>
+<ul class="task-list">
+<li class="task-item"><input type="checkbox" id="chk-sdfjc6" data-task="sdfjc6"><label for="chk-sdfjc6"><p><strong>AI 도구 로그인과 학습 활용 끄기</strong>: AI 도구에 업무용(또는 실습용) 계정으로 로그인했고, 설정 화면에서 입력 내용의 모델 학습 활용이 꺼져 있는지 확인했다.</p>
+<ul>
+<li>찾는 요령은 1차시 「준비 3. 대화를 학습에 쓰지 않도록 설정 찾기」와 같습니다. 프로필 아이콘 → <code>설정</code>(Settings) → 왼쪽 항목 중 <code>데이터</code>·<code>개인정보</code>·<code>Privacy</code>가 들어간 것 → &quot;모델 학습에 사용&quot;, &quot;Improve the model&quot; 같은 문구의 스위치를 <strong>끔</strong>으로 바꿉니다.</li>
+<li>안티그래비티는 <a href="../install/antigravity.html">안티그래비티 설치가이드</a>의 &quot;5-3. 첫 실행 설정 화면 넘기기&quot;에서 안내한 데이터 수집 항목을 설정 패널에서 끄면 됩니다.</li>
+<li>5분을 찾아도 항목이 없으면 실습을 멈추지 말고 결과 문서에 <code>학습 활용: 미확인</code>이라고 적은 뒤 진행합니다. 이 랩은 처음부터 끝까지 가상 정보만 입력하므로 미확인 상태로도 안전합니다.</li>
+</ul></label></li>
+<li class="task-item"><input type="checkbox" id="chk-dk30k2" data-task="dk30k2"><label for="chk-dk30k2"><strong>화면 정리</strong>: 지금 열려 있는 창에 실제 의뢰인 자료(이메일, 문서, 메신저)가 없다. 열려 있다면 닫습니다. 실습 중 잘못 복사해 붙여 넣는 사고가 여기서 대부분 막힙니다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-1wffvw5" data-task="1wffvw5"><label for="chk-1wffvw5"><p><strong>결과 문서 만들기</strong>: 바탕 화면의 <code>AX실습</code> 폴더 안에 결과를 적을 새 문서를 하나 만들었다.</p>
+<ul>
+<li>Windows: 먼저 파일 탐색기 위쪽 <code>보기</code> → <code>표시</code> → <code>파일 확장명</code>에 체크해 확장자가 보이게 합니다(체크가 안 되어 있으면 이름을 바꿔도 <code>.txt</code>가 뒤에 그대로 남습니다). 그다음 <code>AX실습</code> 폴더 안 빈 곳에서 마우스 우클릭 → <code>새로 만들기</code> → <code>텍스트 문서</code> → 이름을 <code>6차시-랩-결과.md</code>로 바꿉니다. &quot;확장명을 바꾸면 파일을 사용할 수 없게 될 수 있습니다&quot; 경고가 뜨면 <code>예</code>를 누릅니다.</li>
+<li>확장명 표시가 잘 안 되면 이름을 <code>6차시-랩-결과.txt</code> 그대로 두어도 실습에는 전혀 지장이 없습니다. 이 경우 이 문서에 나오는 <code>6차시-랩-결과.md</code>를 모두 <code>6차시-랩-결과.txt</code>로 바꿔 읽으시면 됩니다.</li>
+<li><code>.md</code>는 <strong>마크다운</strong> 파일 확장자로, 글자만 담기는 가벼운 문서 형식입니다. 워드(<code>.docx</code>)나 메모장(<code>.txt</code>)을 써도 실습에는 지장이 없습니다.</li>
+</ul></label></li>
+<li class="task-item"><input type="checkbox" id="chk-1kxapf9" data-task="1kxapf9"><label for="chk-1kxapf9"><strong>원칙 훑기</strong>: 이 문서 앞부분의 &quot;안전한 소통의 5원칙&quot;을 한 번 훑어보았다.</label></li>
+</ul>
+<h2 id="lab-1-가상-의뢰인-문의에-회신-초안-만들고-첨삭하기">LAB 1. 가상 의뢰인 문의에 회신 초안 만들고 첨삭하기</h2>
+<ul>
+<li><strong>소요 시간</strong>: 약 15분</li>
+<li><strong>난이도</strong>: ★☆☆ (AI에 글을 한 번 넣고, 나온 글을 고칩니다)</li>
+<li><strong>왜 하나요</strong>: 회신 한 통에 드는 시간을 줄이면서도, &quot;보내기 전 검토는 사람이 한다&quot;는 기준이 실제로 지켜지는지 손으로 확인하기 위해서입니다.</li>
+</ul>
+<h3 id="배경">배경</h3>
+<p>의뢰인 접점에서 가장 자주 하는 일은 문의에 답하는 일입니다. AI가 회신 초안을 빠르게 만들어 주더라도, 보내기 전 검토는 사람의 몫입니다. 이 랩에서는 초안 생성보다 <strong>보내기 전 점검</strong>에 시간을 더 씁니다.</p>
+<h3 id="따라-하기">따라 하기</h3>
+<ol>
+<li><p>아래는 랩이 제공하는 가상 문의입니다. 전부 가짜 정보입니다.</p>
+<blockquote><p>보낸 사람: 김가명 (010-0000-0000)<br>&quot;안녕하세요, 지난주에 상담 접수한 김가명입니다. 임대차보증금 반환 건인데, 제가 이 사건 이기는 게 확실한가요? 그리고 다음에 뭘 준비해야 하는지 궁금합니다.&quot;</p></blockquote></li>
+<li>AI 도구를 엽니다. 화면 아래쪽에 글을 입력하는 긴 칸이 보이면 준비된 상태입니다.</li>
+<li>아래 프롬프트를 통째로 복사해(<code>Ctrl+C</code>) 입력 칸에 붙여 넣고(<code>Ctrl+V</code>) <code>Enter</code>를 누릅니다. 이름과 연락처는 이미 역할명으로 바꾸어 두었다는 점에 주목하시기 바랍니다.</li>
+</ol>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>AI에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>당신은 법률사무소의 안내문 작성 보조입니다.
+
+의뢰인(임차인)이 임대차 사건의 진행 전망과 다음 준비 사항을 물었습니다.
+아래 조건을 지켜 회신 초안을 작성해 주세요.
+
+- 사건의 승소 가능성이나 결과 전망은 답하지 말고, &quot;담당 변호사가 검토 후
+  상담에서 설명드린다&quot;는 취지로만 안내할 것
+- 다음 준비 사항은 임대차 사건에서 일반적으로 준비하는 서류 목록
+  (계약서, 입금 내역 등) 수준으로만 안내할 것
+- 정중하고 쉬운 문장으로, 5~7문장 이내로 작성할 것
+- 수신자 이름 자리는 [의뢰인 성함]으로 비워 둘 것</pre></div></div></div>
+<ol>
+<li><strong>지금 화면</strong>: 몇 초 뒤 입력한 글 아래에 AI의 답이 한 문단씩 나타납니다. 글자가 순서대로 찍히는 중이라면 아직 작성 중이므로, 멈출 때까지 기다립니다.</li>
+<li>생성된 초안을 마우스로 끌어 선택해 복사한 뒤, <code>6차시-랩-결과.md</code>에 붙여 넣습니다. 위에 <code>## LAB 1 원본 초안</code>이라고 제목 한 줄을 적어 두면 나중에 찾기 쉽습니다.</li>
+<li><p>아래 세 가지 기준으로 초안을 직접 첨삭합니다. 고친 부분에 밑줄이나 표시를 남기시기 바랍니다. (마크다운 문서라면 고친 부분을 <code>**굵게**</code>로 감싸면 표시가 됩니다.)</p>
+<ul>
+<li><strong>법률 판단 단정 금지</strong>: &quot;이길 수 있습니다&quot;, &quot;문제없습니다&quot;처럼 결과를 단정하는 문장이 있으면 &quot;검토 후 안내드리겠습니다&quot;로 고칩니다.</li>
+<li><strong>비밀 노출</strong>: 이 회신이 제3자에게 잘못 전달되어도 문제없을 만큼, 사건의 구체적 내용이 빠져 있는지 확인합니다.</li>
+<li><strong>톤</strong>: 기계적인 문장, 과도한 확신, 무례하게 읽힐 수 있는 표현을 다듬습니다.</li>
+</ul></li>
+<li>첨삭이 끝난 뒤에야 [의뢰인 성함] 자리에 실제 이름을 채운다고 가정합니다. 랩에서는 &quot;김가명&quot;을 채워 봅니다.</li>
+</ol>
+<blockquote><p><strong>초안에 법령 조문이 등장했다면</strong>: AI가 &quot;주택임대차보호법 제○조에 따라…&quot;처럼 조문을 인용했다면, 그 조문이 실제로 존재하고 내용이 맞는지 보내기 전에 확인해야 합니다. korean-law-mcp를 설치해 두었다면 <code>verify_citations</code>(인용한 조문이 실존하고 내용이 맞는지 검증)로 바로 확인할 수 있습니다. 4차시에서 다룬 절차이며, 도구 설명과 준비 방법은 <a href="../chapters/ch4.html">4차시 「LAB 3. korean-law-mcp로 공식 데이터에서 검증하기」</a>를 참고하시기 바랍니다. 확인 전이라면 조문 인용을 초안에서 빼는 것이 더 안전합니다.</p></blockquote>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><h3 id="예상-결과" class="callout-title">예상 결과</h3><p>승소 여부에 답하지 않고, 담당 변호사의 검토와 상담을 안내하며, 일반적인 준비 서류 목록만 담긴 5~7문장의 회신 초안. 첨삭 표시가 남은 수정본 1건.</p></section>
+<section class="callout callout-check"><span class="callout-icon" aria-hidden="true">✅</span><h3 id="-체크포인트" class="callout-title">체크포인트</h3><ul class="task-list">
+<li class="task-item"><input type="checkbox" id="chk-1npwefs" data-task="1npwefs"><label for="chk-1npwefs">초안에 승소 가능성·결과 전망을 단정하는 문장이 없다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-1qjnrvh" data-task="1qjnrvh"><label for="chk-1qjnrvh">초안에 실명, 연락처, 금액, 구체적 분쟁 경위가 없다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-e2prcx" data-task="e2prcx"><label for="chk-e2prcx">실제 이름은 첨삭이 끝난 뒤, 사람이 채우는 단계에서만 들어갔다.</label></li>
+</ul></section>
+<section class="callout callout-trouble"><span class="callout-icon" aria-hidden="true">🔧</span><h3 id="잘-안-될-때" class="callout-title">잘 안 될 때</h3><ul>
+<li>AI가 승소 전망을 답해 버리면, 프롬프트의 금지 조건을 맨 앞으로 옮기고 &quot;이 조건을 어기면 초안을 다시 작성한다&quot;를 덧붙여 재시도합니다.</li>
+<li>초안이 너무 길거나 딱딱하면 &quot;문장을 더 짧고 부드럽게, 문의해 주셔서 감사하다는 인사로 시작해서&quot;처럼 톤 지시를 추가합니다.</li>
+<li>답이 아예 나오지 않고 화면이 멈춰 있으면, 인터넷 연결을 확인하고 같은 프롬프트를 한 번 더 보냅니다. 같은 프롬프트를 다시 보내도 문제가 생기지 않습니다.</li>
+<li>프롬프트가 여러 줄인데 <code>Enter</code>를 누르니 도중에 전송되어 버리면, 줄바꿈은 <code>Shift+Enter</code>로 넣습니다. 붙여넣기(<code>Ctrl+V</code>)로 넣으면 줄바꿈이 그대로 들어갑니다.</li>
+</ul></section>
+<h2 id="lab-2-비식별화-실습-입력-전-가명-처리와-ai-검수">LAB 2. 비식별화 실습: 입력 전 가명 처리와 AI 검수</h2>
+<ul>
+<li><strong>소요 시간</strong>: 약 15분</li>
+<li><strong>난이도</strong>: ★★☆ (사람이 먼저 손으로 지우고, 그다음 AI에 검수를 맡깁니다)</li>
+<li><strong>왜 하나요</strong>: 비밀유지의무를 지키면서 AI를 쓰는 유일한 방법이 &quot;넣기 전에 지우기&quot;이고, 사람은 반드시 몇 개를 놓치기 때문입니다.</li>
+</ul>
+<h3 id="배경-1">배경</h3>
+<p>이 차시 5원칙의 첫 번째는 <strong>입력 전 마스킹</strong>입니다. 이 랩에서는 개인정보가 섞인 상담 메모를 AI에 넣기 전에 직접 가명 처리하고, 그다음 AI에게 검수를 시켜 사람이 놓친 누락을 찾습니다. 순서가 중요합니다. 마스킹은 사람이 먼저 하고, AI 검수는 그 뒤에 합니다.</p>
+<blockquote><p><strong>왜 순서가 중요한가</strong>: 원문을 그대로 AI에 넣고 &quot;지워 줘&quot;라고 하면, 지우기 전에 이미 원문이 AI에 들어간 것입니다. 그 시점에 비밀유지의무 위반이 성립할 수 있습니다. AI는 사람이 지운 뒤의 결과만 봐야 합니다.</p></blockquote>
+<h3 id="따라-하기-1">따라 하기</h3>
+<ol>
+<li><p>아래는 랩이 제공하는 가상 상담 메모입니다. <strong>이름, 연락처, 주소, 사건번호, 금액 모두 가짜 정보입니다.</strong></p>
+<blockquote><p>김가명(010-0000-0000, 서울시 가상구 예시로 123) 님 상담.<br>임대인 박모의 씨를 상대로 보증금 9,999만 원 반환 청구 희망.<br>접수번호 2026가단00000. 배우자 이허구 씨가 동석함.<br>다음 주 화요일 오후에 2차 상담 예정.</p></blockquote></li>
+<li><p><strong>AI 도구가 아니라 결과 문서를 엽니다.</strong> 위 메모를 <code>6차시-랩-결과.md</code>에 옮겨 적고, 문서 안에서 직접 마스킹합니다. 이 단계에서는 AI 입력창을 건드리지 않습니다. 아래 마스킹 규칙을 그대로 적용합니다.</p>
+<ul>
+<li>의뢰인 이름 → <code>의뢰인(임차인)</code></li>
+<li>상대방 이름 → <code>상대방(임대인)</code></li>
+<li>사건번호·접수번호 → 내부 관리 코드(예: <code>A-3</code>)</li>
+<li>연락처·주소 → 입력하지 않음(삭제)</li>
+<li>구체적 금액·분쟁 경위 → 사건 유형과 절차 단계만</li>
+</ul></li>
+<li><p>참고용 마스킹 결과 예시입니다. 똑같을 필요는 없습니다.</p>
+<blockquote><p>의뢰인(임차인) 상담. 상대방(임대인)을 상대로 임대차보증금 반환 청구 희망.<br>내부 관리 코드 A-3. 다음 절차: 2차 상담 예정.</p></blockquote></li>
+<li>이제 AI 도구로 돌아가, 아래 프롬프트를 붙여 넣습니다. 마지막 줄의 대괄호 자리는 <strong>직접 마스킹한 메모</strong>로 바꿔야 합니다. 대괄호 문장을 지우고 그 자리에 붙여 넣으시면 됩니다.</li>
+</ol>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>AI에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>아래는 AI 입력 전에 비식별화(가명 처리)를 마친 상담 메모입니다.
+비식별화 검수자의 역할로 다음을 점검해 주세요.
+
+1) 이름, 연락처, 주소, 사건번호, 금액 등 식별정보가 남아 있는 항목
+2) 남은 정보의 조합만으로 특정인이 드러날 수 있는 부분(재식별 위험)
+3) 각 지적 사항에 대해 더 안전한 대체 표현 제안
+
+[여기에 내가 마스킹한 메모를 붙여 넣기]</pre></div></div></div>
+<ol>
+<li><strong>지금 화면</strong>: AI가 번호 매긴 목록이나 표로 지적 사항을 나열합니다. 지적이 하나도 없다면 프롬프트가 짧게 잘려 들어갔을 수 있으니, 메모가 함께 전송됐는지 입력 기록을 확인합니다.</li>
+<li>AI가 지적한 항목을 확인합니다. 흔히 남는 누락은 배우자 같은 <strong>가족관계</strong>, &quot;다음 주 화요일 오후&quot; 같은 <strong>특정 가능한 일정</strong>입니다.</li>
+<li>지적을 반영해 마스킹을 한 번 더 고치고, 최종본을 결과 문서에 남깁니다. 원본 마스킹본은 지우지 말고 그 아래에 최종본을 붙여, 무엇이 달라졌는지 비교할 수 있게 둡니다.</li>
+</ol>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><h3 id="예상-결과-1" class="callout-title">예상 결과</h3><p>식별정보가 모두 역할명·코드로 바뀌고, 연락처·주소·금액이 삭제된 최종 메모. AI 검수가 찾아낸 누락 목록과 그 반영 기록.</p></section>
+<section class="callout callout-check"><span class="callout-icon" aria-hidden="true">✅</span><h3 id="-체크포인트-1" class="callout-title">체크포인트</h3><ul class="task-list">
+<li class="task-item"><input type="checkbox" id="chk-bmicpa" data-task="bmicpa"><label for="chk-bmicpa">마스킹을 사람이 먼저 끝낸 뒤에 AI 검수를 요청했다(원문을 AI에 넣지 않았다).</label></li>
+<li class="task-item"><input type="checkbox" id="chk-17u9xrt" data-task="17u9xrt"><label for="chk-17u9xrt">AI 검수에서 지적된 누락(가족관계, 일정 등)을 최종본에 반영했다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-chjpnm" data-task="chjpnm"><label for="chk-chjpnm">&quot;남은 정보의 조합만으로 누구인지 드러나지 않는가&quot;를 스스로 한 번 더 확인했다.</label></li>
+</ul></section>
+<section class="callout callout-trouble"><span class="callout-icon" aria-hidden="true">🔧</span><h3 id="잘-안-될-때-1" class="callout-title">잘 안 될 때</h3><ul>
+<li>AI가 &quot;문제없다&quot;라고만 답하면, &quot;반드시 세 가지 이상 개선점을 찾고, 없으면 없다고 답하기 전에 재식별 시나리오를 한 가지 가정해 보라&quot;고 요청합니다.</li>
+<li>무엇을 얼마나 지워야 할지 애매하면, 5원칙의 세 번째(최소 수집) 질문을 씁니다. &quot;이 항목을 빼도 초안을 만들 수 있는가?&quot; 뺄 수 있다면 입력하지 않습니다.</li>
+<li>실수로 마스킹하지 않은 원문을 입력창에 붙여 넣었다면, <strong>전송(Enter) 전이라면</strong> 전체 선택(<code>Ctrl+A</code>) 후 삭제하면 됩니다. 이미 전송했다면 그 대화를 삭제하고, 실제 사건 정보였을 경우 사무소의 사고 보고 절차를 따릅니다. 이 랩의 정보는 가상이므로 문제되지 않습니다.</li>
+</ul></section>
+<h2 id="lab-3-자주-오는-문의-하나의-표준-응대-시나리오-완성하기">LAB 3. 자주 오는 문의 하나의 표준 응대 시나리오 완성하기</h2>
+<ul>
+<li><strong>소요 시간</strong>: 약 15분</li>
+<li><strong>난이도</strong>: ★★☆ (표를 만들고, 자동/사람 경계를 직접 판단합니다)</li>
+<li><strong>왜 하나요</strong>: 매번 같은 판단을 반복하지 않도록, 앞의 두 랩을 한 장의 규칙으로 굳혀 두기 위해서입니다.</li>
+</ul>
+<h3 id="배경-2">배경</h3>
+<p>앞의 두 랩에서 초안 첨삭과 마스킹을 손으로 해 보았습니다. 이제 이 절차를 매번 반복하지 않도록, 자주 오는 문의 유형 하나를 골라 <strong>자동화 가능 단계와 변호사 직접 단계를 구분한</strong> 표준 응대 시나리오로 굳힙니다. 이것이 이번 차시의 완성 결과물입니다.</p>
+<h3 id="따라-하기-2">따라 하기</h3>
+<ol>
+<li>자주 오는 문의 유형 하나를 고릅니다. 떠오르지 않으면 랩의 기본값인 &quot;상담 접수 후 준비 서류 문의&quot;를 사용합니다.</li>
+<li>AI에 아래 프롬프트를 붙여 넣습니다. 다른 유형을 골랐다면 첫 줄의 따옴표 안 문구만 바꾸면 됩니다.</li>
+</ol>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>AI에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>법률사무소의 &quot;상담 접수 후 준비 서류 문의&quot;에 대한 표준 응대 시나리오
+초안을 표로 작성해 주세요. 조건은 다음과 같습니다.
+
+- 항목: 트리거 / 자동 초안 범위 / 마스킹 규칙 / 승인자 / 발송 채널 / 기록 방법
+- 각 단계를 &quot;자동화 가능 단계&quot;와 &quot;변호사 직접 단계&quot;로 구분해 표시할 것
+- 자동화 가능 단계는 초안 생성까지만으로 제한하고,
+  발송은 반드시 사람 승인 후에만 이루어지도록 설계할 것
+- 마스킹 규칙에는 이름을 역할명으로, 사건번호를 내부 관리 코드로
+  바꾸는 규칙을 포함할 것
+- 메신저 알림에는 작업 종류, 내부 관리 코드, 승인 요청 사실만 담을 것</pre></div></div></div>
+<ol>
+<li><strong>지금 화면</strong>: 여섯 개 행을 가진 표가 나타납니다. 표가 아니라 줄글로 나왔다면 &quot;표 형식으로 다시 정리해 주세요&quot;라고 한 줄 더 보냅니다.</li>
+<li><p>AI가 만든 초안을 결과 문서에 붙여 넣고, 내 사무소 상황에 맞게 직접 고칩니다. 특히 다음 두 가지를 점검합니다.</p>
+<ul>
+<li><strong>자동화 가능 단계</strong>에 발송이 섞여 있지 않은가. 자동은 초안 생성까지입니다.</li>
+<li><strong>변호사 직접 단계</strong>에 발송 전 검토 세 가지(내용이 사실인가, 수신자가 맞는가, 정보가 필요한 범위를 넘지 않는가)가 들어 있는가.</li>
+</ul></li>
+<li>표 맨 아래에 <code>메신저 알림</code> 행을 한 줄 직접 추가하고, 실습지 4단계에서 고쳐 쓴 알림 문구를 그대로 옮겨 적습니다. AI가 만든 표에는 이 행이 없는 것이 정상이며, 이 한 줄은 손으로 채우는 칸입니다. 헤르메스를 아직 연동하지 않았더라도 문구는 지금 정해 둘 수 있습니다. 연동은 <a href="../install/hermes.html">헤르메스 설치가이드</a>를 참고하시기 바랍니다.</li>
+<li><p>시나리오 하단에 AI 활용 고지 문구를 한 줄 추가합니다. 아래 예시를 그대로 써도 됩니다.</p>
+<blockquote><p>&quot;안내문 초안 작성에 AI 도구를 활용하며, 발송 전 담당 변호사가 내용을 검토합니다.&quot;</p></blockquote></li>
+<li>완성한 표에 제목을 붙여 저장합니다. 예: <code>안전한 소통 시나리오 — 준비 서류 문의</code>. 저장은 <code>Ctrl+S</code>입니다.</li>
+</ol>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><h3 id="예상-결과-2" class="callout-title">예상 결과</h3><p>여섯 항목(트리거, 자동 초안 범위, 마스킹 규칙, 승인자, 발송 채널, 기록 방법)이 채워지고, 각 단계가 자동화 가능/변호사 직접으로 구분된 표준 응대 시나리오 1부.</p></section>
+<section class="callout callout-check"><span class="callout-icon" aria-hidden="true">✅</span><h3 id="-체크포인트-2" class="callout-title">체크포인트</h3><ul class="task-list">
+<li class="task-item"><input type="checkbox" id="chk-1syoo2f" data-task="1syoo2f"><label for="chk-1syoo2f">자동화 가능 단계가 &quot;초안 생성까지&quot;로 제한되어 있고, 자동 발송이 없다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-1k88xq8" data-task="1k88xq8"><label for="chk-1k88xq8">변호사 직접 단계에 발송 전 검토 세 가지가 모두 들어 있다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-1ygd34q" data-task="1ygd34q"><label for="chk-1ygd34q">여섯 항목이 빠짐없이 채워져 있고, AI 활용 고지 문구가 붙어 있다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-fpquxs" data-task="fpquxs"><label for="chk-fpquxs">표에 <code>메신저 알림</code> 행을 추가하고, 작업 종류·내부 관리 코드·승인 요청 사실만 담긴 문구를 적었다.</label></li>
+</ul></section>
+<section class="callout callout-trouble"><span class="callout-icon" aria-hidden="true">🔧</span><h3 id="잘-안-될-때-2" class="callout-title">잘 안 될 때</h3><ul>
+<li>AI가 자동 발송까지 설계에 넣으면, &quot;자동 발송은 금지 조건&quot;임을 명시하고 다시 요청합니다. AI의 제안이 사무소의 원칙보다 앞설 수 없습니다.</li>
+<li>표가 내 업무와 동떨어지게 나오면, 문의 유형의 상황을 한두 문장 더 설명해 재요청합니다. 단, 실제 사건 내용은 넣지 않습니다.</li>
+<li>표를 결과 문서에 붙여 넣었더니 세로줄(<code>|</code>)만 잔뜩 보인다면 정상입니다. 마크다운 표의 원래 모습이며, 미리보기에서는 표로 보입니다. 그대로 두어도 실습에는 지장이 없습니다.</li>
+</ul></section>
+<h2 id="더-해보기--빠르게-끝낸-분을-위한-심화-미션">더 해보기 — 빠르게 끝낸 분을 위한 심화 미션</h2>
+<p>기본 랩 세 개를 여유 있게 마치셨다면, 아래 미션으로 오늘 배운 절차를 한 단계 더 시험해 보시기 바랍니다. 순서는 자유이고, 하나만 골라 해도 좋습니다.</p>
+<h3 id="미션-a-비식별화-스트레스-테스트">미션 A. 비식별화 스트레스 테스트</h3>
+<p>LAB 2의 마스킹 절차가 실제로 얼마나 견고한지 스스로 공격해 보는 미션입니다. 이름과 연락처가 없어도 <strong>직업, 지역, 사건 유형의 조합</strong>만으로 특정인이 드러날 수 있는 가상 상담 메모를 직접 만들어 보시기 바랍니다(예: &quot;가상구에서 30년째 한 곳뿐인 OO 가게를 운영하는 임차인&quot;). 그다음 LAB 2와 같은 순서로 사람이 먼저 마스킹하고 AI 검수를 요청해, 이 재식별 위험이 걸러지는지 확인합니다. 걸러지지 않는 조합을 찾았다면, 그 유형을 막는 규칙 한 줄을 나의 마스킹 규칙에 추가합니다. 이 미션의 핵심은 &quot;식별정보를 지웠는가&quot;가 아니라 &quot;남은 정보의 조합이 견디는가&quot;입니다.</p>
+<ul>
+<li><strong>스스로 점검 기준</strong>: 최종 마스킹본만 제3자에게 보여 준다고 가정할 때, 남은 정보의 조합으로도 특정인을 짚어낼 수 없다.</li>
+</ul>
+<h3 id="미션-b-어려운-회신-시나리오">미션 B. 어려운 회신 시나리오</h3>
+<p>LAB 1의 첨삭 절차를 더 까다로운 상황에 적용하는 미션입니다. 두 가지 가상 상황을 설정합니다. 하나는 진행이 늦어져 화가 난 의뢰인의 항의 문의, 다른 하나는 의뢰인에게 불리한 소식(예: 절차 지연, 추가 서류 필요)을 전해야 하는 상황입니다. 각각 LAB 1과 같은 방식으로 AI 회신 초안을 만든 뒤, 세 가지 첨삭 기준(법률 판단 단정 금지, 비밀 노출, 톤)으로 직접 첨삭합니다. 어려운 상황일수록 AI가 과도한 사과, 성급한 확답, 책임을 인정하는 듯한 표현을 넣기 쉬우므로, 첨삭에서 잡아낼 것이 오히려 많습니다.</p>
+<ul>
+<li><strong>스스로 점검 기준</strong>: 두 초안 모두 결과를 단정하거나 책임을 인정하는 문장 없이, 담당 변호사의 검토와 다음 단계 안내로 마무리된다.</li>
+</ul>
+<h3 id="미션-c-응대-시나리오-확장과-경계-비교표">미션 C. 응대 시나리오 확장과 경계 비교표</h3>
+<p>LAB 3에서 만든 표준 응대 시나리오를 다른 문의 유형 2개로 확장하는 미션입니다. 예를 들어 &quot;수임료·비용 문의&quot;와 &quot;재판 기일·일정 문의&quot;를 골라, 각각 여섯 항목(트리거, 자동 초안 범위, 마스킹 규칙, 승인자, 발송 채널, 기록 방법)을 갖춘 시나리오로 완성합니다. 그다음 세 유형을 한 표에 나란히 놓고, <strong>자동화 가능 단계와 변호사 직접 단계의 경계</strong>가 유형마다 어디서 달라지는지 비교표를 만듭니다. 비용처럼 오해가 곧 분쟁이 되는 유형은 자동 초안 범위가 좁아지고 변호사 직접 단계가 앞당겨질 것입니다. 경계가 달라지는 이유를 한 줄씩 적어 두면, 새로운 문의 유형을 만났을 때 스스로 판단하는 기준이 됩니다.</p>
+<ul>
+<li><strong>스스로 점검 기준</strong>: 세 유형 모두 자동화 가능 단계가 초안 생성까지로 제한되어 있고, 유형별로 경계가 달라진 이유를 한 문장으로 설명할 수 있다.</li>
+</ul>
+<h3 id="미션-d-안내문-속-법령-인용-검증하기">미션 D. 안내문 속 법령 인용 검증하기</h3>
+<p>의뢰인 안내문에 법령이나 판례가 인용되는 순간, 그 문장은 검증 대상이 됩니다. LAB 1의 회신 초안에 &quot;임대차보증금 반환과 관련한 근거 법령을 한 줄로 덧붙여 달라&quot;고 요청해 조문이 들어간 초안을 만들어 보시기 바랍니다. 그다음 korean-law-mcp의 <code>verify_citations</code>(인용한 조문이 실존하고 내용이 맞는지 검증)로 그 조문을 확인하고, 판례가 인용됐다면 <code>cite_check</code>(그 판례가 아직 유효한지 확인)까지 돌려 봅니다. 4차시에서 익힌 절차를 의뢰인 소통 장면에 그대로 적용하는 미션입니다. 준비가 필요하면 <a href="../chapters/ch4.html">4차시 「LAB 3. korean-law-mcp로 공식 데이터에서 검증하기」</a>를 보시기 바랍니다.</p>
+<ul>
+<li><strong>스스로 점검 기준</strong>: 초안에 남긴 조문·판례가 모두 원문으로 확인되었거나, 확인되지 않은 것은 초안에서 삭제되었다.</li>
+</ul>
+<h2 id="마무리">마무리</h2>
+<h3 id="결과물-점검표">결과물 점검표</h3>
+<div class="table-wrap"><table><thead><tr><th>점검 항목</th><th>확인</th></tr></thead><tbody><tr><td>LAB 1: 법률 판단 단정 없이 첨삭을 마친 회신 초안 1건</td><td>[ ]</td></tr><tr><td>LAB 2: AI 검수 누락 반영까지 끝낸 비식별화 최종 메모 1건</td><td>[ ]</td></tr><tr><td>LAB 3: 자동화 가능/변호사 직접 단계가 구분된 안전한 소통 시나리오 1부</td><td>[ ]</td></tr><tr><td>공통: 실습 중 실제 의뢰인 정보를 한 번도 입력하지 않았다</td><td>[ ]</td></tr><tr><td>공통: AI 도구의 학습 활용 끔 설정을 확인했다(또는 미확인으로 기록하고 가상 정보만 입력했다)</td><td>[ ]</td></tr></tbody></table></div>
+<h3 id="오늘의-결과물-저장-위치">오늘의 결과물 저장 위치</h3>
+<p><code>C:\Users\사용자이름\바탕 화면\AX실습\6차시-랩-결과.md</code> 한 파일에 LAB 1~3의 결과가 모두 들어 있어야 합니다. (파일 이름이 <code>6차시-랩-결과.txt</code>여도 괜찮습니다.) 다음 차시에 이 파일을 그대로 가져옵니다. (macOS: <code>~/Desktop/AX실습/6차시-랩-결과.md</code>)</p>
+<h3 id="다음-차시-연결">다음 차시 연결</h3>
+<p>7차시에서는 오늘의 소통 시나리오를 지시서, 검증 절차, 작성 워크플로와 하나의 흐름으로 연결해 30일 파일럿 계획을 세웁니다. 오늘 만든 시나리오 1부를 다음 차시에 가져오시고, 파일럿 후보 업무 하나를 미리 생각해 오시기 바랍니다.</p>
+<hr>
+    </article>
+<nav class="pager" aria-label="페이지 이동"><a class="pager-prev" href="ch5.html"><span class="dir">← 이전</span><strong>5차시 · 초안에서 검토까지: 판례·계약서 병렬 분석</strong></a><a class="pager-next" href="ch7.html"><span class="dir">다음 →</span><strong>7차시 · 반복 업무를 연결해 실제 업무로</strong></a></nav>
+  </main>
+  <aside class="side" aria-label="과정 내비게이션">
+  <details class="side-box" open>
+    <summary>📍 과정 지도 — 다른 차시로 이동</summary>
+    <h4>과정 지도</h4>
+    <div class="map-group">
+      <a class="map-link" href="../chapters/ch1.html"><b>1</b>나의 AX 업무 지도</a>
+      <a class="map-link" href="../chapters/ch2.html"><b>2</b>에이전트 도구 설치와 연동</a>
+      <a class="map-link" href="../chapters/ch3.html"><b>3</b>법률업무 지시서 만들기</a>
+      <a class="map-link" href="../chapters/ch4.html"><b>4</b>근거를 찾고 확인하기: 리서치 자동화</a>
+      <a class="map-link" href="../chapters/ch5.html"><b>5</b>초안에서 검토까지: 판례·계약서 병렬 분석</a>
+      <a class="map-link on" href="../chapters/ch6.html"><b>6</b>의뢰인과 안전하게 소통하기</a>
+      <a class="map-link" href="../chapters/ch7.html"><b>7</b>반복 업무를 연결해 실제 업무로</a>
+    </div>
+    <h4 class="mt">설치가이드</h4>
+    <div class="map-group">
+      <a class="map-link" href="../install/setup-windows.html">공통 준비 (Windows)</a>
+      <a class="map-link" href="../install/antigravity.html">안티그래비티</a>
+      <a class="map-link" href="../install/hermes.html">헤르메스</a>
+      <a class="map-link" href="../install/pi.html">파이 (Pi)</a>
+      <a class="map-link" href="../install/codex.html">Codex CLI</a>
+      <a class="map-link" href="../install/korean-law-mcp.html">korean-law-mcp</a>
+    </div>
+    <a class="map-home" href="../index.html">↩ 과정 홈 · 진행 상황</a>
+  </details>
+  <details class="side-box side-toc" open>
+    <summary>🔖 이 페이지 목차</summary>
+    <h4>이 페이지 목차</h4>
+    <ul class="toc-list">
+<li class="toc-l2"><a href="#이-차시에서-준비할-것">이 차시에서 준비할 것</a></li>
+<li class="toc-l1"><a href="#6차시-실습지-의뢰인과-안전하게-소통하기">6차시 실습지: 의뢰인과 안전하게 소통하기</a></li>
+<li class="toc-l2"><a href="#실습-목표">실습 목표</a></li>
+<li class="toc-l2"><a href="#실습-규칙">실습 규칙</a></li>
+<li class="toc-l2"><a href="#1단계-의뢰인-접점-고르기">1단계. 의뢰인 접점 고르기</a></li>
+<li class="toc-l2"><a href="#2단계-정보-분류하기">2단계. 정보 분류하기</a></li>
+<li class="toc-l2"><a href="#3단계-마스킹-규칙-만들기">3단계. 마스킹 규칙 만들기</a></li>
+<li class="toc-l2"><a href="#4단계-메신저-알림-범위-정하기">4단계. 메신저 알림 범위 정하기</a></li>
+<li class="toc-l2"><a href="#5단계-안전한-소통-시나리오-완성하기">5단계. 안전한 소통 시나리오 완성하기</a></li>
+<li class="toc-l2"><a href="#동료-검토">동료 검토</a></li>
+<li class="toc-l2"><a href="#수업-종료-전-제출">수업 종료 전 제출</a></li>
+<li class="toc-l1"><a href="#6차시-실전-실습-랩-의뢰인과-안전하게-소통하기">6차시 실전 실습 랩: 의뢰인과 안전하게 소통하기</a></li>
+<li class="toc-l2"><a href="#실습-개요">실습 개요</a></li>
+<li class="toc-l2"><a href="#실습-규칙-1">실습 규칙</a></li>
+<li class="toc-l2"><a href="#시작-전-점검">시작 전 점검</a></li>
+<li class="toc-l2"><a href="#lab-1-가상-의뢰인-문의에-회신-초안-만들고-첨삭하기">LAB 1. 가상 의뢰인 문의에 회신 초안 만들고 첨삭하기</a></li>
+<li class="toc-l2"><a href="#lab-2-비식별화-실습-입력-전-가명-처리와-ai-검수">LAB 2. 비식별화 실습: 입력 전 가명 처리와 AI 검수</a></li>
+<li class="toc-l2"><a href="#lab-3-자주-오는-문의-하나의-표준-응대-시나리오-완성하기">LAB 3. 자주 오는 문의 하나의 표준 응대 시나리오 완성하기</a></li>
+<li class="toc-l2"><a href="#더-해보기--빠르게-끝낸-분을-위한-심화-미션">더 해보기 — 빠르게 끝낸 분을 위한 심화 미션</a></li>
+<li class="toc-l2"><a href="#마무리">마무리</a></li>
+</ul>
+  </details>
+  </aside>
+</div>
+
+<footer><div class="wrap">
+  <div>변호사 AX 나노디그리 · <span class="hand-note-inline">인터넷이 끊겨도 열립니다. 인쇄해서 쓰셔도 됩니다.</span></div>
+  <div><a href="../index.html">과정 홈</a> · 진행 상황은 이 브라우저에만 저장됩니다</div>
+</div></footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

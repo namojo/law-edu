@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>헤르메스(Hermes) 설치가이드 — 변호사 AX 나노디그리</title>
+<meta name="description" content="헤르메스는 여러 AI 에이전트에게 일을 나눠 주고 결과를 모아 한 번에 보고하는 &quot;조율 담당&quot; 에이전트입니다.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect x=%228%22 y=%228%22 width=%2284%22 height=%2284%22 rx=%2220%22 fill=%22%23ffe455%22/%3E%3Ctext x=%2250%22 y=%2270%22 font-size=%2256%22 text-anchor=%22middle%22 font-family=%22monospace%22 fill=%22%2322242a%22%3E%C2%A7%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="install-hermes" data-tasks="9">
+<a class="skip-link" href="#main">본문으로 건너뛰기</a>
+<header class="topnav"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="dot"></span><span class="brand-full">변호사 AX 나노디그리</span><span class="brand-short">AX 나노디그리</span></a>
+  <nav aria-label="주요 메뉴">
+    <a href="../index.html">홈</a>
+    <a href="../index.html#chapters">교육과정</a>
+    <a href="../index.html#install" aria-current="page">설치가이드</a>
+  </nav>
+</div></header>
+
+<div class="wrap page-head">
+  <div class="eyebrow">설치가이드 · 메신저 연동</div>
+  <h1>헤르메스(Hermes) 설치가이드</h1>
+  <div class="meta"><span class="badge">설치 3 / 6</span><span>💻 Windows 10 / 11</span></div>
+</div>
+
+<div class="wrap layout">
+  <main id="main" class="main-col">
+<div class="progress-panel" data-progress-bar hidden>
+  <div class="progress-head"><span class="progress-label">진행 체크리스트</span>
+  <span data-progress-text>0 / 9</span></div>
+  <div class="progress-track"><div class="progress-fill" data-progress-fill></div></div>
+  <button type="button" class="reset-btn" data-reset>이 페이지 체크 초기화</button>
+</div>
+    <article class="prose">
+
+<blockquote><p>대상: Windows 10/11 노트북 · 터미널을 처음 열어 보는 분<br>작성일 기준: <strong>2026-08-01</strong></p></blockquote>
+<hr>
+<h2 id="-빠른-설치--아는-분용-약-10분">⚡ 빠른 설치 — 아는 분용 (약 10분)</h2>
+<blockquote class="warn"><p>🚩 <strong>전제: 이 문서만으로는 설치할 수 없습니다.</strong><br>우리 교육의 헤르메스는 <strong>AI Agent Guild(길드) 내부 배포 도구</strong>입니다. 공개 다운로드 페이지나 설치 명령이 <strong>없습니다.</strong><br><strong>실제 설치 명령·다운로드 주소·계정은 교육 당일 배포 가이드에 있습니다.</strong> 이 문서는 그 가이드를 어떻게 안전하게 따라가는지를 안내합니다.<br>인터넷에서 찾은 설치 명령은 <strong>절대 실행하지 마세요</strong> (이유는 1절 동명 도구 경고).</p></blockquote>
+<p><strong>① 세 가지가 손에 있어야 시작</strong> — 배포 가이드 문서 / 길드 계정 / 메신저 계정. 하나라도 없으면 Facilitator에게 요청부터.</p>
+<p><strong>② 선행 준비 확인</strong> — 시작 버튼에 붙여넣어 PowerShell을 열고</p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>powershell</pre></div></div></div>
+<p>아래를 붙여넣어 Node.js를 확인 (<code>v22.x.x</code> 형태가 나오면 OK)</p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>node -v</pre></div></div></div>
+<p><strong>③ 실습 폴더 준비</strong> — 파일 탐색기 주소창에 붙여넣어 폴더가 있는지 확인</p>
+<div class="code-card is-lite"><div class="code-bar"><span class="code-label">탐색기 주소창에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><pre>%USERPROFILE%\Desktop\AX실습</pre></div>
+<p><strong>④ 설치</strong> — 배포 가이드의 명령을 <strong>한 번에 한 줄씩</strong> 복사·붙여넣기 (3절)</p>
+<p><strong>⑤ 알림 범위 설정</strong> — 알림을 <strong>&quot;완료 여부만 / 결과 요약 미포함&quot;</strong>, 대상은 <strong>본인 1:1 방</strong> 으로 (5-3). 이걸 하기 전에는 실제 업무에 쓰지 마세요.</p>
+<p><strong>⑥ 테스트</strong> — 헤르메스 입력창에 붙여넣고 <code>Enter</code></p>
+<div class="code-card is-lite"><div class="code-bar"><span class="code-label">복사해서 쓰기</span><button type="button" class="copy-btn" data-copy>복사</button></div><pre>가상의 임대차 분쟁 사례를 하나 만들고, 임차인 입장의 쟁점 3가지를 정리해서 보고해 줘. 실제 사건 정보는 사용하지 마.</pre></div>
+<hr>
+<h2 id="1-이-도구는-무엇인가">1. 이 도구는 무엇인가</h2>
+<p>헤르메스는 <strong>여러 AI 에이전트에게 일을 나눠 주고 결과를 모아 한 번에 보고하는 &quot;조율 담당&quot; 에이전트</strong>입니다. 도구를 하나씩 오가며 지시하는 대신 한 번 요청하면 알맞은 담당 에이전트에게 일을 분배하고, 끝나면 <strong>메신저로 알림</strong>을 보냅니다.</p>
+<p>법률 업무 예시: &quot;이 가상 사건의 쟁점을 정리하고, 관련 법령을 찾고, 상대방 주장 반박 초안을 잡아 줘&quot; 한 번 요청 → 조사·법령검색·초안작성을 각각 담당 에이전트에 맡기고 세 결과를 하나의 보고로 묶어 줍니다. 그 사이 다른 일을 하다가 알림을 받고 확인하면 됩니다.</p>
+<blockquote><p>⚠️ <strong>이름이 같은 다른 도구 주의 — 오설치 사고가 실제로 자주 납니다.</strong><br>인터넷에 <strong>&quot;Hermes Agent&quot;</strong> 를 검색하면 <strong>Nous Research가 2026년 2월 공개한 오픈소스 AI 에이전트</strong>(github.com/NousResearch/hermes-agent, hermes-agent.nousresearch.com)가 나옵니다. 한국어 블로그·강의 자료도 많아 착각하기 쉽습니다.<br><strong>이것은 우리가 쓰는 헤르메스가 아닙니다.</strong> 이름만 같은 별개의 도구입니다.<br>검색으로 나온 한 줄 설치 명령(<code>curl ... | sh</code> 형태 등)을 실행하면 교육과 무관한 프로그램이 설치되고 터미널 실행 권한까지 갖게 됩니다.<br>우리 교육의 헤르메스는 <strong>길드에서 직접 받은 배포 가이드로만</strong> 설치합니다.</p></blockquote>
+<blockquote><p>🔐 <strong>보안 원칙 (전 과정 적용)</strong></p>
+<ul>
+<li><strong>API 키·비밀번호를 문서·메모·카카오톡·메일에 적지 마세요.</strong> 화면에서 바로 입력하고 &quot;어디에 보관했는지&quot;만 기록합니다.</li>
+<li>배포 가이드의 키를 <strong>채팅방에 붙여넣어 질문하지 마세요.</strong> 질문할 땐 키 부분을 가리고 캡처합니다.</li>
+<li>회사 보안 프로그램이 막으면 <strong>임의로 끄지 말고</strong> 담당자에게 문의하세요.</li>
+<li>실습은 <code>AX실습</code> 폴더에서만. 실제 사건 자료 폴더와 반드시 분리합니다.</li>
+</ul></blockquote>
+<hr>
+<h2 id="2-설치-전-확인">2. 설치 전 확인</h2>
+<p>헤르메스는 &quot;받아야 시작할 수 있는&quot; 도구입니다. <strong>교육 당일 전까지</strong> 아래를 준비하면 설치가 10분 안에 끝납니다.</p>
+<ul class="task-list">
+<li class="task-item"><input type="checkbox" id="chk-hlnjs9" data-task="hlnjs9"><label for="chk-hlnjs9"><strong>길드 배포 가이드 문서</strong> — 당일 Facilitator가 배포. 링크나 파일을 받았는지 확인.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-1gh1yo2" data-task="1gh1yo2"><label for="chk-1gh1yo2"><strong>길드 계정</strong> — 배포 가이드와 함께 발급. 미리 신청이 필요한 경우가 있으니 안내 메일을 놓치지 마세요.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-zkm0wr" data-task="zkm0wr"><label for="chk-zkm0wr"><strong>메신저 계정</strong> — 알림 연동용. <strong>업무용 단체방이 있는 계정과 분리 권장</strong> (알림이 업무방에 가는 사고 방지).</label></li>
+<li class="task-item"><input type="checkbox" id="chk-1uxafhf" data-task="1uxafhf"><label for="chk-1uxafhf"><strong>Node.js·PowerShell 준비</strong> — <code>setup-windows.md</code> 를 먼저 끝내 두세요. 헤르메스가 Node.js를 요구하는지는 배포 가이드의 요구사항에서 확인하지만, 미리 설치해도 손해는 없습니다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-exa9dw" data-task="exa9dw"><label for="chk-exa9dw"><strong>실습 폴더</strong> — 파일 탐색기 주소창에 아래를 붙여넣어 폴더가 열리는지 확인 (없으면 만드세요)</label></li>
+</ul>
+<div class="code-card is-lite"><div class="code-bar"><span class="code-label">탐색기 주소창에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><pre>%USERPROFILE%\Desktop\AX실습</pre></div>
+<blockquote><p>💡 &quot;폴더를 찾을 수 없다&quot;고 나오면 OneDrive가 바탕 화면을 대신 관리하는 경우입니다. 아래를 대신 붙여넣으세요.</p>
+<div class="code-card is-lite"><div class="code-bar"><span class="code-label">탐색기 주소창에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><pre>%OneDrive%\Desktop\AX실습</pre></div></blockquote>
+<ul class="task-list">
+<li class="task-item"><input type="checkbox" id="chk-1s9qk4a" data-task="1s9qk4a"><label for="chk-1s9qk4a"><strong>사내 정책 확인</strong> — 회사 노트북에 외부 도구 설치가 가능한지 미리 확인. 막혀 있다면 개인 노트북이 빠릅니다.</label></li>
+</ul>
+<h3 id="받은-것-기록표-키비밀번호는-적지-마세요">받은 것 기록표 (키·비밀번호는 적지 마세요)</h3>
+<div class="table-wrap"><table><thead><tr><th>항목</th><th>받았나요</th><th>어디서/누구에게 받았나</th></tr></thead><tbody><tr><td>배포 가이드 문서</td><td>☐</td><td></td></tr><tr><td>길드 계정 아이디</td><td>☐</td><td></td></tr><tr><td>(비밀번호·키 보관 위치)</td><td>☐</td><td>예: 브라우저 비밀번호 관리자 / 사내 금고</td></tr><tr><td>메신저 연동 안내</td><td>☐</td><td></td></tr><tr><td>Facilitator 연락처</td><td>☐</td><td></td></tr></tbody></table></div>
+<hr>
+<h2 id="3-설치-절차">3. 설치 절차</h2>
+<p>배포 가이드의 순서를 그대로 따르는 것이 원칙입니다. 아래는 <strong>그 가이드를 안전하게 따라가는 방법</strong>입니다.</p>
+<h3 id="1단계--배포-가이드와-계정-받기">1단계 — 배포 가이드와 계정 받기</h3>
+<p>받은 문서를 <strong>끝까지 한 번 훑어보고</strong>, 맨 앞의 <strong>&quot;요구사항 / 사전 준비&quot;</strong> 항목을 먼저 확인합니다.</p>
+<p><strong>이 시점에 없으면 진행 불가</strong>: 배포 가이드, 길드 계정. 하나라도 없으면 설치를 시작하지 말고 Facilitator에게 바로 요청하세요.</p>
+<h3 id="2단계--powershell-열기">2단계 — PowerShell 열기</h3>
+<p><strong>시작 버튼</strong>을 클릭하고 아래를 붙여넣은 뒤 <code>Enter</code>.</p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>powershell</pre></div></div></div>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: 파란색 또는 검은색 창이 열리고 <code>PS C:\Users\사용자이름&gt;</code> 뒤에 커서가 깜빡입니다. <strong>이 상태가 정상</strong>입니다.</p></section>
+<p><strong>관리자 권한이 필요하다고 적혀 있으면</strong>: 검색 결과의 <code>Windows PowerShell</code> 을 <strong>마우스 오른쪽 클릭</strong> → <strong><code>관리자 권한으로 실행</code></strong> → <strong><code>예</code></strong>. 창 제목에 <code>관리자:</code> 가 붙습니다.</p>
+<blockquote><p>⚠️ 관리자 권한은 <strong>배포 가이드가 명시적으로 요구할 때만</strong> 사용하세요.</p></blockquote>
+<h3 id="3단계--명령-옮겨-적기-직접-타이핑-금지">3단계 — 명령 옮겨 적기 (직접 타이핑 금지)</h3>
+<p>배포 가이드에서 명령 <strong>한 줄</strong>을 드래그해 <code>Ctrl</code> + <code>C</code> → PowerShell 창을 클릭하고 <code>Ctrl</code> + <code>V</code>.</p>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: 명령이 <strong>한 줄로, 잘리지 않고</strong> 들어갑니다. 눈으로 확인한 뒤 <code>Enter</code>.</p></section>
+<p><strong>한 번에 한 줄씩.</strong> 여러 줄을 한꺼번에 붙여넣으면 어디서 실패했는지 알 수 없습니다.</p>
+<blockquote><p>💡 <strong>실행 전 30초 습관</strong>: 무슨 일을 하는 명령인지 모르겠으면 실행 전에 강사에게 &quot;이 줄은 무엇을 하나요&quot;라고 물어보세요. 특히 <code>Set-ExecutionPolicy</code>, <code>-Force</code>, <code>rm</code>, <code>del</code> 처럼 보안 설정이나 삭제로 보이는 단어가 있으면 <strong>반드시 확인 후</strong> 실행합니다.</p></blockquote>
+<h3 id="4단계--설치-중-화면-대응">4단계 — 설치 중 화면 대응</h3>
+<div class="table-wrap"><table><thead><tr><th>뜬 화면</th><th>대응</th></tr></thead><tbody><tr><td>&quot;이 앱이 디바이스를 변경할 수 있도록 허용하시겠어요?&quot;</td><td>배포 가이드가 안내한 단계라면 <strong><code>예</code></strong></td></tr><tr><td><code>Windows의 PC 보호</code> / SmartScreen 경고</td><td>배포 가이드가 지정한 경로에서 받은 파일일 때만 <strong><code>추가 정보</code></strong> → <strong><code>실행</code></strong>. 출처가 다르면 중단</td></tr><tr><td>백신·DLP 차단 팝업</td><td><strong>끄지 말고</strong> 캡처해 담당자와 Facilitator에게 전달</td></tr><tr><td>오류 메시지</td><td>요약하지 말고 <strong>글자 그대로</strong> 캡처 → 7절과 대조</td></tr></tbody></table></div>
+<hr>
+<h2 id="4-설치-확인-30초">4. 설치 확인 (30초)</h2>
+<p>배포 가이드에 확인용 명령이 있으면 그것이 정답입니다. 없다면 아래 세 가지로 판단합니다.</p>
+<ul class="task-list">
+<li class="task-item"><input type="checkbox" id="chk-1l5hctj" data-task="1l5hctj"><label for="chk-1l5hctj"><strong>① 실행된다</strong> — 배포 가이드가 안내한 방법으로 헤르메스가 뜨고 오류 없이 대기 상태가 된다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-1ezxeod" data-task="1ezxeod"><label for="chk-1ezxeod"><strong>② 내 계정으로 보인다</strong> — 화면에 내 아이디 또는 &quot;로그인됨&quot; 표시가 있다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-txyxer" data-task="txyxer"><label for="chk-txyxer"><strong>③ 응답한다</strong> — 입력창에 아래를 붙여넣고 <code>Enter</code> 했을 때 답이 돌아온다.</label></li>
+</ul>
+<div class="code-card is-lite"><div class="code-bar"><span class="code-label">복사해서 쓰기</span><button type="button" class="copy-btn" data-copy>복사</button></div><pre>안녕</pre></div>
+<section class="callout callout-warn"><span class="callout-icon" aria-hidden="true">⚠️</span><p><strong>이렇게 나오면 오류</strong></p>
+<ul>
+<li><code>'...'은(는) 내부 또는 외부 명령, 실행할 수 있는 프로그램 또는 배치 파일이 아닙니다.</code> → 7절 증상 2.</li>
+<li>&quot;로그인이 필요합니다&quot; 에서 멈춤 → 5절로 진행하세요.</li>
+</ul></section>
+<hr>
+<h2 id="5-초기-설정연동">5. 초기 설정·연동</h2>
+<h3 id="5-1-로그인">5-1. 로그인</h3>
+<p>배포 가이드가 안내한 방법(브라우저 로그인 또는 화면 입력)으로 길드 계정에 로그인합니다.</p>
+<ul>
+<li>비밀번호·키는 <strong>그 자리에서 바로 입력</strong>하고 화면 캡처를 남기지 마세요.</li>
+<li>로그인 정보를 메모장 파일에 저장하는 것은 금지입니다. 브라우저 비밀번호 관리자나 사내 허용 저장소만 사용하세요.</li>
+</ul>
+<h3 id="5-2-권한-승인--무엇을-위임하는지-읽고-승인">5-2. 권한 승인 — 무엇을 위임하는지 읽고 승인</h3>
+<p>헤르메스는 <strong>다른 에이전트와 도구에 일을 대신 시키는</strong> 도구입니다. 승인하는 권한의 범위가 곧 &quot;헤르메스가 내 대신 할 수 있는 일&quot;의 범위입니다.</p>
+<p><strong><code>허용</code>을 누르기 전에</strong> 아래를 확인하세요.</p>
+<div class="table-wrap"><table><thead><tr><th>확인할 것</th><th>판단 기준</th></tr></thead><tbody><tr><td><strong>어떤 폴더에 접근하나</strong></td><td><code>AX실습</code> 만. 바탕 화면 전체·내 문서·공유 드라이브가 보이면 <strong>승인하지 말고</strong> 강사에게 확인</td></tr><tr><td><strong>읽기만인가, 수정·삭제도 되나</strong></td><td>읽기 + 실습 폴더 내 쓰기면 충분</td></tr><tr><td><strong>메신저 권한 범위</strong></td><td>&quot;메시지 보내기&quot;까지만. &quot;전체 대화 읽기&quot;가 포함되면 확인 후 결정</td></tr><tr><td><strong>자동 실행 권한</strong></td><td>사람 승인 없이 명령을 실행하는 옵션은 실습 단계에서 <strong>꺼 두세요</strong></td></tr></tbody></table></div>
+<h3 id="5-3-메신저-알림-범위-설정--사건-정보-미포함">5-3. 메신저 알림 범위 설정 — 사건 정보 미포함</h3>
+<p>메신저 알림은 <strong>회사 밖 서버를 거쳐 개인 휴대폰으로 갑니다.</strong> 알림 본문에 사건 정보가 담기면 그 자체가 비밀유지의무 위반 소지가 됩니다.</p>
+<ul>
+<li>✅ <strong>좋은 알림</strong>: <code>작업 1 완료 (3건 처리)</code> / <code>요청하신 검토가 끝났습니다. 결과는 프로그램에서 확인하세요.</code></li>
+<li>❌ <strong>있어서는 안 되는 알림</strong>: 의뢰인 이름, 사건번호, 상대방 이름, 계약 금액, 문서 원문 일부.</li>
+</ul>
+<p>배포 가이드의 <strong>알림 설정</strong> 항목에서 두 가지를 지정합니다.</p>
+<ol>
+<li>알림 내용 → <strong>&quot;완료 여부만 / 결과 요약 미포함&quot;</strong></li>
+<li>알림 대상 → <strong>본인 1:1 방</strong> (업무 단체방은 절대 지정하지 마세요)</li>
+</ol>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: 6절 테스트를 돌리면 사건 내용 없이 완료 사실만 담긴 알림이 옵니다. <strong>실제 문구를 눈으로 확인하기 전까지는 실제 업무에 쓰지 마세요.</strong></p></section>
+<hr>
+<h2 id="6-첫-동작-테스트-1분">6. 첫 동작 테스트 (1분)</h2>
+<p><strong>가상 정보로만</strong> 진행합니다. 실제 의뢰인·사건번호·상대방 이름을 입력하지 마세요.</p>
+<p>헤르메스 입력창에 아래를 붙여넣고 <code>Enter</code>.</p>
+<div class="code-card is-lite"><div class="code-bar"><span class="code-label">복사해서 쓰기</span><button type="button" class="copy-btn" data-copy>복사</button></div><pre>가상의 임대차 분쟁 사례를 하나 만들고, 임차인 입장의 쟁점 3가지를 정리해서 보고해 줘. 실제 사건 정보는 사용하지 마.</pre></div>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: 담당 에이전트에 일을 나누는 진행 상황이 표시된 뒤 쟁점 3가지가 정리된 <strong>하나의 보고</strong>가 돌아옵니다. 설정했다면 <strong>메신저 완료 알림</strong>도 옵니다.</p></section>
+<p><strong>알림 문구를 반드시 확인하세요.</strong> 사례 내용이 알림에 그대로 실려 왔다면 5-3 설정이 안 된 것입니다. 실제 업무 사용 전에 고치세요.</p>
+<section class="callout callout-warn"><span class="callout-icon" aria-hidden="true">⚠️</span><p><strong>이렇게 나오면 오류</strong></p>
+<ul>
+<li>응답 없이 계속 대기 → 7절 증상 3.</li>
+<li>알림이 안 옴 → 7절 증상 4.</li>
+</ul></section>
+<hr>
+<h2 id="7-문제-해결">7. 문제 해결</h2>
+<h3 id="증상-1--배포-가이드나-계정을-못-받았다--링크가-안-열린다">증상 1 — 배포 가이드나 계정을 못 받았다 / 링크가 안 열린다</h3>
+<ul>
+<li><strong>원인</strong>: 안내 메일 누락, 계정 발급 지연, 사내 메일 필터.</li>
+<li><strong>해결</strong>: 스팸함을 먼저 확인하고, 없으면 <strong>Facilitator에게 바로 요청</strong>하세요. 혼자 해결할 수 없고, 인터넷에서 찾은 설치 방법으로 대체해서도 안 됩니다(1절 동명 도구 경고). 기다리는 동안 <code>setup-windows.md</code> 를 끝내 두면 시간이 절약됩니다.</li>
+</ul>
+<h3 id="증상-2--은는-내부-또는-외부-명령-실행할-수-있는-프로그램-또는-배치-파일이-아닙니다">증상 2 — <code>'...'은(는) 내부 또는 외부 명령, 실행할 수 있는 프로그램 또는 배치 파일이 아닙니다.</code></h3>
+<ul>
+<li><strong>원인</strong>: ① 선행 프로그램(예: Node.js) 미설치, ② 설치는 했으나 <strong>터미널을 다시 열지 않아</strong> 윈도우가 아직 인식하지 못하는 상태.</li>
+<li><strong>해결</strong>: <strong>PowerShell을 완전히 닫고 새로 여세요.</strong> 대부분 이것으로 해결됩니다. 그래도 같으면 아래로 Node.js를 확인하고(<code>v22.x.x</code> 형태가 나와야 정상), 안 나오면 <code>setup-windows.md</code> 로 돌아갑니다.</li>
+</ul>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>node -v</pre></div></div></div>
+<h3 id="증상-3--요청을-보냈는데-응답이-없고-계속-대기">증상 3 — 요청을 보냈는데 응답이 없고 계속 대기</h3>
+<ul>
+<li><strong>원인</strong>: 네트워크 지연, 사내 방화벽 차단, 또는 로그인 세션 만료.</li>
+<li><strong>해결</strong>: ① 2분 기다립니다(여러 에이전트를 거치므로 일반 챗봇보다 느립니다). ② 그래도 멈춰 있으면 종료·재실행해 <strong>로그인 상태부터 확인</strong>. ③ 개인 핫스팟에서는 되고 회사 와이파이에서만 안 되면 사내 방화벽 문제입니다 — <strong>임의로 우회하지 말고</strong> 담당자에게 문의하세요.</li>
+</ul>
+<h3 id="증상-4--알림이-오지-않는다--반대로-내용이-너무-자세히-온다">증상 4 — 알림이 오지 않는다 / 반대로 내용이 너무 자세히 온다</h3>
+<ul>
+<li><strong>원인</strong>: 알림 연동 누락, 또는 알림 범위가 기본값.</li>
+<li><strong>해결</strong>: 5-3으로 돌아가 대상(본인 1:1 방)과 범위를 다시 설정하고 6절 테스트로 실제 문구를 확인합니다. <strong>내용이 자세히 오는 쪽이 더 위험합니다.</strong> 고치기 전까지 실제 업무 관련 요청을 넣지 마세요.</li>
+</ul>
+<h3 id="증상-5--보안-프로그램이-설치실행을-차단한다">증상 5 — 보안 프로그램이 설치·실행을 차단한다</h3>
+<ul>
+<li><strong>원인</strong>: 사내 백신·DLP·매체제어 정책. 내부 배포 도구는 서명 정보가 등록되어 있지 않아 자주 걸립니다.</li>
+<li><strong>해결</strong>: <strong>백신을 끄거나 예외 등록을 스스로 하지 마세요.</strong> 차단 팝업을 캡처해 ① 사내 전산·보안 담당자와 ② Facilitator에게 함께 전달하고 지침을 기다립니다. 급하면 개인 노트북으로 전환하는 편이 안전합니다.</li>
+</ul>
+<h3 id="증상-6--검색해서-나온-hermes-agent를-이미-설치해-버렸다">증상 6 — 검색해서 나온 &quot;Hermes Agent&quot;를 이미 설치해 버렸다</h3>
+<ul>
+<li><strong>원인</strong>: Nous Research의 동명 오픈소스 도구를 우리 교육 도구로 착각한 경우.</li>
+<li><strong>해결</strong>: 실행하지 말고 제거하세요. <code>Windows 키</code> + <code>R</code> 에 아래를 붙여넣어 <strong>설치된 앱</strong>을 열고 찾아서 제거합니다. 설치 과정에서 API 키를 입력했다면 <strong>해당 키를 발급처에서 즉시 폐기·재발급</strong>하고 Facilitator에게 알린 뒤 정식 배포 가이드로 다시 시작하세요.</li>
+</ul>
+<div class="code-card is-lite"><div class="code-bar"><span class="code-label">검색창에 입력</span><button type="button" class="copy-btn" data-copy>복사</button></div><pre>ms-settings:appsfeatures</pre></div>
+<hr>
+<h2 id="8-제거연동-해제">8. 제거·연동 해제</h2>
+<p>순서는 <strong>연동 해제 → 계정 정리 → 프로그램 제거</strong> 입니다. 프로그램만 지우면 위임한 권한이 남습니다.</p>
+<h3 id="8-1-메신저-알림-연동-해제-가장-먼저">8-1. 메신저 알림 연동 해제 (가장 먼저)</h3>
+<p>헤르메스의 알림 설정에서 연동을 해제하고, <strong>메신저 앱 쪽에서도</strong> 연결된 앱/봇 목록에서 헤르메스 항목을 삭제합니다. 한쪽만 지우면 알림이 계속 옵니다.</p>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: 6절 테스트를 다시 돌려도 알림이 오지 않습니다.</p></section>
+<h3 id="8-2-계정권한-회수">8-2. 계정·권한 회수</h3>
+<ol>
+<li>배포 가이드의 계정 관리 항목에 따라 로그아웃하고 저장된 로그인 정보를 지웁니다.</li>
+<li><strong>길드 계정 비활성화·삭제는 Facilitator에게 요청</strong>하세요. 개인이 임의로 처리할 수 없습니다.</li>
+<li>발급받은 API 키가 있다면 <strong>폐기를 요청</strong>하세요. 안 쓰는 키를 남겨 두지 않는 것이 원칙입니다.</li>
+</ol>
+<h3 id="8-3-프로그램-제거">8-3. 프로그램 제거</h3>
+<p>배포 가이드에 제거 절차가 있으면 <strong>그 절차를 우선</strong> 따릅니다. 없으면 <code>Windows 키</code> + <code>R</code> 에 아래를 붙여넣고 <strong>설치된 앱</strong>에서 검색해 <strong><code>⋯</code></strong> → <strong><code>제거</code></strong>.</p>
+<div class="code-card is-lite"><div class="code-bar"><span class="code-label">검색창에 입력</span><button type="button" class="copy-btn" data-copy>복사</button></div><pre>ms-settings:appsfeatures</pre></div>
+<blockquote><p>⚠️ 명령으로 설치한 경우 제거 명령도 배포 가이드에 있습니다. <strong>추측한 명령을 실행하지 마세요.</strong></p></blockquote>
+<h3 id="8-4-실습-자료-정리">8-4. 실습 자료 정리</h3>
+<p><code>바탕 화면\AX실습</code> 에서 남길 결과물만 옮기고 나머지는 삭제합니다. 실제 사건 정보를 입력한 적이 있다면 해당 파일과 대화 기록을 반드시 삭제하고 강사에게 알리세요.</p>
+<hr>
+<p><strong>막히면</strong>: 오류 화면을 그대로 캡처(<code>Windows 키</code> + <code>Shift</code> + <code>S</code>)해 <strong>Facilitator</strong> 에게 보내세요. 단, <strong>비밀번호·API 키가 보이면 그 부분을 가리고</strong> 보내야 합니다. 오류 메시지는 요약하지 말고 글자 그대로 전달하는 것이 가장 빠릅니다.</p>
+    </article>
+<nav class="pager" aria-label="페이지 이동"><a class="pager-prev" href="antigravity.html"><span class="dir">← 이전</span><strong>안티그래비티</strong></a><a class="pager-next" href="pi.html"><span class="dir">다음 →</span><strong>파이 (Pi)</strong></a></nav>
+  </main>
+  <aside class="side" aria-label="과정 내비게이션">
+  <details class="side-box" open>
+    <summary>📍 과정 지도 — 다른 차시로 이동</summary>
+    <h4>과정 지도</h4>
+    <div class="map-group">
+      <a class="map-link" href="../chapters/ch1.html"><b>1</b>나의 AX 업무 지도</a>
+      <a class="map-link" href="../chapters/ch2.html"><b>2</b>에이전트 도구 설치와 연동</a>
+      <a class="map-link" href="../chapters/ch3.html"><b>3</b>법률업무 지시서 만들기</a>
+      <a class="map-link" href="../chapters/ch4.html"><b>4</b>근거를 찾고 확인하기: 리서치 자동화</a>
+      <a class="map-link" href="../chapters/ch5.html"><b>5</b>초안에서 검토까지: 판례·계약서 병렬 분석</a>
+      <a class="map-link" href="../chapters/ch6.html"><b>6</b>의뢰인과 안전하게 소통하기</a>
+      <a class="map-link" href="../chapters/ch7.html"><b>7</b>반복 업무를 연결해 실제 업무로</a>
+    </div>
+    <h4 class="mt">설치가이드</h4>
+    <div class="map-group">
+      <a class="map-link" href="../install/setup-windows.html">공통 준비 (Windows)</a>
+      <a class="map-link" href="../install/antigravity.html">안티그래비티</a>
+      <a class="map-link on" href="../install/hermes.html">헤르메스</a>
+      <a class="map-link" href="../install/pi.html">파이 (Pi)</a>
+      <a class="map-link" href="../install/codex.html">Codex CLI</a>
+      <a class="map-link" href="../install/korean-law-mcp.html">korean-law-mcp</a>
+    </div>
+    <a class="map-home" href="../index.html">↩ 과정 홈 · 진행 상황</a>
+  </details>
+  <details class="side-box side-toc" open>
+    <summary>🔖 이 페이지 목차</summary>
+    <h4>이 페이지 목차</h4>
+    <ul class="toc-list">
+<li class="toc-l2"><a href="#-빠른-설치--아는-분용-약-10분">⚡ 빠른 설치 — 아는 분용 (약 10분)</a></li>
+<li class="toc-l2"><a href="#1-이-도구는-무엇인가">1. 이 도구는 무엇인가</a></li>
+<li class="toc-l2"><a href="#2-설치-전-확인">2. 설치 전 확인</a></li>
+<li class="toc-l2"><a href="#3-설치-절차">3. 설치 절차</a></li>
+<li class="toc-l2"><a href="#4-설치-확인-30초">4. 설치 확인 (30초)</a></li>
+<li class="toc-l2"><a href="#5-초기-설정연동">5. 초기 설정·연동</a></li>
+<li class="toc-l2"><a href="#6-첫-동작-테스트-1분">6. 첫 동작 테스트 (1분)</a></li>
+<li class="toc-l2"><a href="#7-문제-해결">7. 문제 해결</a></li>
+<li class="toc-l2"><a href="#8-제거연동-해제">8. 제거·연동 해제</a></li>
+</ul>
+  </details>
+  </aside>
+</div>
+
+<footer><div class="wrap">
+  <div>변호사 AX 나노디그리 · <span class="hand-note-inline">인터넷이 끊겨도 열립니다. 인쇄해서 쓰셔도 됩니다.</span></div>
+  <div><a href="../index.html">과정 홈</a> · 진행 상황은 이 브라우저에만 저장됩니다</div>
+</div></footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

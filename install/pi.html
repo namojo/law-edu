@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>파이(Pi) 설치가이드 — 터미널 AI 코딩 에이전트 — 변호사 AX 나노디그리</title>
+<meta name="description" content="파이(Pi)는 터미널(검은 화면)에서 대화하듯 지시하면 내 컴퓨터의 폴더에 있는 파일을 직접 읽고 고쳐 주는 오픈소스 AI 에이전트입니다.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect x=%228%22 y=%228%22 width=%2284%22 height=%2284%22 rx=%2220%22 fill=%22%23ffe455%22/%3E%3Ctext x=%2250%22 y=%2270%22 font-size=%2256%22 text-anchor=%22middle%22 font-family=%22monospace%22 fill=%22%2322242a%22%3E%C2%A7%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="install-pi" data-tasks="0">
+<a class="skip-link" href="#main">본문으로 건너뛰기</a>
+<header class="topnav"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="dot"></span><span class="brand-full">변호사 AX 나노디그리</span><span class="brand-short">AX 나노디그리</span></a>
+  <nav aria-label="주요 메뉴">
+    <a href="../index.html">홈</a>
+    <a href="../index.html#chapters">교육과정</a>
+    <a href="../index.html#install" aria-current="page">설치가이드</a>
+  </nav>
+</div></header>
+
+<div class="wrap page-head">
+  <div class="eyebrow">설치가이드 · 터미널 에이전트</div>
+  <h1>파이(Pi) 설치가이드 — 터미널 AI 코딩 에이전트</h1>
+  <div class="meta"><span class="badge">설치 4 / 6</span><span>⏱ 15~20분</span><span>💻 Windows 10 / 11</span></div>
+</div>
+
+<div class="wrap layout">
+  <main id="main" class="main-col">
+
+    <article class="prose">
+
+<blockquote><p>작성일: 2026-08-01 (패키지 버전·설치 명령·인증 방식은 이 날짜 기준 npm 레지스트리와 공식 저장소 문서에서 확인)<br>대상: Windows 10 / Windows 11, 터미널을 처음 열어 보는 분<br>선행: <a href="setup-windows.html">공통 준비</a> 완료 (Node.js + Git for Windows)<br>소요 시간: 15~20분</p></blockquote>
+<hr>
+<h2 id="빠른-설치-아는-사람용--5분">빠른 설치 (아는 사람용 — 5분)</h2>
+<p><strong>1. 실습 폴더로 이동</strong></p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>cd &quot;$env:USERPROFILE\Desktop\AX실습&quot;</pre></div></div></div>
+<p><strong>2. 전역 설치</strong> (일반 PowerShell 창에서. 1~3분 소요)</p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>npm install -g --ignore-scripts @earendil-works/pi-coding-agent</pre></div></div></div>
+<p><strong>3. PowerShell을 닫고 새로 연 뒤</strong> 버전 확인</p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>pi --version</pre></div></div></div>
+<p><strong>4. 실습 폴더에서 실행</strong></p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>pi</pre></div></div></div>
+<p><strong>5. 파이 입력창에서 로그인</strong> → 목록에서 제공사 선택</p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>AI 프로그램에 입력</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>/login</pre></div></div></div>
+<p><strong>6. 모델 선택</strong></p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>AI 프로그램에 입력</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>/model</pre></div></div></div>
+<p><strong>막히면</strong>: <code>'pi' 용어가 ... 인식되지 않습니다</code> → <a href="#a-pi-용어가--인식되지-않습니다">문제 해결 A</a> / <code>401</code>·<code>Invalid API key</code> → <a href="#d-invalid-api-key--401-unauthorized--authentication-failed">문제 해결 D</a> / <code>bash</code> 오류 → <a href="#e-파이가-명령을-실행하려다-실패한다--bash-관련-오류">문제 해결 E</a></p>
+<p>터미널이 처음이면 아래 상세 절차로 내려가세요.</p>
+<hr>
+<h2 id="1-이-도구는-무엇인가">1. 이 도구는 무엇인가</h2>
+<p>파이(Pi)는 터미널(검은 화면)에서 대화하듯 지시하면 <strong>내 컴퓨터의 폴더에 있는 파일을 직접 읽고 고쳐 주는</strong> 오픈소스 AI 에이전트입니다. 채팅창에 파일을 하나씩 올리는 대신 &quot;이 폴더를 봐&quot;라고 말하면 됩니다.</p>
+<p>기본 도구는 딱 네 가지 — <strong>read</strong>(읽기), <strong>write</strong>(만들기), <strong>edit</strong>(수정), <strong>bash</strong>(명령 실행).</p>
+<p>법률 업무 예시: 실습 폴더에 가상 계약서 5건을 넣고 <strong>&quot;이 폴더의 계약서에서 손해배상 예정액 조항만 뽑아 비교표를 만들어 <code>비교표.md</code> 로 저장해 줘&quot;</strong> 라고 지시하면, 파이가 파일을 하나씩 읽고 표를 만들어 새 파일로 저장합니다.</p>
+<blockquote><h3 id="파이를-쓰기-전-반드시-알아야-할-보안-사실">파이를 쓰기 전 반드시 알아야 할 보안 사실</h3>
+<p>공식 보안 문서에 명시된 내용입니다. 변호사 업무 특성상 특히 중요합니다.</p>
+<ul>
+<li><strong>파이에는 샌드박스(격리 장치)가 없습니다.</strong> 원문: *&quot;Pi does not include a built-in sandbox.&quot;* 내장 도구는 <strong>파이를 실행한 사용자 계정의 권한 그대로</strong> 파일을 읽고, 쓰고, 고치고, 셸 명령을 실행합니다.</li>
+<li>즉 <strong>내 Windows 계정이 볼 수 있는 파일이면 원칙적으로 다 볼 수 있습니다.</strong> 실제 사건 폴더도 포함됩니다.</li>
+<li>파이가 읽는 파일에 숨겨진 지시문이 있으면 그대로 따를 수 있습니다(프롬프트 인젝션). 공식 문서도 이를 <strong>&quot;예상되는 로컬 에이전트 위험&quot;</strong> 이라고 표현합니다.</li>
+</ul>
+<p><strong>이 교육에서 지키는 규칙</strong></p>
+<ol>
+<li>파이는 <strong>항상 <code>바탕 화면\AX실습</code> 안에서만</strong> 실행합니다. 실행 위치가 파이의 기본 작업 범위입니다.</li>
+<li>실습 폴더에는 <strong>가상 자료만</strong> 넣습니다. 실제 의뢰인 이름·주민등록번호·사건번호가 담긴 파일은 복사해 오지 않습니다.</li>
+<li><strong>출처를 모르는 파일·폴더에서는 파이를 실행하지 않습니다.</strong></li>
+<li>파이가 파일을 고치겠다고 할 때 <strong>무엇을 고치는지 읽고 승인</strong>합니다. Enter를 습관적으로 연타하지 않습니다.</li>
+</ol></blockquote>
+<hr>
+<h2 id="2-설치-전-확인">2. 설치 전 확인</h2>
+<div class="table-wrap"><table><thead><tr><th>항목</th><th>필요한 것</th><th>확인 방법</th></tr></thead><tbody><tr><td>공통 준비</td><td><a href="setup-windows.html">공통 준비 문서</a> 완료</td><td>아직이면 그 문서부터</td></tr><tr><td>Node.js</td><td><strong>22.19.0 이상</strong> (패키지 <code>engines: node &gt;=22.19.0</code>)</td><td><code>node -v</code> → <code>v22.19</code> 이상. 공통 준비의 LTS v24.18.1이면 충족</td></tr><tr><td>Git for Windows</td><td><strong>필수</strong> (선택 아님)</td><td><code>git --version</code> 이 버전 번호를 출력</td></tr><tr><td>저장 공간</td><td>약 500MB 여유</td><td></td></tr><tr><td>API 키 또는 구독 계정</td><td>교육 주관사가 실습용 키 발급</td><td>발급 전이면 3절까지만 하고 5절은 교육 당일에</td></tr><tr><td>실습 폴더</td><td><code>바탕 화면\AX실습</code> 존재</td><td>공통 준비 3절 ⑤</td></tr></tbody></table></div>
+<blockquote><p><strong>Git for Windows가 왜 필수인가</strong>: 파이의 <code>bash</code> 도구는 Windows에서 bash 셸을 찾아 명령을 실행합니다. 공식 Windows 문서가 찾는 순서는 ①설정 파일의 사용자 지정 경로 ②<code>C:\Program Files\Git\bin\bash.exe</code> ③PATH 상의 <code>bash.exe</code>(Cygwin/MSYS2/WSL) 이며, 문서는 &quot;대부분의 사용자에게는 Git for Windows로 충분하다&quot;고 안내합니다. 없으면 파이는 설치되지만 <code>bash</code> 도구가 동작하지 않습니다.</p></blockquote>
+<hr>
+<h2 id="3-설치-절차">3. 설치 절차</h2>
+<h3 id="①-실습-폴더로-이동">① 실습 폴더로 이동</h3>
+<p><strong>[시작]</strong> → <code>PowerShell</code> 입력 → <strong>Enter</strong>. 그다음 아래를 붙여넣고 Enter.</p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>cd &quot;$env:USERPROFILE\Desktop\AX실습&quot;</pre></div></div></div>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: 프롬프트가 <code>PS C:\Users\본인이름\Desktop\AX실습&gt;</code> 으로 바뀝니다.</p></section>
+<section class="callout callout-warn"><span class="callout-icon" aria-hidden="true">⚠️</span><p><strong>이렇게 나오면 오류</strong>: <code>경로를 찾을 수 없습니다</code> → 실습 폴더가 없습니다. <a href="setup-windows.html">공통 준비 3절 ⑤</a>를 먼저 하세요. (OneDrive 백업 때문일 수도 있습니다 — <a href="setup-windows.html">공통 준비 문제 해결 E</a>)</p></section>
+<hr>
+<h3 id="②-선행-조건-재확인">② 선행 조건 재확인</h3>
+<p>여기서 걸러야 나중에 헤매지 않습니다. 한 줄씩 실행합니다.</p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>node -v</pre></div></div></div>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: <code>v24.18.1</code> 처럼 <strong>v22.19.0 이상</strong>의 번호.</p></section>
+<section class="callout callout-warn"><span class="callout-icon" aria-hidden="true">⚠️</span><p><strong>이렇게 나오면 오류</strong>: <code>'node' 용어가 ... 인식되지 않습니다</code> → PowerShell을 닫고 새로 여세요. 그래도 안 되면 <a href="setup-windows.html">공통 준비 문제 해결 A</a>.</p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>git --version</pre></div></div></div></section>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: <code>git version 2.55.0.windows.3</code> 형태.</p></section>
+<section class="callout callout-warn"><span class="callout-icon" aria-hidden="true">⚠️</span><p><strong>이렇게 나오면 오류</strong>: 인식되지 않으면 Git for Windows가 없습니다. 아래 주소에서 설치 후 PowerShell을 새로 여세요.</p>
+<div class="code-card is-lite"><div class="code-bar"><span class="code-label">주소창에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><pre>https://git-scm.com/download/win</pre></div></section>
+<hr>
+<h3 id="③-파이-설치">③ 파이 설치</h3>
+<p>아래 한 줄을 붙여넣고 Enter. (관리자 권한 아닌 <strong>일반 창</strong>에서 실행하세요.)</p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>npm install -g --ignore-scripts @earendil-works/pi-coding-agent</pre></div></div></div>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: 1~3분 진행 표시가 흐른 뒤 <code>added 213 packages in 1m</code> 같은 요약. <code>npm notice New major version of npm available</code> 같은 회색 안내문은 무시합니다.</p></section>
+<section class="callout callout-warn"><span class="callout-icon" aria-hidden="true">⚠️</span><p><strong>이렇게 나오면 오류</strong>: <code>npm ERR! code EACCES</code> → <a href="#b-npm-err-code-eacces--eperm-operation-not-permitted">문제 해결 B</a> / <code>code ETIMEDOUT</code> → <a href="#c-npm-err-code-etimedout--network-request--failed">문제 해결 C</a> / <code>npm.ps1을 로드할 수 없습니다</code> → <a href="setup-windows.html">공통 준비 문제 해결 B</a></p></section>
+<blockquote><p><strong>명령의 두 옵션</strong>: <code>-g</code> 는 어느 폴더에서든 <code>pi</code> 라고 칠 수 있게 하는 전역 설치, <code>--ignore-scripts</code> 는 설치 중 의존 패키지의 자동 실행 스크립트를 돌리지 않는 <strong>안전 옵션</strong>입니다. 공식 README가 제시하는 설치 명령 그대로이며, 파이는 이 스크립트 없이도 정상 동작합니다.<br>2026-08-01 기준 최신은 <strong>0.83.0</strong>(2026-07-29 배포). 위 명령은 항상 최신을 설치하므로 번호가 더 높아도 정상입니다.</p></blockquote>
+<hr>
+<h3 id="④-터미널-새로-열기">④ 터미널 새로 열기</h3>
+<p><strong>PowerShell 창을 닫고(오른쪽 위 X) [시작] → <code>PowerShell</code> → Enter 로 새로 엽니다.</strong> <code>pi</code> 명령의 위치가 방금 등록되었기 때문에 기존 창은 아직 그것을 모릅니다.</p>
+<p>새 창에서 다시 실습 폴더로 이동합니다.</p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>cd &quot;$env:USERPROFILE\Desktop\AX실습&quot;</pre></div></div></div>
+<hr>
+<h2 id="4-설치-확인-30초">4. 설치 확인 (30초)</h2>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>pi --version</pre></div></div></div>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: <code>0.83.0</code> 처럼 버전 번호 한 줄이 출력되고 프롬프트로 돌아옵니다.</p></section>
+<section class="callout callout-warn"><span class="callout-icon" aria-hidden="true">⚠️</span><p><strong>이렇게 나오면 오류</strong>: <code>pi : 'pi' 용어가 cmdlet, 함수, 스크립트 파일 또는 실행할 수 있는 프로그램 이름으로 인식되지 않습니다.</code> → <a href="#a-pi-용어가--인식되지-않습니다">문제 해결 A</a></p></section>
+<hr>
+<h2 id="5-초기-설정연동">5. 초기 설정·연동</h2>
+<h3 id="①-파이-실행">① 파이 실행</h3>
+<p>실습 폴더에 있는지 <code>pwd</code> 로 확인한 뒤 아래를 입력합니다.</p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>pi</pre></div></div></div>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: 화면이 파이 화면으로 바뀌고 아래쪽에 입력창(대개 <code>&gt;</code> 표시)이 나타납니다. <strong>이제부터는 PowerShell 명령이 아니라 파이에게 하는 말을 입력합니다.</strong></p></section>
+<blockquote><p>파이 화면에서 빠져나오려면 <code>/quit</code> 을 입력하거나 <strong>Ctrl+C를 두 번</strong> 누릅니다.</p></blockquote>
+<h3 id="②-로그인">② 로그인</h3>
+<p>파이 입력창에 아래를 입력하고 Enter.</p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>AI 프로그램에 입력</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>/login</pre></div></div></div>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: 제공사(provider) 목록이 나옵니다. 화살표 ↑↓ 로 고르고 Enter. 교육 안내에 따라 <strong>아래 두 방법 중 하나만</strong> 진행합니다.</p>
+<ul>
+<li><strong>방법 A — 구독 계정 로그인</strong>: Claude Pro/Max, ChatGPT Plus/Pro, GitHub Copilot 등을 고르면 브라우저가 열립니다. <strong>반드시 실습 전용 계정으로 로그인하세요.</strong> 권한 승인 화면이 나오면 <strong>무엇을 위임하는지 한 번 읽고</strong> 승인합니다.</li>
+<li><strong>방법 B — API 키 등록</strong>: 해당 제공사를 고르면 키 입력을 요구합니다. 교육 주관사가 발급한 실습용 키를 <strong>받은 화면에서 곧바로 복사해 붙여넣고</strong> Enter.</li>
+</ul></section>
+<blockquote><p><strong>API 키 입력 시 지킬 것</strong></p>
+<ul>
+<li>붙여넣을 때 <strong>키 앞뒤에 공백이나 줄바꿈이 딸려 오지 않았는지</strong> 확인 — 인증 실패 원인 1위입니다.</li>
+<li>키를 <strong>메신저·메일·워드 문서·교육 자료 여백에 옮겨 적지 않습니다.</strong> 보관 위치(예: &quot;1Password &gt; AX교육&quot;)만 메모합니다.</li>
+<li><strong>화면 공유·녹화 중에는 입력하지 않습니다.</strong> 입력해야 하면 공유를 잠시 멈춥니다.</li>
+<li>실습이 끝나면 발급처에서 키를 <strong>폐기(revoke)</strong> 합니다.</li>
+</ul>
+<p><strong>키는 어디에 저장되나</strong>: 로그인 정보는 아래 파일에 저장됩니다. <strong>절대 공유·첨부하지 마세요.</strong> 키 자체를 넘겨주는 것과 같습니다.</p>
+<div class="code-card is-lite"><div class="code-bar"><span class="code-label">탐색기 주소창에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><pre>C:\Users\본인이름\.pi\agent\auth.json</pre></div></blockquote>
+<h3 id="③-모델-선택">③ 모델 선택</h3>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>AI 프로그램에 입력</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>/model</pre></div></div></div>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: 사용 가능한 모델 목록이 뜹니다. 화살표로 고르고 Enter. (<strong>Ctrl+L</strong> 로도 열립니다.) <strong>어떤 모델을 고를지는 교육 당일 안내를 따르세요.</strong></p></section>
+<hr>
+<h2 id="6-첫-동작-테스트-1분">6. 첫 동작 테스트 (1분)</h2>
+<p><strong>가상 정보로만</strong> 진행합니다.</p>
+<h3 id="①-연습용-파일-두-개-만들기">① 연습용 파일 두 개 만들기</h3>
+<p>파이 화면이면 <code>/quit</code> 로 나옵니다. PowerShell에서 아래를 하나씩 실행합니다.</p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>&quot;제1조(목적) 본 계약은 홍길동(갑)과 김철수(을) 간 사무용품 납품에 관한 사항을 정한다.
+제7조(손해배상) 을이 납기를 지연한 경우 지연일수 1일당 계약금액의 0.1%를 갑에게 지급한다.&quot; | Out-File -Encoding utf8 &quot;계약서A.txt&quot;</pre></div></div></div>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>&quot;제1조(목적) 본 계약은 홍길동(갑)과 이영희(병) 간 소프트웨어 유지보수에 관한 사항을 정한다.
+제9조(손해배상) 병의 귀책으로 손해가 발생한 경우 배상액은 직전 3개월 대금을 한도로 한다.&quot; | Out-File -Encoding utf8 &quot;계약서B.txt&quot;</pre></div></div></div>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: 두 명령 모두 <strong>아무 메시지 없이</strong> 프롬프트가 새 줄로 넘어갑니다. 터미널에서는 조용한 성공이 정상입니다.</p></section>
+<section class="callout callout-warn"><span class="callout-icon" aria-hidden="true">⚠️</span><p><strong>이렇게 나오면 오류</strong>: <code>경로의 일부를 찾을 수 없습니다</code> → 실습 폴더에 있지 않습니다. <code>cd &quot;$env:USERPROFILE\Desktop\AX실습&quot;</code> 로 이동 후 다시.</p></section>
+<h3 id="②-파이-실행">② 파이 실행</h3>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>pi</pre></div></div></div>
+<h3 id="③-파이에게-지시">③ 파이에게 지시</h3>
+<p>파이 입력창에 아래를 그대로 붙여넣고 Enter.</p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>AI에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>이 폴더의 계약서A.txt 와 계약서B.txt 를 읽고, 두 계약의 손해배상 조항을 비교하는 표를 만들어 비교표.md 파일로 저장해 줘.</pre></div></div></div>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>:</p>
+<ol>
+<li>파이가 <code>read</code> 도구로 두 파일을 읽는 모습이 표시됩니다.</li>
+<li>파일을 만들기 전에 <strong>무엇을 만들지 보여 주고 승인을 묻습니다.</strong> 내용을 <strong>읽고</strong> 승인하세요.</li>
+<li>승인하면 실습 폴더에 <code>비교표.md</code> 가 생기고 파이가 요약을 출력합니다.</li>
+<li>바탕 화면 <code>AX실습</code> 폴더에서 <code>비교표.md</code> 를 메모장으로 열어 확인합니다.</li>
+</ol></section>
+<section class="callout callout-warn"><span class="callout-icon" aria-hidden="true">⚠️</span><p><strong>이렇게 나오면 오류</strong>: <code>401</code>·<code>Invalid API key</code>·<code>authentication failed</code> → <a href="#d-invalid-api-key--401-unauthorized--authentication-failed">문제 해결 D</a> / <code>bash: command not found</code> 계열 → <a href="#e-파이가-명령을-실행하려다-실패한다--bash-관련-오류">문제 해결 E</a></p></section>
+<h3 id="④-알아두면-좋은-조작">④ 알아두면 좋은 조작</h3>
+<div class="table-wrap"><table><thead><tr><th>하고 싶은 것</th><th>입력</th></tr></thead><tbody><tr><td>도움말</td><td><code>/help</code></td></tr><tr><td>모델 바꾸기</td><td><code>/model</code> (또는 Ctrl+L)</td></tr><tr><td>새 대화 시작</td><td><code>/new</code></td></tr><tr><td>파일 첨부·언급</td><td><code>@</code> 입력 후 파일명 일부</td></tr><tr><td>셸 명령 바로 실행</td><td><code>!</code> 로 시작 (예: <code>!ls</code>)</td></tr><tr><td>파이 끝내기</td><td><code>/quit</code></td></tr><tr><td>직전 대화 이어서 시작</td><td>(PowerShell에서) <code>pi -c</code></td></tr><tr><td>지난 대화 골라서 시작</td><td>(PowerShell에서) <code>pi -r</code></td></tr></tbody></table></div>
+<blockquote><p><strong>대화 기록은 자동 저장됩니다</strong> — 아래 폴더에 남습니다. 실습에서 무엇을 입력했는지 남는다는 뜻이니, <strong>실제 사건 정보를 입력하지 마세요.</strong></p>
+<div class="code-card is-lite"><div class="code-bar"><span class="code-label">탐색기 주소창에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><pre>C:\Users\본인이름\.pi\agent\sessions\</pre></div></blockquote>
+<hr>
+<h2 id="7-문제-해결">7. 문제 해결</h2>
+<h3 id="a-pi-용어가--인식되지-않습니다">A. <code>'pi' 용어가 ... 인식되지 않습니다</code></h3>
+<p>전체 문구: <code>pi : 'pi' 용어가 cmdlet, 함수, 스크립트 파일 또는 실행할 수 있는 프로그램 이름으로 인식되지 않습니다.</code></p>
+<ul>
+<li><strong>원인</strong>: ①설치 후 PowerShell을 새로 열지 않았거나 ②npm 전역 폴더가 PATH에 없거나 ③설치가 실제로 실패했습니다.</li>
+<li><p><strong>해결</strong>:</p>
+<ol>
+<li>PowerShell 창을 <strong>모두 닫고 새로</strong> 엽니다 → <code>pi --version</code> 재확인.</li>
+<li>안 되면 설치 여부를 확인합니다.</li>
+</ol></li>
+</ul>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>npm list -g --depth=0</pre></div></div></div>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: 목록에 <code>@earendil-works/pi-coding-agent@0.83.0</code> 같은 줄이 보입니다. 없으면 3절 ③을 다시 실행하세요.</p>
+<ol>
+<li>목록에는 있는데 <code>pi</code> 가 안 되면 전역 폴더 위치를 확인합니다.</li>
+</ol></section>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>npm config get prefix</pre></div></div></div>
+<p>출력된 경로(보통 <code>C:\Users\본인이름\AppData\Roaming\npm</code>)가 PATH에 없는 것입니다. <strong>PC를 재부팅</strong>하면 대부분 해결됩니다. 그래도 안 되면 교육 담당자에게 문의하세요.</p>
+<h3 id="b-npm-err-code-eacces--eperm-operation-not-permitted">B. <code>npm ERR! code EACCES</code> / <code>EPERM: operation not permitted</code></h3>
+<ul>
+<li><strong>원인</strong>: 전역 설치 폴더에 쓸 권한이 없거나, <strong>회사 백신·EDR이 npm의 파일 쓰기를 실시간 차단</strong>하고 있습니다.</li>
+<li><p><strong>해결</strong>:</p>
+<ol>
+<li>PowerShell을 완전히 닫고, 시작 메뉴에서 <code>PowerShell</code> 을 찾아 <strong>마우스 오른쪽 → &quot;관리자 권한으로 실행&quot;</strong> 으로 다시 연 뒤 설치 명령을 재시도합니다. (전역 설치는 사용자 프로필 밖 폴더에 파일을 쓸 수 있고, 그 폴더가 일반 권한으로 잠겨 있을 수 있습니다.)</li>
+<li>같은 오류면 백신 차단입니다. <strong>백신을 임의로 끄지 마세요.</strong> IT 담당자에게 오류 문구를 그대로 전달하고 <code>%AppData%\npm</code> 폴더 예외 등록을 요청하세요.</li>
+<li>다른 프로그램이 파일을 잡고 있는 경우도 있습니다. <strong>PC 재부팅 후 재시도.</strong></li>
+</ol></li>
+</ul>
+<h3 id="c-npm-err-code-etimedout--network-request--failed">C. <code>npm ERR! code ETIMEDOUT</code> / <code>network request ... failed</code></h3>
+<ul>
+<li><strong>원인</strong>: 사내 프록시·방화벽이 npm 저장소를 막았거나 회선이 일시적으로 끊겼습니다. <strong>컴퓨터가 망가진 게 아닙니다.</strong></li>
+<li><p><strong>해결</strong>:</p>
+<ol>
+<li><strong>같은 명령을 그대로 다시 실행합니다.</strong> ↑ → Enter. <strong>설치 명령은 여러 번 재실행해도 안전합니다.</strong></li>
+<li>계속 실패하면 <strong>휴대폰 테더링</strong>으로 네트워크를 바꿔 재시도 — 교육장에서 가장 확실한 방법입니다.</li>
+<li>그래도 안 되면 캐시를 비우고 재시도합니다.</li>
+</ol></li>
+</ul>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>npm cache clean --force</pre></div></div></div>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: <code>npm warn using --force ...</code> 경고 후 프롬프트 복귀. 이어서 3절 ③ 설치 명령을 재실행합니다.</p>
+<ol>
+<li>프록시 환경이면 <strong>직접 설정하지 말고 IT 담당자에게 문의하세요.</strong></li>
+</ol></section>
+<h3 id="d-invalid-api-key--401-unauthorized--authentication-failed">D. <code>Invalid API key</code> / <code>401 Unauthorized</code> / <code>authentication failed</code></h3>
+<ul>
+<li><strong>원인</strong>: ①키 앞뒤에 <strong>공백·줄바꿈</strong>이 함께 들어갔거나 ②키가 만료·폐기되었거나 ③선택한 제공사와 키 발급처가 다릅니다.</li>
+<li><p><strong>해결</strong>:</p>
+<ol>
+<li>파이 안에서 저장된 인증 정보를 지웁니다.</li>
+</ol></li>
+</ul>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>AI 프로그램에 입력</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>/logout</pre></div></div></div>
+<ol>
+<li>다시 로그인합니다.</li>
+</ol>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>AI 프로그램에 입력</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>/login</pre></div></div></div>
+<ol>
+<li>키를 붙여넣기 전에 <strong>메모장에 한 번 붙여넣어</strong> 앞뒤 빈칸·줄바꿈이 없는지 눈으로 확인한 뒤, 키 부분만 다시 복사해 입력합니다. (확인 후 <strong>메모장은 저장하지 말고 닫습니다.</strong>)</li>
+<li>제공사 선택이 맞는지 확인합니다. Anthropic 키를 OpenAI 항목에 넣으면 같은 오류가 납니다.</li>
+<li>그래도 실패하면 키가 만료·소진되었을 수 있습니다. <strong>교육 담당자에게 새 키를 요청하세요. 오류 문구만 전달하고 키 값 자체는 메신저에 보내지 마세요.</strong></li>
+</ol>
+<h3 id="e-파이가-명령을-실행하려다-실패한다--bash-관련-오류">E. 파이가 명령을 실행하려다 실패한다 / <code>bash</code> 관련 오류</h3>
+<ul>
+<li><strong>증상</strong>: 파이가 <code>bash</code> 도구를 쓰는 순간 셸을 찾지 못했다는 오류가 나거나, 명령 실행 결과가 비어서 돌아옵니다.</li>
+<li><strong>원인</strong>: <strong>Windows에는 bash가 기본 탑재되어 있지 않습니다.</strong> 파이는 ①설정의 사용자 지정 경로 → ②<code>C:\Program Files\Git\bin\bash.exe</code> → ③PATH 상의 <code>bash.exe</code> 순으로 찾는데, Git for Windows가 없으면 셋 다 실패합니다.</li>
+<li><p><strong>해결</strong>:</p>
+<ol>
+<li>아래에서 Git for Windows를 설치합니다 (기본값 그대로 Next 연타).</li>
+</ol></li>
+</ul>
+<div class="code-card is-lite"><div class="code-bar"><span class="code-label">주소창에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><pre>https://git-scm.com/download/win</pre></div>
+<ol>
+<li>PowerShell을 닫고 새로 연 뒤 확인합니다.</li>
+</ol>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>Test-Path &quot;C:\Program Files\Git\bin\bash.exe&quot;</pre></div></div></div>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: <code>True</code> → 파이를 다시 실행하면 해결됩니다. <strong>이렇게 나오면 오류</strong>: <code>False</code> → Git이 다른 경로에 설치된 것입니다. 이때만 3번을 진행하세요.</p>
+<ol>
+<li>Git을 다른 위치에 설치한 경우에만, <code>C:\Users\본인이름\.pi\agent\settings.json</code> 에 실제 경로를 지정합니다. <strong>역슬래시는 두 번씩</strong> 씁니다.</li>
+</ol></section>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>설정 파일에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>{ &quot;shellPath&quot;: &quot;D:\\Git\\bin\\bash.exe&quot; }</pre></div></div></div>
+<h3 id="f-파이가-실습-폴더-밖의-파일을-건드리려-한다">F. 파이가 실습 폴더 밖의 파일을 건드리려 한다</h3>
+<ul>
+<li><strong>증상</strong>: 파이가 <code>C:\Users\본인이름\Documents\...</code> 등 실습 폴더 밖 경로를 읽거나 고치겠다고 제안합니다.</li>
+<li><strong>원인</strong>: <strong>파이에는 샌드박스가 없습니다.</strong> 내 계정 권한으로 접근 가능한 파일이면 범위 밖이라도 손댈 수 있습니다. 실습 폴더 밖에서 실행했거나 지시문에 그런 경로가 섞였을 수 있습니다.</li>
+<li><p><strong>해결</strong>:</p>
+<ol>
+<li><strong>승인하지 말고 거절합니다.</strong> 확신이 없으면 <strong>Ctrl+C 두 번</strong>으로 즉시 종료하세요.</li>
+<li><code>pwd</code> 로 위치를 확인하고 실습 폴더로 이동한 뒤 다시 실행합니다.</li>
+</ol></li>
+</ul>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>cd &quot;$env:USERPROFILE\Desktop\AX실습&quot;</pre></div></div></div>
+<ol>
+<li>실제 사건 폴더가 열려 있었다면 <strong>어떤 파일이 읽혔는지 확인하고 교육 담당자·정보보호 담당자에게 알립니다.</strong></li>
+</ol>
+<hr>
+<h2 id="8-제거연동-해제">8. 제거·연동 해제</h2>
+<p><strong>1) 로그인 정보 먼저 지우기</strong> — 파이를 실행한 상태에서:</p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>AI 프로그램에 입력</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>/logout</pre></div></div></div>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: 저장된 인증 정보가 삭제됩니다. 이어서 <code>/quit</code> 로 나옵니다.</p></section>
+<p><strong>2) 발급처에서 키·권한 회수 (가장 중요)</strong></p>
+<ul>
+<li><strong>API 키를 썼다면</strong>: 발급처(교육 주관사 또는 제공사 콘솔)에서 그 키를 <strong>폐기(revoke)</strong> 합니다. <strong>내 PC에서 지우는 것만으로는 키가 살아 있습니다.</strong></li>
+<li><strong>구독 계정으로 로그인했다면</strong>: 해당 서비스의 &quot;연결된 앱&quot;에서 파이의 액세스 권한을 삭제합니다. 구글 계정이면 아래 주소.</li>
+</ul>
+<div class="code-card is-lite"><div class="code-bar"><span class="code-label">주소창에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><pre>https://myaccount.google.com/permissions</pre></div>
+<p><strong>3) 파이 제거</strong></p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>npm uninstall -g @earendil-works/pi-coding-agent</pre></div></div></div>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: <code>removed 213 packages in 3s</code> 같은 요약.</p></section>
+<p><strong>4) 제거 확인</strong></p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>pi --version</pre></div></div></div>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: <code>'pi' 용어가 ... 인식되지 않습니다</code> → 제거 완료입니다. (이번에는 이 오류가 정상입니다.)</p></section>
+<p><strong>5) 설정·인증·대화 기록 삭제</strong></p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>Remove-Item -Recurse -Force &quot;$env:USERPROFILE\.pi&quot; -ErrorAction SilentlyContinue</pre></div></div></div>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: 메시지 없이 완료 (폴더가 이미 없어도 오류가 나지 않습니다).</p></section>
+<blockquote><p>이 폴더에는 <code>auth.json</code>(인증 정보)과 <code>sessions\</code>(대화 기록 전체)가 들어 있습니다. <strong>PC를 반납하거나 교육이 끝나면 반드시 지우세요.</strong></p></blockquote>
+<p><strong>6) 실습 자료 정리</strong> — 바탕 화면 <code>AX실습</code> 폴더를 휴지통으로 옮기고 <strong>휴지통도 비웁니다.</strong></p>
+<hr>
+<h2 id="다른-설치-방법--선택-설정">다른 설치 방법 · 선택 설정</h2>
+<p>본문의 표준 경로(npm 전역 설치 + <code>/login</code>)로 진행하는 것을 권장합니다. 아래는 해당되는 경우에만 보세요.</p>
+<p><strong>① 환경 변수로 키 지정</strong> — <code>/login</code> 대신 <code>ANTHROPIC_API_KEY</code> / <code>OPENAI_API_KEY</code> / <code>GEMINI_API_KEY</code> 환경 변수로 키를 넘길 수도 있습니다. 다만 키가 시스템 설정에 남아 관리가 어려우므로, <strong>초보자는 <code>/login</code> 만 쓰는 편이 안전합니다.</strong></p>
+<p><strong>② Windows Terminal에서 Alt+Enter 되살리기</strong> — Windows Terminal에서는 <strong>Alt+Enter가 전체화면 전환에 먼저 걸려</strong> 파이의 &quot;후속 질문 대기열&quot; 기능이 동작하지 않습니다. 이 기능을 쓸 때만 설정하세요. 일반 PowerShell 창을 쓰면 건너뛰어도 실습에 지장 없습니다.</p>
+<ol>
+<li>Windows Terminal에서 <strong>Ctrl+Shift+,</strong> → <code>settings.json</code> 이 열립니다.</li>
+<li>맨 바깥 <code>{ }</code> 안에 아래를 추가하고 저장합니다.</li>
+</ol>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>설정 파일에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>&quot;actions&quot;: [
+  { &quot;command&quot;: { &quot;action&quot;: &quot;sendInput&quot;, &quot;input&quot;: &quot;\u001b[13;2u&quot; }, &quot;keys&quot;: &quot;shift+enter&quot; },
+  { &quot;command&quot;: { &quot;action&quot;: &quot;sendInput&quot;, &quot;input&quot;: &quot;\u001b[13;3u&quot; }, &quot;keys&quot;: &quot;alt+enter&quot; }
+]</pre></div></div></div>
+<ol>
+<li>Windows Terminal을 <strong>완전히 닫았다 다시 엽니다.</strong> (안 그러면 전체화면 동작이 그대로 남습니다.)</li>
+</ol>
+<p><strong>③ bash 셸 경로 직접 지정</strong> — Git을 기본 위치가 아닌 곳에 설치한 경우에만 필요합니다. <a href="#e-파이가-명령을-실행하려다-실패한다--bash-관련-오류">문제 해결 E</a> 3번 참고.</p>
+<hr>
+<h2 id="관련-문서">관련 문서</h2>
+<ul>
+<li><a href="setup-windows.html">공통 준비 — Windows 실습 환경 만들기</a></li>
+</ul>
+<h2 id="확인한-공식-출처-2026-08-01">확인한 공식 출처 (2026-08-01)</h2>
+<ul>
+<li>npm 레지스트리 <code>@earendil-works/pi-coding-agent</code> — 최신 0.83.0(2026-07-29), <code>engines.node &gt;=22.19.0</code>, 실행 명령 <code>pi</code></li>
+<li>GitHub <code>earendil-works/pi</code> — <code>packages/coding-agent/README.md</code>(설치 명령), <code>docs/quickstart.md</code>(첫 실행·기본 도구 4종), <code>docs/providers.md</code>(<code>/login</code>·<code>auth.json</code>·환경 변수), <code>docs/windows.md</code>(bash 셸 탐색 순서·<code>shellPath</code>), <code>docs/terminal-setup.md</code>(Windows Terminal Alt+Enter), <code>docs/security.md</code>(샌드박스 없음), <code>docs/usage.md</code>(CLI 플래그·슬래시 명령)</li>
+</ul>
+    </article>
+<nav class="pager" aria-label="페이지 이동"><a class="pager-prev" href="hermes.html"><span class="dir">← 이전</span><strong>헤르메스</strong></a><a class="pager-next" href="codex.html"><span class="dir">다음 →</span><strong>Codex CLI</strong></a></nav>
+  </main>
+  <aside class="side" aria-label="과정 내비게이션">
+  <details class="side-box" open>
+    <summary>📍 과정 지도 — 다른 차시로 이동</summary>
+    <h4>과정 지도</h4>
+    <div class="map-group">
+      <a class="map-link" href="../chapters/ch1.html"><b>1</b>나의 AX 업무 지도</a>
+      <a class="map-link" href="../chapters/ch2.html"><b>2</b>에이전트 도구 설치와 연동</a>
+      <a class="map-link" href="../chapters/ch3.html"><b>3</b>법률업무 지시서 만들기</a>
+      <a class="map-link" href="../chapters/ch4.html"><b>4</b>근거를 찾고 확인하기: 리서치 자동화</a>
+      <a class="map-link" href="../chapters/ch5.html"><b>5</b>초안에서 검토까지: 판례·계약서 병렬 분석</a>
+      <a class="map-link" href="../chapters/ch6.html"><b>6</b>의뢰인과 안전하게 소통하기</a>
+      <a class="map-link" href="../chapters/ch7.html"><b>7</b>반복 업무를 연결해 실제 업무로</a>
+    </div>
+    <h4 class="mt">설치가이드</h4>
+    <div class="map-group">
+      <a class="map-link" href="../install/setup-windows.html">공통 준비 (Windows)</a>
+      <a class="map-link" href="../install/antigravity.html">안티그래비티</a>
+      <a class="map-link" href="../install/hermes.html">헤르메스</a>
+      <a class="map-link on" href="../install/pi.html">파이 (Pi)</a>
+      <a class="map-link" href="../install/codex.html">Codex CLI</a>
+      <a class="map-link" href="../install/korean-law-mcp.html">korean-law-mcp</a>
+    </div>
+    <a class="map-home" href="../index.html">↩ 과정 홈 · 진행 상황</a>
+  </details>
+  <details class="side-box side-toc" open>
+    <summary>🔖 이 페이지 목차</summary>
+    <h4>이 페이지 목차</h4>
+    <ul class="toc-list">
+<li class="toc-l2"><a href="#빠른-설치-아는-사람용--5분">빠른 설치 (아는 사람용 — 5분)</a></li>
+<li class="toc-l2"><a href="#1-이-도구는-무엇인가">1. 이 도구는 무엇인가</a></li>
+<li class="toc-l2"><a href="#2-설치-전-확인">2. 설치 전 확인</a></li>
+<li class="toc-l2"><a href="#3-설치-절차">3. 설치 절차</a></li>
+<li class="toc-l2"><a href="#4-설치-확인-30초">4. 설치 확인 (30초)</a></li>
+<li class="toc-l2"><a href="#5-초기-설정연동">5. 초기 설정·연동</a></li>
+<li class="toc-l2"><a href="#6-첫-동작-테스트-1분">6. 첫 동작 테스트 (1분)</a></li>
+<li class="toc-l2"><a href="#7-문제-해결">7. 문제 해결</a></li>
+<li class="toc-l2"><a href="#8-제거연동-해제">8. 제거·연동 해제</a></li>
+<li class="toc-l2"><a href="#다른-설치-방법--선택-설정">다른 설치 방법 · 선택 설정</a></li>
+<li class="toc-l2"><a href="#관련-문서">관련 문서</a></li>
+<li class="toc-l2"><a href="#확인한-공식-출처-2026-08-01">확인한 공식 출처 (2026-08-01)</a></li>
+</ul>
+  </details>
+  </aside>
+</div>
+
+<footer><div class="wrap">
+  <div>변호사 AX 나노디그리 · <span class="hand-note-inline">인터넷이 끊겨도 열립니다. 인쇄해서 쓰셔도 됩니다.</span></div>
+  <div><a href="../index.html">과정 홈</a> · 진행 상황은 이 브라우저에만 저장됩니다</div>
+</div></footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

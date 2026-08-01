@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1차시. 나의 AX 업무 지도 — 변호사 AX 나노디그리</title>
+<meta name="description" content="반복되는 법률업무를 무작정 자동화하지 않고, AI가 도울 수 있는 범위와 사람이 직접 판단해야 하는 지점을 구분합니다.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect x=%228%22 y=%228%22 width=%2284%22 height=%2284%22 rx=%2220%22 fill=%22%23ffe455%22/%3E%3Ctext x=%2250%22 y=%2270%22 font-size=%2256%22 text-anchor=%22middle%22 font-family=%22monospace%22 fill=%22%2322242a%22%3E%C2%A7%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="ch1" data-tasks="8">
+<a class="skip-link" href="#main">본문으로 건너뛰기</a>
+<header class="topnav"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="dot"></span><span class="brand-full">변호사 AX 나노디그리</span><span class="brand-short">AX 나노디그리</span></a>
+  <nav aria-label="주요 메뉴">
+    <a href="../index.html">홈</a>
+    <a href="../index.html#chapters" aria-current="page">교육과정</a>
+    <a href="../index.html#install">설치가이드</a>
+  </nav>
+</div></header>
+
+<div class="wrap page-head">
+  <div class="eyebrow">1차시 · 실습지 + 실전 랩</div>
+  <h1>1차시. 나의 AX 업무 지도</h1>
+  <div class="meta"><span class="badge">1 / 7</span><span>⏱ 총 45~55분</span><span>📄 나의 AX 업무 지도 1부</span></div>
+</div>
+
+<div class="wrap layout">
+  <main id="main" class="main-col">
+<div class="progress-panel" data-progress-bar hidden>
+  <div class="progress-head"><span class="progress-label">진행 체크리스트</span>
+  <span data-progress-text>0 / 8</span></div>
+  <div class="progress-track"><div class="progress-fill" data-progress-fill></div></div>
+  <button type="button" class="reset-btn" data-reset>이 페이지 체크 초기화</button>
+</div>
+    <article class="prose">
+
+<h2 id="이-차시에서-준비할-것">이 차시에서 준비할 것</h2>
+<div class="table-wrap"><table><thead><tr><th>항목</th><th>필요 여부</th><th>비고</th></tr></thead><tbody><tr><td>설치할 프로그램</td><td>없음</td><td>이 차시는 웹브라우저만으로 진행합니다</td></tr><tr><td>AI 서비스 계정</td><td>1개 필요</td><td>ChatGPT · Claude · Gemini 중 하나, 무료 계정으로 충분</td></tr><tr><td>이전 차시 결과물</td><td>없음</td><td>첫 차시입니다</td></tr><tr><td>그 밖에</td><td>인터넷 되는 노트북, 30분 이상 방해받지 않는 시간</td><td></td></tr></tbody></table></div>
+<p><strong>터미널(검은 명령 창)이나 코딩은 이번 차시에 전혀 나오지 않습니다.</strong> 웹브라우저에서 AI와 대화하고, 그 결과를 파일로 저장하는 것이 전부입니다.</p>
+<p>실습 결과물을 담을 폴더를 아직 만들지 않았다면, 아래 &quot;준비 4&quot;에서 함께 만듭니다. 2차시부터 쓸 공통 실습 환경을 미리 갖춰 두고 싶다면 <a href="../install/setup-windows.html">Windows 공통 준비 가이드</a>를 먼저 훑어보아도 좋습니다. 이번 차시에는 필수가 아닙니다.</p>
+<h2 id="이-차시에서-처음-나오는-말">이 차시에서 처음 나오는 말</h2>
+<div class="table-wrap"><table><thead><tr><th>용어</th><th>한 줄 설명</th></tr></thead><tbody><tr><td><strong>생성형 AI</strong></td><td>사람이 글로 요청하면 글·표·초안을 만들어 주는 AI 서비스. ChatGPT, Claude, Gemini가 여기 해당합니다</td></tr><tr><td><strong>프롬프트</strong></td><td>AI에게 보내는 지시문. 우리가 입력창에 써 넣는 글 전체를 말합니다</td></tr><tr><td><strong>새 대화(새 채팅)</strong></td><td>이전 이야기를 기억하지 않는 빈 대화창. 업무별로 새로 열어 섞이지 않게 합니다</td></tr><tr><td><strong>마크다운</strong></td><td>기호 몇 개로 표와 제목을 표현하는 간단한 글쓰기 방식. <code>|</code>로 칸을 나눈 것이 표입니다</td></tr><tr><td><strong>AX</strong></td><td>AI로 일하는 방식 자체를 바꾸는 것. 도구를 쓰는 데서 그치지 않고 업무 절차를 다시 짭니다</td></tr></tbody></table></div>
+<hr>
+<div class="sec-banner" id="1차시-실습지-나의-ax-업무-지도"><span class="banner-kicker">WORKBOOK — 손으로 채우는 실습지</span><h2 class="banner-title">1차시 실습지: 나의 AX 업무 지도</h2></div>
+<h2 id="실습-목표">실습 목표</h2>
+<p>반복되는 법률업무를 무작정 자동화하지 않고, AI가 도울 수 있는 범위와 사람이 직접 판단해야 하는 지점을 구분합니다.</p>
+<p>이 실습지는 <strong>손으로 적는 부분</strong>입니다. 인쇄해서 펜으로 채워도 되고, 화면에서 메모장에 옮겨 적어도 됩니다. AI는 아직 켜지 않습니다.</p>
+<section class="human-check"><span class="callout-icon" aria-hidden="true">✋</span><h2 id="실습-규칙" class="callout-title">실습 규칙</h2><ul>
+<li>실제 의뢰인의 이름, 연락처, 사건번호를 적지 않습니다.</li>
+<li>진행 중인 사건의 구체적인 사실관계는 적지 않습니다.</li>
+<li>업무 이름은 <code>민사사건 상담 메모 정리</code>처럼 일반화해서 씁니다.</li>
+<li>자동화 여부가 애매하면 더 안전한 단계로 분류합니다.</li>
+</ul></section>
+<h2 id="1단계-반복-업무-다섯-가지-적기">1단계. 반복 업무 다섯 가지 적기</h2>
+<p>최근 한 달 동안 반복했거나 시간이 많이 들었던 일을 적어보세요.</p>
+<div class="table-wrap"><table><thead><tr><th>번호</th><th>업무 이름</th><th>언제 시작되는가?</th><th>현재 결과물</th></tr></thead><tbody><tr><td>1</td><td></td><td></td><td></td></tr><tr><td>2</td><td></td><td></td><td></td></tr><tr><td>3</td><td></td><td></td><td></td></tr><tr><td>4</td><td></td><td></td><td></td></tr><tr><td>5</td><td></td><td></td><td></td></tr></tbody></table></div>
+<p>예: <code>상담이 끝난 뒤</code> → <code>상담 메모에서 사실관계와 추가 질문을 정리한다</code> → <code>쟁점표</code></p>
+<p>다섯 개가 잘 떠오르지 않으면 이렇게 물어보세요. &quot;지난주 월요일부터 금요일까지 내가 두 번 이상 한 일은 무엇인가?&quot; 또는 &quot;미루고 싶어서 늘 저녁에 하는 일은 무엇인가?&quot;</p>
+<h2 id="2단계-자동화-적합도-확인하기">2단계. 자동화 적합도 확인하기</h2>
+<p>각 항목을 1점에서 5점으로 평가합니다. 표를 <strong>이득 점수</strong>와 <strong>위험 점수</strong> 둘로 나누어 적습니다.</p>
+<h3 id="2-1-이득-점수-높을수록-자동화-검토-가치가-큼">2-1. 이득 점수 (높을수록 자동화 검토 가치가 큼)</h3>
+<ul>
+<li>빈도: 자주 반복될수록 5점</li>
+<li>시간: 시간이 많이 들수록 5점</li>
+<li>규칙성: 순서와 기준이 분명할수록 5점</li>
+<li>표준화: 결과물 형식이 일정할수록 5점</li>
+</ul>
+<div class="table-wrap"><table><thead><tr><th>업무</th><th class="ta-right">빈도</th><th class="ta-right">시간</th><th class="ta-right">규칙성</th><th class="ta-right">표준화</th></tr></thead><tbody><tr><td>1</td><td class="ta-right"></td><td class="ta-right"></td><td class="ta-right"></td><td class="ta-right"></td></tr><tr><td>2</td><td class="ta-right"></td><td class="ta-right"></td><td class="ta-right"></td><td class="ta-right"></td></tr><tr><td>3</td><td class="ta-right"></td><td class="ta-right"></td><td class="ta-right"></td><td class="ta-right"></td></tr><tr><td>4</td><td class="ta-right"></td><td class="ta-right"></td><td class="ta-right"></td><td class="ta-right"></td></tr><tr><td>5</td><td class="ta-right"></td><td class="ta-right"></td><td class="ta-right"></td><td class="ta-right"></td></tr></tbody></table></div>
+<h3 id="2-2-위험-점수-높을수록-사람의-검토를-강화">2-2. 위험 점수 (높을수록 사람의 검토를 강화)</h3>
+<ul>
+<li>기밀 위험: 민감한 정보가 많을수록 5점</li>
+<li>법적 영향: 오류의 영향이 클수록 5점</li>
+</ul>
+<div class="table-wrap"><table><thead><tr><th>업무</th><th class="ta-right">기밀 위험</th><th class="ta-right">법적 영향</th></tr></thead><tbody><tr><td>1</td><td class="ta-right"></td><td class="ta-right"></td></tr><tr><td>2</td><td class="ta-right"></td><td class="ta-right"></td></tr><tr><td>3</td><td class="ta-right"></td><td class="ta-right"></td></tr><tr><td>4</td><td class="ta-right"></td><td class="ta-right"></td></tr><tr><td>5</td><td class="ta-right"></td><td class="ta-right"></td></tr></tbody></table></div>
+<h3 id="해석-방법">해석 방법</h3>
+<ul>
+<li>빈도·시간·규칙성·표준화가 높으면 자동화 검토 가치가 큽니다.</li>
+<li>기밀 위험이나 법적 영향이 높으면 사람의 검토와 승인을 강화합니다.</li>
+<li>점수만으로 자동화를 결정하지 않습니다. 점수는 어떤 업무부터 검토할지 정하는 참고자료입니다.</li>
+</ul>
+<h2 id="3단계-위임-수준-정하기">3단계. 위임 수준 정하기</h2>
+<p>각 업무를 한 곳에 배치하세요.</p>
+<h3 id="a-ai-보조">A. AI 보조</h3>
+<p>사람이 요청하고 결과를 바로 검토합니다.</p>
+<ul>
+<li>해당 업무:</li>
+<li>AI가 만들 초안 또는 정리 결과:</li>
+<li>사람이 반드시 확인할 내용:</li>
+</ul>
+<h3 id="b-자동화-후보">B. 자동화 후보</h3>
+<p>입력과 기준이 정해져 있으며 반복 실행할 수 있습니다.</p>
+<ul>
+<li>해당 업무:</li>
+<li>자동으로 이어질 단계:</li>
+<li>실행 전에 필요한 자료:</li>
+<li>멈추고 사람에게 알려야 하는 조건:</li>
+</ul>
+<h3 id="c-사람의-판단">C. 사람의 판단</h3>
+<p>AI는 참고자료만 제공하며 결정과 책임은 사람이 맡습니다.</p>
+<ul>
+<li>해당 업무:</li>
+<li>AI가 제공할 수 있는 참고자료:</li>
+<li>사람이 직접 내려야 하는 결정:</li>
+</ul>
+<h2 id="4단계-안전한-입력-범위-정하기">4단계. 안전한 입력 범위 정하기</h2>
+<p>첫 번째로 시험할 업무 하나를 고릅니다.</p>
+<ul>
+<li>선택한 업무:</li>
+<li>사용할 수 있는 공개자료:</li>
+<li>익명화하거나 삭제할 정보:</li>
+<li>입력하면 안 되는 정보:</li>
+<li>사용할 AI 서비스의 보안정책 확인 여부: <code>확인 / 미확인</code></li>
+<li>결과를 최종 승인할 사람:</li>
+</ul>
+<h2 id="5단계-작은-실험으로-바꾸기">5단계. 작은 실험으로 바꾸기</h2>
+<p>아래 문장을 완성하세요.</p>
+<blockquote><p>나는 ________ 업무에서 AI가 ________까지 돕게 하겠습니다.<br><br>AI의 결과는 ________와 대조하고, ________는 내가 직접 결정하겠습니다.<br><br>첫 실험에는 실제 사건자료 대신 ________를 사용하겠습니다.</p></blockquote>
+<h2 id="동료-검토">동료 검토</h2>
+<p>짝과 실습지를 바꾸어 아래 세 가지만 확인합니다.</p>
+<ul class="task-list">
+<li class="task-item"><input type="checkbox" id="chk-jtrmsp" data-task="jtrmsp"><label for="chk-jtrmsp">AI가 맡을 범위가 구체적이다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-3bnjk9" data-task="3bnjk9"><label for="chk-3bnjk9">사람이 확인하고 승인할 지점이 있다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-1040syy" data-task="1040syy"><label for="chk-1040syy">실제 의뢰인 정보 없이 시험할 수 있다.</label></li>
+</ul>
+<h3 id="동료의-한-문장-제안">동료의 한 문장 제안</h3>
+<p><code>이 업무는 ________ 단계에서 한 번 더 사람이 확인하면 안전하겠습니다.</code></p>
+<h2 id="수업-종료-전-제출">수업 종료 전 제출</h2>
+<ul>
+<li>이번 주에 시험할 AI 보조 업무 1개</li>
+<li>장기적으로 검토할 자동화 후보 1개</li>
+<li>AI에게 맡기지 않을 판단 업무 1개</li>
+<li>다음 차시에서 작성할 법률업무 지시서의 대상 1개</li>
+</ul>
+<hr>
+<div class="sec-banner" id="1차시-실전-실습-랩-ai와-함께-나의-ax-업무-지도-그리기"><span class="banner-kicker">HANDS-ON — AI를 켜고 함께하는 실전 랩</span><h2 class="banner-title">1차시 실전 실습 랩: AI와 함께 나의 AX 업무 지도 그리기</h2></div>
+<h2 id="실습-개요">실습 개요</h2>
+<p>이 랩은 교재에서 배운 개념을 실제 AI 도구로 확인하는 핸즈온 실습입니다. ChatGPT, Claude, Gemini 중 하나를 직접 열고, 제시된 프롬프트를 붙여넣으며 따라 합니다. 워크북이 손으로 생각을 정리하는 자리였다면, 이 랩은 AI를 조수로 앉혀 놓고 같은 작업을 함께 해 보는 자리입니다.</p>
+<p>이 랩은 수업 진도와 무관하게 각자 편한 시간에 혼자 진행하는 복습·자율 실습 자료입니다. LAB 1~3을 마친 뒤 시간 여유가 있다면, 마무리 앞의 &quot;더 해보기&quot; 섹션으로 이어가 심화 미션에 도전해 보세요.</p>
+<p>구체적으로는 교재의 세 가지 핵심 개념 — 생성형 AI·AI 에이전트·AX의 구분, 업무를 <code>AI 보조 / 자동화 후보 / 사람의 판단</code>으로 나누는 3분류, 그리고 검증을 전문가가 이끄는 전문가 주도의 AX — 를 실제 AI와의 대화 속에서 되짚는 과정입니다. 개념이 흐릿해졌다면 교재의 해당 부분을 다시 펼쳐 놓고 진행해도 좋습니다.</p>
+<p><strong>실습 목표</strong></p>
+<ol>
+<li>나의 반복 업무 다섯 가지를 AI에게 설명하고, <code>AI 보조 / 자동화 후보 / 사람의 판단</code> 세 단계로 분류받아 봅니다.</li>
+<li>AI의 분류에 스스로 반론을 제기하며, 기밀 위험과 법적 책임 관점에서 분류를 바로잡는 검증 습관을 익힙니다.</li>
+<li>검증을 마친 결과를 마크다운 표 형식의 &quot;AX 업무 지도&quot;로 완성해 저장합니다.</li>
+</ol>
+<p><strong>소요 시간</strong>: 총 45~55분 (LAB 1: 15분, LAB 2: 15분, LAB 3: 10분, 점검·저장: 5~10분). 계정을 처음 만든다면 준비 과정에 15분을 더 잡으세요.</p>
+<p><strong>준비물</strong></p>
+<ul>
+<li>ChatGPT, Claude, Gemini 중 하나의 계정 (무료 계정으로 충분합니다) — 만드는 법은 바로 아래 &quot;준비 1&quot;</li>
+<li>인터넷이 되는 노트북 또는 태블릿</li>
+<li>1차시 실습지에 적어 둔 반복 업무 목록 (없어도 랩 안에서 새로 적을 수 있습니다)</li>
+<li>결과물을 저장할 메모장, 워드, 또는 노트 앱</li>
+</ul>
+<p><strong>완성 결과물</strong>: 나의 AX 업무 지도 1부 — 업무 5개의 위임 수준, 그렇게 정한 이유, 입력 금지 정보가 담긴 마크다운 표</p>
+<section class="human-check"><span class="callout-icon" aria-hidden="true">✋</span><h2 id="실습-규칙-1" class="callout-title">실습 규칙</h2><p>시작하기 전에 반드시 지켜야 할 규칙입니다. 이 랩에서 다루는 AI는 공개형 서비스이므로, 교재의 &quot;자료 입력 전 신호등&quot;에서 빨간불에 해당하는 정보는 절대 입력하지 않습니다.</p>
+<ul>
+<li>실제 의뢰인의 이름, 연락처, 사건번호를 입력하지 않습니다.</li>
+<li>진행 중인 사건의 구체적인 사실관계를 입력하지 않습니다.</li>
+<li>업무 이름은 <code>전세보증금 반환 상담 메모 정리</code>처럼 일반화해서 씁니다. 누가 읽어도 특정 사건을 알 수 없어야 합니다.</li>
+<li>사람 이름이 꼭 필요하면 <code>김가상</code>, <code>의뢰인 A</code>, <code>상대방 B</code> 같은 가명을 씁니다.</li>
+<li>자동화 여부가 애매하면 더 안전한 단계로 분류합니다.</li>
+<li>실습에는 사무소 업무 계정이 아닌 <strong>실습용 개인 계정</strong>을 쓰는 편이 안전합니다.</li>
+</ul>
+<p>이 규칙은 실습을 위한 임시 규칙이 아니라, 앞으로 실무에서 AI를 쓸 때마다 적용할 기본 규칙입니다. 오늘부터 몸에 익혀 두세요.</p></section>
+<hr>
+<h2 id="준비-1-ai-서비스-계정-만들기-처음이신-분만">준비 1. AI 서비스 계정 만들기 (처음이신 분만)</h2>
+<p><strong>왜 하는가</strong>: 이 과정 전체에서 AI와 대화할 창구를 하나 확보합니다. 셋 중 <strong>하나만</strong> 있으면 됩니다.</p>
+<p>셋 다 무료로 쓸 수 있고, 이 랩의 실습은 무료 범위에서 전부 됩니다. 고민되면 아무거나 하나 고르세요. 나중에 바꿔도 됩니다.</p>
+<div class="table-wrap"><table><thead><tr><th>서비스</th><th>접속 주소</th><th>특징</th></tr></thead><tbody><tr><td>ChatGPT</td><td><code>chatgpt.com</code></td><td>사용자가 가장 많습니다. 자료가 많아 검색으로 해결하기 쉽습니다</td></tr><tr><td>Claude</td><td><code>claude.ai</code></td><td>긴 문서 정리와 한국어 문장이 안정적입니다. 이 과정 후반 도구와 잘 맞습니다</td></tr><tr><td>Gemini</td><td><code>gemini.google.com</code></td><td>이미 구글 계정이 있으면 가입 절차가 가장 짧습니다</td></tr></tbody></table></div>
+<p><strong>따라 하기 (Windows 기준)</strong></p>
+<ol>
+<li>바탕 화면 아래 작업 표시줄에서 웹브라우저(Edge 또는 Chrome) 아이콘을 클릭해 엽니다.</li>
+<li>화면 맨 위 <strong>주소창</strong>(현재 페이지 주소가 적힌 긴 칸)을 클릭하고, 위 표의 주소를 그대로 입력한 뒤 <code>Enter</code> 키를 누릅니다.</li>
+<li>서비스 첫 화면이 나오면 오른쪽 위 또는 화면 가운데의 <strong>로그인 / 회원가입</strong>(Sign up) 버튼을 클릭합니다.</li>
+<li>가장 간단한 방법은 <strong>Google 계정으로 계속하기</strong>입니다. 이미 쓰는 지메일 주소로 클릭 몇 번이면 끝납니다. 사무소 메일 대신 개인 메일을 권합니다.</li>
+<li>이메일로 직접 가입한다면, 입력한 주소로 온 인증 메일의 링크를 클릭합니다. 메일이 안 보이면 스팸함을 확인하세요.</li>
+<li>이름과 생년월일을 묻는 화면이 나오면 입력하고, 휴대전화 번호 인증을 요구하면 문자로 받은 6자리 숫자를 입력합니다.</li>
+</ol>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: 가운데 또는 아래쪽에 <strong>긴 가로 입력창</strong>이 있고 &quot;무엇을 도와드릴까요?&quot; 같은 문구가 보이는 화면이 나옵니다. 이 입력창이 앞으로 프롬프트를 붙여넣을 자리입니다. 왼쪽에는 지난 대화 목록이 들어갈 세로 영역이 있습니다 (지금은 비어 있습니다).</p></section>
+<section class="callout callout-check"><span class="callout-icon" aria-hidden="true">✅</span><p>✅ 체크포인트: 입력창에 <code>안녕하세요</code>라고 치고 <code>Enter</code>를 눌렀을 때 AI가 한국어로 답하면 계정 준비 완료입니다.</p></section>
+<section class="callout callout-trouble"><span class="callout-icon" aria-hidden="true">🔧</span><p><strong>잘 안 될 때</strong></p>
+<ul>
+<li>페이지가 영어로만 나오면: 그대로 두고 한국어로 질문하면 한국어로 답합니다. 화면 메뉴만 영어일 뿐 문제 없습니다.</li>
+<li>&quot;지역에서 사용할 수 없습니다&quot;류 안내가 나오면: 회사 네트워크가 막고 있을 수 있습니다. 휴대전화 핫스팟이나 집 인터넷으로 다시 시도하세요.</li>
+<li>유료 결제 화면이 뜨면: 결제하지 말고 화면 구석의 <code>X</code> 또는 &quot;나중에 / 무료로 계속&quot;을 클릭합니다. 이 랩은 무료로 충분합니다.</li>
+<li>로그인 후 첫 화면이 안내 팝업으로 덮여 있으면: &quot;다음 → 시작하기&quot;를 끝까지 눌러 팝업을 닫습니다.</li>
+</ul></section>
+<h2 id="준비-2-새-대화-여는-법">준비 2. 새 대화 여는 법</h2>
+<p><strong>왜 하는가</strong>: AI는 같은 대화창 안의 앞 내용을 계속 참고합니다. 다른 주제가 섞이면 엉뚱한 답이 나오므로, 실습은 깨끗한 새 대화에서 시작합니다.</p>
+<p><strong>따라 하기</strong></p>
+<ol>
+<li>화면 <strong>왼쪽 위</strong>를 봅니다. 연필과 네모가 겹친 아이콘, 또는 <code>+</code> 표시, 또는 <code>새 채팅</code>·<code>새 대화</code>·<code>New chat</code>이라는 글자가 있습니다.</li>
+<li>그 버튼을 한 번 클릭합니다.</li>
+<li>왼쪽 목록이 접혀 보이지 않는다면, 왼쪽 맨 위의 줄 세 개 아이콘(≡)을 먼저 클릭해 목록을 펼칩니다.</li>
+</ol>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: 이전 대화 내용이 화면에서 사라지고, 입력창만 있는 빈 화면으로 돌아갑니다. 이 상태가 &quot;새 대화&quot;입니다.</p></section>
+<section class="callout callout-check"><span class="callout-icon" aria-hidden="true">✅</span><p>✅ 체크포인트: 화면에 이전 질문·답변이 하나도 남아 있지 않으면 성공입니다.</p></section>
+<section class="callout callout-trouble"><span class="callout-icon" aria-hidden="true">🔧</span><p><strong>잘 안 될 때</strong></p>
+<ul>
+<li>버튼을 못 찾겠으면: 주소창에 서비스 주소(<code>chatgpt.com</code> 등)를 다시 입력하고 <code>Enter</code>를 눌러도 대부분 새 대화 화면으로 돌아갑니다.</li>
+<li>대화 제목을 바꾸고 싶으면: 왼쪽 목록의 대화 제목 위에 마우스를 올리면 점 세 개(<code>⋯</code>) 아이콘이 나타납니다. 클릭 후 &quot;이름 바꾸기&quot;를 선택합니다.</li>
+</ul></section>
+<h2 id="준비-3-대화를-학습에-쓰지-않도록-설정-찾기">준비 3. 대화를 학습에 쓰지 않도록 설정 찾기</h2>
+<p><strong>왜 하는가</strong>: 공개형 AI는 사용자의 대화를 서비스 개선(모델 학습)에 쓰는 경우가 있습니다. 변호사에게는 비밀유지 의무와 직결되는 문제이므로, 실습 전에 설정을 확인하고 끌 수 있으면 끕니다.</p>
+<p>이 설정의 메뉴 이름과 위치는 서비스가 개편되면 바뀝니다. <strong>정확한 이름을 외우기보다 아래 요령으로 찾는 법을 익히세요.</strong></p>
+<p><strong>따라 하기 — 공통 요령</strong></p>
+<ol>
+<li>화면 <strong>오른쪽 위 또는 왼쪽 아래</strong>의 사람 모양 아이콘(또는 내 이름·이니셜 동그라미)을 클릭합니다.</li>
+<li>열린 목록에서 <code>설정</code>(Settings)을 클릭합니다.</li>
+<li>설정 창 왼쪽의 항목 이름 중 <strong><code>데이터</code>·<code>개인정보</code>·<code>활동</code>·<code>Privacy</code>·<code>Data</code></strong> 가 들어간 것을 찾아 클릭합니다.</li>
+<li>그 안에서 <strong>&quot;개선에 도움&quot;, &quot;모델 학습에 사용&quot;, &quot;활동 저장&quot;, &quot;Improve the model&quot;</strong> 같은 문구가 붙은 스위치(토글)를 찾습니다.</li>
+<li>스위치를 눌러 <strong>꺼짐</strong> 상태로 바꿉니다. 보통 회색이면 꺼짐, 파랑·검정 등 색이 차 있으면 켜짐입니다.</li>
+</ol>
+<p><strong>서비스별로 대체로 이런 이름입니다</strong> (버전에 따라 다를 수 있습니다)</p>
+<div class="table-wrap"><table><thead><tr><th>서비스</th><th>찾아볼 경로</th></tr></thead><tbody><tr><td>ChatGPT</td><td>설정 → <code>데이터 제어</code>(Data controls) → &quot;모두를 위한 모델 개선&quot; 끄기</td></tr><tr><td>Claude</td><td>설정 → <code>개인정보 보호</code>(Privacy) → &quot;Claude 개선에 도움 주기&quot; 끄기</td></tr><tr><td>Gemini</td><td>설정 및 개인정보 보호 → <code>Gemini 앱 활동</code> → 사용 중지</td></tr></tbody></table></div>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: 스위치를 끄면 &quot;이후 대화는 학습에 사용되지 않습니다&quot;류의 안내 문구가 뜨거나, 스위치 색이 회색으로 바뀝니다.</p></section>
+<section class="callout callout-check"><span class="callout-icon" aria-hidden="true">✅</span><p>✅ 체크포인트: 해당 스위치가 꺼짐 상태이거나, 5분 찾아도 항목이 없어서 실습지 4단계에 <code>미확인</code>이라고 적었다면 다음으로 넘어갑니다.</p></section>
+<section class="callout callout-trouble"><span class="callout-icon" aria-hidden="true">🔧</span><p><strong>잘 안 될 때</strong></p>
+<ul>
+<li>항목이 도무지 안 보이면: 못 찾았다고 실습을 멈추지 마세요. 실습지 4단계에 <code>미확인</code>으로 적고, <strong>오늘은 가상 사례만 입력</strong>한다는 전제로 진행합니다.</li>
+<li>설정 창이 영어로만 나오면: <code>Data</code>, <code>Privacy</code>, <code>Improve</code>, <code>Training</code> 단어가 들어간 줄을 찾으면 됩니다.</li>
+<li>사무소에서 발급한 기업용 계정이면: 관리자 정책이 이미 적용되어 개인이 바꿀 수 없는 경우가 많습니다. 사무소 IT 담당자에게 &quot;우리 계정은 대화가 학습에 쓰이나요?&quot;를 한 번 물어 두세요.</li>
+</ul></section>
+<blockquote class="warn"><p><strong>중요</strong>: 이 설정을 껐다고 해서 의뢰인 실명·사건번호를 입력해도 되는 것은 아닙니다. 입력 금지 규칙은 그대로 유지합니다.</p></blockquote>
+<h2 id="준비-4-결과물-저장할-폴더와-파일-만들기">준비 4. 결과물 저장할 폴더와 파일 만들기</h2>
+<p><strong>왜 하는가</strong>: 오늘부터 매 차시 결과물이 쌓입니다. 처음에 자리를 정해 두면 나중에 찾아 헤매지 않습니다.</p>
+<p><strong>따라 하기 (Windows 기준)</strong></p>
+<ol>
+<li>바탕 화면의 빈 곳에서 <strong>마우스 오른쪽 버튼</strong>을 클릭합니다.</li>
+<li>나온 메뉴에서 <code>새로 만들기</code> → <code>폴더</code>를 클릭합니다.</li>
+<li>폴더 이름을 <code>AX실습</code>이라고 입력하고 <code>Enter</code>를 누릅니다. 전체 경로는 <code>C:\Users\사용자이름\Desktop\AX실습</code>이 됩니다.</li>
+<li>만든 <code>AX실습</code> 폴더를 더블클릭해 엽니다.</li>
+<li>폴더 안 빈 곳에서 오른쪽 버튼 → <code>새로 만들기</code> → <code>텍스트 문서</code>를 클릭합니다.</li>
+<li>파일 이름을 <code>AX업무지도_1차시_홍길동.txt</code>처럼 자기 이름으로 바꾸고 <code>Enter</code>를 누릅니다.</li>
+<li>그 파일을 더블클릭하면 <strong>메모장</strong>이 열립니다. 이 창을 닫지 말고 옆에 켜 둡니다.</li>
+</ol>
+<p>(macOS: Finder에서 <code>Command + Shift + N</code>으로 폴더 생성, 텍스트 편집기로 파일 생성)</p>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: 화면에 브라우저(AI 대화)와 메모장 두 창이 떠 있습니다. <code>Alt + Tab</code> 키로 두 창을 오갈 수 있습니다.</p></section>
+<section class="callout callout-check"><span class="callout-icon" aria-hidden="true">✅</span><p>✅ 체크포인트: 바탕 화면에 <code>AX실습</code> 폴더가 보이고, 그 안의 빈 메모장이 열려 있으면 준비 끝입니다.</p></section>
+<section class="callout callout-trouble"><span class="callout-icon" aria-hidden="true">🔧</span><p><strong>잘 안 될 때</strong></p>
+<ul>
+<li>오른쪽 버튼 메뉴에 <code>텍스트 문서</code>가 없으면: 시작 버튼을 누르고 <code>메모장</code>을 검색해 실행한 뒤, 나중에 <code>Ctrl + S</code>로 <code>AX실습</code> 폴더에 저장해도 됩니다.</li>
+<li>마크다운 표를 예쁘게 보고 싶으면: 워드나 한글에 붙여넣어도 되고, 그냥 메모장에 텍스트로 두어도 실습에는 지장이 없습니다.</li>
+</ul></section>
+<h2 id="시작-전-점검">시작 전 점검</h2>
+<ul class="task-list">
+<li class="task-item"><input type="checkbox" id="chk-52dkvu" data-task="52dkvu"><label for="chk-52dkvu">ChatGPT, Claude, Gemini 중 하나에 로그인했다. (준비 1)</label></li>
+<li class="task-item"><input type="checkbox" id="chk-1s6csjk" data-task="1s6csjk"><label for="chk-1s6csjk">새 대화(새 채팅)를 열었다. 다른 업무 대화와 섞이지 않게 합니다. (준비 2)</label></li>
+<li class="task-item"><input type="checkbox" id="chk-1ntm5tk" data-task="1ntm5tk"><label for="chk-1ntm5tk">대화 내용을 학습에 쓰지 않는 설정을 확인했다. 찾지 못했다면 &quot;확인 필요&quot;로 남겨 두고 진행합니다. (준비 3)</label></li>
+<li class="task-item"><input type="checkbox" id="chk-xtqmpa" data-task="xtqmpa"><label for="chk-xtqmpa">실습지에서 반복 업무 다섯 가지를 옮겨 적을 준비를 했다. 아직 없다면 지금 5분 안에 떠오르는 대로 적습니다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-a13mgx" data-task="a13mgx"><label for="chk-a13mgx">결과물을 붙여넣어 저장할 문서 파일을 하나 열어 두었다. (준비 4)</label></li>
+</ul>
+<blockquote><p><strong>복사·붙여넣기 요령</strong>: 이 문서의 회색 상자 안 글을 마우스로 드래그해 선택하고 <code>Ctrl + C</code>(복사), AI 입력창을 클릭한 뒤 <code>Ctrl + V</code>(붙여넣기)를 누릅니다. 웹사이트로 보고 있다면 상자 오른쪽 위의 &quot;복사&quot; 버튼을 눌러도 됩니다. (macOS: <code>Command + C</code> / <code>Command + V</code>)</p>
+<p>프롬프트가 여러 줄일 때 <code>Enter</code>를 누르면 바로 전송됩니다. 줄을 바꾸려면 <code>Shift + Enter</code>를 쓰세요.</p></blockquote>
+<h2 id="lab-1-내-반복-업무를-ai에게-분류시키기">LAB 1. 내 반복 업무를 AI에게 분류시키기</h2>
+<p><strong>소요 시간</strong> 15분 · <strong>난이도</strong> 쉬움</p>
+<p><strong>왜 하는가</strong>: 내가 혼자 정한 분류가 편견인지 타당한 판단인지, 제3자의 시선으로 한 번 걸러 보기 위해서입니다.</p>
+<p>교재에서 배운 세 단계 위임 수준(<code>AI 보조 / 자동화 후보 / 사람의 판단</code>)을 이번에는 AI에게 직접 적용시켜 봅니다. 내가 한 분류와 AI의 분류가 어디서 같고 어디서 다른지 비교하는 것이 목적입니다.</p>
+<p><strong>따라 하기</strong></p>
+<ol>
+<li>새 대화창에 아래 프롬프트를 복사해 붙여넣습니다. 아직 <code>Enter</code>는 누르지 않습니다.</li>
+<li>대괄호 <code>[ ]</code> 안의 업무 다섯 개를 자신의 업무로 바꿉니다. 대괄호 기호도 함께 지웁니다. 반드시 일반화된 이름으로 씁니다.</li>
+<li><code>Enter</code>를 눌러 전송하고, AI의 분류 결과를 끝까지 읽습니다.</li>
+</ol>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>AI에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>당신은 법률사무소의 업무 설계를 돕는 조수입니다.
+
+아래는 제가 반복하는 업무 다섯 가지입니다. 각 업무를 다음 세 단계 중
+하나로 분류하고, 분류 이유를 한 문장씩 설명해 주세요.
+
+- AI 보조: 사람이 지시하고 결과를 바로 검토한다
+- 자동화 후보: 정해진 입력과 규칙으로 반복 수행한다
+- 사람의 판단: AI는 참고자료만 제공하고 사람이 결정한다
+
+업무 목록:
+1. [전세보증금 반환 상담 메모에서 사실관계와 추가 질문 정리]
+2. [공개 판례의 사건번호와 판단 요지를 표로 정리]
+3. [의뢰인에게 보낼 서면 제출 완료 안내문 초안 작성]
+4. [계약서 두 버전에서 변경된 조항 비교 표시]
+5. [수임 여부와 사건 진행 전략 결정]
+
+결과는 표로 정리하고, 분류가 애매한 업무가 있으면
+어떤 조건에 따라 달라지는지도 알려 주세요.</pre></div></div></div>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상되는 AI 응답의 모습</strong>: 화면에 글자가 한 자씩 타이핑되듯 나타나고 10~30초 안에 멈춥니다. 업무 5개가 세 단계로 나뉜 표가 나오고, 각 행에 분류 이유가 붙습니다. 보통 정리·비교 업무는 <code>AI 보조</code>나 <code>자동화 후보</code>로, 전략·수임 결정은 <code>사람의 판단</code>으로 분류됩니다. &quot;안내문 초안은 내용이 정형적이면 자동화 후보, 사건마다 다르면 AI 보조&quot;처럼 조건부 답변이 섞여 나올 수도 있습니다.</p></section>
+<section class="callout callout-check"><span class="callout-icon" aria-hidden="true">✅</span><p>✅ 체크포인트: 다섯 업무 모두에 분류와 이유가 붙은 표가 나왔고, 그중 적어도 하나는 나의 생각과 다르거나 &quot;조건에 따라 다르다&quot;는 답이 나왔다면 성공입니다. AI와 내 판단이 갈리는 지점이 바로 다음 랩의 재료입니다.</p></section>
+<section class="callout callout-trouble"><span class="callout-icon" aria-hidden="true">🔧</span><p><strong>잘 안 될 때</strong></p>
+<ul>
+<li>표가 아니라 줄글로 나오면: &quot;위 결과를 업무·분류·이유 3개 열의 표로 다시 정리해 주세요.&quot;라고 요청합니다.</li>
+<li>분류 없이 일반론만 말하면: &quot;일반적인 설명 말고, 업무 1번부터 5번까지 각각 하나의 단계로 분류해 주세요.&quot;라고 다시 요청합니다.</li>
+<li>업무 설명이 부족하다고 하면: 사건을 특정하지 않는 범위에서 &quot;이 업무는 주 2~3회 반복되고 결과물 형식이 일정합니다&quot;처럼 빈도와 형식 정보만 보태 줍니다.</li>
+<li>답변 도중 멈추거나 끊기면: &quot;이어서 계속해 주세요.&quot;라고 입력합니다.</li>
+<li>프롬프트를 붙여넣자마자 전송돼 버렸으면: 그대로 두고, 다음 줄에 &quot;업무 목록을 아래 것으로 바꿔서 다시 분류해 주세요.&quot;라고 쓰며 자기 업무를 적으면 됩니다.</li>
+</ul></section>
+<h2 id="lab-2-ai의-분류에-반론-제기하기">LAB 2. AI의 분류에 반론 제기하기</h2>
+<p><strong>소요 시간</strong> 15분 · <strong>난이도</strong> 보통</p>
+<p><strong>왜 하는가</strong>: AI를 검증하는 근육을 만드는 랩입니다. 실무에서 AI 결과를 그대로 쓰다가 생기는 사고는 대부분 이 단계를 건너뛰어 발생합니다.</p>
+<p>교재에서 배웠듯이 AI가 빠르게 만든 결과는 검토할 재료이지, 확인이 끝난 결론이 아닙니다. 이번에는 AI가 <code>자동화 후보</code>로 분류한 업무 하나를 골라, 기밀 위험과 법적 책임 관점에서 내가 직접 반박해 봅니다. 전문가 주도의 AX란 바로 이 검증 대화를 전문가가 이끄는 것입니다.</p>
+<p><strong>따라 하기</strong></p>
+<ol>
+<li>LAB 1의 결과에서 AI가 <code>자동화 후보</code>로 분류한 업무를 하나 고릅니다. (없다면 <code>AI 보조</code>로 분류된 업무 중 자동화하면 위험해 보이는 것을 고릅니다.)</li>
+<li><strong>LAB 1과 같은 대화창</strong>에 아래 프롬프트를 붙여넣고, 대괄호 안을 고른 업무로 바꿉니다. 새 대화를 열면 AI가 앞의 분류를 기억하지 못하니 주의하세요.</li>
+<li>AI의 답변을 읽고, 납득이 되면 분류를 수정하고, 납득이 안 되면 한 번 더 반박합니다.</li>
+</ol>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>AI에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>방금 [의뢰인에게 보낼 서면 제출 완료 안내문 초안 작성] 업무를
+자동화 후보로 분류하셨습니다. 저는 변호사로서 이 분류에
+반론을 제기합니다.
+
+1. 이 업무를 자동화하면 어떤 기밀 정보가 시스템에 입력되어야
+   하는지 목록으로 보여 주세요.
+2. AI가 만든 안내문이 검토 없이 의뢰인에게 자동 발송되었을 때
+   생길 수 있는 최악의 상황을 두 가지 들어 주세요.
+3. 그 위험을 감안할 때, 이 업무를 자동화 후보로 유지해야 하는지,
+   아니면 사람의 승인 단계를 넣어 AI 보조로 낮춰야 하는지
+   다시 판단해 주세요.
+
+제 반론이 타당하지 않다면 그 이유도 솔직하게 말해 주세요.</pre></div></div></div>
+<ol>
+<li>AI가 분류를 수정하거나 승인 단계를 제안하면, 마지막으로 이렇게 확인합니다: &quot;그 승인 단계에서 사람이 구체적으로 무엇을 확인해야 하는지 점검 항목 3개로 정리해 주세요.&quot;</li>
+</ol>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상되는 AI 응답의 모습</strong>: 입력이 필요한 정보 목록(의뢰인 연락처, 사건 진행 상황 등), 오발송·오기재 같은 위험 시나리오, 그리고 &quot;발송 전 사람의 확인 단계를 넣는 조건으로 자동화하거나, AI 보조로 낮추는 것이 안전하다&quot;는 식의 수정된 판단이 나옵니다. AI가 원래 분류를 유지하면서 조건을 붙이는 경우도 있는데, 그 조건이 현실적인지 판단하는 것은 여러분의 몫입니다.</p></section>
+<section class="callout callout-check"><span class="callout-icon" aria-hidden="true">✅</span><p>✅ 체크포인트: AI가 처음 분류를 그대로 고집하지 않고, 위험 목록과 함께 &quot;사람의 확인 단계&quot;가 들어간 수정안 또는 유지 조건을 제시했다면 성공입니다. 핵심은 AI를 이긴 것이 아니라, 반론을 통해 분류의 근거가 한 층 깊어졌다는 점입니다.</p></section>
+<section class="callout callout-trouble"><span class="callout-icon" aria-hidden="true">🔧</span><p><strong>잘 안 될 때</strong></p>
+<ul>
+<li>AI가 무조건 사과하며 제 의견을 그대로 따라오면: &quot;제 말에 동의만 하지 말고, 자동화를 유지해야 할 근거가 있다면 반대로 저를 설득해 보세요.&quot;라고 요청합니다.</li>
+<li>위험을 너무 일반적으로만 말하면: &quot;법률사무소의 비밀유지 의무 관점에서 구체적으로 답해 주세요.&quot;라고 좁혀 줍니다.</li>
+<li>대화가 길어져 맥락을 잃으면: LAB 1의 분류 표를 다시 붙여넣고 이어서 질문합니다.</li>
+<li>실수로 새 대화를 열었으면: LAB 1의 표를 복사해 붙여넣고 &quot;아래는 앞서 만든 분류표입니다&quot;라고 한 줄 붙인 뒤 이어서 진행합니다.</li>
+</ul></section>
+<h2 id="lab-3-ax-업무-지도를-표로-완성해-저장하기">LAB 3. AX 업무 지도를 표로 완성해 저장하기</h2>
+<p><strong>소요 시간</strong> 10분 · <strong>난이도</strong> 쉬움</p>
+<p><strong>왜 하는가</strong>: 머릿속 판단을 문서 한 장으로 남겨야, 다음 차시와 실무에서 실제로 꺼내 쓸 수 있습니다.</p>
+<p>이제 검증까지 마친 결과를 이 차시의 최종 결과물인 &quot;AX 업무 지도&quot;로 만듭니다. AI에게 지금까지의 대화를 종합해 마크다운 표 하나로 정리하게 합니다.</p>
+<p><strong>따라 하기</strong></p>
+<ol>
+<li>같은 대화창에 아래 프롬프트를 붙여넣습니다.</li>
+<li>생성된 표를 읽고, LAB 2에서 수정한 분류가 제대로 반영되었는지 확인합니다. 반영되지 않았으면 해당 행만 고쳐 달라고 요청합니다.</li>
+<li>표 위에 마우스를 올리면 나타나는 <strong>복사 아이콘</strong>을 누르거나, 표 전체를 드래그해 <code>Ctrl + C</code>로 복사합니다.</li>
+<li>준비 4에서 열어 둔 메모장으로 <code>Alt + Tab</code> 해서 이동한 뒤 <code>Ctrl + V</code>로 붙여넣고, <code>Ctrl + S</code>로 저장합니다.</li>
+</ol>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>AI에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>지금까지의 대화를 종합해 &quot;나의 AX 업무 지도&quot;를 만들어 주세요.
+
+- 형식: 마크다운 표
+- 열 구성: 번호 | 업무 이름 | 위임 수준 | 그렇게 정한 이유 |
+  사람이 확인할 것 | 입력 금지 정보
+- 위임 수준은 AI 보조 / 자동화 후보 / 사람의 판단 중 하나로 씁니다.
+- 반론을 거쳐 분류가 바뀐 업무는 바뀐 최종 분류로 적고,
+  이유에 &quot;검증 후 조정&quot;이라고 표시해 주세요.
+- 입력 금지 정보 열에는 각 업무에서 공개형 AI에 넣으면 안 되는
+  정보를 구체적으로 적어 주세요. (예: 의뢰인 실명, 사건번호,
+  비공개 사건기록)
+
+표 아래에 &quot;이번 주에 AI 보조로 먼저 시험할 업무 1개&quot;를
+추천 이유와 함께 한 문장으로 제안해 주세요.</pre></div></div></div>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상되는 AI 응답의 모습</strong>: 6개 열, 5개 행의 마크다운 표가 나오고, LAB 2에서 조정한 업무 행에는 &quot;검증 후 조정&quot; 표시가 붙습니다. 표 아래에는 기밀 위험이 낮고 형식이 일정한 업무 하나가 첫 시험 대상으로 추천됩니다.</p></section>
+<section class="callout callout-check"><span class="callout-icon" aria-hidden="true">✅</span><p>✅ 체크포인트: 표에 다섯 업무가 모두 있고, 각 행에 &quot;사람이 확인할 것&quot;과 &quot;입력 금지 정보&quot;가 빈칸 없이 채워져 있으며, 그 표를 내 문서 파일에 붙여넣어 저장까지 마쳤다면 이 랩의 목표를 달성한 것입니다.</p></section>
+<section class="callout callout-trouble"><span class="callout-icon" aria-hidden="true">🔧</span><p><strong>잘 안 될 때</strong></p>
+<ul>
+<li>표의 열이 요청과 다르게 나오면: &quot;열 구성을 제가 지정한 6개 열 순서 그대로 다시 만들어 주세요.&quot;라고 요청합니다.</li>
+<li>입력 금지 정보 열이 모든 행에 똑같이 나오면: &quot;업무마다 다루는 자료가 다릅니다. 업무별로 구체적으로 다시 적어 주세요.&quot;라고 요청합니다.</li>
+<li>메모장에 붙여넣으니 <code>|</code> 기호가 잔뜩 있는 글자 덩어리로 보이면: 정상입니다. 마크다운 표는 원래 그렇게 생겼습니다. 보기 좋게 하려면 워드·한글·노션에 붙여넣거나, AI에게 &quot;같은 내용을 일반 텍스트 표로도 만들어 주세요.&quot;라고 요청합니다.</li>
+<li>붙여넣기가 안 되면: 표를 다시 드래그해 선택한 뒤 <code>Ctrl + C</code>를 확실히 누르고, 메모장 안쪽을 한 번 클릭해 커서를 놓은 다음 <code>Ctrl + V</code>를 누릅니다.</li>
+</ul></section>
+<h2 id="더-해보기--빠르게-끝낸-분을-위한-심화-미션">더 해보기 — 빠르게 끝낸 분을 위한 심화 미션</h2>
+<p>LAB 1~3을 마치고 시간이 남는 분을 위한 도전 과제입니다. 여기부터는 따라 하기 절차를 드리지 않습니다. 목표와 점검 기준만 보고, 어떤 프롬프트로 어떻게 접근할지 스스로 설계해 보세요. 그 설계 과정 자체가 전문가 주도의 AX 연습입니다.</p>
+<h3 id="미션-1-업무-지도를-15개로-확장하고-분류-기준의-충돌-찾기">미션 1. 업무 지도를 15개로 확장하고 분류 기준의 충돌 찾기</h3>
+<p>오늘 만든 지도의 업무 5개를 15개로 늘려 보세요. 반복 업무뿐 아니라 한 달에 한 번쯤 하는 업무, 하기 싫어서 미루는 업무까지 포함하면 목록이 빨리 채워집니다. 15개를 모두 세 단계로 분류한 뒤, &quot;빈도로 보면 자동화 후보인데 기밀 위험으로 보면 사람의 판단&quot;처럼 두 기준이 서로 다른 답을 가리키는 업무를 최소 2개 찾아내세요. 그 충돌을 AI에게 제시하고, 어느 기준이 우선해야 하는지 근거를 요구한 다음, 최종 판단은 여러분이 내려 지도에 반영합니다.</p>
+<p>✅ 스스로 점검: 15개 업무 지도에서 기준 충돌 업무 2개 이상을 찾았고, 각 충돌에 대해 &quot;어떤 기준을 왜 우선했는지&quot;를 한 문장으로 적을 수 있으면 성공입니다.</p>
+<h3 id="미션-2-동료의-업무를-가정만으로-분류하고-위험한-가정-가려내기">미션 2. 동료의 업무를 가정만으로 분류하고, 위험한 가정 가려내기</h3>
+<p>주변 동료 변호사(또는 사무직원)의 업무 하나를 골라, 그 사람에게 묻지 않고 여러분의 가정만으로 세 단계 중 하나로 분류해 보세요. 그다음 AI에게 그 분류를 제시하고, &quot;이 분류가 어떤 가정 위에 서 있는지 모두 나열해 보라&quot;고 요구합니다. 나온 가정 목록에서 틀렸을 때 기밀 유출이나 법적 책임으로 이어질 수 있는 위험한 가정과, 틀려도 효율만 조금 떨어지는 무해한 가정을 구분해 AI와 논증해 보세요. 남의 업무를 겉모습만 보고 분류하는 일이 왜 위험한지, 그리고 실제 AX 설계에서 당사자 확인이 왜 필수인지 체감하는 것이 이 미션의 목적입니다.</p>
+<p>✅ 스스로 점검: 분류의 근거가 된 가정을 3개 이상 적어 내고, 그중 &quot;틀리면 위험한 가정&quot; 1개 이상을 이유와 함께 지목할 수 있으면 성공입니다.</p>
+<h3 id="미션-3-1년-뒤-재분류-시나리오--이동-조건-목록-만들기">미션 3. 1년 뒤 재분류 시나리오 — 이동 조건 목록 만들기</h3>
+<p>오늘 <code>사람의 판단</code>으로 분류한 업무 하나를 골라, &quot;1년 뒤 어떤 조건이 바뀌면 이 업무가 <code>자동화 후보</code>로 이동할 수 있는가&quot;를 AI와 함께 따져 보세요. 도구의 정확도 향상, 소속 사무소의 검증 절차 정비, 비공개 자료를 안전하게 다루는 환경 도입 등 조건은 여러 층위에서 나올 수 있습니다. 반대로 어떤 조건이 충족되지 않는 한 절대 이동할 수 없는지, 즉 움직이지 않는 최후의 선도 함께 정리하세요. 좋은 AX는 한 번 그린 지도가 아니라 조건이 바뀔 때마다 다시 그리는 지도라는 점을 확인하는 미션입니다.</p>
+<p>✅ 스스로 점검: &quot;이 조건들이 충족되면 재분류를 검토한다&quot;는 이동 조건 3개 이상과, &quot;이것만은 사람이 결정한다&quot;는 최후의 선 1개를 표나 목록으로 적었다면 성공입니다.</p>
+<h2 id="마무리">마무리</h2>
+<h3 id="결과물-점검표">결과물 점검표</h3>
+<p>저장한 AX 업무 지도를 열고 아래 항목을 확인하세요.</p>
+<div class="table-wrap"><table><thead><tr><th>점검 항목</th><th>확인</th></tr></thead><tbody><tr><td>업무 5개가 모두 일반화된 이름으로 적혀 있다 (실명·사건번호 없음)</td><td>☐</td></tr><tr><td>모든 업무에 위임 수준과 이유가 붙어 있다</td><td>☐</td></tr><tr><td>AI의 첫 분류를 그대로 받지 않고, 최소 1개는 반론을 거쳐 검증했다</td><td>☐</td></tr><tr><td>자동화 후보로 남긴 업무에는 사람의 확인·승인 지점이 적혀 있다</td><td>☐</td></tr><tr><td>업무별 입력 금지 정보가 구체적으로 적혀 있다</td><td>☐</td></tr><tr><td>이번 주에 시험할 AI 보조 업무 1개가 정해져 있다</td><td>☐</td></tr></tbody></table></div>
+<h3 id="결과물-보관-방법">결과물 보관 방법</h3>
+<ul>
+<li>파일 이름은 <code>AX업무지도_1차시_이름.md</code>(또는 .txt)처럼 차시를 알 수 있게 붙입니다.</li>
+<li>준비 4에서 만든 <code>AX실습</code> 폴더에 넣어 두세요. 앞으로 매 차시 결과물이 이 폴더에 쌓입니다.</li>
+<li>오늘의 AI 대화는 삭제하지 말고 대화 제목을 &quot;1차시 AX 업무 지도&quot;로 바꿔 두세요. 왼쪽 대화 목록에서 제목 위 점 세 개(<code>⋯</code>) → &quot;이름 바꾸기&quot;로 바꿉니다. 다음 차시에서 이어서 참조할 수 있습니다.</li>
+<li>실습지(워크북)에 손으로 적은 내용과 오늘 AI가 만든 표가 다르다면, 최종 판단은 여러분의 것으로 통일해 지도에 반영합니다.</li>
+</ul>
+<h3 id="다음-차시-연결">다음 차시 연결</h3>
+<p>2차시에서는 실습 환경(안티그래비티·헤르메스·파이)을 직접 설치하고, 오늘 지도에서 고른 AI 보조 업무를 그 환경 위에서 실제로 굴려 볼 준비를 합니다.</p>
+<p>설치는 2차시 수업 중에 함께 진행합니다. 다만 아래 두 가지는 <strong>지금 혼자서도 끝까지 할 수 있고</strong>, 미리 해 두면 수업이 훨씬 수월합니다.</p>
+<ol>
+<li><a href="../install/setup-windows.html">Windows 공통 준비 가이드</a> — 폴더 구조, Node.js 등 공통 기반</li>
+<li><a href="../install/antigravity.html">안티그래비티 설치가이드</a></li>
+</ol>
+<p><strong>헤르메스와 파이(Pi)는 미리 끝낼 수 없습니다.</strong> 헤르메스는 주관사가 제공하는 내부 도구여서 설치 파일과 접속 정보가 담긴 배포 가이드를 2차시 수업 당일에 받습니다. 파이는 프로그램 자체는 미리 깔 수 있지만, 로그인에 쓸 실습용 API 키(<strong>API 키</strong> — 도구가 AI 서비스에 접속할 때 쓰는 비밀번호 같은 문자열)를 당일에 발급받습니다.</p>
+<p>미리 훑어보고 싶다면 <a href="../install/hermes.html">헤르메스 설치가이드</a>와 <a href="../install/pi.html">파이(Pi) 설치가이드</a>를 읽어 두어도 좋습니다. 특히 파이는 API 키 입력 직전 단계까지 미리 진행할 수 있으니, 여유가 있으면 그 가이드의 안내를 따라가 보세요.</p>
+<p>설치 중 막히면 그대로 두고 2차시에 질문하세요. 혼자 오래 붙잡고 있지 않는 것이 이 과정의 원칙입니다.</p>
+    </article>
+<nav class="pager" aria-label="페이지 이동"><a class="pager-prev" href="../index.html"><span class="dir">← 이전</span><strong>과정 홈</strong></a><a class="pager-next" href="ch2.html"><span class="dir">다음 →</span><strong>2차시 · 에이전트 도구 설치와 연동</strong></a></nav>
+  </main>
+  <aside class="side" aria-label="과정 내비게이션">
+  <details class="side-box" open>
+    <summary>📍 과정 지도 — 다른 차시로 이동</summary>
+    <h4>과정 지도</h4>
+    <div class="map-group">
+      <a class="map-link on" href="../chapters/ch1.html"><b>1</b>나의 AX 업무 지도</a>
+      <a class="map-link" href="../chapters/ch2.html"><b>2</b>에이전트 도구 설치와 연동</a>
+      <a class="map-link" href="../chapters/ch3.html"><b>3</b>법률업무 지시서 만들기</a>
+      <a class="map-link" href="../chapters/ch4.html"><b>4</b>근거를 찾고 확인하기: 리서치 자동화</a>
+      <a class="map-link" href="../chapters/ch5.html"><b>5</b>초안에서 검토까지: 판례·계약서 병렬 분석</a>
+      <a class="map-link" href="../chapters/ch6.html"><b>6</b>의뢰인과 안전하게 소통하기</a>
+      <a class="map-link" href="../chapters/ch7.html"><b>7</b>반복 업무를 연결해 실제 업무로</a>
+    </div>
+    <h4 class="mt">설치가이드</h4>
+    <div class="map-group">
+      <a class="map-link" href="../install/setup-windows.html">공통 준비 (Windows)</a>
+      <a class="map-link" href="../install/antigravity.html">안티그래비티</a>
+      <a class="map-link" href="../install/hermes.html">헤르메스</a>
+      <a class="map-link" href="../install/pi.html">파이 (Pi)</a>
+      <a class="map-link" href="../install/codex.html">Codex CLI</a>
+      <a class="map-link" href="../install/korean-law-mcp.html">korean-law-mcp</a>
+    </div>
+    <a class="map-home" href="../index.html">↩ 과정 홈 · 진행 상황</a>
+  </details>
+  <details class="side-box side-toc" open>
+    <summary>🔖 이 페이지 목차</summary>
+    <h4>이 페이지 목차</h4>
+    <ul class="toc-list">
+<li class="toc-l2"><a href="#이-차시에서-준비할-것">이 차시에서 준비할 것</a></li>
+<li class="toc-l2"><a href="#이-차시에서-처음-나오는-말">이 차시에서 처음 나오는 말</a></li>
+<li class="toc-l1"><a href="#1차시-실습지-나의-ax-업무-지도">1차시 실습지: 나의 AX 업무 지도</a></li>
+<li class="toc-l2"><a href="#실습-목표">실습 목표</a></li>
+<li class="toc-l2"><a href="#실습-규칙">실습 규칙</a></li>
+<li class="toc-l2"><a href="#1단계-반복-업무-다섯-가지-적기">1단계. 반복 업무 다섯 가지 적기</a></li>
+<li class="toc-l2"><a href="#2단계-자동화-적합도-확인하기">2단계. 자동화 적합도 확인하기</a></li>
+<li class="toc-l2"><a href="#3단계-위임-수준-정하기">3단계. 위임 수준 정하기</a></li>
+<li class="toc-l2"><a href="#4단계-안전한-입력-범위-정하기">4단계. 안전한 입력 범위 정하기</a></li>
+<li class="toc-l2"><a href="#5단계-작은-실험으로-바꾸기">5단계. 작은 실험으로 바꾸기</a></li>
+<li class="toc-l2"><a href="#동료-검토">동료 검토</a></li>
+<li class="toc-l2"><a href="#수업-종료-전-제출">수업 종료 전 제출</a></li>
+<li class="toc-l1"><a href="#1차시-실전-실습-랩-ai와-함께-나의-ax-업무-지도-그리기">1차시 실전 실습 랩: AI와 함께 나의 AX 업무 지도 그리기</a></li>
+<li class="toc-l2"><a href="#실습-개요">실습 개요</a></li>
+<li class="toc-l2"><a href="#실습-규칙-1">실습 규칙</a></li>
+<li class="toc-l2"><a href="#준비-1-ai-서비스-계정-만들기-처음이신-분만">준비 1. AI 서비스 계정 만들기 (처음이신 분만)</a></li>
+<li class="toc-l2"><a href="#준비-2-새-대화-여는-법">준비 2. 새 대화 여는 법</a></li>
+<li class="toc-l2"><a href="#준비-3-대화를-학습에-쓰지-않도록-설정-찾기">준비 3. 대화를 학습에 쓰지 않도록 설정 찾기</a></li>
+<li class="toc-l2"><a href="#준비-4-결과물-저장할-폴더와-파일-만들기">준비 4. 결과물 저장할 폴더와 파일 만들기</a></li>
+<li class="toc-l2"><a href="#시작-전-점검">시작 전 점검</a></li>
+<li class="toc-l2"><a href="#lab-1-내-반복-업무를-ai에게-분류시키기">LAB 1. 내 반복 업무를 AI에게 분류시키기</a></li>
+<li class="toc-l2"><a href="#lab-2-ai의-분류에-반론-제기하기">LAB 2. AI의 분류에 반론 제기하기</a></li>
+<li class="toc-l2"><a href="#lab-3-ax-업무-지도를-표로-완성해-저장하기">LAB 3. AX 업무 지도를 표로 완성해 저장하기</a></li>
+<li class="toc-l2"><a href="#더-해보기--빠르게-끝낸-분을-위한-심화-미션">더 해보기 — 빠르게 끝낸 분을 위한 심화 미션</a></li>
+<li class="toc-l2"><a href="#마무리">마무리</a></li>
+</ul>
+  </details>
+  </aside>
+</div>
+
+<footer><div class="wrap">
+  <div>변호사 AX 나노디그리 · <span class="hand-note-inline">인터넷이 끊겨도 열립니다. 인쇄해서 쓰셔도 됩니다.</span></div>
+  <div><a href="../index.html">과정 홈</a> · 진행 상황은 이 브라우저에만 저장됩니다</div>
+</div></footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

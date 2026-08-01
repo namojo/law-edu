@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>7차시. 반복 업무를 연결해 실제 업무로 — 변호사 AX 나노디그리</title>
+<meta name="description" content="여섯 차시 동안 만든 결과물을 하나의 흐름으로 연결하고, 실험을 실제 업무로 옮기는 30일 AX 파일럿 계획 1부를 완성합니다.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect x=%228%22 y=%228%22 width=%2284%22 height=%2284%22 rx=%2220%22 fill=%22%23ffe455%22/%3E%3Ctext x=%2250%22 y=%2270%22 font-size=%2256%22 text-anchor=%22middle%22 font-family=%22monospace%22 fill=%22%2322242a%22%3E%C2%A7%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="ch7" data-tasks="22">
+<a class="skip-link" href="#main">본문으로 건너뛰기</a>
+<header class="topnav"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="dot"></span><span class="brand-full">변호사 AX 나노디그리</span><span class="brand-short">AX 나노디그리</span></a>
+  <nav aria-label="주요 메뉴">
+    <a href="../index.html">홈</a>
+    <a href="../index.html#chapters" aria-current="page">교육과정</a>
+    <a href="../index.html#install">설치가이드</a>
+  </nav>
+</div></header>
+
+<div class="wrap page-head">
+  <div class="eyebrow">7차시 · 실습지 + 실전 랩</div>
+  <h1>7차시. 반복 업무를 연결해 실제 업무로</h1>
+  <div class="meta"><span class="badge">7 / 7</span><span>⏱ 총 50~70분</span><span>📄 &quot;30일 AX 파일럿 계획&quot; 1부</span></div>
+</div>
+
+<div class="wrap layout">
+  <main id="main" class="main-col">
+<div class="progress-panel" data-progress-bar hidden>
+  <div class="progress-head"><span class="progress-label">진행 체크리스트</span>
+  <span data-progress-text>0 / 22</span></div>
+  <div class="progress-track"><div class="progress-fill" data-progress-fill></div></div>
+  <button type="button" class="reset-btn" data-reset>이 페이지 체크 초기화</button>
+</div>
+    <article class="prose">
+
+<h2 id="이-차시에서-준비할-것">이 차시에서 준비할 것</h2>
+<p>이번 차시는 새 도구를 배우는 시간이 아니라, 1~6차시에서 만든 것을 <strong>하나의 흐름으로 조립하는</strong> 시간입니다. 그래서 앞 차시 결과물이 손에 있어야 시작할 수 있습니다.</p>
+<p><strong>앞 차시 결과물 (종이든 파일이든 상관없습니다)</strong></p>
+<div class="table-wrap"><table><thead><tr><th>차시</th><th>결과물</th><th>이번 차시에서 쓰는 곳</th></tr></thead><tbody><tr><td>1차시</td><td>AX 업무 지도</td><td>파일럿 대상 업무를 여기서 고릅니다</td></tr><tr><td>2차시</td><td>작업 환경 점검표</td><td>실행 환경과 계정 경계를 정합니다</td></tr><tr><td>3차시</td><td>법률업무 지시서</td><td>에이전트에게 줄 스킬 문서로 씁니다</td></tr><tr><td>4차시</td><td>리서치 검증표</td><td>성공 기준과 검증 절차의 재료입니다</td></tr><tr><td>5차시</td><td>문서 작성 워크플로</td><td>승인 관문의 골격이 됩니다</td></tr><tr><td>6차시</td><td>안전한 소통 시나리오</td><td>입력 자료 범위 기준이 됩니다</td></tr></tbody></table></div>
+<p><strong>도구 (하나라도 미설치면 아래 링크로 먼저 설치)</strong></p>
+<div class="table-wrap"><table><thead><tr><th>도구</th><th>이번 차시에서 하는 일</th><th>설치가이드</th></tr></thead><tbody><tr><td>대화형 AI (챗GPT·클로드 등)</td><td>계획 초안 작성과 현실성 반박</td><td>웹 브라우저 로그인만 필요</td></tr><tr><td>윈도우 공통 준비</td><td>실습 폴더, PowerShell 사용 준비</td><td><a href="../install/setup-windows.html">공통 준비 설치가이드</a></td></tr><tr><td>헤르메스</td><td>워크플로 조율(요청 분배·결과 취합)</td><td><a href="../install/hermes.html">헤르메스 설치가이드</a></td></tr><tr><td>안티그래비티</td><td>문서 작업 단계 담당</td><td><a href="../install/antigravity.html">안티그래비티 설치가이드</a></td></tr><tr><td>파이(Pi)</td><td>리서치 단계 담당</td><td><a href="../install/pi.html">파이(Pi) 설치가이드</a></td></tr><tr><td>korean-law-mcp</td><td>법령·판례 인용 검증 단계 담당</td><td><a href="../install/korean-law-mcp.html">korean-law-mcp 설치가이드</a></td></tr></tbody></table></div>
+<blockquote><p><strong>도구가 아직 없어도 이번 차시는 진행할 수 있습니다.</strong> LAB 1~3의 핵심은 계획을 세우는 일이고, 계획서에는 &quot;이 단계는 어느 도구가 맡는다&quot;만 적으면 됩니다. 다만 LAB 1의 부품 점검 단계는 도구가 설치되어 있을 때 훨씬 정확해집니다.</p></blockquote>
+<p><strong>용어 미리 정리</strong> — 이번 차시에 처음 나오는 말들입니다.</p>
+<ul>
+<li><strong>파일럿</strong>(pilot): 전면 도입 전에 작은 범위에서 30일간 시험 운영해 보는 것을 말합니다.</li>
+<li><strong>워크플로</strong>(workflow): 업무가 접수부터 완료까지 거치는 단계의 순서를 말합니다.</li>
+<li><strong>비식별 자료</strong>: 누구인지 특정할 수 없게 이름·연락처·사건번호를 지운 자료를 말합니다.</li>
+</ul>
+<hr>
+<div class="sec-banner" id="7차시-실습지-반복-업무를-연결해-실제-업무로"><span class="banner-kicker">WORKBOOK — 손으로 채우는 실습지</span><h2 class="banner-title">7차시 실습지: 반복 업무를 연결해 실제 업무로</h2></div>
+<h2 id="실습-목표">실습 목표</h2>
+<p>여섯 차시 동안 만든 결과물을 하나의 흐름으로 연결하고, 실험을 실제 업무로 옮기는 30일 AX 파일럿 계획 1부를 완성합니다. 작성은 「AI 에이전트로 만드는 나만의 업무 경쟁력」 세션에서 진행하고, 완성한 계획은 「내가 AI 에이전트를 쓰는 에이전트다!」 발표에서 공유합니다.</p>
+<section class="human-check"><span class="callout-icon" aria-hidden="true">✋</span><h2 id="실습-규칙" class="callout-title">실습 규칙</h2><ul>
+<li>파일럿은 비식별 자료 범위 안에서만 진행합니다. 실제 의뢰인의 이름, 연락처, 사건번호를 적지 않습니다.</li>
+<li>실험이라는 이름으로 의뢰인에게 위험을 전가하지 않습니다.</li>
+<li>확대할지 말지는 기대가 아니라 측정 결과로 결정합니다.</li>
+<li>첫 파일럿의 대상 업무는 위험 등급 낮음 또는 중간에서만 고릅니다.</li>
+</ul></section>
+<h2 id="1단계-결과물-모으기">1단계. 결과물 모으기</h2>
+<p>1~6차시에서 만든 결과물을 꺼내, 각각을 파일럿의 어느 입력으로 쓸지 연결합니다. 빈칸이 남는 차시가 이번 파일럿의 약한 고리이니 먼저 보강하세요.</p>
+<div class="table-wrap"><table><thead><tr><th>차시</th><th>결과물</th><th>파일럿에서 쓸 입력</th><th>준비 상태</th></tr></thead><tbody><tr><td>1차시</td><td>AX 업무 지도</td><td>파일럿 대상 업무 후보:</td><td><code>완성 / 보강 필요</code></td></tr><tr><td>2차시</td><td>작업 환경 점검표</td><td>파일럿 실행 환경과 계정 경계:</td><td><code>완성 / 보강 필요</code></td></tr><tr><td>3차시</td><td>법률업무 지시서</td><td>에이전트에게 줄 스킬 문서:</td><td><code>완성 / 보강 필요</code></td></tr><tr><td>4차시</td><td>리서치 검증표</td><td>성공 기준과 결과 검증 절차:</td><td><code>완성 / 보강 필요</code></td></tr><tr><td>5차시</td><td>문서 작성 워크플로</td><td>단계 연결과 승인 관문의 골격:</td><td><code>완성 / 보강 필요</code></td></tr><tr><td>6차시</td><td>안전한 소통 시나리오</td><td>입력 자료 범위와 의뢰인 안내 기준:</td><td><code>완성 / 보강 필요</code></td></tr></tbody></table></div>
+<ul>
+<li>이번 파일럿에서 가장 약한 고리 한 곳:</li>
+<li>실습 시간에 보강할 내용:</li>
+</ul>
+<h2 id="2단계-헤르메스식-워크플로-세팅">2단계. 헤르메스식 워크플로 세팅</h2>
+<p>헤르메스는 요청을 알맞은 에이전트에게 나눠 보내고, 결과를 모아 보고합니다. 스스로 판단하거나 승인하지 않습니다. 이 구조를 따라 파일럿 업무의 흐름을 역할 카드, 스킬, 기록표로 나누어 적습니다. 사람 이름이 아니라 책임 단위로 나눕니다.</p>
+<h3 id="워크플로-부품-목록">워크플로 부품 목록</h3>
+<p>역할 카드를 적기 전에, 내 파일럿에 어떤 부품이 들어가는지 먼저 확인합니다. 아래는 이 과정에서 만든 부품의 전체 목록입니다. 쓰지 않을 부품은 <code>미사용</code>으로 표시하되, <strong>리서치·인용 검증 부품은 법령이나 판례가 한 줄이라도 들어가는 업무라면 반드시 <code>사용</code>이어야 합니다.</strong></p>
+<div class="table-wrap"><table><thead><tr><th>부품</th><th>무엇을 하는 부품인가</th><th>담당 도구</th><th>사용 여부</th></tr></thead><tbody><tr><td>작업 지시</td><td>에이전트에게 줄 지시서 (3차시)</td><td>안티그래비티 / 파이</td><td><code>사용 / 미사용</code></td></tr><tr><td>리서치</td><td>법령·판례 자료 수집과 요약 (4차시)</td><td>파이 + korean-law-mcp <code>legal_research</code></td><td><code>사용 / 미사용</code></td></tr><tr><td>인용 검증</td><td>없는 조문·폐지된 판례 걸러내기 (4차시)</td><td>korean-law-mcp <code>verify_citations</code>, <code>cite_check</code></td><td><code>사용 / 미사용</code></td></tr><tr><td>문서 작성</td><td>초안 생성과 조항 비교 (5차시)</td><td>안티그래비티</td><td><code>사용 / 미사용</code></td></tr><tr><td>승인 관문</td><td>외부로 나가기 전 사람의 확인 (5차시)</td><td>사람</td><td><code>사용</code> (필수)</td></tr><tr><td>자료 범위 관리</td><td>무엇을 넣고 무엇을 뺄지 (6차시)</td><td>사람</td><td><code>사용</code> (필수)</td></tr><tr><td>조율·기록</td><td>요청 분배와 결과 취합, 기록표 갱신</td><td>헤르메스</td><td><code>사용 / 미사용</code></td></tr></tbody></table></div>
+<blockquote><p><strong>왜 인용 검증을 따로 부품으로 두는가.</strong> AI는 그럴듯한 조문 번호와 사건번호를 지어내는 일이 있습니다. korean-law-mcp는 법제처 공식 데이터로 그 인용이 실제로 존재하는지, 판례가 아직 살아 있는지를 대조합니다. 이 부품이 빠진 워크플로는 검증 없이 초안이 흘러가는 구조가 됩니다. 설치·설정은 <a href="../install/korean-law-mcp.html">korean-law-mcp 설치가이드</a>를 따르세요.</p></blockquote>
+<h3 id="역할-카드">역할 카드</h3>
+<div class="table-wrap"><table><thead><tr><th>역할 이름</th><th>맡는 일</th><th>결과물을 넘길 다음 역할</th></tr></thead><tbody><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr></tbody></table></div>
+<p>예: <code>자료정리 담당</code> → <code>초안 담당</code> → <code>인용검증 담당</code> → <code>검수 담당</code></p>
+<h3 id="스킬">스킬</h3>
+<p>여기서 <strong>스킬</strong>은 에이전트가 일할 때 펼쳐 보는 지시 문서를 말합니다. 사람으로 치면 업무 매뉴얼입니다.</p>
+<div class="table-wrap"><table><thead><tr><th>스킬 이름</th><th>참고할 문서(3차시 지시서 등)</th><th>반드시 확인할 항목</th></tr></thead><tbody><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr></tbody></table></div>
+<h3 id="기록표">기록표</h3>
+<div class="table-wrap"><table><thead><tr><th>일감 이름</th><th>상태(시작·진행·완료·승인)</th><th>담당 역할</th><th>마지막 갱신일</th></tr></thead><tbody><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr></tbody></table></div>
+<h3 id="최소-권한과-중지-장치">최소 권한과 중지 장치</h3>
+<p><strong>최소 권한</strong>은 에이전트에게 업무에 꼭 필요한 만큼만 열어 주는 원칙입니다. 예를 들어 바탕 화면 전체가 아니라 <code>C:\Users\이름\바탕 화면\AX실습</code> 폴더 하나만 열어 줍니다.</p>
+<ul>
+<li>에이전트에게 열어 줄 권한(파일럿용 지정 폴더 등):</li>
+<li>열어 주지 않을 권한(관리자 계정, 공용 비밀번호 등):</li>
+<li>사람의 승인 뒤에만 실행되는 행동(외부 발송 등):</li>
+<li>중지 권한자:</li>
+<li>중지하는 방법:</li>
+<li>다시 시작하는 조건:</li>
+</ul>
+<h2 id="3단계-위험-관리">3단계. 위험 관리</h2>
+<p>파일럿 업무의 위험 등급과 책임자, 사고가 났을 때의 절차를 미리 정합니다.</p>
+<div class="table-wrap"><table><thead><tr><th>항목</th><th>작성 내용</th></tr></thead><tbody><tr><td>위험 등급</td><td><code>낮음 / 중간</code> (높음이면 파일럿 대상에서 제외)</td></tr><tr><td>등급을 그렇게 정한 이유</td><td></td></tr><tr><td>책임자(허용 범위와 결과에 최종 책임)</td><td></td></tr><tr><td>승인자</td><td></td></tr><tr><td>사고 발생 시 가장 먼저 연락할 사람</td><td></td></tr><tr><td>사고 발생 시 보존할 기록(로그, 변경 이력 등)</td><td></td></tr><tr><td>즉시 중단하는 절차</td><td></td></tr></tbody></table></div>
+<ul>
+<li>원인 분석 전에 로그와 변경 이력을 삭제하거나 덮어쓰지 않습니다.</li>
+<li>모델, 프롬프트, 자료, 권한이 바뀌면 변경 전후 결과를 비교하고 승인 후 적용합니다.</li>
+</ul>
+<h2 id="4단계-30일-계획표">4단계. 30일 계획표</h2>
+<p>파일럿 계획의 여섯 칸을 채웁니다. 아래 표의 다섯 칸과 그 뒤의 주간 점검 일정표를 합쳐 여섯 칸입니다. 성공 기준은 느낌이 아니라 측정 지표로 적습니다.</p>
+<div class="table-wrap"><table><thead><tr><th>항목</th><th>작성 내용</th></tr></thead><tbody><tr><td>대상 업무 1개</td><td></td></tr><tr><td>자료 범위(비식별 자료만)</td><td></td></tr><tr><td>성공 기준(측정 지표)</td><td></td></tr><tr><td>중단 조건(발동되면 논의 없이 멈추는 선)</td><td></td></tr><tr><td>30일 후 확대·중단 판단 기준</td><td></td></tr></tbody></table></div>
+<h3 id="주간-점검-일정">주간 점검 일정</h3>
+<div class="table-wrap"><table><thead><tr><th>주차</th><th>점검 날짜·시간</th><th>확인할 것(기록표, 감사 로그 등)</th><th>참석자</th></tr></thead><tbody><tr><td>1주차</td><td></td><td></td><td></td></tr><tr><td>2주차</td><td></td><td></td><td></td></tr><tr><td>3주차</td><td></td><td></td><td></td></tr><tr><td>4주차</td><td></td><td></td><td></td></tr></tbody></table></div>
+<h2 id="5단계-1분-발표-준비">5단계. 1분 발표 준비</h2>
+<p>「내가 AI 에이전트를 쓰는 에이전트다!」 발표에서 말할 아래 문장을 완성하고, 소리 내어 한 번 읽어보세요.</p>
+<blockquote><p>나는 AI 에이전트를 쓰는 에이전트입니다.<br><br>내 30일 파일럿의 대상 업무는 ________입니다.<br><br>파일럿을 즉시 멈추는 중단 조건은 ________입니다.<br><br>30일 뒤 확대 여부를 판단할 측정 지표는 ________입니다.</p></blockquote>
+<h2 id="동료-검토">동료 검토</h2>
+<p>짝과 실습지를 바꾸어 아래 세 가지만 확인합니다.</p>
+<ul class="task-list">
+<li class="task-item"><input type="checkbox" id="chk-1ifw0fk" data-task="1ifw0fk"><label for="chk-1ifw0fk">성공 기준이 측정 가능하다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-10g5van" data-task="10g5van"><label for="chk-10g5van">중단 조건과 책임자가 있다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-1kydtqh" data-task="1kydtqh"><label for="chk-1kydtqh">비식별 자료만으로 시작한다.</label></li>
+</ul>
+<h3 id="동료의-한-문장-제안">동료의 한 문장 제안</h3>
+<p><code>이 파일럿은 ________ 단계에서 중단 조건을 한 번 더 확인하면 안전하겠습니다.</code></p>
+<h2 id="수료-제출">수료 제출</h2>
+<ul>
+<li>30일 파일럿의 대상 업무 1개</li>
+<li>파일럿의 성공 기준(측정 지표)</li>
+<li>파일럿의 중단 조건과 책임자</li>
+<li>30일 후 측정 결과를 들고 확대·조건부 지속·중단을 판단해 공유하겠다는 약속: <code>약속합니다 (서명: ________)</code></li>
+</ul>
+<hr>
+<div class="sec-banner" id="7차시-실전-실습-랩-여섯-개의-결과물을-연결해-30일-파일럿-계획-완성하기"><span class="banner-kicker">HANDS-ON — AI를 켜고 함께하는 실전 랩</span><h2 class="banner-title">7차시 실전 실습 랩: 여섯 개의 결과물을 연결해 30일 파일럿 계획 완성하기</h2></div>
+<h2 id="실습-개요">실습 개요</h2>
+<ul>
+<li><strong>목표</strong>: 1~6차시에서 만든 결과물을 AI와 함께 하나의 흐름으로 연결하고, 실제로 실행할 수 있는 30일 AX 파일럿 계획을 완성합니다. 이번 랩은 과정의 마지막 실습으로, 새 것을 배우기보다 지금까지 만든 것을 조립하는 시간입니다.</li>
+<li><strong>소요 시간</strong>: 총 50~70분 (준비 5분, LAB 1: 20분, LAB 2: 20분, LAB 3: 15분)</li>
+<li><strong>난이도</strong>: LAB 1 보통 · LAB 2 보통 · LAB 3 쉬움 (도구 조작보다 판단이 많은 랩입니다)</li>
+<li><p><strong>준비물</strong>:</p>
+<ul>
+<li>AI 도구(챗GPT, 클로드 등) 접속 계정 — 웹 브라우저에서 로그인만 되어 있으면 됩니다</li>
+<li>1~6차시 결과물 여섯 가지 (앞의 &quot;이 차시에서 준비할 것&quot; 표 참고)</li>
+<li>결과를 저장할 문서 (워드, 한글, 메모장 중 편한 것)</li>
+</ul></li>
+<li><strong>완성 결과물</strong>: &quot;30일 AX 파일럿 계획&quot; 1부 (파일럿 기록 템플릿 포함)</li>
+</ul>
+<p>이 랩은 수업 진도와 무관하게 혼자 진행할 수 있는 복습·자율 실습 자료입니다. 기본 랩(LAB 1~3)을 마치고 여유가 있다면 마지막의 &quot;더 해보기&quot; 미션에 도전해 보세요. 다만 이번 차시는 1~6차시 결과물을 조립하는 랩이므로, 앞 차시 결과물이 손에 있어야 시작할 수 있습니다. 교재에서 배운 운영 설계(역할 카드·스킬·기록표)와 30일 파일럿의 개념, 그리고 여섯 개의 결과물을 하나의 워크플로로 잇는 업무 연결을 실전으로 되짚는 시간입니다.</p>
+<section class="human-check"><span class="callout-icon" aria-hidden="true">✋</span><h2 id="실습-규칙-1" class="callout-title">실습 규칙</h2><ul>
+<li>실제 의뢰인의 이름, 연락처, 사건번호, 사건 내용을 AI 도구에 입력하지 않습니다. 실험이라는 이름으로 의뢰인에게 위험을 전가하지 않습니다.</li>
+<li>파일럿 대상 업무는 일반화된 이름으로 적습니다. &quot;김OO 이혼 사건 답변서&quot;가 아니라 &quot;정형 답변서 초안 작성&quot;처럼 씁니다.</li>
+<li>예시에 사람 이름이 필요하면 <code>김가상</code>, <code>의뢰인 A</code>처럼 가상 이름을 씁니다.</li>
+<li>파일럿 대상 업무는 위험 등급 낮음 또는 중간에서만 고릅니다. 높음 등급 업무는 파일럿 대상에서 제외합니다.</li>
+<li>AI가 만든 계획 초안은 그대로 확정하지 않습니다. 반드시 내 사무실의 현실에 맞는지 직접 검토한 뒤에 확정합니다.</li>
+</ul></section>
+<h2 id="시작-전-점검">시작 전 점검</h2>
+<p>시작하기 전에 아래 항목을 확인해 주세요. 하나라도 빠져 있으면 그 부분이 파일럿의 약한 고리이니, 랩을 진행하면서 함께 보강합니다.</p>
+<p><strong>결과물 점검</strong></p>
+<ul class="task-list">
+<li class="task-item"><input type="checkbox" id="chk-6m93im" data-task="6m93im"><label for="chk-6m93im">1차시 AX 업무 지도가 손에 있다 (파일럿 후보 업무를 여기서 고릅니다).</label></li>
+<li class="task-item"><input type="checkbox" id="chk-15kztnm" data-task="15kztnm"><label for="chk-15kztnm">3차시 법률업무 지시서가 손에 있다 (스킬 문서로 그대로 씁니다).</label></li>
+<li class="task-item"><input type="checkbox" id="chk-2kavpg" data-task="2kavpg"><label for="chk-2kavpg">4차시 리서치 검증표가 손에 있다 (성공 기준의 재료가 됩니다).</label></li>
+<li class="task-item"><input type="checkbox" id="chk-1tptzum" data-task="1tptzum"><label for="chk-1tptzum">5차시 문서 작성 워크플로가 손에 있다 (승인 관문의 골격이 됩니다).</label></li>
+<li class="task-item"><input type="checkbox" id="chk-p7tdmg" data-task="p7tdmg"><label for="chk-p7tdmg">6차시 안전한 소통 시나리오가 손에 있다 (자료 범위의 기준이 됩니다).</label></li>
+</ul>
+<p><strong>환경 점검 (Windows 기준, 3분)</strong></p>
+<ol>
+<li>AI 도구에 로그인되어 있고 새 대화를 열 수 있는지 확인합니다. 화면에 빈 입력창과 &quot;메시지를 입력하세요&quot; 같은 안내가 보이면 준비된 상태입니다.</li>
+<li>결과를 모아 둘 폴더를 만듭니다. 바탕 화면에서 마우스 오른쪽 버튼 → <code>새로 만들기</code> → <code>폴더</code>를 고르고 이름을 <code>AX실습</code>으로 바꿉니다. 경로는 <code>C:\Users\이름\바탕 화면\AX실습</code>이 됩니다. (macOS: 바탕화면에서 마우스 오른쪽 버튼 → <code>새로운 폴더</code>)</li>
+<li>그 폴더 안에 결과를 저장할 문서를 하나 열어 둡니다. 파일 이름은 날짜 없이 알아보기 쉽게 <code>30일파일럿계획</code>으로 짓고, 확장자는 쓰는 프로그램에 맞춥니다 — 워드는 <code>30일파일럿계획.docx</code>, 한글은 <code>30일파일럿계획.hwp</code>, 메모장은 <code>30일파일럿계획.txt</code>입니다. 메모장에서 <code>.docx</code>로 저장하면 워드에서 열리지 않으니 주의하세요.</li>
+</ol>
+<p><strong>korean-law-mcp 준비 상태 확인 (30초, 선택)</strong></p>
+<p>파일럿 업무에 법령·판례가 들어간다면 인용 검증 부품이 동작하는지 미리 확인합니다. <strong>MCP</strong>(Model Context Protocol)는 AI 도구에 외부 데이터 창구를 붙이는 연결 규격이고, korean-law-mcp는 법제처 공식 데이터를 그 창구로 연결해 주는 도구입니다.</p>
+<ol>
+<li>korean-law-mcp를 연결해 둔 AI 도구를 엽니다.</li>
+<li>새 대화에 <code>민법 제750조를 legal_research로 찾아 조문 원문을 보여주세요.</code>라고 입력합니다.</li>
+<li><strong>예상 결과</strong>: 조문 원문과 함께 법제처 출처가 표시됩니다. 도구 이름(<code>legal_research</code>)이 실행되었다는 표시가 화면에 뜹니다.</li>
+<li>아무 반응이 없거나 &quot;도구를 찾을 수 없다&quot;는 답이 오면 아직 연결이 안 된 것입니다. <a href="../install/korean-law-mcp.html">korean-law-mcp 설치가이드</a>로 먼저 연결하거나, 이번 랩에서는 계획서에 &quot;인용 검증 단계 담당: korean-law-mcp (연결 예정)&quot;으로만 적고 넘어갑니다.</li>
+</ol>
+<h2 id="lab-1-파일럿-업무-고르고-단계-분해하기">LAB 1. 파일럿 업무 고르고 단계 분해하기</h2>
+<p><strong>소요 시간 20분 · 난이도 보통</strong></p>
+<p><strong>왜 하는가</strong>: 파일럿 대상을 하나로 좁히고 단계를 쪼개 놓으면, 지금까지 만든 여섯 개의 결과물이 각각 어디에 끼워지는지가 눈에 보입니다.</p>
+<h3 id="배경">배경</h3>
+<p>파일럿 계획의 첫 칸은 &quot;대상 업무 1개&quot;입니다. 1차시 AX 업무 지도에는 여러 후보가 있지만, 파일럿은 하나만 고릅니다. 그리고 그 업무를 접수부터 완료까지 단계로 쪼갠 뒤, 각 단계에 3~6차시 결과물이 어디에 끼워지는지 매핑합니다. 이 매핑이 되어야 여섯 개의 부품이 하나의 워크플로로 연결됩니다.</p>
+<h3 id="따라-하기">따라 하기</h3>
+<ol>
+<li>1차시 AX 업무 지도에서 위험 등급 낮음 또는 중간인 업무 2~3개를 후보로 고릅니다.</li>
+<li>AI 도구에 새 대화를 엽니다. 화면 왼쪽 위 또는 왼쪽 목록 위의 <code>새 대화</code>(또는 <code>+</code>) 버튼을 누르면 됩니다. 이전 대화 내용이 섞이지 않도록 반드시 새 대화에서 시작합니다.</li>
+<li>아래 프롬프트에서 대괄호 <code>[ ]</code> 부분을 내 후보 업무로 바꿔 입력합니다. <strong>프롬프트</strong>는 AI에게 주는 지시문을 말합니다. 코드 블록 오른쪽 위의 복사 버튼을 누르고 입력창에 붙여넣기(<code>Ctrl+V</code>) 한 뒤, 대괄호만 고치면 됩니다.</li>
+<li>AI가 제안한 단계 분해를 읽고, 실제 내 업무 순서와 다른 단계를 직접 고칩니다.</li>
+<li>각 단계 옆에 &quot;이 단계에서 쓸 차시 결과물&quot;을 확인합니다. 매핑이 비는 단계가 있으면 AI에게 어느 결과물을 보강해야 하는지 물어봅니다.</li>
+</ol>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>AI에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>당신은 변호사의 AI 업무 전환을 돕는 운영 설계 조수입니다.
+
+저는 30일 파일럿의 대상 업무를 하나 고르려고 합니다.
+후보는 다음과 같습니다. 모두 일반화된 업무 이름이며, 실제 사건 정보는 없습니다.
+
+1. [후보 업무 1: 예 - 정형 내용증명 초안 작성]
+2. [후보 업무 2: 예 - 판례 리서치 요약]
+3. [후보 업무 3: 예 - 상담 후 안내문 초안 작성]
+
+다음 순서로 도와주세요.
+
+첫째, 각 후보를 &quot;반복 빈도 / 오류가 났을 때 피해 크기 / 사람 검토로 잡기 쉬운 정도&quot;
+세 가지 기준으로 비교하는 표를 만들어 주세요.
+
+둘째, 첫 파일럿으로 가장 알맞은 업무 1개를 추천하고 이유를 두 문장으로 적어 주세요.
+
+셋째, 추천한 업무를 접수부터 완료·기록까지 4~6개 단계로 분해해 주세요.
+각 단계마다 아래 재료 중 무엇을 끼울 수 있는지 표시해 주세요.
+- 법률업무 지시서 (작업 지시)
+- 리서치·인용 검증 (법령·판례 원문 대조, korean-law-mcp)
+- 리서치 검증표 (결과 검증)
+- 문서 작성 워크플로의 승인 관문 (사람의 승인)
+- 안전한 소통 시나리오 (입력 자료 범위와 안내 기준)
+
+각 단계에 &quot;사람이 확인하는가 / AI가 수행하는가&quot;도 함께 표시해 주세요.</pre></div></div></div>
+<h3 id="부품-점검--리서치인용-검증-단계가-실제로-도는지-확인-5분-korean-law-mcp를-연결한-분만">부품 점검 — 리서치·인용 검증 단계가 실제로 도는지 확인 (5분, korean-law-mcp를 연결한 분만)</h3>
+<p>단계 분해에 법령이나 판례가 들어가는 단계가 있다면, 그 부품이 실제로 도는지 여기서 한 번 돌려 봅니다. 계획서에 적기만 하고 한 번도 안 돌려 본 부품은 30일 동안 그대로 안 쓰이게 됩니다.</p>
+<p><strong>아직 korean-law-mcp를 연결하지 못했다면 이 점검은 건너뛰어도 됩니다.</strong> 단계 분해 표의 해당 단계에 &quot;인용 검증 — korean-law-mcp (연결 예정)&quot;이라고만 적고 아래 &quot;예상 결과&quot;로 넘어가세요. 이 점검을 건너뛰어도 LAB 1 체크포인트는 모두 채울 수 있습니다.</p>
+<ol>
+<li>korean-law-mcp가 연결된 AI 도구(2차시에서 연결한 도구)에서 <strong>새 대화</strong>를 엽니다. 이 대화는 인용 검증 전용이며, 앞서 단계 분해를 한 계획 대화창은 닫지 말고 그대로 열어 둡니다.</li>
+<li>아래 프롬프트를 그대로 입력합니다. 실제 사건 정보는 넣지 않습니다.</li>
+</ol>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>AI에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>아래 문장은 AI가 만든 가상의 초안 일부입니다. 실제 사건과 무관합니다.
+
+&quot;의뢰인 A의 손해배상 청구는 민법 제750조에 근거하며,
+대법원 2019다123456 판결에 따라 위자료 산정이 가능합니다.&quot;
+
+세 가지를 해 주세요.
+
+1. legal_research로 민법 제750조 원문을 찾아 위 문장의 설명과 맞는지 대조해 주세요.
+2. verify_citations로 위 문장에 나온 법령 조문과 사건번호가 실제로 존재하는지 확인해 주세요.
+3. cite_check로 인용된 판례가 지금도 유효한지(폐기·변경 여부) 확인해 주세요.
+
+확인 결과를 &quot;인용 / 실존 여부 / 상태 / 근거 출처&quot; 네 칸 표로 정리해 주세요.</pre></div></div></div>
+<ol>
+<li><strong>예상 결과</strong>: 민법 제750조는 실존 조문으로 확인되고, 가상의 사건번호는 &quot;확인되지 않음&quot; 또는 &quot;존재하지 않음&quot;으로 표시됩니다. 이렇게 걸러지는 것이 정상 동작입니다.</li>
+<li>이 부품이 워크플로의 몇 번째 단계에 들어가는지 단계 분해 표에 적어 둡니다. 보통 &quot;초안 작성&quot; 다음, &quot;사람 승인&quot; 앞입니다.</li>
+</ol>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><h3 id="예상-결과" class="callout-title">예상 결과</h3><p>AI가 후보 비교표, 추천 업무 1개와 이유, 그리고 4~6단계로 분해된 흐름을 내놓습니다. 예를 들어 &quot;1단계 자료 접수(사람, 소통 시나리오 적용) → 2단계 초안 작성(AI, 지시서 적용) → 3단계 인용 검증(AI+사람, korean-law-mcp) → 4단계 결과 검증(사람, 검증표 적용) → 5단계 승인(사람, 승인 관문) → 6단계 기록(기록표 갱신)&quot; 같은 모양입니다. 모든 단계가 AI 수행으로 표시되어 있다면 잘못된 결과입니다. 승인 지점이 반드시 사람에게 있어야 합니다.</p>
+<section class="callout callout-check"><span class="callout-icon" aria-hidden="true">✅</span><p>✅ 체크포인트</p>
+<ul class="task-list">
+<li class="task-item"><input type="checkbox" id="chk-17cv0dw" data-task="17cv0dw"><label for="chk-17cv0dw">파일럿 대상 업무 1개가 일반화된 이름으로 정해졌다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-13jvpi3" data-task="13jvpi3"><label for="chk-13jvpi3">업무가 4~6개 단계로 분해되었고, 각 단계에 3~6차시 결과물이 매핑되었다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-nu6kqs" data-task="nu6kqs"><label for="chk-nu6kqs">법령·판례가 들어가는 업무라면 인용 검증 단계가 워크플로 안에 자리를 잡았다 (도구 미연결이면 &quot;연결 예정&quot;으로 적어도 통과).</label></li>
+<li class="task-item"><input type="checkbox" id="chk-14ecmfq" data-task="14ecmfq"><label for="chk-14ecmfq">외부로 나가는 단계(발송, 전달) 앞에 사람의 승인 지점이 있다.</label></li>
+</ul></section></section>
+<section class="callout callout-trouble"><span class="callout-icon" aria-hidden="true">🔧</span><h3 id="잘-안-될-때" class="callout-title">잘 안 될 때</h3><ul>
+<li>AI가 후보를 추천하지 못하고 일반론만 말한다면, 후보 업무 이름을 더 구체적으로 (단, 사건 정보 없이) 적어 주세요. &quot;문서 작업&quot; 대신 &quot;표준 계약서 조항 비교 정리&quot;처럼요.</li>
+<li>단계가 10개 이상으로 너무 잘게 나뉘면 &quot;6단계 이내로 합쳐 주세요&quot;라고 다시 요청하세요. 파일럿은 단순할수록 좋습니다.</li>
+<li>부품 점검에서 도구가 실행되지 않고 AI가 아는 대로만 답한다면, korean-law-mcp 연결이 끊긴 것입니다. &quot;반드시 legal_research 도구를 사용해서 답해 주세요&quot;라고 다시 요청하고, 그래도 안 되면 <a href="../install/korean-law-mcp.html">korean-law-mcp 설치가이드</a>의 문제 해결 부분을 확인하세요.</li>
+<li>매핑이 비는 단계가 있어도 괜찮습니다. 그 단계가 약한 고리입니다. 어느 차시 결과물을 보강할지 메모해 두고 다음 랩으로 넘어가세요.</li>
+</ul></section>
+<h2 id="lab-2-30일-계획-초안-만들고-현실성-반박시키기">LAB 2. 30일 계획 초안 만들고 현실성 반박시키기</h2>
+<p><strong>소요 시간 20분 · 난이도 보통</strong></p>
+<p><strong>왜 하는가</strong>: 계획을 확정하기 전에 한 번 반박당해 두면, 30일 중 2주차에 무너질 계획을 지금 5분 만에 고칠 수 있습니다.</p>
+<h3 id="배경-1">배경</h3>
+<p>파일럿 계획은 여섯 칸으로 구성됩니다. 대상 업무, 비식별 자료 범위, 성공 기준(측정 지표), 주간 점검 일정, 중단 조건, 종료 후 확대·중단 판단 기준입니다. AI에게 초안을 만들게 한 뒤, 같은 AI에게 그 초안을 스스로 반박하게 합니다. 계획은 낙관 위에서 세워지고 현실 위에서 무너지기 때문에, 확정 전에 반박을 한 번 거치는 것이 안전합니다.</p>
+<h3 id="따라-하기-1">따라 하기</h3>
+<ol>
+<li>LAB 1에서 확정한 대상 업무와 단계 분해를 복사해 둡니다. AI 답변 위에 마우스를 올리면 나타나는 복사 버튼을 쓰거나, 드래그해서 <code>Ctrl+C</code>로 복사합니다.</li>
+<li><strong>LAB 1에서 단계 분해를 만든 계획 대화창</strong>(부품 점검용 검증 대화창이 아닙니다)으로 돌아가 이어서 진행합니다. 두 창이 헷갈리면, 화면에 후보 비교표와 단계 분해가 보이는 쪽이 계획 대화창입니다. 새 대화를 열면 AI가 앞의 내용을 기억하지 못합니다.</li>
+<li>아래 첫 번째 프롬프트로 30일 계획 초안을 만듭니다. 대괄호에는 LAB 1 결과와 4차시 검증표의 확인 항목을 넣습니다.</li>
+<li>초안이 나오면, 같은 대화에서 두 번째 프롬프트를 이어서 입력해 현실성 반박을 시킵니다.</li>
+<li>반박 중 실제로 맞는 지적을 골라 초안을 직접 고칩니다. 모든 반박을 받아들일 필요는 없습니다.</li>
+</ol>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>AI에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>위에서 정한 파일럿 업무와 단계 분해를 바탕으로, 30일 파일럿 계획 초안을 만들어 주세요.
+
+파일럿 업무: [LAB 1에서 확정한 업무 이름]
+단계 분해: [LAB 1 결과 붙여넣기]
+결과 검증에 쓸 확인 항목: [4차시 리서치 검증표의 핵심 항목 2~3개]
+
+계획은 아래 여섯 칸을 모두 채워 주세요.
+
+1. 대상 업무 1개
+2. 자료 범위 — 비식별 자료만, 실제 의뢰인 정보 제외를 명시
+3. 성공 기준 — 느낌이 아니라 측정 지표로. 처리 시간, 수정 횟수, 인용 검증 통과율,
+   승인 반려 사유의 수 중에서 2~3개를 골라 목표 숫자까지 제안
+4. 주차별 목표와 검토 주기 — 1주차 세팅, 2~3주차 운영과 기록, 4주차 측정과 판단의
+   흐름으로, 매주 점검에서 무엇을 확인할지 포함
+5. 중단 조건 — 발동되면 논의 없이 멈추는 선 2~3개
+6. 30일 후 판단 기준 — 확대 / 조건부 지속 / 중단 세 갈래로 각각 어떤 숫자면
+   어느 갈래를 고르는지
+
+저는 개업 변호사이고, 파일럿에 쓸 수 있는 시간은 주당 [예: 2시간]입니다.</pre></div></div></div>
+<p>초안이 나오면 이어서 입력합니다.</p>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>AI에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>이제 입장을 바꿔 주세요. 당신은 이 계획의 현실성을 검토하는 회의적인 동료 변호사입니다.
+
+방금 만든 30일 계획 초안에서 다음을 지적해 주세요.
+
+1. 주당 [예: 2시간]으로는 지키기 어려운 주차별 목표
+2. 측정하기 번거로워서 4주 동안 기록이 끊길 가능성이 큰 성공 기준
+3. 애매해서 발동 여부를 판단하기 어려운 중단 조건
+4. 이 계획에서 빠져 있는 것 한 가지 (책임자, 감사 로그, 변경 관리 관점에서)
+
+지적마다 &quot;그래서 이렇게 고치면 된다&quot;는 대안을 한 줄씩 붙여 주세요.</pre></div></div></div>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><h3 id="예상-결과-1" class="callout-title">예상 결과</h3><p>첫 프롬프트에서 여섯 칸이 채워진 계획 초안이 나오고, 두 번째 프롬프트에서 &quot;성공 기준이 세 개인데 기록 부담이 커서 두 개로 줄이는 게 낫다&quot;, &quot;중단 조건의 '오류가 잦으면'은 애매하니 '같은 유형의 오류가 2회 반복되면'으로 바꿔라&quot; 같은 구체적 반박과 대안이 나옵니다. 반박이 초안을 실제로 더 작고 단순하게 만드는 방향이라면 잘 작동한 것입니다.</p>
+<section class="callout callout-check"><span class="callout-icon" aria-hidden="true">✅</span><p>✅ 체크포인트</p>
+<ul class="task-list">
+<li class="task-item"><input type="checkbox" id="chk-tfahlu" data-task="tfahlu"><label for="chk-tfahlu">여섯 칸이 모두 채워진 30일 계획 초안이 있다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-1del8gu" data-task="1del8gu"><label for="chk-1del8gu">성공 기준이 목표 숫자가 있는 측정 지표로 적혀 있다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-1mujvo4" data-task="1mujvo4"><label for="chk-1mujvo4">현실성 반박을 받아 최소 한 곳 이상을 직접 고쳤다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-gfybp1" data-task="gfybp1"><label for="chk-gfybp1">중단 조건이 &quot;발동됐는지 아닌지&quot;를 즉시 판단할 수 있는 문장으로 되어 있다.</label></li>
+</ul></section></section>
+<section class="callout callout-trouble"><span class="callout-icon" aria-hidden="true">🔧</span><h3 id="잘-안-될-때-1" class="callout-title">잘 안 될 때</h3><ul>
+<li>AI가 성공 기준을 &quot;품질 향상&quot;, &quot;효율 개선&quot; 같은 느낌 표현으로 적으면, &quot;측정 지표와 목표 숫자로만 다시 써 주세요. 숫자가 없는 항목은 지우세요&quot;라고 요청하세요.</li>
+<li>반박이 &quot;전반적으로 좋은 계획입니다&quot;처럼 무르게 나오면, &quot;칭찬은 생략하고 지적 네 가지만 적어 주세요&quot;라고 다시 요청하세요.</li>
+<li>AI가 LAB 1 내용을 잊은 듯 엉뚱한 계획을 내놓으면, 대화가 너무 길어진 것입니다. LAB 1의 업무 이름과 단계 분해를 다시 붙여 넣고 요청하세요.</li>
+<li>주차별 목표가 내 가용 시간보다 무거우면 목표를 줄이는 쪽으로 고치세요. 30일 파일럿의 목적은 많이 하는 것이 아니라 측정 결과를 얻는 것입니다.</li>
+</ul></section>
+<h2 id="lab-3-최종-계획표-완성과-파일럿-기록-템플릿-만들기">LAB 3. 최종 계획표 완성과 파일럿 기록 템플릿 만들기</h2>
+<p><strong>소요 시간 15분 · 난이도 쉬움</strong></p>
+<p><strong>왜 하는가</strong>: 기록 템플릿이 있어야 30일 뒤에 &quot;느낌상 괜찮았다&quot;가 아니라 숫자로 확대 여부를 판단할 수 있습니다.</p>
+<h3 id="배경-2">배경</h3>
+<p>반박을 거쳐 고친 계획을 한 장의 표로 확정하고, 30일 동안 매번 쓸 파일럿 기록 템플릿을 만듭니다. 기록 템플릿은 일지입니다. 무엇이 잘됐고, 무엇을 사람이 잡아냈는지를 적는 칸이 핵심입니다. 사람이 잡아낸 오류의 기록이 쌓여야 30일 뒤 확대·조건부 지속·중단을 숫자로 판단할 수 있고, 감사 로그의 역할도 함께 합니다.</p>
+<h3 id="따라-하기-2">따라 하기</h3>
+<ol>
+<li>LAB 2에서 고친 계획을 같은 대화에 붙여 넣고, 아래 프롬프트로 최종 표와 기록 템플릿을 만듭니다.</li>
+<li>나온 표를 내 문서에 옮겨 붙이고, 주간 점검 날짜·시간을 실제 달력을 보고 직접 채웁니다.</li>
+<li>기록 템플릿을 시험 삼아 한 번 채워 봅니다. 가상의 하루를 상상해서 채워 보면 칸이 부족한지 넘치는지 바로 드러납니다.</li>
+<li>완성된 계획과 템플릿을 하나의 문서로 저장합니다. <code>C:\Users\이름\바탕 화면\AX실습</code> 폴더에 <code>30일파일럿계획</code>(워드는 .docx, 한글은 .hwp, 메모장은 .txt)으로 저장하면 됩니다. 이것이 이 과정의 최종 결과물입니다.</li>
+</ol>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>AI에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>반박을 반영해 고친 최종 계획은 다음과 같습니다.
+
+[고친 계획 붙여넣기]
+
+두 가지를 만들어 주세요.
+
+첫째, 이 계획을 &quot;30일 AX 파일럿 계획&quot; 최종 표 한 장으로 정리해 주세요.
+행은 다음 순서로: 대상 업무 / 자료 범위 / 성공 기준(측정 지표와 목표 숫자) /
+1~4주차 주차별 목표 / 주간 점검에서 확인할 것 / 결과 검증 방법(법령·판례 인용을
+무엇으로 확인하는지) / 중단 조건 / 30일 후 판단 기준(확대·조건부 지속·중단) /
+책임자와 승인자 / 중지 권한자와 중지 방법
+
+둘째, 파일럿 기간에 AI 작업 1건마다 쓸 &quot;파일럿 기록 템플릿&quot;을 표로 만들어 주세요.
+항목은 다음을 포함해 주세요.
+- 날짜, 일감 이름(일반화된 이름), 사용한 스킬 문서(지시서 이름)
+- 무엇이 잘됐는지 한 줄
+- 사람이 잡아낸 것 — 오류 내용과 유형(사실 오류 / 인용 오류 / 형식 오류 /
+  자료 범위 위반 / 기타)
+- 인용 검증을 돌렸는지 (예 / 아니오 / 해당 없음)
+- 수정에 걸린 시간, 승인 여부와 승인자
+- 중단 조건에 해당하는 일이 있었는지 (있음 / 없음)
+- 모델·프롬프트·자료·권한에 변경이 있었는지 (변경 관리 메모)
+
+5분 안에 채울 수 있는 분량이어야 합니다. 항목이 넘치면 합쳐 주세요.</pre></div></div></div>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><h3 id="예상-결과-2" class="callout-title">예상 결과</h3><p>행이 정리된 최종 계획표 한 장과, 한 건당 5분 안에 채울 수 있는 기록 템플릿 표가 나옵니다. 기록 템플릿에 &quot;사람이 잡아낸 것&quot; 칸과 &quot;중단 조건 해당 여부&quot; 칸이 있는지 확인하세요. 이 두 칸이 없으면 30일 뒤 판단의 근거가 사라집니다. 책임자, 승인자, 중지 권한자 칸에는 도구 이름이 아니라 사람이 들어가야 합니다.</p>
+<section class="callout callout-check"><span class="callout-icon" aria-hidden="true">✅</span><p>✅ 체크포인트</p>
+<ul class="task-list">
+<li class="task-item"><input type="checkbox" id="chk-12pyuym" data-task="12pyuym"><label for="chk-12pyuym">최종 계획표에 열 개 행이 모두 채워졌고, 주간 점검 날짜를 실제 달력 기준으로 적었다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-1vqx9ik" data-task="1vqx9ik"><label for="chk-1vqx9ik">책임자·승인자·중지 권한자가 모두 사람 이름(또는 직책)으로 적혀 있다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-maej4r" data-task="maej4r"><label for="chk-maej4r">&quot;결과 검증 방법&quot; 행에 무엇으로 인용을 확인할지가 적혀 있다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-m8z033" data-task="m8z033"><label for="chk-m8z033">기록 템플릿에 &quot;사람이 잡아낸 것&quot;과 &quot;중단 조건 해당 여부&quot; 칸이 있다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-9l1dlg" data-task="9l1dlg"><label for="chk-9l1dlg">기록 템플릿을 가상의 한 건으로 시험 작성해 보았다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-6i1y0b" data-task="6i1y0b"><label for="chk-6i1y0b">완성 문서를 <code>AX실습</code> 폴더에 저장했다.</label></li>
+</ul></section></section>
+<section class="callout callout-trouble"><span class="callout-icon" aria-hidden="true">🔧</span><h3 id="잘-안-될-때-2" class="callout-title">잘 안 될 때</h3><ul>
+<li>기록 템플릿이 너무 길게 나오면 &quot;항목을 8개 이하로 줄여 주세요&quot;라고 요청하세요. 채우다 지쳐서 기록이 끊기는 것이 파일럿 실패의 가장 흔한 원인입니다.</li>
+<li>최종 표에서 이전 대화 내용이 빠지거나 바뀌어 나오면, 고친 계획 전문을 다시 붙여 넣고 &quot;이 내용만 사용하고 새로 지어내지 마세요&quot;라고 요청하세요.</li>
+<li>계획표가 화면에서 깨져 보이면 &quot;마크다운 표 형식으로 다시 출력해 주세요&quot;라고 요청한 뒤 문서에 붙여 넣으세요. <strong>마크다운</strong>은 <code>|</code>와 <code>-</code> 기호로 표를 나타내는 간단한 글쓰기 형식입니다.</li>
+<li>워드나 한글에 붙여 넣었을 때 표가 아니라 <code>|</code> 기호가 그대로 보인다면, 정상입니다. AI에게 &quot;표를 워드에 붙여 넣을 수 있게 탭으로 구분된 형태로 다시 주세요&quot;라고 요청하거나, 표 모양은 신경 쓰지 말고 내용만 옮겨 적으세요.</li>
+</ul></section>
+<h2 id="더-해보기--빠르게-끝낸-분을-위한-심화-미션">더 해보기 — 빠르게 끝낸 분을 위한 심화 미션</h2>
+<p>기본 랩을 마치고 시간이 남았다면, 아래 미션 중 하나를 골라 도전해 보세요. 순서는 상관없으며, 각 미션은 LAB 1~3의 결과물을 재료로 씁니다.</p>
+<h3 id="미션-a-두-번째-파일럿-업무로-30일-계획을-처음부터-혼자-완성하기">미션 A. 두 번째 파일럿 업무로 30일 계획을 처음부터 혼자 완성하기</h3>
+<p>LAB 1에서 고르지 않은 나머지 후보 업무 하나를 대상으로, LAB 1~3의 흐름을 이번에는 프롬프트를 보지 않고 처음부터 끝까지 혼자 진행해 보세요. 단계 분해, 여섯 칸 계획 초안, 현실성 반박, 최종 표와 기록 템플릿까지 전 과정을 완주하는 것이 목표입니다. 완성한 뒤 첫 번째 계획과 나란히 놓고, 성공 기준(측정 지표와 목표 숫자)과 중단 조건이 업무 성격에 따라 어떻게 달라졌는지 비교해 보세요. 위험 등급이나 오류 피해 크기가 다른 업무라면 두 계획의 통제 장치도 달라야 정상입니다. 두 계획이 거의 똑같다면, 계획이 업무에 맞춰진 것이 아니라 틀에 맞춰진 것일 수 있습니다.</p>
+<p>스스로 점검 기준: 두 계획의 성공 기준과 중단 조건이 서로 다른 이유를 각각 한 문장으로 설명할 수 있다.</p>
+<h3 id="미션-b-실패-시나리오-리허설--중단-기준이-실제로-작동하는지-서면-시뮬레이션">미션 B. 실패 시나리오 리허설 — 중단 기준이 실제로 작동하는지 서면 시뮬레이션</h3>
+<p>가상 상황을 하나 설정합니다. 파일럿 2주차, AI가 존재하지 않는 판례를 인용한 초안을 만들었고 그 초안이 인용 검증과 승인 관문을 거치지 않은 채 외부로 나갈 뻔했습니다. AI에게 이 상황을 하루 단위 시나리오로 구체화해 달라고 요청한 뒤, 내 계획의 중단 조건이 이 상황에서 발동되는지, 발동된다면 누가 어떻게 중지하는지, 파일럿 기록 템플릿의 어느 칸에 무엇을 적게 되는지를 서면으로 따라가 보세요. 중단 조건이 발동되지 않거나 기록할 칸이 없다면, 그 자리에서 조건과 템플릿을 고칩니다. 통제 장치는 사고가 나기 전에 리허설로 검증해 두는 것이 가장 쌉니다.</p>
+<p>스스로 점검 기준: 가상 상황에서 중단 조건 발동 여부, 중지 권한자, 기록할 칸 세 가지를 계획 문서의 문장만으로 판정할 수 있었다.</p>
+<h3 id="미션-c-90일-확장-로드맵--다음-업무로-넓혀-가는-조건을-한-장으로">미션 C. 90일 확장 로드맵 — 다음 업무로 넓혀 가는 조건을 한 장으로</h3>
+<p>30일 파일럿이 확대 판정을 받았다고 가정하고, 두 번째·세 번째 업무로 확장하는 90일 로드맵을 AI와 논증해 한 장으로 정리해 보세요. AX 업무 지도에서 다음 후보를 고르되, 어떤 측정 결과가 나와야 다음 업무로 넘어갈 수 있는지(확장 조건)와 어떤 순서로 넓혀 갈지(위험 등급 낮음에서 중간으로)를 AI에게 먼저 제안하게 하고, 그 제안을 반박하며 다듬습니다. 확장할 때마다 위험 등급 평가, 책임자 지정, 변경 관리 기록을 다시 거친다는 원칙이 로드맵 안에 들어 있어야 합니다. 높음 등급 업무가 로드맵에 들어 있다면 제외하거나, 사람의 판단을 유지하는 조건을 명시하세요.</p>
+<p>스스로 점검 기준: 두 번째 업무로 넘어가는 확장 조건이 느낌 표현이 아니라 측정 지표와 숫자로 적혀 있다.</p>
+<h2 id="마무리">마무리</h2>
+<h3 id="결과물-점검표">결과물 점검표</h3>
+<div class="table-wrap"><table><thead><tr><th>점검 항목</th><th>확인</th></tr></thead><tbody><tr><td>파일럿 대상 업무 1개가 일반화된 이름으로 정해졌다 (위험 등급 낮음 또는 중간)</td><td>[ ]</td></tr><tr><td>업무 단계마다 3~6차시 결과물(지시서·검증표·승인 관문·소통 시나리오)이 매핑되었다</td><td>[ ]</td></tr><tr><td>법령·판례가 들어가는 단계에 인용 검증 부품(korean-law-mcp)이 배치되었다</td><td>[ ]</td></tr><tr><td>성공 기준이 목표 숫자가 있는 측정 지표로 적혀 있다</td><td>[ ]</td></tr><tr><td>중단 조건이 발동 여부를 즉시 판단할 수 있는 문장으로 적혀 있다</td><td>[ ]</td></tr><tr><td>30일 후 판단 기준이 확대·조건부 지속·중단 세 갈래로 미리 적혀 있다</td><td>[ ]</td></tr><tr><td>책임자·승인자·중지 권한자가 사람으로 지정되어 있다</td><td>[ ]</td></tr><tr><td>파일럿 기록 템플릿이 준비되었고 시험 작성을 마쳤다</td><td>[ ]</td></tr><tr><td>완성 문서를 <code>C:\Users\이름\바탕 화면\AX실습</code> 폴더에 저장했다</td><td>[ ]</td></tr></tbody></table></div>
+<h3 id="과정을-마치며">과정을 마치며</h3>
+<p>일곱 차시 동안 만든 것은 결국 하나의 문장으로 모입니다. 나는 AI 에이전트를 쓰는 에이전트입니다. 목표를 정하고, 도구를 고르고, 결과에 책임집니다. 오늘 완성한 30일 계획은 그 문장을 실행으로 옮기는 첫걸음입니다.</p>
+<p>30일 동안은 계획대로 기록 템플릿을 쌓아 주세요. 중단 조건이 발동해 멈췄다면 실패가 아니라 통제 장치가 제대로 작동한 것입니다. 30일 뒤 측정 결과가 확대를 가리키면, 위험 등급 평가와 책임자 지정을 다시 거쳐 AX 업무 지도의 다음 업무로 넓혀 가세요. 업무가 하나씩 늘 때마다 역할 카드와 스킬이 쌓이고, 그 쌓인 워크플로가 여러분만의 업무 경쟁력이 됩니다.</p>
+    </article>
+<nav class="pager" aria-label="페이지 이동"><a class="pager-prev" href="ch6.html"><span class="dir">← 이전</span><strong>6차시 · 의뢰인과 안전하게 소통하기</strong></a><a class="pager-next" href="../index.html"><span class="dir">다음 →</span><strong>과정 완주 · 진행 상황 보기</strong></a></nav>
+  </main>
+  <aside class="side" aria-label="과정 내비게이션">
+  <details class="side-box" open>
+    <summary>📍 과정 지도 — 다른 차시로 이동</summary>
+    <h4>과정 지도</h4>
+    <div class="map-group">
+      <a class="map-link" href="../chapters/ch1.html"><b>1</b>나의 AX 업무 지도</a>
+      <a class="map-link" href="../chapters/ch2.html"><b>2</b>에이전트 도구 설치와 연동</a>
+      <a class="map-link" href="../chapters/ch3.html"><b>3</b>법률업무 지시서 만들기</a>
+      <a class="map-link" href="../chapters/ch4.html"><b>4</b>근거를 찾고 확인하기: 리서치 자동화</a>
+      <a class="map-link" href="../chapters/ch5.html"><b>5</b>초안에서 검토까지: 판례·계약서 병렬 분석</a>
+      <a class="map-link" href="../chapters/ch6.html"><b>6</b>의뢰인과 안전하게 소통하기</a>
+      <a class="map-link on" href="../chapters/ch7.html"><b>7</b>반복 업무를 연결해 실제 업무로</a>
+    </div>
+    <h4 class="mt">설치가이드</h4>
+    <div class="map-group">
+      <a class="map-link" href="../install/setup-windows.html">공통 준비 (Windows)</a>
+      <a class="map-link" href="../install/antigravity.html">안티그래비티</a>
+      <a class="map-link" href="../install/hermes.html">헤르메스</a>
+      <a class="map-link" href="../install/pi.html">파이 (Pi)</a>
+      <a class="map-link" href="../install/codex.html">Codex CLI</a>
+      <a class="map-link" href="../install/korean-law-mcp.html">korean-law-mcp</a>
+    </div>
+    <a class="map-home" href="../index.html">↩ 과정 홈 · 진행 상황</a>
+  </details>
+  <details class="side-box side-toc" open>
+    <summary>🔖 이 페이지 목차</summary>
+    <h4>이 페이지 목차</h4>
+    <ul class="toc-list">
+<li class="toc-l2"><a href="#이-차시에서-준비할-것">이 차시에서 준비할 것</a></li>
+<li class="toc-l1"><a href="#7차시-실습지-반복-업무를-연결해-실제-업무로">7차시 실습지: 반복 업무를 연결해 실제 업무로</a></li>
+<li class="toc-l2"><a href="#실습-목표">실습 목표</a></li>
+<li class="toc-l2"><a href="#실습-규칙">실습 규칙</a></li>
+<li class="toc-l2"><a href="#1단계-결과물-모으기">1단계. 결과물 모으기</a></li>
+<li class="toc-l2"><a href="#2단계-헤르메스식-워크플로-세팅">2단계. 헤르메스식 워크플로 세팅</a></li>
+<li class="toc-l2"><a href="#3단계-위험-관리">3단계. 위험 관리</a></li>
+<li class="toc-l2"><a href="#4단계-30일-계획표">4단계. 30일 계획표</a></li>
+<li class="toc-l2"><a href="#5단계-1분-발표-준비">5단계. 1분 발표 준비</a></li>
+<li class="toc-l2"><a href="#동료-검토">동료 검토</a></li>
+<li class="toc-l2"><a href="#수료-제출">수료 제출</a></li>
+<li class="toc-l1"><a href="#7차시-실전-실습-랩-여섯-개의-결과물을-연결해-30일-파일럿-계획-완성하기">7차시 실전 실습 랩: 여섯 개의 결과물을 연결해 30일 파일럿 계획 완성하기</a></li>
+<li class="toc-l2"><a href="#실습-개요">실습 개요</a></li>
+<li class="toc-l2"><a href="#실습-규칙-1">실습 규칙</a></li>
+<li class="toc-l2"><a href="#시작-전-점검">시작 전 점검</a></li>
+<li class="toc-l2"><a href="#lab-1-파일럿-업무-고르고-단계-분해하기">LAB 1. 파일럿 업무 고르고 단계 분해하기</a></li>
+<li class="toc-l2"><a href="#lab-2-30일-계획-초안-만들고-현실성-반박시키기">LAB 2. 30일 계획 초안 만들고 현실성 반박시키기</a></li>
+<li class="toc-l2"><a href="#lab-3-최종-계획표-완성과-파일럿-기록-템플릿-만들기">LAB 3. 최종 계획표 완성과 파일럿 기록 템플릿 만들기</a></li>
+<li class="toc-l2"><a href="#더-해보기--빠르게-끝낸-분을-위한-심화-미션">더 해보기 — 빠르게 끝낸 분을 위한 심화 미션</a></li>
+<li class="toc-l2"><a href="#마무리">마무리</a></li>
+</ul>
+  </details>
+  </aside>
+</div>
+
+<footer><div class="wrap">
+  <div>변호사 AX 나노디그리 · <span class="hand-note-inline">인터넷이 끊겨도 열립니다. 인쇄해서 쓰셔도 됩니다.</span></div>
+  <div><a href="../index.html">과정 홈</a> · 진행 상황은 이 브라우저에만 저장됩니다</div>
+</div></footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>
