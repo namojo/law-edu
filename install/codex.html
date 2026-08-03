@@ -8,7 +8,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect x=%228%22 y=%228%22 width=%2284%22 height=%2284%22 rx=%2220%22 fill=%22%23ffe455%22/%3E%3Ctext x=%2250%22 y=%2270%22 font-size=%2256%22 text-anchor=%22middle%22 font-family=%22monospace%22 fill=%22%2322242a%22%3E%C2%A7%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
-<body data-page="install-codex" data-tasks="5">
+<body data-page="install-codex">
 <a class="skip-link" href="#main">본문으로 건너뛰기</a>
 <header class="topnav"><div class="wrap">
   <a class="brand" href="../index.html"><span class="dot"></span><span class="brand-full">변호사 AX 나노디그리</span><span class="brand-short">AX 나노디그리</span></a>
@@ -27,12 +27,6 @@
 
 <div class="wrap layout">
   <main id="main" class="main-col">
-<div class="progress-panel" data-progress-bar hidden>
-  <div class="progress-head"><span class="progress-label">진행 체크리스트</span>
-  <span data-progress-text>0 / 5</span></div>
-  <div class="progress-track"><div class="progress-fill" data-progress-fill></div></div>
-  <button type="button" class="reset-btn" data-reset>이 페이지 체크 초기화</button>
-</div>
     <article class="prose">
 
 <blockquote><p>작성일 기준: <strong>2026-08-01</strong>. 명령·주소는 작성일에 OpenAI 공식 저장소(<code>github.com/openai/codex</code>)와 공식 문서(<code>developers.openai.com/codex</code>)에서 확인한 내용입니다. 화면 문구는 버전에 따라 조금 다를 수 있습니다.</p></blockquote>
@@ -68,14 +62,14 @@
 <hr>
 <h2 id="2-설치-전-확인">2. 설치 전 확인</h2>
 <ul class="task-list">
-<li class="task-item"><input type="checkbox" id="chk-14sy78o" data-task="14sy78o"><label for="chk-14sy78o"><strong>Windows 11</strong>(권장) 또는 <strong>Windows 10 버전 1809 이상</strong>이다. 확인은 아래 블록을 시작 버튼 누른 뒤 그대로 입력하고 Enter.</label></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text"><strong>Windows 11</strong>(권장) 또는 <strong>Windows 10 버전 1809 이상</strong>이다. 확인은 아래 블록을 시작 버튼 누른 뒤 그대로 입력하고 Enter.</span></li>
 </ul>
 <div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>winver</pre></div></div></div>
 <ul class="task-list">
-<li class="task-item"><input type="checkbox" id="chk-1661co4" data-task="1661co4"><label for="chk-1661co4">인터넷에 연결되어 있다.</label></li>
-<li class="task-item"><input type="checkbox" id="chk-1iwbwy4" data-task="1iwbwy4"><label for="chk-1iwbwy4">저장 공간이 <strong>1GB 이상</strong> 남아 있다.</label></li>
-<li class="task-item"><input type="checkbox" id="chk-12tfho9" data-task="12tfho9"><label for="chk-12tfho9"><strong>ChatGPT 계정</strong>이 있다 (Free·Go·Plus·Pro·Business·Edu·Enterprise 아무 요금제나 가능).</label></li>
-<li class="task-item"><input type="checkbox" id="chk-d54fwp" data-task="d54fwp"><label for="chk-d54fwp">실습 폴더 <code>C:\Users\&lt;내이름&gt;\바탕 화면\AX실습</code>을 만들어 두었다. → <a href="setup-windows.html">공통 준비 가이드</a></label></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">인터넷에 연결되어 있다.</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">저장 공간이 <strong>1GB 이상</strong> 남아 있다.</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text"><strong>ChatGPT 계정</strong>이 있다 (Free·Go·Plus·Pro·Business·Edu·Enterprise 아무 요금제나 가능).</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">실습 폴더 <code>C:\Users\&lt;내이름&gt;\바탕 화면\AX실습</code>을 만들어 두었다. → <a href="setup-windows.html">공통 준비 가이드</a></span></li>
 </ul>
 <blockquote><p>공식 문서는 Windows 11을 &quot;가장 안정적인 기준&quot;, Windows 10 1809 이상을 &quot;동작하지만 안정성이 낮음&quot;으로 안내합니다. 그보다 낮은 버전은 권장하지 않습니다.</p></blockquote>
 <hr>
@@ -229,7 +223,7 @@
       <a class="map-link on" href="../install/codex.html">Codex CLI</a>
       <a class="map-link" href="../install/korean-law-mcp.html">korean-law-mcp</a>
     </div>
-    <a class="map-home" href="../index.html">↩ 과정 홈 · 진행 상황</a>
+    <a class="map-home" href="../index.html">↩ 과정 홈</a>
   </details>
   <details class="side-box side-toc" open>
     <summary>🔖 이 페이지 목차</summary>
@@ -253,7 +247,7 @@
 
 <footer><div class="wrap">
   <div>변호사 AX 나노디그리 · <span class="hand-note-inline">인터넷이 끊겨도 열립니다. 인쇄해서 쓰셔도 됩니다.</span></div>
-  <div><a href="../index.html">과정 홈</a> · 진행 상황은 이 브라우저에만 저장됩니다</div>
+  <div><a href="../index.html">과정 홈</a> · 차시 목록과 설치가이드를 한눈에 볼 수 있습니다</div>
 </div></footer>
 <script src="../assets/app.js"></script>
 </body>

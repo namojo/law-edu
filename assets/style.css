@@ -1077,32 +1077,6 @@ p.note{color:var(--ink-soft);font-size:14px;margin-top:18px}
 
 .is-pending{opacity:.62}
 
-/* ---------- 카드 안 진행률 ---------- */
-.row-progress{display:block;margin-top:12px}
-.progress-track{display:block;height:6px;background:var(--paper-deep);border-radius:99px;overflow:hidden}
-.progress-fill{display:block;height:100%;width:0;background:var(--marker);border-radius:99px;transition:width .3s ease}
-.row-progress-text{display:block;margin-top:5px;font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft)}
-
-/* ---------- 홈 전체 진행률 ---------- */
-.overall{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
-.overall-ring{
-  width:110px;height:110px;border-radius:50%;flex:none;
-  border:2px solid var(--marker-line);display:grid;place-items:center;
-  font-family:var(--font-mono);font-weight:600;font-size:21px;
-  background:conic-gradient(var(--marker) 0%, #fff 0);
-}
-.overall-ring span{
-  background:#fff;width:78px;height:78px;border-radius:50%;display:grid;place-items:center;
-  box-shadow:inset 0 0 0 1px var(--line);
-}
-.overall-text{min-width:260px;flex:1}
-.reset-btn{
-  margin-top:10px;font-family:var(--font-body);font-size:13px;font-weight:600;
-  background:#fff;color:var(--ink-soft);border:1px solid var(--line);
-  border-radius:8px;padding:6px 13px;cursor:pointer;
-}
-.reset-btn:hover{border-color:var(--ink);color:var(--ink)}
-
 /* ---------- 본문 페이지 ---------- */
 .page-head{padding:48px 0 6px}
 .page-head .eyebrow{margin-bottom:12px}
@@ -1151,16 +1125,6 @@ aside.side{
 .toc-list{list-style:none;margin:0}
 .toc-list .toc-l1 > a{font-weight:700;color:var(--ink);margin-top:8px;font-size:13.5px}
 .toc-list .toc-l2 > a{padding-left:10px;font-size:13.5px}
-
-/* ---------- 페이지 진행률 패널 ---------- */
-.progress-panel{
-  background:#fff;border:1px solid var(--line);border-left:4px solid var(--marker);
-  border-radius:12px;padding:14px 18px;margin-bottom:26px;
-}
-.progress-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:9px}
-.progress-label{font-weight:700;font-size:14.5px}
-.progress-head [data-progress-text]{font-family:var(--font-mono);font-size:13px;color:var(--ink-soft)}
-.progress-panel .reset-btn{margin-top:11px}
 
 /* ---------- prose ---------- */
 .prose{min-width:0;font-size:17.5px}
@@ -1311,16 +1275,17 @@ aside.side{
 .human-check > :last-child{margin-bottom:0}
 blockquote.human-check{border-left:1px solid var(--marker-line);padding-left:26px}
 
-/* ---------- 체크리스트 ---------- */
+/* ---------- 체크리스트 (인쇄물처럼 보기만 하는 네모 표시) ---------- */
 .task-list{list-style:none;margin:16px 0;padding:0}
 .task-item{display:flex;gap:11px;align-items:flex-start;margin:0;padding:8px 12px;border-radius:9px}
-.task-item:hover{background:#fff}
-.task-item input{
-  flex:none;width:21px;height:21px;margin-top:4px;cursor:pointer;
-  accent-color:#d9bc16;
+.task-box{
+  flex:none;width:19px;height:19px;margin-top:5px;border-radius:5px;
+  border:1.8px solid var(--marker-line);background:#fff;
+  display:grid;place-items:center;font-size:14px;line-height:1;color:var(--ink);
 }
-.task-item label{cursor:pointer;flex:1}
-.task-item input:checked + label{color:var(--ink-soft);text-decoration:line-through;text-decoration-color:var(--marker)}
+.task-text{flex:1}
+.task-item.is-checked .task-box::after{content:"✓";font-weight:700}
+.task-item.is-checked .task-box{background:var(--marker)}
 
 /* ---------- 푸터 / 페이저 ---------- */
 footer{
@@ -1387,14 +1352,12 @@ footer a{color:var(--ink-soft)}
   .prose{font-size:16.5px}
   .callout,.human-check{padding-left:22px;padding-right:18px}
   .callout-icon,.human-check .callout-icon{position:static;display:block;margin-bottom:6px}
-  .overall-ring{width:92px;height:92px}
-  .overall-ring span{width:66px;height:66px;font-size:18px}
   .btn-ghost{margin-left:0;margin-top:10px}
 }
 
 /* ---------- 인쇄 ---------- */
 @media print{
-  .topnav,aside.side,footer,.pager,.copy-btn,.skip-link,.progress-panel,.reset-btn{display:none !important}
+  .topnav,aside.side,footer,.pager,.copy-btn,.skip-link{display:none !important}
   body{background:#fff;font-size:11.5pt;background-image:none}
   .wrap{max-width:none;padding:0}
   .layout{display:block;padding:0}
@@ -1411,5 +1374,6 @@ footer a{color:var(--ink-soft)}
   .fig img{background:#fff}
   .fig figcaption{color:#000;border-left-color:#999}
   .prose h2,.prose h3{break-after:avoid}
+  .task-box{border-color:#000;background:#fff}
   a{color:#000}
 }

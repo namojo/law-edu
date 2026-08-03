@@ -2,23 +2,6 @@
 (function () {
   'use strict';
 
-  var STORE_PREFIX = 'pulse-edu/v1/';
-  var pageId = document.body.getAttribute('data-page') || 'page';
-
-  /* ---------- localStorage 안전 래퍼 (키 체계는 v1 그대로 유지) ---------- */
-  function load(id) {
-    try {
-      var raw = window.localStorage.getItem(STORE_PREFIX + id);
-      if (!raw) return [];
-      var v = JSON.parse(raw);
-      return Array.isArray(v) ? v : [];
-    } catch (e) { return []; }
-  }
-  function save(id, list) {
-    try { window.localStorage.setItem(STORE_PREFIX + id, JSON.stringify(list)); } catch (e) {}
-  }
-  window.PulseStore = { prefix: STORE_PREFIX, load: load, save: save };
-
   /* ---------- 복사 버튼 ---------- */
   function legacyCopy(text) {
     return new Promise(function (resolve, reject) {
@@ -132,50 +115,5 @@
     tocLinks.forEach(function (a) {
       a.addEventListener('click', function () { mark(a); });
     });
-  }
-
-  /* ---------- 체크리스트 ---------- */
-  var boxes = Array.prototype.slice.call(document.querySelectorAll('input[data-task]'));
-  if (boxes.length) {
-    var checkedKeys = load(pageId);
-    var set = {};
-    checkedKeys.forEach(function (k) { set[k] = true; });
-
-    boxes.forEach(function (box) {
-      box.checked = !!set[box.getAttribute('data-task')];
-      box.addEventListener('change', persist);
-    });
-
-    var panel = document.querySelector('[data-progress-bar]');
-    if (panel) panel.hidden = false;
-    var fill = document.querySelector('[data-progress-fill]');
-    var text = document.querySelector('[data-progress-text]');
-    var reset = document.querySelector('[data-reset]');
-
-    if (reset) {
-      reset.addEventListener('click', function () {
-        if (!window.confirm('이 페이지의 체크 표시를 모두 지웁니다. 계속할까요?')) return;
-        boxes.forEach(function (b) { b.checked = false; });
-        persist();
-      });
-    }
-
-    function persist() {
-      var keys = boxes.filter(function (b) { return b.checked; })
-                      .map(function (b) { return b.getAttribute('data-task'); });
-      save(pageId, keys);
-      render(keys.length);
-    }
-
-    function render(n) {
-      var pct = boxes.length ? Math.round((n / boxes.length) * 100) : 0;
-      if (fill) fill.style.width = pct + '%';
-      if (text) {
-        text.textContent = n + ' / ' + boxes.length + ' (' + pct + '%)' +
-          (n === boxes.length ? ' — 완료!' : '');
-      }
-    }
-
-    render(boxes.filter(function (b) { return b.checked; }).length);
   }
 })();

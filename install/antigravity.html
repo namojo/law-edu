@@ -8,7 +8,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect x=%228%22 y=%228%22 width=%2284%22 height=%2284%22 rx=%2220%22 fill=%22%23ffe455%22/%3E%3Ctext x=%2250%22 y=%2270%22 font-size=%2256%22 text-anchor=%22middle%22 font-family=%22monospace%22 fill=%22%2322242a%22%3E%C2%A7%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
-<body data-page="install-antigravity" data-tasks="7">
+<body data-page="install-antigravity">
 <a class="skip-link" href="#main">본문으로 건너뛰기</a>
 <header class="topnav"><div class="wrap">
   <a class="brand" href="../index.html"><span class="dot"></span><span class="brand-full">변호사 AX 나노디그리</span><span class="brand-short">AX 나노디그리</span></a>
@@ -27,12 +27,6 @@
 
 <div class="wrap layout">
   <main id="main" class="main-col">
-<div class="progress-panel" data-progress-bar hidden>
-  <div class="progress-head"><span class="progress-label">진행 체크리스트</span>
-  <span data-progress-text>0 / 7</span></div>
-  <div class="progress-track"><div class="progress-fill" data-progress-fill></div></div>
-  <button type="button" class="reset-btn" data-reset>이 페이지 체크 초기화</button>
-</div>
     <article class="prose">
 
 <blockquote><p>대상: Windows 10/11 노트북 · 터미널을 처음 열어 보는 분<br>작성일 기준: <strong>2026-08-01</strong> (공식 다운로드 페이지 antigravity.google/download 확인)<br>확인한 버전: Antigravity 2.0 = v2.4.3 / Antigravity IDE = v2.1.1 / Antigravity CLI = v1.1.9</p></blockquote>
@@ -66,16 +60,16 @@
 <h2 id="2-설치-전-확인">2. 설치 전 확인</h2>
 <p>하나라도 비어 있으면 설치 도중 막힙니다.</p>
 <ul class="task-list">
-<li class="task-item"><input type="checkbox" id="chk-yhkpnj" data-task="yhkpnj"><label for="chk-yhkpnj"><strong>Windows 10 (64비트) 이상</strong></label></li>
-<li class="task-item"><input type="checkbox" id="chk-1af38o0" data-task="1af38o0"><label for="chk-1af38o0"><strong>여유 저장 공간 3GB 이상</strong></label></li>
-<li class="task-item"><input type="checkbox" id="chk-ukjss5" data-task="ukjss5"><label for="chk-ukjss5"><strong>내 CPU가 x64인지 ARM64인지 확인</strong> (아래 2-1)</label></li>
-<li class="task-item"><input type="checkbox" id="chk-bcgbm9" data-task="bcgbm9"><label for="chk-bcgbm9"><strong>실습용 개인 <code>@gmail.com</code> 계정</strong> — 회사 Workspace 계정은 로그인이 거부되는 경우가 많습니다. 실습 전용 계정을 새로 만드시길 권합니다.</label></li>
-<li class="task-item"><input type="checkbox" id="chk-jcrcip" data-task="jcrcip"><label for="chk-jcrcip"><strong>만 18세 이상</strong> — 대한민국은 서비스 제공 국가입니다.</label></li>
-<li class="task-item"><input type="checkbox" id="chk-4v8l0" data-task="4v8l0"><label for="chk-4v8l0"><strong>크롬 브라우저</strong> — 없으면 주소창에 붙여넣어 먼저 설치</label></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text"><strong>Windows 10 (64비트) 이상</strong></span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text"><strong>여유 저장 공간 3GB 이상</strong></span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text"><strong>내 CPU가 x64인지 ARM64인지 확인</strong> (아래 2-1)</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text"><strong>실습용 개인 <code>@gmail.com</code> 계정</strong> — 회사 Workspace 계정은 로그인이 거부되는 경우가 많습니다. 실습 전용 계정을 새로 만드시길 권합니다.</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text"><strong>만 18세 이상</strong> — 대한민국은 서비스 제공 국가입니다.</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text"><strong>크롬 브라우저</strong> — 없으면 주소창에 붙여넣어 먼저 설치</span></li>
 </ul>
 <div class="code-card is-lite"><div class="code-bar"><span class="code-label">주소창에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><pre>https://www.google.com/chrome</pre></div>
 <ul class="task-list">
-<li class="task-item"><input type="checkbox" id="chk-1ytn4rx" data-task="1ytn4rx"><label for="chk-1ytn4rx"><strong>바탕 화면에 <code>AX실습</code> 폴더</strong> — 폴더 이름으로 이 텍스트를 붙여넣으세요</label></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text"><strong>바탕 화면에 <code>AX실습</code> 폴더</strong> — 폴더 이름으로 이 텍스트를 붙여넣으세요</span></li>
 </ul>
 <div class="code-card is-lite"><div class="code-bar"><span class="code-label">복사해서 쓰기</span><button type="button" class="copy-btn" data-copy>복사</button></div><pre>AX실습</pre></div>
 <h3 id="2-1-내-cpu가-x64인지-arm64인지-확인">2-1. 내 CPU가 x64인지 ARM64인지 확인</h3>
@@ -248,7 +242,7 @@
       <a class="map-link" href="../install/codex.html">Codex CLI</a>
       <a class="map-link" href="../install/korean-law-mcp.html">korean-law-mcp</a>
     </div>
-    <a class="map-home" href="../index.html">↩ 과정 홈 · 진행 상황</a>
+    <a class="map-home" href="../index.html">↩ 과정 홈</a>
   </details>
   <details class="side-box side-toc" open>
     <summary>🔖 이 페이지 목차</summary>
@@ -270,7 +264,7 @@
 
 <footer><div class="wrap">
   <div>변호사 AX 나노디그리 · <span class="hand-note-inline">인터넷이 끊겨도 열립니다. 인쇄해서 쓰셔도 됩니다.</span></div>
-  <div><a href="../index.html">과정 홈</a> · 진행 상황은 이 브라우저에만 저장됩니다</div>
+  <div><a href="../index.html">과정 홈</a> · 차시 목록과 설치가이드를 한눈에 볼 수 있습니다</div>
 </div></footer>
 <script src="../assets/app.js"></script>
 </body>
