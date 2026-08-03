@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 220" font-family="'Apple SD Gothic Neo','Malgun Gothic',sans-serif" role="img" aria-label="설치 순서 4단계 타임라인">
+  <defs>
+    <marker id="arrowT" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1c1917"/>
+    </marker>
+  </defs>
+  <rect width="840" height="220" fill="#f5f0e6"/>
+  <text x="24" y="34" font-family="ui-monospace,monospace" font-size="11" letter-spacing="3" fill="#78716c">INSTALL ORDER</text>
+  <text x="24" y="56" font-size="17" font-weight="700" fill="#1c1917">설치 순서: 각 단계에서 확인할 것이 있습니다</text>
+
+  <line x1="60" y1="130" x2="800" y2="130" stroke="#a8a29e" stroke-width="1.2"/>
+  <g fill="#b45309" font-family="ui-monospace,monospace" font-size="12" font-weight="700" text-anchor="middle">
+    <text x="120" y="102">1</text>
+    <text x="320" y="102">2</text>
+    <text x="520" y="102">3</text>
+    <text x="720" y="102">4</text>
+  </g>
+  <g fill="#1c1917">
+    <circle cx="120" cy="130" r="7"/>
+    <circle cx="320" cy="130" r="7"/>
+    <circle cx="520" cy="130" r="7"/>
+    <circle cx="720" cy="130" r="7"/>
+  </g>
+  <g font-size="13.5" font-weight="600" fill="#1c1917" text-anchor="middle">
+    <text x="120" y="162">안티그래비티</text>
+    <text x="320" y="162">헤르메스 에이전트</text>
+    <text x="520" y="162">파이(Pi)</text>
+    <text x="720" y="162">메신저 연동</text>
+  </g>
+  <g font-size="10.5" fill="#57534e" text-anchor="middle">
+    <text x="120" y="184">구글 연동 · 권한 확인</text>
+    <text x="320" y="184">계정 연결 · 테스트 요청</text>
+    <text x="520" y="184">node 확인 · 키 보관</text>
+    <text x="720" y="184">알림 범위 정하기</text>
+  </g>
+</svg>

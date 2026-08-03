@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 200" font-family="'Apple SD Gothic Neo','Malgun Gothic',sans-serif" role="img" aria-label="문서 작성 워크플로 5단계">
+  <defs>
+    <marker id="arrowW" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1c1917"/>
+    </marker>
+  </defs>
+  <rect width="840" height="200" fill="#f5f0e6"/>
+  <text x="24" y="34" font-family="ui-monospace,monospace" font-size="11" letter-spacing="3" fill="#78716c">DOCUMENT WORKFLOW</text>
+  <text x="24" y="56" font-size="17" font-weight="700" fill="#1c1917">문서 작성 워크플로: 각 단계에 책임자와 통과 기준이 있다</text>
+
+  <g stroke="#1c1917" stroke-width="1.5" fill="#ffffff">
+    <rect x="24" y="92" width="140" height="60"/>
+    <rect x="188" y="92" width="140" height="60"/>
+    <rect x="352" y="92" width="140" height="60"/>
+    <rect x="516" y="92" width="140" height="60" stroke="#b45309"/>
+    <rect x="680" y="92" width="136" height="60"/>
+  </g>
+  <g font-size="13" font-weight="600" fill="#1c1917" text-anchor="middle">
+    <text x="94" y="116">템플릿</text>
+    <text x="258" y="116">AI 초안·병렬 분석</text>
+    <text x="422" y="116">레드라인 검토</text>
+    <text x="586" y="116" fill="#b45309">승인 관문</text>
+    <text x="748" y="116">버전 기록</text>
+  </g>
+  <g font-size="10.5" fill="#57534e" text-anchor="middle">
+    <text x="94" y="138">검토된 구조에서 시작</text>
+    <text x="258" y="138">초안 표시 유지</text>
+    <text x="422" y="138">변경 흔적 남기기</text>
+    <text x="586" y="138">사람이 승인해야 발송</text>
+    <text x="748" y="138">누가·언제·왜</text>
+  </g>
+  <g stroke="#1c1917" stroke-width="1.5">
+    <line x1="164" y1="122" x2="186" y2="122" marker-end="url(#arrowW)"/>
+    <line x1="328" y1="122" x2="350" y2="122" marker-end="url(#arrowW)"/>
+    <line x1="492" y1="122" x2="514" y2="122" marker-end="url(#arrowW)"/>
+    <line x1="656" y1="122" x2="678" y2="122" marker-end="url(#arrowW)"/>
+  </g>
+  <text x="24" y="182" font-size="11" fill="#57534e">빠르게 만드는 단계(템플릿·초안)와 책임 있게 내보내는 단계(검토·승인·기록)를 분리합니다.</text>
+</svg>

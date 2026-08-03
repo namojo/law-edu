@@ -863,6 +863,9 @@
   --postit-blue:#a8d8ff;
   --postit-blue-bg:#e8f4ff;
   --line:#e4e1d5;
+  /* 차시 일러스트 SVG 원본 바탕색과 맞춘 그림 카드 토큰 */
+  --fig-bg:#f5f0e6;
+  --fig-line:#e0d8c4;
   --link:#3d5a80;
   --radius:14px;
   --shadow:0 2px 10px rgba(34,36,42,.07), 0 12px 32px rgba(34,36,42,.06);
@@ -1178,6 +1181,39 @@ aside.side{
 .prose hr + .sec-banner{margin-top:26px}
 .prose img{border-radius:var(--radius)}
 
+/* ---------- 그림 카드 (figure) ----------
+   원본 SVG 바탕색(#f5f0e6)이 종이 팔레트와 자연스럽게 이어지도록
+   같은 계열 바탕 + 점선 테두리 카드로 감싼다. */
+.fig{
+  margin:30px 0;padding:18px 18px 6px;
+  background:var(--fig-bg);
+  border:1px solid var(--fig-line);border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+.fig img{
+  display:block;width:100%;height:auto;
+  border-radius:10px;background:var(--fig-bg);
+}
+.fig figcaption{
+  margin:12px 2px 10px;padding-left:12px;
+  border-left:3px solid var(--marker);
+  font-size:14.5px;line-height:1.6;color:var(--ink-soft);font-weight:600;
+}
+.fig-missing{display:grid;gap:4px}
+.fig-pending{
+  display:grid;place-items:center;min-height:120px;
+  border:1.5px dashed var(--fig-line);border-radius:10px;
+  font-family:var(--font-mono);font-size:14px;color:var(--ink-soft);
+}
+.fig-pending-inline{
+  background:var(--paper-deep);border:1px dashed var(--line);
+  border-radius:6px;padding:1px 7px;font-size:.92em;color:var(--ink-soft);
+}
+.inline-img{max-width:100%;height:auto;vertical-align:middle;border-radius:8px}
+@media (max-width:600px){
+  .fig{margin:22px -6px;padding:12px 12px 4px}
+}
+
 .prose code{
   font-family:var(--font-mono);font-size:.86em;
   background:var(--paper-deep);border:1px solid var(--line);
@@ -1370,7 +1406,10 @@ footer a{color:var(--ink-soft)}
   .sec-banner .banner-title{color:#000}
   .sec-banner .banner-kicker{color:#000}
   .callout,.human-check{transform:none;box-shadow:none;border:1pt solid #666;background:#fff}
-  .code-card,.table-wrap{break-inside:avoid}
+  .code-card,.table-wrap,.fig{break-inside:avoid}
+  .fig{box-shadow:none;border:1pt solid #999;background:#fff}
+  .fig img{background:#fff}
+  .fig figcaption{color:#000;border-left-color:#999}
   .prose h2,.prose h3{break-after:avoid}
   a{color:#000}
 }

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 300" font-family="'Apple SD Gothic Neo','Malgun Gothic',sans-serif" role="img" aria-label="리서치 자동화 파이프라인">
+  <defs>
+    <marker id="arrow4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1c1917"/>
+    </marker>
+    <marker id="arrow4a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#b45309"/>
+    </marker>
+  </defs>
+  <rect width="840" height="300" fill="#f5f0e6"/>
+  <text x="24" y="34" font-family="ui-monospace,monospace" font-size="11" letter-spacing="3" fill="#78716c">RESEARCH PIPELINE</text>
+  <text x="24" y="56" font-size="17" font-weight="700" fill="#1c1917">리서치 자동화: 자동화가 빨라질수록 검증이 중요해진다</text>
+
+  <g stroke="#1c1917" stroke-width="1.5" fill="#ffffff">
+    <rect x="24" y="100" width="130" height="60"/>
+    <rect x="188" y="100" width="130" height="60"/>
+    <rect x="352" y="100" width="130" height="60"/>
+    <rect x="516" y="100" width="150" height="60"/>
+    <rect x="700" y="100" width="116" height="60"/>
+  </g>
+  <text x="89" y="126" font-size="13" font-weight="600" fill="#1c1917" text-anchor="middle">리서치 질문</text>
+  <text x="89" y="146" font-size="10.5" fill="#57534e" text-anchor="middle">일반화해 정한다</text>
+  <text x="253" y="126" font-size="13" font-weight="600" fill="#1c1917" text-anchor="middle">자동 수집</text>
+  <text x="253" y="146" font-size="10.5" fill="#57534e" text-anchor="middle">공개 자료만</text>
+  <text x="417" y="126" font-size="13" font-weight="600" fill="#1c1917" text-anchor="middle">요약·초안</text>
+  <text x="417" y="146" font-size="10.5" fill="#57534e" text-anchor="middle">파이(Pi) 스킬</text>
+  <text x="591" y="126" font-size="13" font-weight="600" fill="#b45309" text-anchor="middle">리서치 검증표</text>
+  <text x="591" y="146" font-size="10.5" fill="#57534e" text-anchor="middle">원문과 하나씩 대조</text>
+  <text x="758" y="126" font-size="13" font-weight="600" fill="#1c1917" text-anchor="middle">채택</text>
+  <text x="758" y="146" font-size="10.5" fill="#57534e" text-anchor="middle">확인된 근거만</text>
+
+  <g stroke="#1c1917" stroke-width="1.5">
+    <line x1="154" y1="130" x2="186" y2="130" marker-end="url(#arrow4)"/>
+    <line x1="318" y1="130" x2="350" y2="130" marker-end="url(#arrow4)"/>
+    <line x1="482" y1="130" x2="514" y2="130" marker-end="url(#arrow4)"/>
+    <line x1="666" y1="130" x2="698" y2="130" marker-end="url(#arrow4)"/>
+  </g>
+
+  <path d="M 591 160 L 591 210 L 417 210 L 417 162" fill="none" stroke="#b45309" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arrow4a)"/>
+  <text x="504" y="228" font-size="11" fill="#b45309" text-anchor="middle">환각·불일치 발견 → 반려하고 다시 확인</text>
+
+  <g font-size="11" fill="#57534e">
+    <text x="24" y="262">검증표 열: 주장 / 출처 문서명 / 사건번호 / 선고일 / 원문 대조 / 후속 판례 / 최신성</text>
+    <text x="24" y="284">수집 규칙: 이용약관 준수 · 로그인 필요/유료 DB 무단 수집 금지 · 존재하지 않는 판례번호 주의</text>
+  </g>
+</svg>

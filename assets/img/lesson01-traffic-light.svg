@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 260" font-family="'Apple SD Gothic Neo','Malgun Gothic',sans-serif" role="img" aria-label="자료 입력 전 신호등 3색 기준">
+  <rect width="840" height="260" fill="#f5f0e6"/>
+  <text x="24" y="34" font-family="ui-monospace,monospace" font-size="11" letter-spacing="3" fill="#78716c">DATA TRAFFIC LIGHT</text>
+  <text x="24" y="56" font-size="17" font-weight="700" fill="#1c1917">자료 입력 전 신호등: 애매하면 더 안전한 색으로</text>
+
+  <g stroke-width="1.5">
+    <rect x="24" y="84" width="256" height="152" fill="#ffffff" stroke="#15803d"/>
+    <rect x="292" y="84" width="256" height="152" fill="#ffffff" stroke="#b45309"/>
+    <rect x="560" y="84" width="256" height="152" fill="#ffffff" stroke="#b91c1c"/>
+  </g>
+  <circle cx="52" cy="112" r="10" fill="#15803d"/>
+  <circle cx="320" cy="112" r="10" fill="#b45309"/>
+  <circle cx="588" cy="112" r="10" fill="#b91c1c"/>
+  <g font-size="14" font-weight="700">
+    <text x="72" y="117" fill="#15803d">초록 · 사용 가능</text>
+    <text x="340" y="117" fill="#b45309">노랑 · 확인 후 제한 사용</text>
+    <text x="608" y="117" fill="#b91c1c">빨강 · 입력 금지</text>
+  </g>
+  <g font-size="11.5" fill="#57534e">
+    <text x="44" y="148">· 공개된 법령과 판례</text>
+    <text x="44" y="172">· 강사 제공 합성 사건자료</text>
+    <text x="44" y="196">· 개인·사건 식별 불가 예시</text>
+    <text x="312" y="148">· 비식별 처리한 내부 양식</text>
+    <text x="312" y="172">· 반출 허용된 계약서 템플릿</text>
+    <text x="312" y="196">· 보안정책·약관 확인한 자료</text>
+    <text x="580" y="148">· 의뢰인 실명·연락처·번호</text>
+    <text x="580" y="172">· 비공개 사건기록과 증거</text>
+    <text x="580" y="196">· 영업비밀·의료·계정정보</text>
+    <text x="580" y="220">· 비밀유지 의무 대상 원문</text>
+  </g>
+</svg>

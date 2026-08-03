@@ -8,7 +8,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect x=%228%22 y=%228%22 width=%2284%22 height=%2284%22 rx=%2220%22 fill=%22%23ffe455%22/%3E%3Ctext x=%2250%22 y=%2270%22 font-size=%2256%22 text-anchor=%22middle%22 font-family=%22monospace%22 fill=%22%2322242a%22%3E%C2%A7%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
-<body data-page="ch2" data-tasks="34">
+<body data-page="ch2" data-tasks="35">
 <a class="skip-link" href="#main">본문으로 건너뛰기</a>
 <header class="topnav"><div class="wrap">
   <a class="brand" href="../index.html"><span class="dot"></span><span class="brand-full">변호사 AX 나노디그리</span><span class="brand-short">AX 나노디그리</span></a>
@@ -29,7 +29,7 @@
   <main id="main" class="main-col">
 <div class="progress-panel" data-progress-bar hidden>
   <div class="progress-head"><span class="progress-label">진행 체크리스트</span>
-  <span data-progress-text>0 / 34</span></div>
+  <span data-progress-text>0 / 35</span></div>
   <div class="progress-track"><div class="progress-fill" data-progress-fill></div></div>
   <button type="button" class="reset-btn" data-reset>이 페이지 체크 초기화</button>
 </div>
@@ -48,13 +48,155 @@
 <p><strong>미리 읽고 따라 할 설치가이드</strong></p>
 <div class="table-wrap"><table><thead><tr><th>순서</th><th>설치가이드</th><th>이 차시에서 쓰는 곳</th></tr></thead><tbody><tr><td>0</td><td><a href="../install/setup-windows.html">공통 준비(Windows)</a></td><td>전체 — PowerShell·Node.js·실습 폴더</td></tr><tr><td>1</td><td><a href="../install/antigravity.html">안티그래비티 설치가이드</a></td><td>LAB 1</td></tr><tr><td>2</td><td><a href="../install/hermes.html">헤르메스 설치가이드</a></td><td>LAB 2</td></tr><tr><td>3</td><td><a href="../install/pi.html">파이(Pi) 설치가이드</a></td><td>LAB 3</td></tr><tr><td>4</td><td><a href="../install/codex.html">Codex CLI 설치가이드</a></td><td>LAB 4 (확장)</td></tr><tr><td>5</td><td><a href="../install/korean-law-mcp.html">korean-law-mcp 설치가이드</a></td><td>LAB 5 (확장) — 안티그래비티(또는 Claude Desktop·Claude Code)에 연결</td></tr></tbody></table></div>
 <blockquote><p>설치가 아직 안 끝났어도 괜찮습니다. 각 LAB의 첫 단계가 <strong>&quot;준비 상태 확인&quot;</strong>(30초 확인법)이므로, 거기서 안 됐다는 것이 확인되면 해당 설치가이드로 이동했다가 돌아오면 됩니다.</p></blockquote>
-<p><strong>용어 미리 보기</strong> — 이 차시에서 계속 나오는 말입니다.</p>
+<p>아래 교재 부분을 먼저 읽고 실습지와 랩으로 넘어가면, 각 화면에서 무엇을 확인해야 하는지 미리 알고 진행할 수 있습니다.</p>
+<h2 id="이-차시에서-처음-나오는-말">이 차시에서 처음 나오는 말</h2>
+<div class="table-wrap"><table><thead><tr><th>용어</th><th>한 줄 설명</th></tr></thead><tbody><tr><td><strong>에이전트</strong></td><td>사람이 시킨 일을 스스로 여러 단계로 나눠 실행하는 AI 프로그램</td></tr><tr><td><strong>하네스</strong></td><td>AI 두뇌와 도구를 묶어 두는 작업대. 어떤 폴더·도구를 쓸 수 있는지, 무엇이 금지인지, 실패하면 어떻게 멈출지를 정해 둔 설정입니다</td></tr><tr><td><strong>연동</strong></td><td>도구에 내 계정·폴더·메신저를 연결하는 일. 곧 <strong>권한을 위임하는 일</strong>입니다</td></tr><tr><td><strong>계정 연동(OAuth)</strong></td><td>비밀번호를 넘겨주지 않고, 정해진 범위의 권한만 위임하는 표준 인증 방식</td></tr><tr><td><strong>터미널</strong></td><td>글자로 컴퓨터에 명령을 내리는 창. Windows에서는 <strong>PowerShell</strong>이라는 이름의 터미널을 씁니다</td></tr><tr><td><strong>API 키</strong></td><td>도구가 AI 모델에 접속할 때 쓰는 비밀번호 같은 긴 문자열. 절대 문서에 적지 않습니다</td></tr><tr><td><strong>MCP</strong></td><td>AI를 외부 데이터·도구에 연결하는 표준 규격. 4차시에서 쓸 법령 조회 도구가 이 방식으로 연결됩니다</td></tr><tr><td><strong>프롬프트</strong></td><td>AI에게 보내는 요청문. 입력창에 써 넣는 글 전체를 말합니다</td></tr><tr><td><strong>마크다운(<code>.md</code>)</strong></td><td>글자만으로 제목·목록·표를 표현하는 간단한 문서 형식. 메모장으로도 열립니다</td></tr></tbody></table></div>
+<hr>
+<div class="sec-banner" id="2차시-교재-에이전트-도구-설치와-연동"><h2 class="banner-title">2차시 교재: 에이전트 도구 설치와 연동</h2></div>
 <ul>
-<li><strong>에이전트</strong>: 사람이 시킨 일을 스스로 여러 단계로 나눠 실행하는 AI 프로그램.</li>
-<li><strong>터미널</strong>: 글자로 컴퓨터에 명령을 내리는 창. Windows에서는 <strong>PowerShell</strong>이라는 이름의 터미널을 씁니다.</li>
-<li><strong>연동</strong>: 도구에 내 계정·폴더·메신저를 연결하는 일. 곧 <strong>권한을 위임하는 일</strong>입니다.</li>
-<li><strong>API 키</strong>: 도구가 AI 모델에 접속할 때 쓰는 비밀번호 같은 긴 문자열. 절대 문서에 적지 않습니다.</li>
+<li>과정: 변호사 AX 나노디그리</li>
+<li>차시: 2차시 / 총 7차시</li>
+<li>핵심 질문: 내 노트북에 나만의 에이전트 작업 환경을 어떻게 갖출까요?</li>
+<li>이번 차시 결과물: 에이전트 작업 환경 점검표 1부</li>
 </ul>
+<h2 id="이-차시에서-배우는-것">이 차시에서 배우는 것</h2>
+<p>이번 차시는 이론보다 손이 바쁜 시간입니다. 에이전트 도구 세 가지를 직접 설치하고, 계정과 메신저를 연동합니다.</p>
+<p>다만 설치는 프로그램을 내려받는 일로 끝나지 않습니다. 설치 과정에서 여러분은 자신의 계정, 파일, 메신저에 접근할 권한을 도구에 위임하게 됩니다. 이 위임의 범위를 모른 채 설치를 마치면, 이후의 모든 실습이 확인되지 않은 권한 위에서 돌아가게 됩니다.</p>
+<p>그래서 이번 차시의 완료 기준은 &quot;설치가 끝났는가&quot;가 아니라 <strong>&quot;무엇을 열어 주었는지 답할 수 있는가&quot;</strong>입니다. 이 교재를 마치고 나면 다음을 할 수 있습니다.</p>
+<ol>
+<li>안티그래비티, 헤르메스 에이전트, 파이(Pi)의 역할 차이를 설명하고 내 노트북에 설치할 수 있습니다.</li>
+<li>계정 연동과 메신저 연동 화면에서 위임하는 권한의 범위를 직접 확인하고, 승인할지 스스로 판단할 수 있습니다.</li>
+<li>설치 상태, 연동 계정, 위임 권한, 키 보관 위치, 문제 발생 시 연락처를 담은 에이전트 작업 환경 점검표를 작성할 수 있습니다.</li>
+</ol>
+<h2 id="개념-익히기">개념 익히기</h2>
+<h3 id="오늘-설치할-세-가지-도구">오늘 설치할 세 가지 도구</h3>
+<figure class="fig"><img src="../assets/img/lesson02-toolkit-map.svg" alt="도구 3종 역할 지도: 변호사가 안티그래비티(문서 작업 환경, 구글 계정 연동), 헤르메스 에이전트(일 분배·결과 수합, 시스템·메신저 연동), 파이(터미널 실행 도구, AI 모델 연결)를 사용하는 구조" loading="lazy" decoding="async"><figcaption>도구 3종 역할 지도</figcaption></figure>
+<p>세 도구는 경쟁 관계가 아니라 역할이 다릅니다. 문서를 다루는 작업 환경, 여러 에이전트에게 일을 나눠 보내는 조율 도구, 터미널에서 쓰는 가벼운 실행 도구로 나뉩니다.</p>
+<div class="table-wrap"><table><thead><tr><th>도구</th><th>무엇인가</th><th>오늘 하는 일</th></tr></thead><tbody><tr><td>안티그래비티(Antigravity)</td><td>에이전트가 파일, 브라우저, 터미널을 직접 다루도록 만든 구글의 에이전트 중심 개발 환경</td><td>설치 후 구글 계정 연동 — 기본 AI 모델이 무료 포함되어 별도 키 등록 불필요</td></tr><tr><td>헤르메스 에이전트(Hermes)</td><td>들어온 요청을 알맞은 에이전트에게 나눠 보내고, 끝난 결과를 모아서 보고하는 조율 에이전트 (공식 사이트 hermes-agent.org 배포)</td><td>설치, 시스템 연동, 메신저 연동</td></tr><tr><td>파이(Pi, pi.dev)</td><td>Earendil이 만든 오픈소스 미니멀 에이전트 하네스 CLI</td><td>터미널에서 한 줄 설치, 모델 연결</td></tr></tbody></table></div>
+<p>이후 차시에서는 문서 분석은 안티그래비티, 리서치 자동화는 파이, 업무 흐름 조율은 헤르메스를 중심으로 사용합니다. 어떤 도구든 실습에는 비식별 샘플 자료만 사용합니다.</p>
+<h3 id="하네스란">하네스란</h3>
+<p>표에 나온 &quot;하네스&quot;를 풀어 두겠습니다. 하네스는 AI 두뇌와 도구를 묶는 작업대인데, 구체적으로는 세 가지를 정하는 설정입니다.</p>
+<ol>
+<li>에이전트가 어떤 폴더와 도구를 쓸 수 있는가</li>
+<li>무엇이 금지인가</li>
+<li>실패하면 어떻게 멈추고 되돌리는가</li>
+</ol>
+<p>&quot;설치보다 권한 경계를 정하는 일이 먼저&quot;라는 이 차시의 원칙은, 설치란 곧 이 세 가지를 정하는 일이라는 뜻입니다.</p>
+<p>한 가지 유의점이 있습니다. 설치 명령·화면 구성·요금 같은 세부는 도구가 업데이트되면 달라질 수 있습니다. 이 교재의 세부 정보는 2026년 8월 기준이며, 설치가이드나 수업 자료실의 최신 안내가 교재와 다르면 <strong>최신 안내를 우선</strong>합니다. 도구가 바뀌어도 변하지 않는 것은 원칙 쪽입니다 — 권한 경계 먼저, 계정 분리, 키 보관, 출처 불명 명령 금지.</p>
+<h3 id="계정-연동oauth이란">계정 연동(OAuth)이란</h3>
+<p>계정 연동(OAuth)은 비밀번호를 넘겨주지 않고, 정해진 범위의 권한만 위임하는 표준 인증 방식입니다. 안티그래비티에 구글 계정을 연동할 때 이 방식을 사용합니다.</p>
+<p>연동 화면에는 도구가 어떤 권한을 요청하는지 표시됩니다. 읽기 권한인지 쓰기 권한인지 확인한 뒤에 승인 버튼을 누르는 것이 연동 절차의 일부입니다. 계정 연동은 비밀번호를 공유하는 것보다 안전하지만, 승인한 범위 안에서는 도구가 실제로 동작한다는 점을 기억해 주세요.</p>
+<p>에이전트에게 열어 준 폴더와 계정 권한의 범위를 먼저 확인하는 것이 설치의 일부입니다.</p>
+<h3 id="메신저-연동이란">메신저 연동이란</h3>
+<p>메신저 연동은 에이전트의 알림, 질문, 결과 보고를 익숙한 메신저로 받도록 연결하는 것입니다. 헤르메스 에이전트를 메신저와 연동하면, 긴 작업이 끝났을 때 결과 요약과 승인 요청을 메신저로 받을 수 있어 자리에 없어도 흐름을 놓치지 않게 됩니다.</p>
+<p>다만 메신저 대화방에도 업무 기록이 남습니다. 알림은 &quot;작업 완료, 승인 필요&quot; 수준의 신호로 충분합니다. 사건명, 당사자, 구체적 사실을 알림 문구에 담지 않도록 알림 내용의 범위를 먼저 정합니다. 편리한 채널이 하나 늘어날수록 노출 경로도 하나 늘어난 것으로 계산하는 습관이 필요합니다.</p>
+<p>또 하나 기억할 점이 있습니다. 헤르메스는 스스로 판단하거나 승인하지 않습니다. 하는 일은 요청을 알맞은 에이전트에게 나눠 보내고, 끝난 결과를 모아서 보고하는 것뿐입니다. 그래서 헤르메스가 가져온 결과도 여러분이 승인하기 전에는 초안일 뿐입니다.</p>
+<h3 id="터미널이란">터미널이란</h3>
+<p>터미널은 마우스 대신 명령어를 입력해 프로그램을 설치하고 실행하는 문자 기반 창입니다. 검은 화면이 낯설 수 있지만, 오늘 사용하는 명령은 몇 줄뿐입니다. Windows에서는 시작 버튼을 누르고 <code>PowerShell</code>을 검색해 실행합니다 (macOS: <code>Command+스페이스</code> → <code>터미널</code> 검색).</p>
+<p>터미널 명령은 클릭보다 강력합니다. 그래서 더 보수적으로 다룹니다. 규칙은 하나입니다. 출처를 모르는 명령어를 복사해 실행하지 않고, 이 교재·실습지·설치가이드에 있는 명령만 사용합니다.</p>
+<h2 id="안전-수칙-다섯-가지">안전 수칙 다섯 가지</h2>
+<p>다섯 가지 모두 도구의 기능이 아니라 사용하는 사람의 습관입니다. 실습 점검표에 이 원칙을 그대로 옮겨 적게 됩니다.</p>
+<ol>
+<li><strong>계정 분리</strong> — 업무 계정과 개인 계정을 분리해 연동합니다. 오늘 연동은 실습용으로 준비한 계정만 사용합니다. 소속 사무소에 AI 도구 사용 정책이 있다면 먼저 확인하세요 — 개인 계정 실습이 사무소 승인 없는 도구 사용(섀도우 AI)이 되지 않도록 정책에 따라 관리하는 것까지가 계정 분리입니다.</li>
+<li><strong>권한 범위 확인</strong> — 계정 연동 화면에서 위임 범위가 읽기인지 쓰기인지 확인한 뒤 승인합니다.</li>
+<li><strong>API 키 보관</strong> — API 키는 계정 비밀번호와 같은 무게로 다룹니다. 코드, 공유 문서, 채팅방에 남기지 않고 정해진 보관 위치에만 둡니다. 실습용 키는 주관사가 발급하고 교육 후 회수합니다.</li>
+<li><strong>출처 불명 명령 금지</strong> — 인터넷 게시판 등 출처를 모르는 터미널 명령을 복사해 실행하지 않습니다.</li>
+<li><strong>알림 정보 범위</strong> — 메신저 알림에 사건 정보가 흘러가지 않도록, 알림에 담을 정보의 범위를 미리 정합니다.</li>
+</ol>
+<h2 id="설치-순서-미리-보기">설치 순서 미리 보기</h2>
+<figure class="fig"><img src="../assets/img/lesson02-install-timeline.svg" alt="설치 순서 타임라인: 1 안티그래비티(구글 연동·권한 확인) → 2 헤르메스 에이전트(계정 연결·테스트 요청) → 3 파이(node 확인·키 보관) → 4 메신저 연동(알림 범위 정하기)" loading="lazy" decoding="async"><figcaption>설치 순서 타임라인</figcaption></figure>
+<p>설치는 안티그래비티 → 헤르메스 에이전트 → 파이(Pi) → 메신저 연동 순서로 진행합니다. 각 단계에서 무엇을 확인해야 하는지 미리 알아 두면 혼자서도 진행할 수 있습니다.</p>
+<p>아래는 <strong>흐름과 확인 지점</strong>을 미리 보는 부분입니다. 화면 하나하나를 따라가는 상세 절차는 각 설치가이드에 있으니, 실제 설치는 링크된 가이드를 열어 두고 진행하세요.</p>
+<h3 id="1-안티그래비티-설치와-구글-계정-연동">1) 안티그래비티 설치와 구글 계정 연동</h3>
+<p>상세 절차: <a href="../install/antigravity.html">안티그래비티 설치가이드</a></p>
+<p>안티그래비티는 무료로 사용할 수 있고, <strong>구글 계정으로 로그인하면 기본 AI 모델이 무료로 포함되어 있습니다.</strong> 파이·헤르메스와 달리 별도의 LLM 키를 등록하지 않아도 로그인만 하면 바로 에이전트에게 일을 시킬 수 있습니다 (수업에서 발급하는 API 키는 파이·헤르메스 실습에만 씁니다). 흐름은 다음과 같습니다.</p>
+<ol>
+<li>브라우저에서 공식 사이트 <code>antigravity.google</code> 에 접속합니다.</li>
+<li>다운로드 페이지에서 <strong>Antigravity 2.0 (독립형 앱)</strong> 항목을 선택해 내 운영체제에 맞는 설치 파일을 내려받습니다. 같은 페이지의 개발자용 <strong>IDE와 혼동하지 않는 것</strong>이 가장 잦은 설치 사고를 막는 핵심입니다.</li>
+<li>내려받은 파일을 실행해 설치를 마칩니다.</li>
+<li>처음 실행하면 구글 계정 로그인 화면이 나옵니다. 실습용 구글 계정으로 로그인하고, 브라우저 인증이 끝나면 &quot;Open Antigravity&quot;를 눌러 앱으로 돌아옵니다.</li>
+<li>Security and Data Use(보안·데이터 이용) 화면은 계약서처럼 항목을 하나씩 읽습니다. AI가 어떤 범위에서 작업하는지 확인하는 것이 이 실습의 핵심입니다.</li>
+<li><strong>Project를 만들고 Add Folder로 실습용 빈 폴더만 연결</strong>합니다. Project에 연결한 폴더가 곧 AI가 접근할 수 있는 업무 범위입니다 — 실제 사건 자료가 있는 폴더는 절대 연결하지 않고, 프로젝트 이름에도 실명·사건번호를 넣지 않습니다.</li>
+<li>실행 모드는 <strong>Local Mode</strong>를 선택하고, 화면의 입력창에 간단한 요청(예: &quot;이 폴더를 확인하고 setup-check.md 파일을 만들어줘&quot;)을 넣어 동작을 확인합니다. 에이전트의 권한 요청은 자동 승인하지 말고, 연결한 폴더 안의 읽기·쓰기인지 확인한 뒤 승인합니다.</li>
+</ol>
+<ul>
+<li>확인할 것: 연동 화면에 표시된 권한이 읽기인지 쓰기인지 구분해 기록합니다.</li>
+<li>확인할 것: 로그인한 계정이 실습용 계정인지, 업무·개인 계정과 분리되어 있는지 확인합니다.</li>
+</ul>
+<p>설치가 끝났으면 기본 사용법은 세 단계입니다.</p>
+<ol>
+<li>입력창에 원하는 결과를 문장으로 적습니다 (예: &quot;이 폴더의 샘플 계약서 3건에서 당사자와 계약 기간을 표로 정리해줘&quot;).</li>
+<li>에이전트가 계획을 먼저 보여주면, 어떤 파일을 읽고 무엇을 만들지 확인한 뒤 진행을 승인합니다.</li>
+<li>결과물은 작업 폴더에 파일로 생깁니다. 열어서 직접 검토합니다 — 에이전트가 만든 결과는 여러분이 확인하기 전에는 초안입니다.</li>
+</ol>
+<p>무료 기본 모델에는 사용 한도가 있습니다. 과제 하나를 정해 집중해서 쓰고 같은 요청을 반복 실행하지 않는 것이 한도를 아끼는 요령입니다. 한도에 걸리면 잠시 쉬었다가 다시 하거나 강사에게 알려주세요.</p>
+<h3 id="2-헤르메스-에이전트-설치와-시스템-연동">2) 헤르메스 에이전트 설치와 시스템 연동</h3>
+<p>상세 절차: <a href="../install/hermes.html">헤르메스 설치가이드</a></p>
+<p>헤르메스는 <strong>내려받는 설치 파일이 아니라 PowerShell 명령 한 줄로 설치</strong>합니다. 공식 사이트(<a href="https://hermes-agent.org/ko/" target="_blank" rel="noopener noreferrer">https://hermes-agent.org/ko/</a>)는 주소가 맞는지 눈으로 확인하는 용도이고, 다운로드 버튼이 없는 것이 정상입니다. 순서는 다음과 같습니다.</p>
+<ol>
+<li>실제 설치 명령과 순서는 <a href="../install/hermes.html">헤르메스 설치가이드</a> 3절을 따릅니다. 설치는 5~15분 걸리며, 끝나면 PowerShell 창을 닫고 새로 열어야 다음 단계가 됩니다.</li>
+<li>새 창에서 길드에서 발급한 계정으로 로그인해 시스템과 연결합니다. 길드가 발급하는 것은 설치 파일이 아니라 <strong>로그인 계정</strong>입니다.</li>
+<li>연결이 되면 헤르메스에게 테스트 요청을 하나 보내고, 어느 에이전트에게 전달되는지 화면에서 확인합니다.</li>
+<li>이후 차시에서 업무 흐름을 조율하는 골격으로 사용하므로, 여기까지 완료 상태를 실습지에 기록합니다.</li>
+</ol>
+<ul>
+<li>확인할 것: 설치와 시스템 연동이 끝났는지, 테스트 요청이 정상 처리됐는지 확인합니다.</li>
+<li>확인할 것: 헤르메스에게 위임한 권한의 범위(어떤 일을 나눠 보낼 수 있는지)를 기록해 둡니다.</li>
+</ul>
+<p>혼자 예습하는 분께: 설치가이드의 설치 명령까지는 미리 실행해 두어도 됩니다. 계정 연결과 시스템·메신저 연동은 당일 함께 진행하니 설치까지만 해 두면 충분합니다. 위의 &quot;확인할 것&quot; 두 줄도 함께 읽어 두세요.</p>
+<h3 id="3-파이pi-설치와-모델-연결">3) 파이(Pi) 설치와 모델 연결</h3>
+<p>상세 절차: <a href="../install/pi.html">파이(Pi) 설치가이드</a> · 사전 준비는 <a href="../install/setup-windows.html">공통 준비(Windows)</a></p>
+<p>파이는 터미널에서 설치합니다. 순서대로 따라 하면 됩니다.</p>
+<ol>
+<li>터미널을 엽니다. Windows는 시작 메뉴에서 <code>PowerShell</code>, macOS는 Spotlight에서 <code>터미널</code>을 검색합니다.</li>
+<li><code>node -v</code> 를 입력합니다. 버전 번호(예: v22.x.x)가 나오면 3번으로, &quot;명령을 찾을 수 없다&quot;고 나오면 <code>nodejs.org</code> 에서 LTS 버전을 설치한 뒤 터미널을 다시 열어 확인합니다.</li>
+<li>아래 설치 명령을 그대로 입력합니다.</li>
+</ol>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>npm install -g --ignore-scripts @earendil-works/pi-coding-agent</pre></div></div></div>
+<ol>
+<li>설치가 끝나면 <code>pi</code> 를 입력해 실행합니다.</li>
+<li>첫 실행에서 사용할 AI 모델과 API 키를 등록합니다. 실습용 키는 주관사가 현장에서 발급하고 교육 후 회수합니다.</li>
+</ol>
+<p>파이는 여러 AI 모델을 연결해 쓸 수 있는 오픈소스 도구입니다. 오픈소스 도구는 설치, 업데이트, 권한 관리를 사용자가 스스로 책임진다는 점도 기억해 주세요.</p>
+<ul>
+<li>확인할 것: 설치 명령이 오류 없이 끝났는지, 어떤 모델을 연결했는지 확인합니다.</li>
+<li>확인할 것: API 키를 어디에 보관했는지 기록합니다. 키 자체는 어디에도 적지 않습니다.</li>
+</ul>
+<p>설치가 잘 됐는지 확인하고, 첫 명령까지 해 봅니다.</p>
+<ol>
+<li><code>pi --version</code> 을 입력합니다. 버전 번호가 나오면 설치 성공입니다.</li>
+<li>수업에서는 정리·요약용 빠른 모델과 계약·사건 분석용 고성능 모델을 구분해 씁니다. 목록에 실제로 표시되는 모델 이름은 교육 당일 안내에 따릅니다(<a href="../install/pi.html">파이(Pi) 설치가이드</a> 5-③).</li>
+<li>첫 명령은 읽기만 하는 안전한 요청부터: 실습 폴더에서 <code>pi</code> 를 실행하고 &quot;이 폴더의 파일 목록을 표로 정리해줘&quot;라고 입력해 봅니다.</li>
+<li>안 될 때: ① 터미널을 닫았다 다시 열기 ② <code>node -v</code> 재확인 ③ 그래도 안 되면 오류 화면을 지우지 말고 그대로 둔 채 조별 지원을 요청합니다 — 오류 메시지가 가장 빠른 단서입니다.</li>
+</ol>
+<h3 id="4-메신저-연동">4) 메신저 연동</h3>
+<p>헤르메스 에이전트를 메신저와 연결해 알림, 질문, 승인 요청을 받도록 설정합니다. 연결 절차는 <a href="../install/hermes.html">헤르메스 설치가이드</a>의 메신저 연동 부분을 따릅니다.</p>
+<ul>
+<li>확인할 것: 어떤 메신저를 연동했는지, 알림 수신과 승인 응답 외의 권한이 열려 있지 않은지 확인합니다.</li>
+<li>확인할 것: 알림에 담을 정보의 범위를 정했는지 확인합니다. 사건명·당사자·구체적 사실은 담지 않습니다.</li>
+</ul>
+<h2 id="실습으로-확인할-것">실습으로 확인할 것</h2>
+<p>이번 차시의 실습은 아래 실습지를 따라 진행합니다. 설치가 끝났다는 느낌이 아니라, 기록으로 확인하는 것이 목표입니다.</p>
+<p>실습지는 일곱 단계로 구성되어 있습니다.</p>
+<ol>
+<li><strong>계정 준비 점검하기</strong> — 실습 계정이 업무·개인 계정과 분리되어 있는지 확인합니다.</li>
+<li><strong>안티그래비티 권한 기록하기</strong> — 승인한 권한을 읽기·쓰기 구분과 함께 기록합니다.</li>
+<li><strong>헤르메스 연동 기록하기</strong> — 시스템·메신저 연동 상태와 알림에 담을 정보의 범위를 정합니다.</li>
+<li><strong>파이(Pi) 준비 상태 확인하기</strong> — 확인 명령 결과, 연결한 모델, 키 보관 위치를 기록합니다.</li>
+<li><strong>Codex CLI 준비 상태 기록하기(확장)</strong> — 파이와 같은 계열의 도구를 하나 더 두고 비교합니다.</li>
+<li><strong>korean-law-mcp 연결 기록하기(확장)</strong> — 4차시 리서치 검증에 쓸 법령 조회 도구를 미리 연결해 둡니다.</li>
+<li><strong>에이전트 작업 환경 점검표 완성하기</strong> — 도구별로 설치 상태, 연동 계정, 위임한 권한, 키 보관 위치, 문제 발생 시 연락처를 한 표로 모읍니다.</li>
+</ol>
+<p>모르는 칸이 있다면 비워 두어도 괜찮습니다. 그 칸이 오늘의 숙제이며, 빈칸을 확인하는 것도 점검의 결과입니다. 이 점검표는 다음 차시부터 모든 실습의 출발점이 됩니다.</p>
+<h2 id="스스로-점검">스스로 점검</h2>
+<p>아래 문장을 완성해 보세요.</p>
+<ul>
+<li>오늘 연동한 것 중 권한 범위를 다시 확인할 항목은 ________입니다.</li>
+<li>API 키와 계정을 지키기 위해 내가 정한 보관 규칙은 ________입니다.</li>
+<li>점검표에서 아직 채우지 못해 확인이 필요한 칸은 ________입니다.</li>
+</ul>
+<h2 id="다음-차시-예고">다음 차시 예고</h2>
+<p>작업 환경이 갖춰졌으므로, 3차시에서는 1차시에 선정한 <code>AI 보조</code> 업무를 하나 고릅니다. 그 업무에 대해 AI가 사실을 추측하지 않고 원하는 형식으로 답하도록, 목적, 자료, 금지사항, 결과 형식과 검토 기준을 갖춘 법률업무 지시서를 만듭니다.</p>
 <hr>
 <div class="sec-banner" id="2차시-실습지-에이전트-작업-환경-점검표"><span class="banner-kicker">WORKBOOK — 손으로 채우는 실습지</span><h2 class="banner-title">2차시 실습지: 에이전트 작업 환경 점검표</h2></div>
 <h2 id="실습-목표">실습 목표</h2>
@@ -103,7 +245,7 @@
 </ol>
 <ul>
 <li>확인 결과: <code>둘 다 버전 출력 / 하나만 출력 / 둘 다 안 됨</code></li>
-<li>연결한 모델: ________</li>
+<li>연결한 모델: ________ (목록에서 고른 이름을 그대로 적습니다 — 당일 안내 참조)</li>
 <li>API 키 보관 위치(키 자체는 적지 않습니다): ________</li>
 <li>실습용 키는 교육 후 주관사가 회수한다는 안내를 확인했습니까?: <code>확인 / 미확인</code></li>
 </ul>
@@ -121,8 +263,8 @@
 <ul>
 <li>법제처 Open API 인증키 발급 여부: <code>발급 완료 / 신청 중 / 미신청</code></li>
 <li>인증키 보관 위치(키 값 자체는 적지 않습니다): ________</li>
-<li>연결 방식: <code>Claude Code 플러그인 / 웹 커넥터 / Claude Desktop / 로컬 설치</code></li>
-<li>연결 확인 결과: <code>도구 목록에 보임 / 안 보임</code></li>
+<li>연결 방식: <code>설치 마법사(안티그래비티) / Codex CLI / Claude Code 플러그인 / claude.ai 웹 커넥터 / Claude Desktop</code></li>
+<li>연결 확인 결과: <code>조문 원문이 나옴 / 안 나옴</code></li>
 <li>첫 검색으로 확인한 법령·조문 이름: ________</li>
 </ul>
 <h2 id="7단계-에이전트-작업-환경-점검표-완성하기">7단계. 에이전트 작업 환경 점검표 완성하기</h2>
@@ -159,7 +301,7 @@
 <li><strong>준비물</strong>: &quot;이 차시에서 준비할 것&quot;의 준비물 + 이 실습지 — 랩 진행 중 기록 칸을 함께 채웁니다.</li>
 <li><strong>완성 결과물</strong>: 도구별 설치 상태·연동 계정·확인 결과·위임 권한·키 보관 위치·연락처가 채워진 <strong>에이전트 작업 환경 점검표</strong> 1부</li>
 </ul>
-<p>이 랩은 혼자서도 복습할 수 있게 만들었습니다. 다만 <strong>LAB 2(헤르메스)는 길드 발급 계정이, LAB 3의 모델 연결은 API 키가 필요</strong>하므로, 수업 외 시간에 진행할 때는 이 두 곳만 별도 준비가 필요합니다. LAB을 마친 뒤 시간이 남는다면 &quot;더 해보기&quot; 섹션의 심화 미션으로 이어가세요.</p>
+<p>이 랩은 혼자서도 복습할 수 있게 만들었습니다. 다만 <strong>LAB 2(헤르메스)의 계정 연결에는 길드 발급 계정이, LAB 3의 모델 연결에는 API 키가 필요</strong>하므로, 수업 외 시간에 진행할 때는 이 두 곳만 별도 준비가 필요합니다. 헤르메스 설치 명령 자체는 언제든 실행할 수 있습니다. LAB을 마친 뒤 시간이 남는다면 &quot;더 해보기&quot; 섹션의 심화 미션으로 이어가세요.</p>
 <p>이 랩은 2차시의 두 가지 핵심을 손으로 익힙니다. 하나는 도구를 갖춰 나만의 <strong>에이전트 작업 환경</strong>을 만드는 것, 다른 하나는 <strong>연동이 곧 권한 위임</strong>이라는 점 — 무엇을 읽고 쓸 수 있게 열어 주는지 확인한 뒤 승인하는 습관입니다.</p>
 <section class="human-check"><span class="callout-icon" aria-hidden="true">✋</span><h2 id="실습-규칙-1" class="callout-title">실습 규칙</h2><ul>
 <li>실제 의뢰인 이름, 사건번호, 사실관계를 어떤 도구에도 입력하지 않습니다. 실습에는 이 랩이 제공하는 가상 정보만 사용합니다.</li>
@@ -207,11 +349,11 @@
 <li>실습지 2단계의 &quot;지정한 작업 폴더 경로&quot; 칸에 전체 경로를 적습니다.</li>
 </ol>
 <h3 id="1-3-첫-동작-테스트">1-3. 첫 동작 테스트</h3>
-<p>입력창에 아래 요청을 그대로 붙여 넣습니다. (<strong>프롬프트</strong>: AI에게 보내는 요청문)</p>
+<p>입력창에 아래 요청을 그대로 붙여 넣습니다.</p>
 <div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>AI에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>이 폴더에 &quot;안내문-초안.md&quot; 파일을 만들고,
 법률 상담 예약 안내문의 제목과 목차만 적어줘.
 내용은 가상의 예시로만 작성해줘.</pre></div></div></div>
-<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: 지정한 폴더 안에 <code>안내문-초안.md</code> 파일이 생기고, 파일을 열면 제목과 목차가 들어 있습니다. <code>.md</code>는 <strong>마크다운</strong>(글자만으로 제목·목록을 표시하는 간단한 문서 형식) 파일이며, 메모장으로도 열립니다. 에이전트가 파일을 만들기 전에 확인을 요청하는 화면이 나올 수 있으며, 무엇을 하려는지 읽고 승인하면 됩니다.</p></section>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: 지정한 폴더 안에 <code>안내문-초안.md</code> 파일이 생기고, 파일을 열면 제목과 목차가 들어 있습니다. <code>.md</code>는 마크다운 파일이며, 메모장으로도 열립니다. 에이전트가 파일을 만들기 전에 확인을 요청하는 화면이 나올 수 있으며, 무엇을 하려는지 읽고 승인하면 됩니다.</p></section>
 <section class="callout callout-check"><span class="callout-icon" aria-hidden="true">✅</span><p>✅ 체크포인트</p>
 <ul class="task-list">
 <li class="task-item"><input type="checkbox" id="chk-113fapb" data-task="113fapb"><label for="chk-113fapb">실습용 계정으로 로그인했고, 업무·개인 계정은 쓰지 않았다.</label></li>
@@ -228,18 +370,38 @@
 </ul></section>
 <h2 id="lab-2-헤르메스-연동-확인과-알림-범위-정하기-10분">LAB 2. 헤르메스 연동 확인과 알림 범위 정하기 (10분)</h2>
 <p>헤르메스는 들어온 요청을 알맞은 에이전트에게 나눠 보내고 결과를 모아 보고하는 조율 에이전트입니다. <strong>이걸 하면</strong> 여러 도구를 하나의 창구로 부릴 수 있지만, 알림 채널만큼 정보 노출 경로도 늘어납니다.</p>
-<p>길드가 제공하는 내부 도구이므로 설치 파일과 접속 정보는 <a href="../install/hermes.html">헤르메스 설치가이드</a>와 당일 배포 자료를 따릅니다.</p>
+<p>헤르메스는 <strong>내려받는 설치 파일이 아니라 PowerShell 명령 한 줄로 설치</strong>합니다. 공식 사이트 <a href="https://hermes-agent.org/ko/" target="_blank" rel="noopener noreferrer">https://hermes-agent.org/ko/</a> 는 주소가 맞는지 눈으로 확인하는 용도이고, 다운로드 버튼이 없는 것이 정상입니다. 실제 명령과 순서는 <a href="../install/hermes.html">헤르메스 설치가이드</a> 3절을 따릅니다 — 설치는 5~15분 걸리며, 끝나면 PowerShell 창을 닫고 새로 열어야 다음 단계가 됩니다.</p>
+<p>계정과 시스템 연결 정보는 같은 가이드와 당일 안내를 따릅니다. 검색 결과에 나오는 이름이 비슷한 제3자 사이트의 설치 명령은 실행하지 않습니다.</p>
+<p><strong>주요 특징</strong> (왜 이 도구를 배우는지 기억해 두세요):</p>
+<ul>
+<li><strong>지속적 메모리</strong>: 모든 대화 세션에서 선호도와 프로젝트 환경을 기억하여 쓸수록 더 유능해집니다.</li>
+<li><strong>자동 스킬 생성</strong>: 복잡한 문제를 해결하면 재사용 가능한 스킬 문서를 스스로 작성합니다.</li>
+<li><strong>멀티플랫폼 연동</strong>: 텔레그램, 디스코드, 슬랙 등 다양한 메신저와 CLI를 지원합니다.</li>
+<li><strong>예약 자동화</strong>: 크론(Cron, 정해진 시각에 자동 실행하는 예약 기능) 스케줄러로 무인 일일 보고서나 알림을 실행할 수 있습니다.</li>
+</ul>
 <h3 id="2-1-준비-상태-확인-30초">2-1. 준비 상태 확인 (30초)</h3>
+<p>헤르메스는 시작 메뉴에서 클릭해 여는 프로그램이 아니라 <strong>PowerShell에서 명령으로 쓰는 도구</strong>입니다. 시작 버튼에서 아이콘을 찾지 마세요.</p>
 <ol>
-<li>헤르메스를 실행하고 로그인 상태를 봅니다.</li>
-<li><strong>화면 상태</strong>: 연결 상태 표시가 <code>연결됨</code>(초록색 계열)으로 보이고, 요청을 입력할 수 있는 창이 열려 있어야 합니다.</li>
-<li><code>연결 안 됨</code>이거나 로그인 화면에서 막히면 설치가이드로 이동합니다.</li>
+<li><strong>새 PowerShell 창</strong>을 엽니다 (설치 직후에 열려 있던 창은 안 됩니다 — 그 창은 <code>hermes</code> 명령의 위치를 아직 모릅니다).</li>
+<li>아래를 입력합니다.</li>
 </ol>
-<h3 id="2-2-테스트-요청-보내기">2-2. 테스트 요청 보내기</h3>
+<div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>Get-Command hermes</pre></div></div></div>
+<ol>
+<li><strong>예상 결과</strong>: <code>CommandType</code> · <code>Name</code> · <code>Source</code> 가 있는 표가 한 줄 나오고, <code>Source</code> 칸에 <code>hermes</code> 가 포함된 경로가 보입니다.</li>
+<li><code>'hermes' 용어를 인식할 수 없습니다</code> 가 나오면 창을 완전히 닫고 새로 열어 다시 시도합니다. 그래도 안 되면 <a href="../install/hermes.html">헤르메스 설치가이드</a> 7절 증상 1을 봅니다.</li>
+</ol>
+<h3 id="2-2-계정-연결하기">2-2. 계정 연결하기</h3>
+<ol>
+<li>같은 PowerShell 창에 <code>hermes setup</code> 을 입력해 계정을 연결합니다.</li>
+<li><strong>화면 상태</strong>: 연결 방식을 고르는 목록이 나옵니다. 화살표 <code>↑</code> <code>↓</code> 로 고르고 <code>Enter</code>.</li>
+<li>어느 항목(Nous Portal / OpenRouter)을 고를지는 길드 발급 계정 종류에 따라 다르니 <strong>당일 안내를 따릅니다</strong> — <a href="../install/hermes.html">헤르메스 설치가이드</a> 5-1. 안내를 못 받았으면 고르지 말고 Facilitator에게 먼저 확인합니다.</li>
+</ol>
+<h3 id="2-3-테스트-요청-보내기">2-3. 테스트 요청 보내기</h3>
+<p><code>hermes</code> 를 입력해 실행합니다. <strong>화면 상태</strong>: 화면이 헤르메스 화면으로 바뀌고 아래쪽에 입력창이 나타납니다. 이제부터는 PowerShell 명령이 아니라 헤르메스에게 하는 말을 입력합니다.</p>
 <p>입력창에 아래를 붙여 넣습니다.</p>
 <div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>AI에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>테스트 요청입니다. 이 요청이 어느 에이전트에게 전달되는지 알려줘.</pre></div></div></div>
 <section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: 요청이 처리되어 화면에 전달 경로(어느 에이전트가 받았는지)와 결과가 표시됩니다.</p></section>
-<h3 id="2-3-메신저-알림-범위-정하기">2-3. 메신저 알림 범위 정하기</h3>
+<h3 id="2-4-메신저-알림-범위-정하기">2-4. 메신저 알림 범위 정하기</h3>
 <ol>
 <li>설치가이드의 메신저 연동 절차에 따라 <strong>실습용</strong> 메신저 채널을 연결합니다.</li>
 <li>알림이 실제로 도착하는지 확인합니다. <strong>예상 결과</strong>: 연동한 메신저에 &quot;작업 완료&quot; 수준의 짧은 알림이 옵니다.</li>
@@ -247,15 +409,18 @@
 </ol>
 <section class="callout callout-check"><span class="callout-icon" aria-hidden="true">✅</span><p>✅ 체크포인트</p>
 <ul class="task-list">
-<li class="task-item"><input type="checkbox" id="chk-1eu3dii" data-task="1eu3dii"><label for="chk-1eu3dii">길드 발급 계정으로 로그인해 시스템 연동이 완료됐다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-12v2fkb" data-task="12v2fkb"><label for="chk-12v2fkb">공식 설치 명령으로 설치를 마쳤고, 새 PowerShell 창에서 <code>Get-Command hermes</code> 가 경로를 출력했다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-1iecjgq" data-task="1iecjgq"><label for="chk-1iecjgq"><code>hermes setup</code> 으로 발급받은 계정을 연결해 시스템 연동이 완료됐다.</label></li>
 <li class="task-item"><input type="checkbox" id="chk-llypd8" data-task="llypd8"><label for="chk-llypd8">테스트 요청이 정상 처리되어 전달 경로를 화면에서 확인했다.</label></li>
 <li class="task-item"><input type="checkbox" id="chk-gavggq" data-task="gavggq"><label for="chk-gavggq">메신저 알림 범위를 정했고, 사건 정보는 담지 않기로 기록했다.</label></li>
 </ul></section>
 <section class="callout callout-trouble"><span class="callout-icon" aria-hidden="true">🔧</span><p><strong>잘 안 될 때</strong></p>
 <ul>
 <li>로그인이 되지 않으면: 발급받은 계정 정보의 대소문자와 앞뒤 공백을 확인합니다. 그래도 안 되면 계정 재발급이 필요할 수 있으니 조별 Facilitator에게 알립니다.</li>
-<li>테스트 요청에 응답이 없으면: 연결 상태 표시를 먼저 확인합니다. 연결이 끊겼다면 로그아웃 후 다시 로그인합니다.</li>
+<li>테스트 요청에 응답이 없으면: 여러 에이전트를 거치므로 2분 정도 기다려 봅니다. 그래도 멈춰 있으면 <code>hermes setup</code> 을 다시 실행해 로그인 상태부터 확인합니다.</li>
 <li>메신저 알림이 오지 않으면: 메신저 앱의 알림 설정이 꺼져 있는 경우가 많습니다. 헤르메스 연동을 다시 하기 전에 메신저 쪽 알림 허용부터 확인합니다.</li>
+<li>설치가 느리거나 중간에 끊기면: 같은 설치 명령을 그대로 다시 실행합니다. 이미 받은 것은 건너뛰므로 여러 번 실행해도 안전합니다.</li>
+<li>USB는 교육장 인터넷이 느릴 때만 쓰는 보조 수단이며, 사용 절차는 당일 안내를 따릅니다.</li>
 </ul></section>
 <h2 id="lab-3-파이pi-준비-상태-확인과-모델-연결-15분">LAB 3. 파이(Pi) 준비 상태 확인과 모델 연결 (15분)</h2>
 <p>파이는 터미널에서 쓰는 오픈소스 미니멀 에이전트입니다. <strong>이걸 하면</strong> 무거운 프로그램 없이 터미널 한 창에서 문서 정리·요약을 시킬 수 있습니다. 터미널이 처음이어도 괜찮습니다 — 오늘 입력하는 명령은 아래 세 줄이 전부입니다.</p>
@@ -268,17 +433,19 @@
 <p>두 버전 번호를 실습지 4단계에 적습니다.</p>
 <h3 id="3-2-모델-연결하기">3-2. 모델 연결하기</h3>
 <ol>
-<li>PowerShell에 <code>pi</code> 를 입력해 실행합니다.</li>
-<li><strong>화면 상태</strong>: 터미널 안에 파이의 시작 화면과 입력 프롬프트가 나타납니다.</li>
-<li><p>사용할 AI 모델을 선택하고, 주관사가 현장에서 발급한 <strong>실습용 API 키</strong>를 등록합니다.</p>
-<blockquote><p><strong>혼자 복습 중이라면</strong>: 주관사 발급 키가 없으므로, 본인 명의로 발급한 API 키를 등록합니다. 발급 절차는 <a href="../install/pi.html">파이(Pi) 설치가이드</a>의 '초기 설정·연동'을 따릅니다. 본인 키는 사용량만큼 과금되므로 실습이 끝나면 발급처에서 폐기(revoke)하세요.</p></blockquote></li>
-<li>키는 발급 화면에서 직접 복사해 입력하고, 어디에도 옮겨 적지 않습니다.</li>
+<li>PowerShell에서 <strong>먼저 실습 폴더로 이동</strong>합니다. <code>cd &quot;$env:USERPROFILE\Desktop\AX실습&quot;</code> 을 입력하고 Enter. <strong>화면 상태</strong>: 프롬프트가 <code>PS C:\Users\이름\Desktop\AX실습&gt;</code> 로 바뀝니다. 파이는 <strong>실행한 폴더가 곧 작업 범위</strong>이므로 홈 폴더에서 그냥 실행하지 않습니다. (<code>경로를 찾을 수 없습니다</code> 가 나오거나 OneDrive 백업이 켜진 노트북이면 경로가 다릅니다 — <a href="../install/setup-windows.html">공통 준비(Windows)</a> 7-E)</li>
+<li><code>pi</code> 를 입력해 실행합니다. <strong>화면 상태</strong>: 터미널 안에 파이의 시작 화면과 입력 프롬프트(대개 <code>&gt;</code>)가 나타납니다. 이제부터는 PowerShell 명령이 아니라 파이에게 하는 말을 입력합니다.</li>
+<li><p>파이 입력창에 <code>/login</code> 을 입력합니다. <strong>화면 상태</strong>: 제공사(provider) 목록이 나옵니다. 화살표 <code>↑</code> <code>↓</code> 로 고르고 <code>Enter</code> → 안내에 따라 주관사가 현장에서 발급한 <strong>실습용 API 키</strong>를 붙여넣습니다.</p>
+<blockquote><p><strong>혼자 복습 중이라면</strong>: 주관사 발급 키가 없으므로, 본인 명의로 발급한 API 키를 등록합니다. 발급 절차는 <a href="../install/pi.html">파이(Pi) 설치가이드</a> 5절 '초기 설정·연동'을 따릅니다. 본인 키는 사용량만큼 과금되므로 실습이 끝나면 발급처에서 폐기(revoke)하세요.</p></blockquote></li>
+<li>이어서 <code>/model</code> 을 입력해 사용할 모델을 고릅니다 (<code>Ctrl+L</code> 로도 열립니다). 목록에 실제로 표시되는 이름 중 <strong>교육 당일 안내에서 지정한 모델</strong>을 고릅니다.</li>
+<li>키는 발급 화면에서 직접 복사해 붙여넣고, 어디에도 옮겨 적지 않습니다.</li>
 <li>연결한 모델 이름과 <strong>키 보관 위치</strong>를 실습지 4단계에 기록합니다. 실습용 키는 교육 후 회수됩니다.</li>
+<li>파이 화면에서 빠져나오려면 <code>/quit</code> 을 입력하거나 <code>Ctrl+C</code> 를 두 번 누릅니다.</li>
 </ol>
 <section class="callout callout-check"><span class="callout-icon" aria-hidden="true">✅</span><p>✅ 체크포인트</p>
 <ul class="task-list">
 <li class="task-item"><input type="checkbox" id="chk-1hvwcub" data-task="1hvwcub"><label for="chk-1hvwcub"><code>node -v</code>와 <code>pi --version</code> 결과를 실습지에 적었다.</label></li>
-<li class="task-item"><input type="checkbox" id="chk-euumwa" data-task="euumwa"><label for="chk-euumwa"><code>pi</code> 실행 화면이 열렸고 모델 연결까지 끝났다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-1km8kib" data-task="1km8kib"><label for="chk-1km8kib">실습 폴더(<code>AX실습</code>)에서 <code>pi</code> 를 실행했고, <code>/login</code>·<code>/model</code> 로 모델 연결까지 끝났다.</label></li>
 <li class="task-item"><input type="checkbox" id="chk-1vqhuct" data-task="1vqhuct"><label for="chk-1vqhuct">연결한 모델과 키 보관 위치를 기록했다. 키 자체는 어디에도 적지 않았다.</label></li>
 </ul></section>
 <section class="callout callout-trouble"><span class="callout-icon" aria-hidden="true">🔧</span><p><strong>잘 안 될 때</strong></p>
@@ -327,8 +494,9 @@
 <h3 id="5-1-준비-상태-확인-30초">5-1. 준비 상태 확인 (30초)</h3>
 <ol>
 <li>korean-law-mcp를 연결한 AI 도구를 엽니다. 이 과정의 기본은 <strong>LAB 1에서 설치한 안티그래비티</strong>입니다 (Claude Desktop·Claude Code를 이미 쓰고 있다면 그쪽도 됩니다). 아직 연결하지 않았다면 <a href="../install/korean-law-mcp.html">korean-law-mcp 설치가이드</a>의 3-1(법제처 인증키 발급)과 3-3(설치 마법사)을 먼저 마칩니다.</li>
-<li><strong>화면 상태</strong>: 연결된 도구 목록에 <code>korean-law</code> 항목이 보이고, <code>search_law</code>·<code>legal_research</code> 같은 이름이 확인됩니다.</li>
-<li>목록에 없으면 설치가이드의 연결 확인 절차부터 다시 봅니다.</li>
+<li>채팅 칸에 <code>근로기준법 제74조 원문을 법제처에서 찾아서 그대로 보여 줘</code> 를 입력합니다.</li>
+<li><strong>화면 상태</strong>: AI가 <code>korean-law</code> 도구를 쓰겠다고 표시하거나 승인을 묻고, 조문 전문이 나옵니다. <strong>30초 안에 조문 번호와 본문이 나오면 연결 성공</strong>입니다.</li>
+<li>조문이 나오지 않으면 <a href="../install/korean-law-mcp.html">korean-law-mcp 설치가이드</a> 4절의 오류 표부터 봅니다.</li>
 </ol>
 <h3 id="5-2-첫-법령-검색">5-2. 첫 법령 검색</h3>
 <p>아래를 그대로 입력합니다.</p>
@@ -339,13 +507,13 @@
 <p>법제처 인증키는 API 키와 같은 취급을 합니다. 값은 어디에도 적지 않고, 실습지 6단계에 <strong>보관 위치만</strong> 기록합니다. 검색한 법령 이름과 연결 방식도 함께 적습니다.</p>
 <section class="callout callout-check"><span class="callout-icon" aria-hidden="true">✅</span><p>✅ 체크포인트</p>
 <ul class="task-list">
-<li class="task-item"><input type="checkbox" id="chk-1ra29a1" data-task="1ra29a1"><label for="chk-1ra29a1">도구 목록에서 <code>korean-law</code> 연결을 눈으로 확인했다.</label></li>
+<li class="task-item"><input type="checkbox" id="chk-146zt33" data-task="146zt33"><label for="chk-146zt33">근로기준법 제74조 조문이 나와 <code>korean-law</code> 연결을 확인했다.</label></li>
 <li class="task-item"><input type="checkbox" id="chk-bja9ea" data-task="bja9ea"><label for="chk-bja9ea">민법 제750조 원문을 받아 화면에서 읽었다.</label></li>
 <li class="task-item"><input type="checkbox" id="chk-18blm3y" data-task="18blm3y"><label for="chk-18blm3y">인증키 값이 아니라 보관 위치만 실습지에 적었다.</label></li>
 </ul></section>
 <section class="callout callout-trouble"><span class="callout-icon" aria-hidden="true">🔧</span><p><strong>잘 안 될 때</strong></p>
 <ul>
-<li>도구 목록에 안 보이면: 연결 설정 후 프로그램을 재시작하지 않은 경우가 많습니다. 완전히 종료했다가 다시 엽니다.</li>
+<li>도구를 쓰지 않고 AI가 아는 대로만 답하면: 연결 설정 후 프로그램을 재시작하지 않은 경우가 많습니다. 완전히 종료했다가 다시 엽니다.</li>
 <li>인증 관련 오류가 나오면: 법제처 인증키 신청이 승인되기 전일 수 있습니다. 신청 상태를 확인하고 실습지에 <code>신청 중</code>으로 적습니다.</li>
 <li>조문 대신 &quot;찾을 수 없다&quot;가 나오면: 법령 이름을 정확히 씁니다(<code>민법</code>). 그래도 안 되면 <a href="../install/korean-law-mcp.html">korean-law-mcp 설치가이드</a>의 문제 해결을 봅니다.</li>
 </ul></section>
@@ -372,7 +540,7 @@
 메모에 없는 사실은 절대 추가하지 마.</pre></div></div></div>
 <ol>
 <li>결과가 나오면 요약 3줄과 할 일 목록이 메모 내용과 일치하는지 <strong>직접 읽어</strong> 확인합니다. 메모에 없는 사실을 만들어 넣지 않았는지도 봅니다.</li>
-<li>파이에서도 같은 방식이 동작하는지 확인합니다. PowerShell에서 <code>pi</code> 를 실행하고 아래를 입력합니다.</li>
+<li>파이에서도 같은 방식이 동작하는지 확인합니다. PowerShell에서 <code>cd &quot;$env:USERPROFILE\Desktop\AX실습&quot;</code> 로 <strong>실습 폴더에 먼저 들어간 뒤</strong> <code>pi</code> 를 실행하고 아래를 입력합니다. 홈 폴더에서 그냥 실행하면 문서·바탕 화면·다운로드가 전부 작업 범위가 됩니다.</li>
 </ol>
 <div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>AI에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>다음 가상 상담 메모를 한 문장으로 요약해줘:
 온라인 쇼핑몰 가구 3개월 미배송, 판매자 연락 두절,
@@ -484,6 +652,15 @@
     <h4>이 페이지 목차</h4>
     <ul class="toc-list">
 <li class="toc-l2"><a href="#이-차시에서-준비할-것">이 차시에서 준비할 것</a></li>
+<li class="toc-l2"><a href="#이-차시에서-처음-나오는-말">이 차시에서 처음 나오는 말</a></li>
+<li class="toc-l1"><a href="#2차시-교재-에이전트-도구-설치와-연동">2차시 교재: 에이전트 도구 설치와 연동</a></li>
+<li class="toc-l2"><a href="#이-차시에서-배우는-것">이 차시에서 배우는 것</a></li>
+<li class="toc-l2"><a href="#개념-익히기">개념 익히기</a></li>
+<li class="toc-l2"><a href="#안전-수칙-다섯-가지">안전 수칙 다섯 가지</a></li>
+<li class="toc-l2"><a href="#설치-순서-미리-보기">설치 순서 미리 보기</a></li>
+<li class="toc-l2"><a href="#실습으로-확인할-것">실습으로 확인할 것</a></li>
+<li class="toc-l2"><a href="#스스로-점검">스스로 점검</a></li>
+<li class="toc-l2"><a href="#다음-차시-예고">다음 차시 예고</a></li>
 <li class="toc-l1"><a href="#2차시-실습지-에이전트-작업-환경-점검표">2차시 실습지: 에이전트 작업 환경 점검표</a></li>
 <li class="toc-l2"><a href="#실습-목표">실습 목표</a></li>
 <li class="toc-l2"><a href="#실습-규칙">실습 규칙</a></li>

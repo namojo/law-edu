@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 320" font-family="'Apple SD Gothic Neo','Malgun Gothic',sans-serif" role="img" aria-label="의뢰인 소통의 정보 흐름과 마스킹 지점">
+  <defs>
+    <marker id="arrow6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1c1917"/>
+    </marker>
+  </defs>
+  <rect width="840" height="320" fill="#f5f0e6"/>
+  <text x="24" y="34" font-family="ui-monospace,monospace" font-size="11" letter-spacing="3" fill="#78716c">INFORMATION FLOW</text>
+  <text x="24" y="56" font-size="17" font-weight="700" fill="#1c1917">의뢰인 소통: 정보가 지나는 길목마다 지킬 지점이 있다</text>
+
+  <g stroke="#1c1917" stroke-width="1.5" fill="#ffffff">
+    <rect x="40" y="110" width="170" height="120"/>
+    <rect x="335" y="110" width="170" height="120"/>
+    <rect x="630" y="110" width="170" height="120"/>
+  </g>
+  <text x="125" y="140" font-size="14" font-weight="700" fill="#1c1917" text-anchor="middle">의뢰인</text>
+  <text x="125" y="162" font-size="11" fill="#57534e" text-anchor="middle">상담·자료·연락</text>
+  <text x="420" y="140" font-size="14" font-weight="700" fill="#1c1917" text-anchor="middle">사무소 (변호사)</text>
+  <text x="420" y="162" font-size="11" fill="#57534e" text-anchor="middle">판단·승인·발송</text>
+  <text x="715" y="140" font-size="14" font-weight="700" fill="#1c1917" text-anchor="middle">AI 도구</text>
+  <text x="715" y="162" font-size="11" fill="#57534e" text-anchor="middle">초안·요약·알림</text>
+
+  <!-- 의뢰인 -> 사무소 -->
+  <line x1="210" y1="150" x2="333" y2="150" stroke="#1c1917" stroke-width="1.5" marker-end="url(#arrow6)"/>
+  <text x="271" y="140" font-size="10.5" fill="#57534e" text-anchor="middle">상담·자료</text>
+
+  <!-- 사무소 -> AI : 마스킹 -->
+  <line x1="505" y1="150" x2="628" y2="150" stroke="#1c1917" stroke-width="1.5" marker-end="url(#arrow6)"/>
+  <rect x="524" y="128" width="86" height="22" fill="#b45309"/>
+  <text x="567" y="143" font-size="11" font-weight="700" fill="#f5f0e6" text-anchor="middle">마스킹 지점</text>
+  <text x="567" y="170" font-size="10.5" fill="#b45309" text-anchor="middle">이름→역할명 · 최소 수집</text>
+
+  <!-- AI -> 사무소 : 초안 -->
+  <line x1="628" y1="196" x2="505" y2="196" stroke="#1c1917" stroke-width="1.5" marker-end="url(#arrow6)"/>
+  <text x="567" y="212" font-size="10.5" fill="#57534e" text-anchor="middle">초안·요약 (아직 발송 아님)</text>
+
+  <!-- 사무소 -> 의뢰인 : 승인 후 발송 -->
+  <line x1="333" y1="196" x2="210" y2="196" stroke="#1c1917" stroke-width="1.5" marker-end="url(#arrow6)"/>
+  <rect x="228" y="174" width="86" height="22" fill="#b45309"/>
+  <text x="271" y="189" font-size="11" font-weight="700" fill="#f5f0e6" text-anchor="middle">승인 지점</text>
+  <text x="271" y="216" font-size="10.5" fill="#b45309" text-anchor="middle">사람 확인 후에만 발송</text>
+
+  <!-- 메신저 알림 -->
+  <path d="M 715 230 L 715 262 L 420 262 L 420 232" fill="none" stroke="#a8a29e" stroke-width="1.2" stroke-dasharray="5 4" marker-end="url(#arrow6)"/>
+  <text x="567" y="280" font-size="10.5" fill="#57534e" text-anchor="middle">메신저 알림: "작업 완료·승인 필요" 신호만 — 사건명·당사자 넣지 않음</text>
+</svg>
