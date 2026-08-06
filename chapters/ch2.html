@@ -45,7 +45,7 @@
 <li>오늘의 기록을 담을 파일 하나 — 실습지를 화면에서 채운다면 결과물 파일명을 <code>lawyer-ax-worksheet-02-agent-toolkit-setup.md</code> 로 저장해 두시길 권합니다. 차시별로 <code>lawyer-ax-worksheet-0N-{주제}.md</code> 형태로 이름을 맞춰 두면 7차시까지 결과물이 한 폴더에서 순서대로 정렬됩니다</li>
 </ul>
 <p><strong>미리 읽고 따라 할 설치가이드</strong></p>
-<div class="table-wrap"><table><thead><tr><th>순서</th><th>설치가이드</th><th>범위</th><th>이 차시에서 쓰는 곳</th></tr></thead><tbody><tr><td>0</td><td><a href="../install/setup-windows.html">공통 준비(Windows)</a></td><td>기본</td><td>전체 — PowerShell·Node.js·실습 폴더</td></tr><tr><td>1</td><td><a href="../install/antigravity.html">안티그래비티 설치가이드</a></td><td>기본</td><td>LAB 1</td></tr><tr><td>2</td><td><a href="../install/hermes.html">헤르메스 설치가이드</a></td><td>시연·선택</td><td>LAB 2</td></tr><tr><td>3</td><td><a href="../install/pi.html">파이(Pi) 설치가이드</a></td><td>선택</td><td>LAB 3</td></tr><tr><td>4</td><td><a href="../install/codex.html">Codex CLI 설치가이드</a></td><td>확장</td><td>LAB 4</td></tr><tr><td>5</td><td><a href="../install/korean-law-mcp.html">korean-law-mcp 설치가이드</a></td><td>확장</td><td>LAB 5 — 안티그래비티(또는 Claude Desktop·Claude Code)에 연결</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>순서</th><th>설치가이드</th><th>범위</th><th>이 차시에서 쓰는 곳</th></tr></thead><tbody><tr><td>0</td><td><a href="../install/setup-windows.html">공통 준비(Windows)</a></td><td>기본</td><td>전체 — PowerShell·Node.js·실습 폴더</td></tr><tr><td>1</td><td><a href="../install/antigravity.html">안티그래비티 설치가이드</a></td><td>기본</td><td>LAB 1</td></tr><tr><td>2</td><td><a href="../install/hermes.html">헤르메스 설치가이드</a></td><td>시연·선택</td><td>LAB 2</td></tr><tr><td>3</td><td><a href="../install/pi.html">파이(Pi) 설치가이드</a></td><td>선택</td><td>LAB 3</td></tr><tr><td>4</td><td><a href="../install/codex.html">Codex CLI 설치가이드</a></td><td>확장</td><td>LAB 4</td></tr><tr><td>5</td><td><a href="../install/korean-law-mcp.html">korean-law-mcp 설치가이드</a></td><td>확장</td><td>LAB 5 — 안티그래비티(또는 Claude Desktop·Claude Code)에 연결</td></tr><tr><td>6</td><td><a href="../install/litellm.html">LiteLLM 연결가이드</a></td><td>연결(설치 없음)</td><td>LAB 2·LAB 3 — 헤르메스·파이에 주관사 AI 모델 창구 연결</td></tr></tbody></table></div>
 <blockquote><p>설치가 아직 안 끝났어도 괜찮습니다. LAB 1~5의 첫 단계가 <strong>&quot;준비 상태 확인&quot;</strong>(30초 확인법)이므로, 거기서 안 됐다는 것이 확인되면 해당 설치가이드로 이동했다가 돌아오면 됩니다. 시연·선택·확장 범위는 안 하기로 정하는 것도 정당한 선택이며, 그때는 실습지에 <code>선택하지 않음</code>이라고 적으면 그 칸이 완성된 것입니다.</p></blockquote>
 <p>아래 교재 부분을 먼저 읽고 실습지와 랩으로 넘어가면, 각 화면에서 무엇을 확인해야 하는지 미리 알고 진행할 수 있습니다.</p>
 <h2 id="이-차시에서-처음-나오는-말">이 차시에서 처음 나오는 말</h2>
@@ -98,7 +98,7 @@
 <ol>
 <li><strong>계정 분리</strong> — 오늘 연동은 <strong>수업을 위해 따로 준비한 개인 구글 계정</strong>만 사용합니다. 업무 계정과 평소 쓰는 개인 계정은 연동하지 않습니다. 소속 사무소에 AI 도구 사용 정책이 있다면 먼저 확인하세요 — 개인 계정 실습이 사무소 승인 없는 도구 사용(섀도우 AI)이 되지 않도록 정책에 따라 관리하는 것까지가 계정 분리입니다.</li>
 <li><strong>권한 범위 확인</strong> — 계정 연동 화면에서 위임 범위가 읽기인지 쓰기인지 확인한 뒤 승인합니다.</li>
-<li><strong>API 키 보관</strong> — API 키는 계정 비밀번호와 같은 무게로 다룹니다. 코드, 공유 문서, 채팅방에 남기지 않고 정해진 보관 위치에만 둡니다. 실습용 키는 주관사가 발급하고 교육 후 회수합니다.</li>
+<li><strong>API 키 보관</strong> — API 키는 계정 비밀번호와 같은 무게로 다룹니다. 코드, 공유 문서, 채팅방에 남기지 않고 정해진 보관 위치에만 둡니다. 실습용 키는 주관사가 발급하고 교육 후 회수합니다 — 받은 키를 도구에 등록하는 방법과 키가 노출됐을 때 할 일은 <a href="../install/litellm.html">LiteLLM 연결가이드</a>에 있습니다.</li>
 <li><strong>출처 불명 명령 금지</strong> — 인터넷 게시판 등 출처를 모르는 터미널 명령을 복사해 실행하지 않습니다.</li>
 <li><strong>알림 정보 범위</strong> — 메신저 알림에 사건 정보가 흘러가지 않도록, 알림에 담을 정보의 범위를 미리 정합니다.</li>
 </ol>
@@ -157,7 +157,7 @@
 <div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>npm install -g --ignore-scripts @earendil-works/pi-coding-agent</pre></div></div></div>
 <ol>
 <li>설치가 끝나면 <code>pi</code> 를 입력해 실행합니다.</li>
-<li>첫 실행에서 사용할 AI 모델과 API 키를 등록합니다. 실습용 키는 주관사가 현장에서 발급하고 교육 후 회수합니다.</li>
+<li>첫 실행에서 사용할 AI 모델과 API 키를 등록합니다. 실습용 키는 주관사가 현장에서 발급하고 교육 후 회수합니다. 주관사가 운영하는 LiteLLM 서버(AI 모델 창구)로 연결하는 경우에는 설정 파일 <code>models.json</code> 에 제공자를 추가하는 방식이며, 절차는 <a href="../install/litellm.html">LiteLLM 연결가이드</a>를 따릅니다.</li>
 </ol>
 <p>파이는 여러 AI 모델을 연결해 쓸 수 있는 오픈소스 도구입니다. 오픈소스 도구는 설치, 업데이트, 권한 관리를 사용자가 스스로 책임진다는 점도 기억해 주세요.</p>
 <ul>
@@ -167,7 +167,7 @@
 <p>설치가 잘 됐는지 확인하고, 첫 명령까지 해 봅니다.</p>
 <ol>
 <li><code>pi --version</code> 을 입력합니다. 버전 번호가 나오면 설치 성공입니다.</li>
-<li>수업에서는 정리·요약용 빠른 모델과 계약·사건 분석용 고성능 모델을 구분해 씁니다. 목록에 실제로 표시되는 모델 이름은 교육 당일 안내에 따릅니다(<a href="../install/pi.html">파이(Pi) 설치가이드</a> 5-③).</li>
+<li>수업에서는 정리·요약용 빠른 모델과 계약·사건 분석용 고성능 모델을 구분해 씁니다. 목록에 실제로 표시되는 모델 이름은 교육 당일 안내에 따릅니다(<a href="../install/pi.html">파이(Pi) 설치가이드</a> 5-③). 주관사 LiteLLM 서버로 연결한 경우에는 <code>models.json</code> 에 적어 둔 모델이 목록에 나타나며, 등록 절차는 <a href="../install/litellm.html">LiteLLM 연결가이드</a>를 따릅니다.</li>
 <li>첫 명령은 읽기만 하는 안전한 요청부터: 실습 폴더에서 <code>pi</code> 를 실행하고 &quot;이 폴더의 파일 목록을 표로 정리해줘&quot;라고 입력해 봅니다.</li>
 <li>안 될 때: ① 터미널을 닫았다 다시 열기 ② <code>node -v</code> 재확인 ③ 그래도 안 되면 오류 화면을 지우지 말고 그대로 둔 채 조별 지원을 요청합니다 — 오류 메시지가 가장 빠른 단서입니다.</li>
 </ol>
@@ -431,7 +431,8 @@
 <ol>
 <li>같은 PowerShell 창에 <code>hermes setup</code> 을 입력합니다.</li>
 <li><strong>화면 상태</strong>: 연결 방식을 고르는 목록이 나옵니다. 화살표 <code>↑</code> <code>↓</code> 로 고르고 <code>Enter</code>.</li>
-<li>어느 항목(Nous Portal / OpenRouter)을 고를지는 <strong>발급받은 실습용 API 키의 종류에 따라 다르니 당일 안내를 따릅니다</strong> — <a href="../install/hermes.html">헤르메스 설치가이드</a> 5-1. 안내를 못 받았으면 고르지 말고 Facilitator에게 먼저 확인합니다.</li>
+<li>어느 항목(Nous Portal / OpenRouter / LiteLLM(사용자 지정 엔드포인트))을 고를지는 <strong>발급받은 실습용 API 키의 종류에 따라 다르니 당일 안내를 따릅니다</strong> — <a href="../install/hermes.html">헤르메스 설치가이드</a> 5-1. 안내를 못 받았으면 고르지 말고 Facilitator에게 먼저 확인합니다.</li>
+<li><code>sk-</code> 로 시작하는 실습용 키와 <strong>서버 주소를 함께 받았다면</strong> 주관사가 운영하는 LiteLLM 서버에 연결하는 경우이므로, 목록에서 <strong>사용자 지정 엔드포인트</strong>를 고르고 <a href="../install/litellm.html">LiteLLM 연결가이드</a>를 따릅니다.</li>
 <li>키는 발급 화면에서 직접 복사해 붙여넣고, 실습지에는 <strong>보관 위치만</strong> 적습니다.</li>
 <li>단, Nous Portal을 고른 경우에는 브라우저가 열려 승인만 하면 되고 붙여넣을 키가 없습니다(<a href="../install/hermes.html">헤르메스 설치가이드</a> 5-1 참조).</li>
 </ol>
