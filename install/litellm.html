@@ -51,8 +51,9 @@
 <p><strong>① PowerShell에 아래를 붙여넣고 <code>Enter</code>.</strong></p>
 <div class="code-card is-lite"><div class="code-bar"><span class="code-label">검색창에 입력</span><button type="button" class="copy-btn" data-copy>복사</button></div><pre>hermes model</pre></div>
 <section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: 모델·제공자를 고르는 목록이 열립니다. 화살표 <code>↑</code> <code>↓</code> 로 이동, <code>Enter</code> 로 선택.</p></section>
-<p><strong>② 목록에서 아래 항목을 고릅니다.</strong></p>
-<div class="code-card is-lite"><div class="code-bar"><span class="code-label">복사해서 쓰기</span><button type="button" class="copy-btn" data-copy>복사</button></div><pre>Custom endpoint (self-hosted / VLLM / etc.)</pre></div>
+<p><strong>② 목록에서 <code>Custom endpoint</code> 로 시작하는 항목을 고릅니다.</strong> 버전에 따라 괄호 안 표기가 다릅니다 — 어느 쪽이든 같은 항목입니다.</p>
+<div class="code-card is-lite"><div class="code-bar"><span class="code-label">복사해서 쓰기</span><button type="button" class="copy-btn" data-copy>복사</button></div><pre>Custom endpoint (enter URL manually)
+Custom endpoint (self-hosted / VLLM / etc.)</pre></div>
 <section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: 주소를 입력하라고 물어봅니다.</p></section>
 <blockquote><p>⚠️ <strong><code>OpenAI</code> 를 고르면 안 됩니다.</strong> OpenAI 본사로 요청이 가서 인증에 실패합니다. 반드시 위 <strong>Custom endpoint</strong> 항목입니다. (헤르메스 가이드에는 <strong>&quot;사용자 지정 엔드포인트&quot;</strong> 로 적혀 있습니다 — 같은 항목입니다.)</p></blockquote>
 <p><strong>③ API base URL</strong> — 1절의 주소를 복사해 붙여넣고 <code>Enter</code>.</p>
