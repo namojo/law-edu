@@ -161,7 +161,7 @@
 </ul>
 <p>이 질문들에 대한 확인을 마치기 전까지, 위 답변은 아직 근거가 아니라 확인 대상입니다.</p>
 <h2 id="실습-리서치-검증표-만들기">실습: 리서치 검증표 만들기</h2>
-<p>실습은 아래 4차시 실습지의 순서를 따라 진행합니다. 전체 흐름을 요약하면 다음과 같습니다.</p>
+<p>실습은 아래 4차시 실습지의 순서를 따라 진행합니다. 채운 결과는 <code>lawyer-ax-worksheet-04-research-verification.md</code>라는 이름으로 저장하기를 권합니다. 전체 흐름을 요약하면 다음과 같습니다.</p>
 <ol>
 <li><strong>리서치 질문 정하기</strong>: 실제 사건의 쟁점 대신 <code>계약 해석의 일반 기준</code>처럼 일반화된 연구 질문 하나를 정하고, 검색 키워드를 적습니다.</li>
 <li><strong>파이(Pi)로 리서치 스킬 실행하기</strong>: 화면에 안내된 명령만 사용해 스킬을 실행하고, 허용한 공개 출처와 금지사항, 실행 과정을 기록합니다. 오류가 났다면 실행 오류 자가 수정 프롬프트가 어떻게 작동했는지도 기록합니다.</li>
@@ -169,7 +169,7 @@
 <li><strong>리서치 검증표 완성하기</strong>: 확인할 수 있는 주장부터 원문을 열어 직접 대조하고, 검증표의 모든 열을 채웁니다.</li>
 <li><strong>환각 사례 기록하기</strong>: 원문과 다르거나 존재하지 않는 인용을 발견했다면 어떻게 알아차렸고 어떻게 처리했는지 기록합니다. 발견하지 못했다면 없다고 판단한 확인 방법을 적습니다.</li>
 </ol>
-<p>실습 규칙을 다시 확인해 주세요. 공개된 법령·판례 자료만 수집하고, 로그인이 필요한 서비스나 유료 데이터베이스는 무단으로 수집하지 않으며, 대상 사이트의 이용약관과 로봇 배제 정책을 준수합니다. 판례번호는 <code>0000다00000</code> 형식 표기만 사용하고, 실제 사건번호를 적지 않습니다.</p>
+<p>실습 규칙을 다시 확인해 주세요. 공개된 법령·판례 자료만 수집하고, 로그인이 필요한 서비스나 유료 데이터베이스는 무단으로 수집하지 않으며, 대상 사이트의 이용약관과 로봇 배제 정책을 준수합니다. 공개 판결문의 판례번호는 출처 확인을 위해 기록할 수 있지만, 의뢰인의 진행 사건번호·사무소 내부 접수번호는 기록하지 않습니다. 가상 예시는 <code>0000다00000</code> 형식을 씁니다.</p>
 <p>에이전트가 얼마나 많이 찾았는지가 아니라, 여러분이 무엇을 걸러냈는지가 이번 실습의 성과입니다.</p>
 <h2 id="스스로-점검">스스로 점검</h2>
 <p>아래 문장을 완성해 보세요.</p>
@@ -180,6 +180,7 @@
 </ul>
 <hr>
 <div class="sec-banner" id="4차시-실습지-리서치-검증표-만들기"><span class="banner-kicker">WORKBOOK — 손으로 채우는 실습지</span><h2 class="banner-title">4차시 실습지: 리서치 검증표 만들기</h2></div>
+<blockquote><p><strong>결과물 저장 파일명.</strong> 이 실습지를 채운 결과는 <code>lawyer-ax-worksheet-04-research-verification.md</code>로 저장하기를 권합니다. <code>.md</code>는 <strong>마크다운</strong>(표와 제목을 글자 기호로만 적는 간단한 문서 형식) 파일의 확장자입니다. 메모장에서 저장할 때 [파일] → [다른 이름으로 저장] → 파일 형식을 <code>모든 파일</code>로 바꾸고 파일 이름에 확장자까지 그대로 입력하면 됩니다. 워드·한글로 작업했다면 확장자는 그대로 두고 파일 이름만 <code>lawyer-ax-worksheet-04-research-verification</code>으로 맞춰 두세요. 차시마다 <code>lawyer-ax-worksheet-0N-...</code> 형식으로 이름을 통일해 한 폴더에 모아 두면 나중에 찾기 쉽습니다.</p></blockquote>
 <h2 id="실습-목표">실습 목표</h2>
 <p>파이(Pi)의 자율형 법률 리서치 스킬과 korean-law-mcp로 공개 법령·판례 자료를 자동 수집·요약하고, 그 결과의 주장 하나하나를 원문과 대조해 리서치 검증표 1부를 완성합니다.</p>
 <section class="human-check"><span class="callout-icon" aria-hidden="true">✋</span><h2 id="실습-규칙" class="callout-title">실습 규칙</h2><ul>
@@ -187,10 +188,11 @@
 <li>로그인이 필요한 서비스나 유료 데이터베이스는 무단으로 수집하지 않습니다.</li>
 <li>대상 사이트의 이용약관과 로봇 배제 정책을 준수합니다.</li>
 <li>실제 사건의 쟁점 대신 <code>계약 해석의 일반 기준</code>처럼 일반화된 연구 질문을 사용합니다.</li>
-<li>판례번호는 <code>0000다00000</code> 형식 표기만 사용하고, 실제 사건번호를 적지 않습니다.</li>
+<li>공개 판결문을 검증할 때는 공개된 판례번호를 근거로 기록해도 됩니다. 다만 의뢰인의 진행 사건번호·사무소 내부 접수번호는 적지 않으며, 가상 예시에는 <code>0000다00000</code> 형식을 사용합니다.</li>
 <li>의뢰인 이름 자리에는 <code>김가상</code>, <code>의뢰인 A</code> 같은 가상 이름만 씁니다.</li>
 <li>인증키는 이 실습지에 적지 않습니다. 보관 위치만 기록합니다.</li>
-</ul></section>
+</ul>
+<blockquote><p><strong>두 가지 번호를 구분하세요.</strong> 대법원 종합법률정보에서 누구나 검색할 수 있는 <strong>공개 판례번호</strong>(예: 이미 선고돼 공개된 판결의 사건번호)는 출처를 확인한 증거이므로 검증표에 그대로 적는 것이 맞습니다. 반면 <strong>의뢰인의 진행 사건번호</strong>(지금 우리 사무소가 수행 중인 사건의 법원 사건번호)와 <strong>사무소 내부 접수번호</strong>는 의뢰인을 특정할 수 있는 식별자이므로 실습지·프롬프트·메모 어디에도 적지 않습니다. 아직 실제 판례를 확인하지 않아 자리만 채워야 할 때는 <code>0000다00000</code> 형식을 씁니다.</p></blockquote></section>
 <h2 id="1단계-리서치-질문-정하기">1단계. 리서치 질문 정하기</h2>
 <p>오늘 자동화로 근거를 찾을 일반화된 연구 질문 하나를 정합니다.</p>
 <ul>
@@ -242,7 +244,7 @@
 금지사항
 - 로그인이 필요한 서비스와 유료 데이터베이스는 수집하지 않습니다.
 - 이용약관과 로봇 배제 정책에 어긋나는 수집을 하지 않습니다.
-- 실제 의뢰인 정보와 실제 사건번호는 다루지 않습니다.
+- 실제 의뢰인 정보와 의뢰인의 진행 사건번호는 다루지 않습니다.
 - 확인되지 않은 조문·판례를 지어내지 않습니다. 모르면 &quot;확인 불가&quot;라고 적습니다.
 
 결과 형식
@@ -257,7 +259,7 @@
 <p><strong>5) 파이가 웹을 못 볼 때 — 자료는 AI 도구에서 받고, 정리만 파이에게 맡깁니다.</strong></p>
 <p>파이는 웹 열람 도구가 없으므로, 자료 수집은 AI 대화 도구가 하고 파이는 <code>read</code>·<code>write</code> 도구로 그 결과를 정리하는 역할만 맡습니다. 이 경로로 진행해도 2단계를 마친 것입니다.</p>
 <ol>
-<li>korean-law-mcp를 연결해 둔 AI 도구(안티그래비티 등)에서 <strong>새 대화</strong>를 열고, 이 차시 실전 랩 <strong>LAB 1의 프롬프트</strong>를 붙여 넣어 실행합니다.</li>
+<li>korean-law-mcp를 연결해 둔 AI 도구(안티그래비티 등)에서 <strong>새 대화</strong>를 열고, 이 문서 뒤쪽 '4차시 실전 실습 랩'의 <strong>LAB 1 프롬프트</strong>를 붙여 넣습니다. 이때 프롬프트의 <code>상황:</code> 부분만 1단계에서 정한 내 연구 질문으로 바꿉니다(그래야 2-1의 공식 데이터 결과와 같은 주제로 비교할 수 있습니다). 이 프롬프트는 일부러 도구를 쓰지 않고 받는 답이므로, 여기서 받은 내용은 정확한 자료가 아니라 3~4단계에서 검증할 재료입니다.</li>
 <li>받은 응답 전체를 마우스로 드래그해 <code>Ctrl+C</code>로 복사합니다.</li>
 <li>메모장에 붙여넣고, <code>바탕 화면\AX실습\리서치원본.txt</code>로 저장합니다. (메모장 → 파일 → 다른 이름으로 저장 → 폴더를 <code>AX실습</code>으로 이동 → 파일 이름에 <code>리서치원본.txt</code> 입력)</li>
 <li>파이 입력창으로 돌아와 아래를 붙여 넣고 Enter를 누릅니다.</li>
@@ -278,7 +280,7 @@
 <li>수집 대상으로 허용한 공개 출처:</li>
 <li>스킬에 적어 넣은 금지사항:</li>
 <li>실행한 지시 요약(한두 문장):</li>
-<li>결과가 나오기까지 걸린 과정 요약:</li>
+<li>실행한 명령과 확인 순서 요약 (예: <code>검색어 입력 → 후보 3건 확인 → 원문 대조</code>):</li>
 </ul>
 <p>실행 중 오류가 났다면 실행 오류 자가 수정 프롬프트가 어떻게 작동했는지 적습니다. 오류가 없었다면 <code>오류 없음</code>이라고 적습니다.</p>
 <div class="table-wrap"><table><thead><tr><th>오류 메시지 요약</th><th>스킬이 추정한 원인</th><th>수정 시도 내용</th><th>결과 (성공 / 재시도 / 중단 후 보고)</th></tr></thead><tbody><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr></tbody></table></div>
@@ -319,11 +321,12 @@
 </ul>
 <h2 id="4단계-리서치-검증표-완성하기">4단계. 리서치 검증표 완성하기</h2>
 <p>3단계의 주장 중 확인할 수 있는 것부터 원문을 열어 직접 대조합니다. 요약을 다시 읽는 것은 대조가 아닙니다.</p>
-<div class="table-wrap"><table><thead><tr><th>주장 번호</th><th>출처 문서명</th><th>사건번호 형식 확인 (형식 일치 / 불일치 / 해당 없음)</th><th>선고일 (원문에서 확인)</th><th>원문 대조 여부 (확인 / 불일치 / 불가)</th><th>후속 판례 확인 여부</th><th>최신성 판단 (사용 가능 / 보류 / 폐기)</th></tr></thead><tbody><tr><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>2</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>3</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>4</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>5</td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>주장 번호</th><th>출처 문서명</th><th>사건번호 (원문에서 확인한 공개 판례번호 / 해당 없음)</th><th>선고일 (원문에서 확인)</th><th>원문 대조 여부 (확인 / 불일치 / 불가)</th><th>후속 판례 확인 여부</th><th>최신성 판단 (사용 가능 / 보류 / 폐기)</th></tr></thead><tbody><tr><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>2</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>3</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>4</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>5</td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div>
 <blockquote><p>표가 화면에 다 안 보이면: 좌우로 밀어서 보거나, 노트에 옮길 때 <code>번호·출처·사건번호·선고일</code> 표와 <code>번호·원문 대조·후속 판례·최신성</code> 표 두 개로 나누어 적어도 됩니다. 열 개수만 그대로 일곱 개면 됩니다.</p></blockquote>
+<p>공개 판결문의 판례번호는 확인한 그대로 적습니다. 아직 원문을 확인하지 못해 자리만 채울 때만 <code>0000다00000</code> 형식을 쓰고, 법령만 근거인 행은 <code>해당 없음</code>으로 둡니다. 의뢰인의 진행 사건번호·사무소 내부 접수번호는 어떤 경우에도 적지 않습니다.</p>
 <p>한 열이라도 비어 있는 주장은 아직 사용할 수 없는 근거입니다. <code>보류</code>나 <code>폐기</code>가 나와도 실패가 아니라 검증이 작동한 기록입니다.</p>
 <p><strong>어느 도구가 어느 열을 채워 주는지</strong> 알아두면 시간이 크게 줄어듭니다.</p>
-<div class="table-wrap"><table><thead><tr><th>검증표의 열</th><th>도움이 되는 도구</th></tr></thead><tbody><tr><td>출처 문서명 · 사건번호 형식 · 선고일</td><td>국가법령정보센터·대법원 종합법률정보 검색, korean-law-mcp <code>legal_research</code></td></tr><tr><td>원문 대조 여부</td><td>korean-law-mcp <code>verify_citations</code> (인용 실존·내용 검증)</td></tr><tr><td>후속 판례 확인 여부 · 최신성 판단</td><td>korean-law-mcp <code>cite_check</code> (판례 생사 확인)</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>검증표의 열</th><th>도움이 되는 도구</th></tr></thead><tbody><tr><td>출처 문서명 · 사건번호 · 선고일</td><td>국가법령정보센터·대법원 종합법률정보 검색, korean-law-mcp <code>legal_research</code></td></tr><tr><td>원문 대조 여부</td><td>korean-law-mcp <code>verify_citations</code> (인용 실존·내용 검증)</td></tr><tr><td>후속 판례 확인 여부 · 최신성 판단</td><td>korean-law-mcp <code>cite_check</code> (판례 생사 확인)</td></tr></tbody></table></div>
 <h2 id="5단계-환각-사례-기록하기">5단계. 환각 사례 기록하기</h2>
 <p>원문과 다르거나 존재하지 않는 인용을 발견했다면 기록합니다.</p>
 <ul>
@@ -372,7 +375,7 @@
 <li><strong>korean-law-mcp를 연결해 둔 AI 도구(안티그래비티 등)</strong> — 2차시에서 korean-law-mcp를 연결해 둔 바로 그 프로그램입니다. 새 대화를 두 번 열 수 있으면 충분합니다. — <a href="../install/antigravity.html">안티그래비티 설치가이드</a> · <a href="../install/codex.html">Codex CLI 설치가이드</a></li>
 <li><strong>korean-law-mcp 연결</strong> — <a href="../install/korean-law-mcp.html">korean-law-mcp 설치가이드</a></li>
 <li>웹 브라우저 (원문 확인 사이트 접속용)</li>
-<li>이 파일 또는 4차시 실습지의 표를 옮겨 적을 문서 1개</li>
+<li>이 파일 또는 4차시 실습지의 표를 옮겨 적을 문서 1개 — 파일 이름은 <code>lawyer-ax-worksheet-04-research-verification.md</code>로 두기를 권합니다</li>
 </ul></li>
 <li>완성 결과물: 리서치 검증표 1부 (주장 5개 이상, 모든 열이 채워진 상태)</li>
 </ul>
@@ -384,10 +387,10 @@
 <li>최종 비판 검토: <code>legal-review</code> — <strong>강사가 지시할 때 1회만.</strong> 별도 예산으로 잡혀 있는 아껴 쓰는 모델입니다.</li>
 </ul>
 <section class="human-check"><span class="callout-icon" aria-hidden="true">✋</span><h2 id="실습-규칙-1" class="callout-title">실습 규칙</h2><ol>
-<li><strong>실제 사건 정보를 입력하지 않습니다.</strong> 의뢰인 이름, 실제 사건번호, 진행 중인 사건의 사실관계는 프롬프트에 넣지 않습니다. 오늘은 아래에 제공되는 가상의 의뢰 상황만 사용합니다.</li>
+<li><strong>실제 사건 정보를 입력하지 않습니다.</strong> 의뢰인 이름, 의뢰인의 진행 사건번호, 사무소 내부 접수번호, 진행 중인 사건의 사실관계는 프롬프트에 넣지 않습니다. 오늘은 아래에 제공되는 가상의 의뢰 상황만 사용합니다.</li>
 <li><strong>AI가 제시한 판례·법령은 원문 확인 전까지 전부 &quot;미확인&quot;으로 취급합니다.</strong> 사건번호 형식이 완벽해도, 문체가 자신감 있어도, 같은 답이 반복되어도 그것은 정확성의 증거가 아닙니다. 원문을 열어 직접 대조하기 전까지는 근거가 아니라 확인 대상입니다.</li>
 <li>공개된 법령·판례 자료만 확인합니다. 로그인이 필요한 서비스나 유료 데이터베이스는 무단으로 수집하지 않습니다.</li>
-<li>검증표에 옮겨 적을 때 판례번호는 <code>0000다00000</code> 형식 표기만 사용하고, 실제 사건번호를 이 문서에 적지 않습니다. (원문 확인 자체는 실제 번호로 검색하되, 기록은 형식 표기로 남깁니다.)</li>
+<li><strong>공개 판결문을 검증할 때는 공개된 판례번호를 근거로 기록해도 됩니다.</strong> 검색해서 확인한 판례번호는 출처를 밝힌 증거이므로 검증표에 그대로 적습니다. 의뢰인의 진행 사건번호·사무소 내부 접수번호는 적지 않으며, 가상 판례 예시에는 <code>0000다00000</code> 형식을 사용합니다.</li>
 <li><strong>korean-law-mcp의 답도 검증 대상입니다.</strong> 공식 데이터를 조회하므로 훨씬 믿을 만하지만, 도구가 실행되지 않은 채 AI가 혼자 지어낸 답일 수도 있습니다. LAB 3에서 도구가 실제로 호출됐는지 확인하는 법을 배웁니다.</li>
 <li>인증키(OC 키)를 채팅창·검증표·메모에 붙여넣지 않습니다. 설치가이드에서 정한 보관 위치에만 둡니다.</li>
 </ol></section>
@@ -511,7 +514,7 @@
 <section class="callout callout-check"><span class="callout-icon" aria-hidden="true">✅</span><h3 id="-체크포인트-1" class="callout-title">체크포인트</h3><ul class="task-list">
 <li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">법령은 국가법령정보센터에서, 판례는 대법원 종합법률정보에서 직접 검색해 확인했다. (AI 응답을 다시 읽은 것은 확인으로 치지 않습니다.)</span></li>
 <li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text"><code>검색 안 됨</code> 또는 <code>원문과 다름</code>이 하나라도 나왔다면, 같은 응답의 다른 주장도 다시 의심하며 재확인했다.</span></li>
-<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">확인 과정에서 이 문서에는 실제 사건번호 대신 <code>0000다00000</code> 형식으로만 기록했다.</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">공개 판례번호와 비공개 사건 식별자를 구분했고, 의뢰인의 진행 사건번호·사무소 내부 접수번호를 기록하지 않았다.</span></li>
 <li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">손으로 검증하는 데 걸린 시간을 적어 두었다.</span></li>
 </ul></section>
 <section class="callout callout-trouble"><span class="callout-icon" aria-hidden="true">🔧</span><h3 id="잘-안-될-때-1" class="callout-title">잘 안 될 때</h3><ul>
@@ -637,7 +640,7 @@
 <li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">두 응답의 불일치 지점을 1개 이상 찾아 원문 또는 korean-law-mcp로 확인했다. (불일치가 전혀 없다면 <code>불일치 없음</code>과 비교 방법을 기록했다.)</span></li>
 <li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">검증표에 비어 있는 열이 없다. 한 열이라도 비어 있는 주장은 아직 사용할 수 없는 근거입니다.</span></li>
 <li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text"><code>보류</code>나 <code>폐기</code>를 실패로 지우지 않고 그대로 남겼다. 그것이 검증이 작동했다는 증거입니다.</span></li>
-<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">문서에 실제 사건번호와 실제 의뢰인 정보가 들어가지 않았다.</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">문서에 실제 의뢰인 정보와 의뢰인의 진행 사건번호·사무소 내부 접수번호가 들어가지 않았다.</span></li>
 </ul></section>
 <section class="callout callout-trouble"><span class="callout-icon" aria-hidden="true">🔧</span><h3 id="잘-안-될-때-3" class="callout-title">잘 안 될 때</h3><ul>
 <li>두 응답이 거의 똑같다면: 반복된 답변은 정확성의 증거가 아닙니다. 그중 원문 대조가 끝나지 않은 항목을 골라 LAB 2·3의 절차로 확인을 이어갑니다.</li>
@@ -668,7 +671,7 @@
 </ul>
 <h2 id="마무리">마무리</h2>
 <h3 id="결과물-점검표">결과물 점검표</h3>
-<div class="table-wrap"><table><thead><tr><th>점검 항목</th><th>완료 여부</th></tr></thead><tbody><tr><td>리서치 검증표 1부 (주장 5개, 일곱 개 열 모두 기재)</td><td></td></tr><tr><td>원문 대조를 국가법령정보센터·대법원 종합법률정보에서 직접 수행한 기록</td><td></td></tr><tr><td>korean-law-mcp <code>verify_citations</code>로 가짜 인용을 걸러낸 기록</td><td></td></tr><tr><td><code>cite_check</code>로 확인한 판례 유효성과 최신성 판단</td><td></td></tr><tr><td>환각·불일치 발견 내역 또는 <code>발견 없음</code>과 확인 방법</td><td></td></tr><tr><td>교차 검증에서 찾은 불일치 지점과 처리 결과</td><td></td></tr><tr><td><code>폐기</code>·<code>보류</code> 판정이 지워지지 않고 남아 있음</td><td></td></tr><tr><td>실제 사건 정보와 실제 사건번호가 문서에 없음</td><td></td></tr><tr><td>인증키가 문서·채팅 기록에 남아 있지 않음</td><td></td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>점검 항목</th><th>완료 여부</th></tr></thead><tbody><tr><td>리서치 검증표 1부 (주장 5개, 일곱 개 열 모두 기재)</td><td></td></tr><tr><td>원문 대조를 국가법령정보센터·대법원 종합법률정보에서 직접 수행한 기록</td><td></td></tr><tr><td>korean-law-mcp <code>verify_citations</code>로 가짜 인용을 걸러낸 기록</td><td></td></tr><tr><td><code>cite_check</code>로 확인한 판례 유효성과 최신성 판단</td><td></td></tr><tr><td>환각·불일치 발견 내역 또는 <code>발견 없음</code>과 확인 방법</td><td></td></tr><tr><td>교차 검증에서 찾은 불일치 지점과 처리 결과</td><td></td></tr><tr><td><code>폐기</code>·<code>보류</code> 판정이 지워지지 않고 남아 있음</td><td></td></tr><tr><td>실제 의뢰인 정보와 의뢰인의 진행 사건번호·사무소 내부 접수번호가 문서에 없음</td><td></td></tr><tr><td>인증키가 문서·채팅 기록에 남아 있지 않음</td><td></td></tr></tbody></table></div>
 <p>오늘 성과의 기준은 AI가 얼마나 많이 찾았는지가 아니라, 여러분이 무엇을 걸러냈는지입니다. 그리고 도구는 검증을 빠르게 해 줄 뿐, 검증할지 말지를 정하는 것은 끝까지 사람입니다.</p>
 <h3 id="다음-차시-연결">다음 차시 연결</h3>
 <p>5차시에서는 오늘 만든 검증 습관을 문서 작업으로 확장합니다. 안티그래비티로 판례·계약서를 대량 병렬 분석하고, 템플릿과 레드라인, 승인 관문을 연결한 문서 작성 워크플로를 만듭니다. 오늘 검증표에서 <code>사용 가능</code> 판정을 받은 근거만이 5차시 초안의 재료가 됩니다. 계약서 검토 중 인용된 법령을 확인해야 할 때도 오늘 쓴 korean-law-mcp를 그대로 사용합니다. 5차시 병렬 분석에 사용할 비식별 문서 묶음을 미리 준비해 와 주세요.</p>

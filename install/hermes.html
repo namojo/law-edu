@@ -29,8 +29,8 @@
   <main id="main" class="main-col">
     <article class="prose">
 
-<blockquote><p>대상: Windows 10/11 노트북 · 터미널을 처음 열어 보는 분<br>작성일 기준: <strong>2026-08-03</strong> (공식 사이트 <code>hermes-agent.org/ko/</code>, 공식 문서 <code>hermes-agent.nousresearch.com</code>, GitHub <code>NousResearch/hermes-agent</code> README 확인)</p></blockquote>
-<blockquote><p>📌 <strong>이전 가이드에서 바뀐 점</strong><br>예전 안내에는 헤르메스가 &quot;길드 내부 배포 도구라서 공개 다운로드가 없다&quot;고 적혀 있었습니다. <strong>지금은 아닙니다.</strong> 헤르메스는 <strong>공식 사이트에서 누구나 내려받는 공개 도구</strong>입니다. 예전 문서를 보고 배포 가이드를 기다리고 계셨다면 이 문서대로 바로 설치하시면 됩니다.<br>길드에서 발급받는 것은 <strong>설치 파일이 아니라 로그인 계정</strong>입니다.</p></blockquote>
+<blockquote><p>대상: Windows 10/11 노트북 · 터미널을 처음 열어 보는 분<br>작성일 기준: <strong>2026-08-06</strong> (공식 사이트 <code>hermes-agent.org/ko/</code>, 공식 문서 <code>hermes-agent.nousresearch.com</code>, GitHub <code>NousResearch/hermes-agent</code> README 확인)</p></blockquote>
+<blockquote><p>📌 <strong>이전 가이드에서 바뀐 점</strong><br>예전 안내에는 헤르메스가 &quot;길드 내부 배포 도구라서 공개 다운로드가 없다&quot;고 적혀 있었습니다. <strong>지금은 아닙니다.</strong> 헤르메스는 <strong>공식 사이트에서 누구나 내려받는 공개 도구</strong>입니다. 예전 문서를 보고 배포 가이드를 기다리고 계셨다면 이 문서대로 바로 설치하시면 됩니다.<br><strong>헤르메스 자체의 별도 길드 로그인 계정은 없습니다.</strong> 설치를 마친 뒤 공식 안내에 따라 <strong>모델 제공자 키</strong>(주관사가 배포하는 실습용 키)와 필요한 시스템만 연결하면 됩니다. 로그인 계정을 기다리실 필요가 없습니다.</p></blockquote>
 <hr>
 <h2 id="-빠른-설치--아는-분용-약-15분">⚡ 빠른 설치 — 아는 분용 (약 15분)</h2>
 <p><strong>① 공식 사이트 확인</strong> — 크롬 주소창에 붙여넣기</p>
@@ -41,7 +41,7 @@
 <div class="code-card is-lite"><div class="code-bar"><span class="code-label">복사해서 쓰기</span><button type="button" class="copy-btn" data-copy>복사</button></div><pre>iex (irm https://hermes-agent.nousresearch.com/install.ps1)</pre></div>
 <p><strong>④ PowerShell을 닫고 새로 연 뒤</strong> 설치 확인</p>
 <div class="code-card is-term"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>PowerShell에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><div class="terminal-body"><pre>Get-Command hermes</pre></div></div></div>
-<p><strong>⑤ 계정 연결</strong> — 길드에서 발급받은 계정으로 로그인</p>
+<p><strong>⑤ 모델 제공자 연결</strong> — 주관사가 배포한 <strong>실습용 키(접속 정보)</strong> 를 당일 안내대로 등록 (별도 길드 로그인 계정은 없습니다)</p>
 <div class="code-card is-lite"><div class="code-bar"><span class="code-label">검색창에 입력</span><button type="button" class="copy-btn" data-copy>복사</button></div><pre>hermes setup</pre></div>
 <p><strong>⑥ 알림 범위 설정</strong> — 알림을 <strong>&quot;완료 여부만 / 결과 요약 미포함&quot;</strong>, 대상은 <strong>본인 1:1 방</strong> 으로 (5-3). 이걸 하기 전에는 실제 업무에 쓰지 마세요.</p>
 <p><strong>⑦ 실행 후 테스트</strong> — <code>hermes</code> 로 실행하고 입력창에 붙여넣기</p>
@@ -64,7 +64,7 @@
 <blockquote><p>🔐 <strong>보안 원칙 (전 과정 적용)</strong></p>
 <ul>
 <li><strong>API 키·비밀번호를 문서·메모·카카오톡·메일에 적지 마세요.</strong> 화면에서 바로 입력하고 &quot;어디에 보관했는지&quot;만 기록합니다.</li>
-<li>발급받은 계정 정보를 <strong>채팅방에 붙여넣어 질문하지 마세요.</strong> 질문할 땐 키 부분을 가리고 캡처합니다.</li>
+<li>발급받은 <strong>실습용 키를 채팅방에 붙여넣어 질문하지 마세요.</strong> 질문할 땐 키 부분을 가리고 캡처합니다.</li>
 <li>회사 보안 프로그램이 막으면 <strong>임의로 끄거나 예외 등록하지 말고</strong> 담당자에게 문의하세요.</li>
 <li>실습은 <code>AX실습</code> 폴더에서만. 실제 사건 자료 폴더와 반드시 분리합니다.</li>
 </ul></blockquote>
@@ -74,7 +74,7 @@
 <li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text"><strong>Windows 10/11 (64비트)</strong> — 관리자 권한은 <strong>필요 없습니다.</strong> 설치 파일이 내 사용자 폴더 안에만 들어갑니다.</span></li>
 <li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text"><strong>여유 저장 공간 3GB 이상</strong> — 설치 프로그램이 Python·Node.js·Git까지 함께 받아 옵니다.</span></li>
 <li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text"><strong>인터넷 연결</strong> — 다운로드 용량이 커서 회선이 느리면 15분 이상 걸립니다.</span></li>
-<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text"><strong>길드에서 발급한 계정</strong> — 설치가 아니라 <strong>로그인</strong>에 필요합니다. 아직 못 받았어도 3절 설치까지는 진행할 수 있습니다.</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text"><strong>주관사가 배포하는 실습용 키(모델 제공자 접속 정보)</strong> — 설치가 아니라 <strong>5절 모델 연결</strong>에 필요합니다. 헤르메스용 별도 로그인 계정은 없습니다. 아직 못 받았어도 3절 설치까지는 진행할 수 있습니다.</span></li>
 <li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text"><strong>메신저 계정</strong> — 알림 연동용. <strong>업무용 단체방이 있는 계정과 분리 권장</strong> (알림이 업무방에 가는 사고 방지).</span></li>
 <li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text"><strong>사내 정책 확인</strong> — 회사 노트북에 외부 도구 설치가 가능한지 미리 확인. 막혀 있다면 개인 노트북이 빠릅니다.</span></li>
 <li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text"><strong>실습 폴더</strong> — 파일 탐색기 주소창에 아래를 붙여넣어 폴더가 열리는지 확인 (없으면 만드세요)</span></li>
@@ -84,7 +84,7 @@
 <div class="code-card is-lite"><div class="code-bar"><span class="code-label">탐색기 주소창에 붙여넣기</span><button type="button" class="copy-btn" data-copy>복사</button></div><pre>%OneDrive%\Desktop\AX실습</pre></div></blockquote>
 <blockquote><p><strong>Node.js를 미리 설치하지 않아도 됩니다.</strong> 헤르메스 설치 프로그램이 Python 3.11, Node.js, Git(휴대용 버전), 검색·음성 도구를 <strong>알아서 함께 설치</strong>합니다. 이미 설치되어 있으면 그것을 그대로 쓰고, 시스템에 이미 있는 Git은 건드리지 않습니다.</p></blockquote>
 <h3 id="받은-것-기록표-키비밀번호는-적지-마세요">받은 것 기록표 (키·비밀번호는 적지 마세요)</h3>
-<div class="table-wrap"><table><thead><tr><th>항목</th><th>받았나요</th><th>어디서/누구에게 받았나</th></tr></thead><tbody><tr><td>길드 계정 아이디</td><td>☐</td><td></td></tr><tr><td>(비밀번호·키 보관 위치)</td><td>☐</td><td>예: 브라우저 비밀번호 관리자 / 사내 금고</td></tr><tr><td>로그인 시 고를 항목 안내</td><td>☐</td><td>당일 안내 (5-1 참고)</td></tr><tr><td>Facilitator 연락처</td><td>☐</td><td></td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>항목</th><th>받았나요</th><th>어디서/누구에게 받았나</th></tr></thead><tbody><tr><td>실습용 키의 <strong>종류</strong> (Nous Portal / OpenRouter 등)</td><td>☐</td><td>당일 안내</td></tr><tr><td>(키 보관 위치)</td><td>☐</td><td>예: 브라우저 비밀번호 관리자 / 사내 금고</td></tr><tr><td>5-1에서 고를 항목 안내</td><td>☐</td><td>당일 안내 (5-1 참고)</td></tr><tr><td>Facilitator 연락처</td><td>☐</td><td></td></tr></tbody></table></div>
 <hr>
 <h2 id="3-설치-절차">3. 설치 절차</h2>
 <h3 id="1단계--공식-사이트에서-안내-확인">1단계 — 공식 사이트에서 안내 확인</h3>
@@ -126,16 +126,18 @@
 </ul></section>
 <hr>
 <h2 id="5-초기-설정연동">5. 초기 설정·연동</h2>
-<h3 id="5-1-계정-연결-로그인">5-1. 계정 연결 (로그인)</h3>
+<h3 id="5-1-모델-제공자-연결-실습용-키-등록">5-1. 모델 제공자 연결 (실습용 키 등록)</h3>
+<p><strong>헤르메스에는 별도의 길드 로그인 계정이 없습니다.</strong> 여기서 하는 일은 헤르메스가 사용할 <strong>AI 모델 제공자</strong>를, 주관사가 배포한 <strong>실습용 키(접속 정보)</strong> 로 연결하는 것입니다.</p>
 <p>PowerShell에 아래를 붙여넣고 <code>Enter</code>.</p>
 <div class="code-card is-lite"><div class="code-bar"><span class="code-label">검색창에 입력</span><button type="button" class="copy-btn" data-copy>복사</button></div><pre>hermes setup</pre></div>
-<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: 설정 마법사가 열리고 연결 방식을 고르는 목록이 나옵니다. 화살표 <code>↑</code> <code>↓</code> 로 고르고 <code>Enter</code>.</p>
-<div class="table-wrap"><table><thead><tr><th>목록에 나오는 항목</th><th>무엇인가</th></tr></thead><tbody><tr><td><strong>Nous Portal</strong></td><td>브라우저가 열리며 계정으로 로그인(OAuth)하는 방식</td></tr><tr><td><strong>OpenRouter</strong></td><td>API 키를 직접 입력하는 방식</td></tr><tr><td>사용자 지정 엔드포인트</td><td>별도 서버를 쓰는 경우 (교육에서는 쓰지 않습니다)</td></tr></tbody></table></div></section>
-<blockquote><p>🔑 <strong>어느 항목을 고를지는 길드에서 발급한 계정의 종류에 따라 다릅니다. 당일 안내를 따르세요.</strong> 안내를 못 받았으면 고르지 말고 Facilitator에게 먼저 확인하세요.</p></blockquote>
+<section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: 설정 마법사가 열리고 모델 제공자를 고르는 목록이 나옵니다. 화살표 <code>↑</code> <code>↓</code> 로 고르고 <code>Enter</code>.</p>
+<div class="table-wrap"><table><thead><tr><th>목록에 나오는 항목</th><th>무엇인가</th></tr></thead><tbody><tr><td><strong>Nous Portal</strong></td><td>브라우저가 열려 Nous Portal 접속을 승인(OAuth)하는 방식. <strong>입력할 키가 없습니다</strong></td></tr><tr><td><strong>OpenRouter</strong></td><td>발급받은 <strong>API 키를 그 자리에서 붙여넣는</strong> 방식</td></tr><tr><td>OpenAI · 그 외 제공자</td><td>각 제공자의 API 키를 넣는 방식 (교육에서는 쓰지 않습니다)</td></tr><tr><td>사용자 지정 엔드포인트</td><td>별도 서버를 쓰는 경우 (교육에서는 쓰지 않습니다)</td></tr></tbody></table></div></section>
+<blockquote><p>🔑 <strong>어느 항목을 고를지는 발급받은 실습용 키의 종류에 따라 다릅니다. 당일 안내를 따르세요.</strong> 안내를 못 받았으면 고르지 말고 Facilitator에게 먼저 확인하세요.</p></blockquote>
 <ul>
-<li>비밀번호·키는 <strong>그 자리에서 바로 입력</strong>하고 화면 캡처를 남기지 마세요.</li>
+<li>키는 <strong>그 자리에서 바로 입력</strong>하고 화면 캡처를 남기지 마세요.</li>
 <li>붙여넣을 때 <strong>키 앞뒤에 공백이나 줄바꿈이 딸려 오지 않았는지</strong> 확인하세요 — 인증 실패 원인 1위입니다.</li>
-<li>로그인 정보를 메모장 파일에 저장하는 것은 금지입니다. 브라우저 비밀번호 관리자나 사내 허용 저장소만 사용하세요.</li>
+<li>실습용 키를 메모장 파일에 저장하는 것은 금지입니다. 브라우저 비밀번호 관리자나 사내 허용 저장소만 사용하세요.</li>
+<li>이 키는 <strong>실습 전용</strong>입니다. 실제 사건 자료를 다루는 작업에 쓰지 마세요.</li>
 </ul>
 <h3 id="5-2-권한-승인--무엇을-위임하는지-읽고-승인">5-2. 권한 승인 — 무엇을 위임하는지 읽고 승인</h3>
 <p>헤르메스는 <strong>다른 에이전트와 도구에 일을 대신 시키는</strong> 도구입니다. 승인하는 권한의 범위가 곧 &quot;헤르메스가 내 대신 할 수 있는 일&quot;의 범위입니다.</p>
@@ -198,22 +200,22 @@
 </ul>
 <h3 id="증상-5--요청을-보냈는데-응답이-없고-계속-대기">증상 5 — 요청을 보냈는데 응답이 없고 계속 대기</h3>
 <ul>
-<li><strong>원인</strong>: 네트워크 지연, 사내 방화벽 차단, 또는 로그인 세션 만료.</li>
-<li><strong>해결</strong>: ① 2분 기다립니다(여러 에이전트를 거치므로 일반 챗봇보다 느립니다). ② 그래도 멈춰 있으면 종료·재실행하고 <code>hermes setup</code> 으로 <strong>로그인 상태부터 확인</strong>. ③ 개인 핫스팟에서는 되고 회사 와이파이에서만 안 되면 사내 방화벽 문제입니다 — <strong>임의로 우회하지 말고</strong> 담당자에게 문의하세요.</li>
+<li><strong>원인</strong>: 네트워크 지연, 사내 방화벽 차단, 또는 모델 제공자 연결 만료(키 만료·한도 소진).</li>
+<li><strong>해결</strong>: ① 2분 기다립니다(여러 에이전트를 거치므로 일반 챗봇보다 느립니다). ② 그래도 멈춰 있으면 종료·재실행하고 <code>hermes setup</code> 으로 <strong>모델 제공자 연결 상태부터 확인</strong>. ③ 개인 핫스팟에서는 되고 회사 와이파이에서만 안 되면 사내 방화벽 문제입니다 — <strong>임의로 우회하지 말고</strong> 담당자에게 문의하세요.</li>
 </ul>
 <h3 id="증상-6--알림이-오지-않는다--반대로-내용이-너무-자세히-온다">증상 6 — 알림이 오지 않는다 / 반대로 내용이 너무 자세히 온다</h3>
 <ul>
 <li><strong>원인</strong>: 메신저 연동 누락, 또는 알림 범위가 기본값.</li>
 <li><strong>해결</strong>: 5-3으로 돌아가 <code>hermes gateway setup</code> 을 다시 실행하고 대상(본인 1:1 방)과 범위를 설정한 뒤, 6절 테스트로 실제 문구를 확인합니다. <strong>내용이 자세히 오는 쪽이 더 위험합니다.</strong> 고치기 전까지 실제 업무 관련 요청을 넣지 마세요.</li>
 </ul>
-<h3 id="증상-7--로그인이-되지-않는다--authentication-failed">증상 7 — 로그인이 되지 않는다 / <code>authentication failed</code></h3>
+<h3 id="증상-7--모델-제공자-연결이-되지-않는다--authentication-failed">증상 7 — 모델 제공자 연결이 되지 않는다 / <code>authentication failed</code></h3>
 <ul>
-<li><strong>원인</strong>: ① 키 앞뒤에 <strong>공백·줄바꿈</strong>이 딸려 들어갔거나, ② 5-1에서 계정 종류와 다른 항목을 골랐거나, ③ 계정이 아직 활성화되지 않았습니다.</li>
+<li><strong>원인</strong>: ① 키 앞뒤에 <strong>공백·줄바꿈</strong>이 딸려 들어갔거나, ② 5-1에서 <strong>발급받은 키 종류와 다른 항목</strong>을 골랐거나(예: OpenRouter 키를 받았는데 Nous Portal을 선택), ③ 발급받은 실습용 키가 아직 활성화되지 않았거나 사용 한도가 소진됐습니다.</li>
 <li><strong>해결</strong>: <code>hermes setup</code> 을 다시 실행해 처음부터 진행합니다. 키를 붙여넣기 전에 <strong>메모장에 한 번 붙여넣어</strong> 앞뒤 빈칸을 눈으로 확인한 뒤 키 부분만 다시 복사하세요 (확인 후 메모장은 <strong>저장하지 말고</strong> 닫습니다). 그래도 안 되면 Facilitator에게 알리세요 — <strong>키 값 자체는 메신저로 보내지 말고</strong> 오류 문구만 전달합니다.</li>
 </ul>
 <hr>
 <h2 id="8-제거연동-해제">8. 제거·연동 해제</h2>
-<p>순서는 <strong>연동 해제 → 계정 정리 → 프로그램 제거</strong> 입니다. 프로그램만 지우면 위임한 권한이 남습니다.</p>
+<p>순서는 <strong>연동 해제 → 키·권한 정리 → 프로그램 제거</strong> 입니다. 프로그램만 지우면 위임한 권한과 키가 남습니다.</p>
 <blockquote><p>⚠️ 공식 문서에 별도의 제거 명령이 안내되어 있지 않습니다. 아래는 설치 위치를 되돌리는 절차이며, 확실하지 않으면 <strong>Facilitator에게 확인</strong>하세요.</p></blockquote>
 <h3 id="8-1-메신저-알림-연동-해제-가장-먼저">8-1. 메신저 알림 연동 해제 (가장 먼저)</h3>
 <p>헤르메스의 게이트웨이 설정에서 연동을 해제하고, <strong>메신저 앱 쪽에서도</strong> 연결된 앱/봇 목록에서 헤르메스 항목을 삭제합니다. 한쪽만 지우면 알림이 계속 옵니다.</p>
@@ -221,11 +223,11 @@
 <section class="callout callout-expect"><span class="callout-icon" aria-hidden="true">👀</span><p><strong>예상 결과</strong>: 6절 테스트를 다시 돌려도 알림이 오지 않습니다.</p></section>
 <h3 id="8-2-예약-작업-정리">8-2. 예약 작업 정리</h3>
 <p>크론(예약 자동화)을 하나라도 만들었다면 <strong>먼저 지웁니다.</strong> 지우지 않으면 프로그램을 제거한 뒤에도 예약이 남아 오류를 낼 수 있습니다. 만든 적이 없으면 건너뛰세요.</p>
-<h3 id="8-3-계정권한-회수">8-3. 계정·권한 회수</h3>
+<h3 id="8-3-실습용-키권한-회수">8-3. 실습용 키·권한 회수</h3>
 <ol>
-<li>로그인에 사용한 계정 서비스(Nous Portal 등)의 &quot;연결된 앱&quot; 화면에서 헤르메스의 액세스 권한을 삭제합니다.</li>
-<li><strong>길드 계정 비활성화·삭제는 Facilitator에게 요청</strong>하세요. 개인이 임의로 처리할 수 없습니다.</li>
-<li>발급받은 API 키가 있다면 발급처에서 <strong>폐기(revoke)</strong> 하세요. <strong>내 PC에서 지우는 것만으로는 키가 살아 있습니다.</strong></li>
+<li>5-1에서 연결한 모델 제공자(Nous Portal 등)의 &quot;연결된 앱&quot; 화면에서 헤르메스의 액세스 권한을 삭제합니다.</li>
+<li><strong>발급받은 실습용 키의 폐기·재발급은 Facilitator에게 요청</strong>하세요. 주관사가 배포한 키이므로 개인이 임의로 처리하지 않습니다.</li>
+<li>본인이 직접 발급한 API 키가 있다면 발급처에서 <strong>폐기(revoke)</strong> 하세요. <strong>내 PC에서 지우는 것만으로는 키가 살아 있습니다.</strong></li>
 </ol>
 <h3 id="8-4-프로그램-제거">8-4. 프로그램 제거</h3>
 <p>파일 탐색기 주소창에 아래를 붙여넣어 폴더를 연 뒤, <code>hermes</code> 폴더를 <strong>삭제하지 말고 먼저 다른 곳으로 옮겨</strong> 며칠 두었다가 문제가 없으면 지우세요.</p>
@@ -241,8 +243,9 @@
 <p><strong>② 당일 배포 USB</strong> — 교육장 인터넷이 느릴 때만 쓰는 보조 수단입니다. USB 안의 파일 구성과 실행 절차는 <strong>교육 당일 배포 안내를 따르세요.</strong></p>
 <hr>
 <p><strong>막히면</strong>: 오류 화면을 그대로 캡처(<code>Windows 키</code> + <code>Shift</code> + <code>S</code>)해 <strong>Facilitator</strong> 에게 보내세요. 단, <strong>비밀번호·API 키가 보이면 그 부분을 가리고</strong> 보내야 합니다. 오류 메시지는 요약하지 말고 글자 그대로 전달하는 것이 가장 빠릅니다.</p>
-<h2 id="확인한-공식-출처-2026-08-03">확인한 공식 출처 (2026-08-03)</h2>
+<h2 id="확인한-공식-출처-2026-08-03-최초-확인--2026-08-06-재확인">확인한 공식 출처 (2026-08-03 최초 확인 · 2026-08-06 재확인)</h2>
 <ul>
+<li><code>https://hermes-agent.nousresearch.com/docs/integrations/providers</code> — <strong>모델 제공자 목록과 자격 정보 방식</strong>: Nous Portal은 OAuth 승인 방식으로 <strong>입력할 API 키가 없음</strong>, OpenRouter는 <code>OPENROUTER_API_KEY</code>, OpenAI 등은 각 제공자 키, 사용자 지정 엔드포인트는 <code>config.yaml</code>. (2026-08-06 확인)</li>
 <li><code>https://hermes-agent.org/ko/</code> — 한국어 소개·설치 안내, 주요 특징 4종, 메신저 연동·크론</li>
 <li><code>https://hermes-agent.org/ko/docs/installation</code> — 설치 4단계(<code>hermes setup</code> / <code>hermes</code> / <code>hermes gateway setup</code> / <code>hermes update</code>), Windows는 WSL2 권장이라고 안내</li>
 <li><code>https://github.com/NousResearch/hermes-agent</code> README — <strong>Windows 네이티브 설치 명령 <code>iex (irm .../install.ps1)</code></strong>, 지원 OS, 휴대용 Git 동봉, <code>uv.exe</code> 백신 오탐 안내</li>
@@ -289,7 +292,7 @@
 <li class="toc-l2"><a href="#7-문제-해결">7. 문제 해결</a></li>
 <li class="toc-l2"><a href="#8-제거연동-해제">8. 제거·연동 해제</a></li>
 <li class="toc-l2"><a href="#다른-설치-방법">다른 설치 방법</a></li>
-<li class="toc-l2"><a href="#확인한-공식-출처-2026-08-03">확인한 공식 출처 (2026-08-03)</a></li>
+<li class="toc-l2"><a href="#확인한-공식-출처-2026-08-03-최초-확인--2026-08-06-재확인">확인한 공식 출처 (2026-08-03 최초 확인 · 2026-08-06 재확인)</a></li>
 </ul>
   </details>
   </aside>
